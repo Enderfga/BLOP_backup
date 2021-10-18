@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      918 字
+      924 字
     </span>
   
 
@@ -253,23 +253,21 @@
 <h2 id="3-配置-VSCode-的-插件"><a href="#3-配置-VSCode-的-插件" class="headerlink" title="3. 配置 VSCode 的 插件"></a>3. 配置 VSCode 的 插件</h2><p>按下F1或者Ctrl＋shift＋P，输入setjson，选择第三个（如图所示）。</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs json">&quot;latex-workshop.latex.tools&quot;: [<br>        &#123;<br>   <span class="hljs-comment">// 编译工具和命令</span><br>   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;xelatex&quot;</span>,<br>   <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;xelatex&quot;</span>,<br>   <span class="hljs-attr">&quot;args&quot;</span>: [<br>   <span class="hljs-string">&quot;-synctex=1&quot;</span>,<br>   <span class="hljs-string">&quot;-interaction=nonstopmode&quot;</span>,<br>   <span class="hljs-string">&quot;-file-line-error&quot;</span>,<br>   <span class="hljs-string">&quot;-pdf&quot;</span>,<br>   <span class="hljs-string">&quot;%DOCFILE%&quot;</span><br>            ]<br>        &#125;,<br>        &#123;<br>   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;pdflatex&quot;</span>,<br>   <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;pdflatex&quot;</span>,<br>   <span class="hljs-attr">&quot;args&quot;</span>: [<br>   <span class="hljs-string">&quot;-synctex=1&quot;</span>,<br>   <span class="hljs-string">&quot;-interaction=nonstopmode&quot;</span>,<br>   <span class="hljs-string">&quot;-file-line-error&quot;</span>,<br>   <span class="hljs-string">&quot;%DOCFILE%&quot;</span><br>            ]<br>        &#125;,<br>        &#123;<br>   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;bibtex&quot;</span>,<br>   <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;bibtex&quot;</span>,<br>   <span class="hljs-attr">&quot;args&quot;</span>: [<br>   <span class="hljs-string">&quot;%DOCFILE%&quot;</span><br>            ]<br>        &#125;<br>    ],<br>   &quot;latex-workshop.latex.recipes&quot;: [<br>      &#123;<br>   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;xelatex&quot;</span>,<br>   <span class="hljs-attr">&quot;tools&quot;</span>: [<br>   <span class="hljs-string">&quot;xelatex&quot;</span><br>          ],<br>      &#125;,<br>      &#123;<br>   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;pdflatex&quot;</span>,<br>   <span class="hljs-attr">&quot;tools&quot;</span>: [<br>   <span class="hljs-string">&quot;pdflatex&quot;</span><br>          ]<br>      &#125;,<br>      &#123;<br>   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;xe-&gt;bib-&gt;xe-&gt;xe&quot;</span>,<br>   <span class="hljs-attr">&quot;tools&quot;</span>: [<br>   <span class="hljs-string">&quot;xelatex&quot;</span>,<br>   <span class="hljs-string">&quot;bibtex&quot;</span>,<br>   <span class="hljs-string">&quot;xelatex&quot;</span>,<br>   <span class="hljs-string">&quot;xelatex&quot;</span><br>          ]<br>      &#125;,<br>      &#123;<br>   <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;pdf-&gt;bib-&gt;pdf-&gt;pdf&quot;</span>,<br>   <span class="hljs-attr">&quot;tools&quot;</span>: [<br>   <span class="hljs-string">&quot;pdflatex&quot;</span>,<br>   <span class="hljs-string">&quot;bibtex&quot;</span>,<br>   <span class="hljs-string">&quot;pdflatex&quot;</span>,<br>   <span class="hljs-string">&quot;pdflatex&quot;</span><br>          ]<br>      &#125;<br>  ],<br>	&quot;latex-workshop.view.pdf.viewer&quot;: &quot;tab&quot;<br></code></pre></td></tr></table></figure>
 
+
 <ul>
-<li><p>Ctrl+Alt+B 是编译</p>
-</li>
-<li><p>Ctrl+Alt+V是编译+预览pdf</p>
+<li>Ctrl+Alt+B 是编译</li>
+<li>Ctrl+Alt+V是编译+预览pdf</li>
+</ul>
 <p>我最开始写这些其实是想要把中大的foxitpdf设置成默认的pdf预览软件，不过最终效果并不好，所以作罢。</p>
 <p>上面这些设置主要是因为默认的编译工具是 latexmk，由于不需要用到 latexmk，因此把其修改为中文环境常用的 xelatex；将 tools 中的 %DOC%替换成%DOCFILE%就可以支持编译中文路径下的文件了。</p>
 <p>若要自动处理bib参考文献，在开头加上：</p>
-</li>
-</ul>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">%!<span class="hljs-keyword">BIB </span>program = <span class="hljs-keyword">bibtex </span> <br></code></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">若要使用pdflatex编译（纯英文文档），在开头加上：<br></code></pre></td></tr></table></figure>
-
-
+<p>若要使用pdflatex编译（纯英文文档），在开头加上：</p>
 <figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs delphi">%!TEX <span class="hljs-keyword">program</span> = pdflatex<br></code></pre></td></tr></table></figure>
 
 <p>还可以研究的设置有很多，什么正向搜索反向搜索之类的，有兴趣的朋友可以自行了解。</p>
+<p><a href="">公式指导手册</a></p>
 
             </div>
             <hr>
