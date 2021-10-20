@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
 
@@ -9,14 +9,34 @@
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
   <link rel="icon" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
+  <meta name="description" content="一、问题描述与分析八数码问题就是在一个大小为3×3的九宫格上,放置8块编号为1-8的木块，九宫格中有一个空格，周围(上下左右)的木块可以和空格交换位置。对于问题，给定一个初始状态，目标状态是期望达到1-8顺序排列的序列，并且空格在右下角，问题的实质就是寻找一个合法的移动序列。  不是每一个给定的初始状态都存在解，在分析之前，引入线性代数中的几个概念：  逆序数：在一个排列中，如果一对数字的前后位置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用搜索算法解决八数码问题">
+<meta property="og:url" content="http://example.com/2021/10/19/8puzzle/index.html">
+<meta property="og:site_name" content="Enderfga&#39;Blog">
+<meta property="og:description" content="一、问题描述与分析八数码问题就是在一个大小为3×3的九宫格上,放置8块编号为1-8的木块，九宫格中有一个空格，周围(上下左右)的木块可以和空格交换位置。对于问题，给定一个初始状态，目标状态是期望达到1-8顺序排列的序列，并且空格在右下角，问题的实质就是寻找一个合法的移动序列。  不是每一个给定的初始状态都存在解，在分析之前，引入线性代数中的几个概念：  逆序数：在一个排列中，如果一对数字的前后位置">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://img.enderfga.cn/img/%E9%A2%98%E7%9B%AE.png">
+<meta property="og:image" content="http://img.enderfga.cn/img/%E6%A0%91.png">
+<meta property="og:image" content="http://img.enderfga.cn/img/%E6%B7%B1%E6%90%9C.png">
+<meta property="og:image" content="http://img.enderfga.cn/img/%E7%BB%93%E6%9E%9C1.png">
+<meta property="og:image" content="http://img.enderfga.cn/img/%E6%A0%91&#39;.png">
+<meta property="og:image" content="http://img.enderfga.cn/img/%E5%B9%BF%E6%90%9C.png">
+<meta property="og:image" content="http://img.enderfga.cn/img/%E7%BB%93%E6%9E%9C2.png">
+<meta property="og:image" content="http://img.enderfga.cn/img/%E7%BB%93%E6%9E%9C3.png">
+<meta property="article:published_time" content="2021-10-19T13:50:21.000Z">
+<meta property="article:modified_time" content="2021-10-20T12:00:55.421Z">
+<meta property="article:author" content="Enderfga">
+<meta property="article:tag" content="course">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://img.enderfga.cn/img/%E9%A2%98%E7%9B%AE.png">
   
   <title>使用搜索算法解决八数码问题 - Enderfga&#39;Blog</title>
 
@@ -39,7 +59,6 @@
   
 
 
-
 <!-- 主题依赖的图标库，不要自行修改 -->
 
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
@@ -56,7 +75,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.11","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -67,8 +86,9 @@
   <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand"
-       href="/">&nbsp;<strong>Enderfga</strong>&nbsp;</a>
+    <a class="navbar-brand" href="/">
+      <strong>Enderfga</strong>
+    </a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -142,13 +162,14 @@
         
         
           <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
-                class="iconfont icon-search"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
           </li>
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self">&nbsp;<i
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
                 class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
           </li>
         
@@ -182,21 +203,18 @@
 
 <div class="mt-1">
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.4k 字
+      7.8k 字
     </span>
   
 
   
-    
     <span class="post-meta mr-2">
       <i class="iconfont icon-clock-fill"></i>
       
       
-      53
-       分钟
+      24 分钟
     </span>
   
 
@@ -235,7 +253,7 @@
             
             <div class="markdown-body">
               <h2 id="一、问题描述与分析"><a href="#一、问题描述与分析" class="headerlink" title="一、问题描述与分析"></a>一、问题描述与分析</h2><p>八数码问题就是在一个大小为3×3的九宫格上,放置8块编号为1-8的木块，九宫格中有一个空格，周围(上下左右)的木块可以和空格交换位置。对于问题，给定一个初始状态，目标状态是期望达到1-8顺序排列的序列，并且空格在右下角，问题的实质就是寻找一个合法的移动序列。</p>
-<p><img src="http://img.enderfga.cn/img/image-20211018144301406.png" srcset="/img/loading.gif" lazyload alt="image-20211018144301406"></p>
+<p><img src="http://img.enderfga.cn/img/%E9%A2%98%E7%9B%AE.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>不是每一个给定的初始状态都存在解，在分析之前，引入线性代数中的几个概念：</p>
 <ul>
 <li>逆序数：在一个排列中，如果一对数字的前后位置与大小顺序相反，即前面的数大于后面的数，那么它们就称为一个逆序。一个排列中序的总数就称为这个排列的逆序数。</li>
@@ -248,12 +266,12 @@
 </ul>
 <p>以图中所给状态为例，初始状态的逆序数t=0+6+5+1+2+1+1=16，目标状态的逆序数t’=0，故有解。</p>
 <h2 id="二、深度优先遍历搜索-DFS"><a href="#二、深度优先遍历搜索-DFS" class="headerlink" title="二、深度优先遍历搜索(DFS)"></a>二、深度优先遍历搜索(DFS)</h2><h3 id="2-1算法介绍"><a href="#2-1算法介绍" class="headerlink" title="2.1算法介绍"></a>2.1算法介绍</h3><p><strong>深度优先搜索算法</strong>（英语：Depth-First-Search，DFS）是一种用于遍历或搜索树或图的算法。这个算法会尽可能深的搜索树的分支。当节点v的所在边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止，属于盲目搜索。以下图为例，DFS方法首先从根节点1开始，其最终得到的遍历顺序是“1-2-3-4-5-6-7-8-9-10-11-12”。（假定左分枝和右分枝中优先选择左分枝）</p>
-<p><img src="http://img.enderfga.cn/img/tree.png" srcset="/img/loading.gif" lazyload alt="节点搜索的顺序"></p>
+<p><img src="http://img.enderfga.cn/img/%E6%A0%91.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>我们将其应用于八数码问题的解决。解八数码问题实际上就是找出从初始状态到达目标状态所经过的一系列中间过渡状态。前文提到DFS遍历的树是已经存在的，我们只需要按照规定的遍历方法就能完成遍历，而对于八数码问题，没有已经存在的路径供我们遍历，需要我们从初始状态向下延伸（也就是上下左右移动）才能构造出类似的树。</p>
-<p><img src="http://img.enderfga.cn/img/DFS.png" srcset="/img/loading.gif" lazyload alt="DFS"></p>
+<p><img src="http://img.enderfga.cn/img/%E6%B7%B1%E6%90%9C.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>以上图为例。在使用DFS进行搜索时，每个状态都会按照一定的顺序进行上下左右移动（在上图中是下、左、右、上的顺序），一次移动后会产生一个新的状态，然后以新状态为起点继续按约定的顺序（例如先向下）移动。终止的条件是找到解或者达到深度界限。那么如果按照图中下、左、右、上的顺序搜索后的结果将会是最左边的一条路一直是优先向下移动，如果不能向下则依次会是左、右、上的一种。</p>
 <h3 id="2-2实验代码"><a href="#2-2实验代码" class="headerlink" title="2.2实验代码"></a>2.2实验代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//初始状态压入队列</span><br>    D_open.<span class="hljs-built_in">push</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">borad</span>(<span class="hljs-literal">NULL</span>, start, <span class="hljs-number">0</span>, INT_MAX - <span class="hljs-number">1</span>));<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;DFS：\n&quot;</span>);<br>    <span class="hljs-keyword">while</span> (!D_open.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-comment">//弹出一个状态</span><br>        borad *cur = D_open.<span class="hljs-built_in">top</span>();<br>           D_open.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-comment">//if (cur-&gt;depth == 5) &#123;</span><br>        <span class="hljs-comment">//    break;</span><br>        <span class="hljs-comment">//&#125;</span><br>        <span class="hljs-comment">//与目标状态的距离，为0即到达目标状态</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">hn</span>(cur-&gt;status, target) == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;到达目标状态\nclose表大小为%d\n目标状态深度为%d\n\n&quot;</span>, close.<span class="hljs-built_in">size</span>(), cur-&gt;depth);<br>            <span class="hljs-comment">//printans(cur);</span><br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-comment">//存放int格式的状态</span><br>        <span class="hljs-keyword">int</span> intstatus = <span class="hljs-built_in">status2int</span>(cur-&gt;status);<br>        <span class="hljs-comment">//出现重复状态</span><br>        <span class="hljs-keyword">if</span> (close.<span class="hljs-built_in">count</span>(intstatus)) &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">//加入close表，表示已访问过</span><br>        close.<span class="hljs-built_in">insert</span>(intstatus);<br><br>        <span class="hljs-comment">//获得0的坐标</span><br>        <span class="hljs-keyword">int</span> zeroindex = <span class="hljs-built_in">getindex</span>(cur-&gt;status, <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br>            <span class="hljs-comment">//新建节点，复制当前棋盘状态，深度+1</span><br>            borad *temp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">borad</span>(cur, cur-&gt;status, cur-&gt;depth + <span class="hljs-number">1</span>, INT_MAX - <span class="hljs-number">1</span>);<br>            <span class="hljs-comment">//0向四个方向移动</span><br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">swapnum</span>(zeroindex, zeroindex + go[i], temp-&gt;status)) &#123;<br>                <span class="hljs-comment">//移动成功</span><br>                D_open.<span class="hljs-built_in">push</span>(temp);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-comment">//移动失败</span><br>                <span class="hljs-built_in"><span class="hljs-keyword">delete</span></span>(temp);<br>            &#125;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
-<h3 id="2-3实验结果"><a href="#2-3实验结果" class="headerlink" title="2.3实验结果"></a>2.3实验结果</h3><p><img src="http://img.enderfga.cn/img/image-20211019153318548.png" srcset="/img/loading.gif" lazyload alt="image-20211019153318548"></p>
+<h3 id="2-3实验结果"><a href="#2-3实验结果" class="headerlink" title="2.3实验结果"></a>2.3实验结果</h3><p><img src="http://img.enderfga.cn/img/%E7%BB%93%E6%9E%9C1.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>如图所示，深度优先算法在解决八数码问题时有一个致命缺点，就是必须设置一个深度界限，否则，搜索会一直沿着纵深方向发展，会一直无法搜索到解路径。即使加了限制条件，搜索到了解路径，解路径也不一定是最优解路径。</p>
 <h3 id="2-4实验总结"><a href="#2-4实验总结" class="headerlink" title="2.4实验总结"></a>2.4实验总结</h3><ul>
 <li>缺点：如果目标节点不在搜索进入的分支上，而该分支又是一个无穷分支,就得不到解,因此该算法是不完备的。</li>
@@ -261,11 +279,11 @@
 </ul>
 <h2 id="三、广度优先遍历搜索-BFS"><a href="#三、广度优先遍历搜索-BFS" class="headerlink" title="三、广度优先遍历搜索(BFS)"></a>三、广度优先遍历搜索(BFS)</h2><h3 id="3-1算法介绍"><a href="#3-1算法介绍" class="headerlink" title="3.1算法介绍"></a>3.1算法介绍</h3><p><strong>广度优先搜索算法</strong>（英语：Breadth-First-Search，缩写为BFS），又译作宽度优先搜索，或横向优先搜索，是一种图形搜索算法。简单的说，BFS是从根节点开始，沿着树的宽度遍历树的节点。如果所有节点均被访问，则算法中止。BFS是一种盲目搜索法，目的是系统地展开并检查图中的所有节点，以找寻结果。</p>
 <p>BFS会先访问根节点的所有邻居节点，然后再依次访问邻居节点的邻居节点，直到所有节点都访问完毕。在具体的实现中，使用open和closed两个表，open是一个队列，每次对open进行一次出队操作（并放入closed中），并将其邻居节点进行入队操作。直到队列为空时即完成了所有节点的遍历。closed表在遍历树时其实没有用，因为子节点只能从父节点到达。但在进行图的遍历时，一个节点可能会由多个节点到达，所以此时为了防止重复遍历应该每次都检查下一个节点是否已经在closed中了。 依旧以下图为例，BFS方法首先从根节点1开始，其最终得到的遍历顺序是“1-2-7-8-3-6-9-12-4-5-10-11”。可以看出来BFS进行遍历时是一层一层的搜索的。</p>
-<p><img src="http://img.enderfga.cn/img/tree.png" srcset="/img/loading.gif" lazyload alt="节点搜索的顺序"></p>
-<p><img src="http://img.enderfga.cn/img/BFS.png" srcset="/img/loading.gif" lazyload alt="BFS"></p>
+<p><img src="http://img.enderfga.cn/img/%E6%A0%91&#39;.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="http://img.enderfga.cn/img/%E5%B9%BF%E6%90%9C.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>在应用BFS算法进行八数码问题搜索时需要open和closed两个表。首先将初始状态加入open队列，然后进行出队操作并放入closed中，对出队的状态进行扩展（所谓扩展也就是找出其上下左右移动后的状态），将扩展出的状态加入队列，然后继续循环出队-扩展-入队的操作，直到找到解为止。在上图这个例子中，红圈里的数字是遍历顺序。当找到解时一直往前找父节点即可找出求解的移动路线。</p>
 <h3 id="3-2实验代码"><a href="#3-2实验代码" class="headerlink" title="3.2实验代码"></a>3.2实验代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//初始状态压入队列</span><br>    B_open.<span class="hljs-built_in">push</span>(<span class="hljs-keyword">new</span> <span class="hljs-built_in">borad</span>(<span class="hljs-literal">NULL</span>, start, <span class="hljs-number">0</span>, INT_MAX - <span class="hljs-number">1</span>));<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;BFS：\n&quot;</span>);<br>    <span class="hljs-keyword">while</span> (!B_open.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-comment">//弹出一个状态</span><br>        borad* cur = B_open.<span class="hljs-built_in">front</span>();<br>        B_open.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-comment">//与目标状态的距离，为0即到达目标状态</span><br>        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">hn</span>(cur-&gt;status, target) == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;到达目标状态\nclose表大小为%d\n目标状态深度为%d\n\n&quot;</span>, close.<span class="hljs-built_in">size</span>(), cur-&gt;depth);<br>            <span class="hljs-comment">//printans(cur);</span><br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-comment">//存放int格式的状态</span><br>        <span class="hljs-keyword">int</span> intstatus = <span class="hljs-built_in">status2int</span>(cur-&gt;status);<br>        <span class="hljs-comment">//出现重复状态</span><br>        <span class="hljs-keyword">if</span> (close.<span class="hljs-built_in">count</span>(intstatus)) &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">//加入close表，表示已访问过</span><br>        close.<span class="hljs-built_in">insert</span>(intstatus);<br><br>        <span class="hljs-comment">//获得0的坐标</span><br>        <span class="hljs-keyword">int</span> zeroindex = <span class="hljs-built_in">getindex</span>(cur-&gt;status, <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br>            <span class="hljs-comment">//新建节点，复制当前棋盘状态，深度+1</span><br>            borad* temp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">borad</span>(cur, cur-&gt;status, cur-&gt;depth + <span class="hljs-number">1</span>, INT_MAX - <span class="hljs-number">1</span>);<br>            <span class="hljs-comment">//0向四个方向移动</span><br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">swapnum</span>(zeroindex, zeroindex + go[i], temp-&gt;status)) &#123;<br>                <span class="hljs-comment">//移动成功</span><br>                B_open.<span class="hljs-built_in">push</span>(temp);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-comment">//移动失败</span><br>                <span class="hljs-built_in"><span class="hljs-keyword">delete</span></span>(temp);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-comment">//清空close表</span><br>    close.<span class="hljs-built_in">clear</span>();<br></code></pre></td></tr></table></figure>
-<h3 id="3-3实验结果"><a href="#3-3实验结果" class="headerlink" title="3.3实验结果"></a>3.3实验结果</h3><p><img src="http://img.enderfga.cn/img/image-20211019153730600.png" srcset="/img/loading.gif" lazyload alt="image-20211019153730600"></p>
+<h3 id="3-3实验结果"><a href="#3-3实验结果" class="headerlink" title="3.3实验结果"></a>3.3实验结果</h3><p><img src="http://img.enderfga.cn/img/%E7%BB%93%E6%9E%9C2.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>如图所示，广度优先算法成功找到了深度为22的最优解，但是close表是DFS中深度46312产生的大小为47788的close表的两倍多，由于𝐵𝐹𝑆算法进行的是盲目的搜索，没有考虑代价，而且利用了空间换取时间的策略，故空间也相对会有更大的复杂度。</p>
 <h3 id="3-4实验总结"><a href="#3-4实验总结" class="headerlink" title="3.4实验总结"></a>3.4实验总结</h3><ul>
 <li>缺点：当目标节点距离初始节点较远时会产生许多无用的节点，搜索效率低，只能适用于到达目标结点步数较少的情况。</li>
@@ -288,7 +306,7 @@ f\left ( n \right )=g\left ( n \right )+h\left ( n \right )</script><p>这个公
 <li>h必须小于等于实际的从当前节点到达目标节点的最小耗费h(n)≤h’(n)。（可以证明应用这样的估价函数可以找到最短路径）</li>
 </ol>
 <h3 id="4-2实验代码"><a href="#4-2实验代码" class="headerlink" title="4.2实验代码"></a>4.2实验代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">//初始状态压入队列</span><br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;A* Fn=Gn+Hn：\n&quot;</span>);<br>    <span class="hljs-keyword">while</span> (!A_open.<span class="hljs-built_in">empty</span>()) &#123;<br>        <span class="hljs-comment">//弹出一个状态</span><br>        borad* cur = A_open.<span class="hljs-built_in">top</span>();<br>        A_open.<span class="hljs-built_in">pop</span>();<br>        <span class="hljs-comment">//hn=Fn-depth为与目标状态的曼哈顿距离，为0即到达目标状态</span><br>        <span class="hljs-keyword">if</span> (cur-&gt;Fn - cur-&gt;depth == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;到达目标状态\nclose表大小为%d\n目标状态深度为%d\n\n&quot;</span>, close.<span class="hljs-built_in">size</span>(), cur-&gt;depth);<br>            <span class="hljs-comment">//printans(cur);</span><br>            <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-comment">//存放int格式的状态</span><br>        <span class="hljs-keyword">int</span> intstatus = <span class="hljs-built_in">status2int</span>(cur-&gt;status);<br>        <span class="hljs-comment">//出现重复状态</span><br>        <span class="hljs-keyword">if</span> (close.<span class="hljs-built_in">count</span>(intstatus)) &#123;<br>            <span class="hljs-keyword">continue</span>;<br>        &#125;<br>        <span class="hljs-comment">//加入close表，表示已访问过</span><br>        close.<span class="hljs-built_in">insert</span>(intstatus);<br>        <span class="hljs-comment">//获得0的坐标</span><br>        <span class="hljs-keyword">int</span> zeroindex = <span class="hljs-built_in">getindex</span>(cur-&gt;status, <span class="hljs-number">0</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;<br>            <span class="hljs-comment">//新建节点，复制当前棋盘状态，深度+1</span><br>            borad* temp = <span class="hljs-keyword">new</span> <span class="hljs-built_in">borad</span>(cur, cur-&gt;status, cur-&gt;depth + <span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>            <span class="hljs-comment">//0向四个方向移动</span><br>            <span class="hljs-keyword">if</span> (<span class="hljs-built_in">swapnum</span>(zeroindex, zeroindex + go[i], temp-&gt;status)) &#123;<br>                <span class="hljs-comment">//移动成功</span><br>                <span class="hljs-comment">//计算启发函数值，并更新节点</span><br>                temp-&gt;Fn = temp-&gt;depth + <span class="hljs-built_in">hn</span>(temp-&gt;status, target);<br>                <span class="hljs-comment">//加入A_open表</span><br>                A_open.<span class="hljs-built_in">push</span>(temp);<br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-comment">//移动失败</span><br>                <span class="hljs-built_in"><span class="hljs-keyword">delete</span></span>(temp);<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-comment">//清空close表</span><br>    close.<span class="hljs-built_in">clear</span>();<br></code></pre></td></tr></table></figure>
-<h3 id="4-3实验结果"><a href="#4-3实验结果" class="headerlink" title="4.3实验结果"></a>4.3实验结果</h3><p><img src="http://img.enderfga.cn/img/image-20211019170210256.png" srcset="/img/loading.gif" lazyload alt="image-20211019170210256"></p>
+<h3 id="4-3实验结果"><a href="#4-3实验结果" class="headerlink" title="4.3实验结果"></a>4.3实验结果</h3><p><img src="http://img.enderfga.cn/img/%E7%BB%93%E6%9E%9C3.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>如图所示，A*搜索算法在解决八数码问题时取得了最优的结果，无论是时间复杂度还是空间复杂度都得到了极大的优化。但是𝐴∗算法作为一种预测算法，不能保证解为最优解。</p>
 <h3 id="4-4实验总结"><a href="#4-4实验总结" class="headerlink" title="4.4实验总结"></a>4.4实验总结</h3><ul>
 <li>优点：A*算法在绝大多数的情况下，在性能方面都远远优与DFS和BFS。算法的主要运行性能，取决于估价函数f的选取。</li>
@@ -422,7 +440,6 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
 </tbody>
 </table>
 </div>
-<p><img src="http://img.enderfga.cn/img/image-20211019211427628.png" srcset="/img/loading.gif" lazyload alt="image-20211019211427628"></p>
 <div class="table-container">
 <table>
 <thead>
@@ -497,7 +514,6 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
 </tbody>
 </table>
 </div>
-<p><img src="http://img.enderfga.cn/img/image-20211019211930017.png" srcset="/img/loading.gif" lazyload alt="image-20211019211930017"></p>
 <div class="table-container">
 <table>
 <thead>
@@ -572,7 +588,6 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
 </tbody>
 </table>
 </div>
-<p><img src="http://img.enderfga.cn/img/image-20211019212019369.png" srcset="/img/loading.gif" lazyload alt="image-20211019212019369"></p>
 <div class="table-container">
 <table>
 <thead>
@@ -647,7 +662,6 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
 </tbody>
 </table>
 </div>
-<p><img src="http://img.enderfga.cn/img/image-20211019212230860.png" srcset="/img/loading.gif" lazyload alt="image-20211019212230860"></p>
 <h3 id="5-3研究结论"><a href="#5-3研究结论" class="headerlink" title="5.3研究结论"></a>5.3研究结论</h3><p>通过研究，可得结论如下：</p>
 <ol>
 <li>DFS搜索效率受深度影响很大，由于深度界限设置得很大，故搜索结点冗余多、速度慢；</li>
@@ -657,7 +671,6 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
 <h2 id="六、参考文献"><a href="#六、参考文献" class="headerlink" title="六、参考文献"></a>六、参考文献</h2><p>[1]付宏杰,王雪莹,周健,周孙静,朱珠,张俊余.八数码问题解法效率比较及改进研究[J].软件导刊,2016,15(09):41-45.</p>
 <p>[2]StuartJ.Russell,PeterNorvig. 人工智能:一种现代的方法(第3版)[J]. 计算机教育, 2011(15):68-68.</p>
 <p>[3]Thomas,H.Cormen,Charles,E.Leiserson,Ronald,L.Rivest,Clifford,Stein,殷建平,徐云,王刚,刘晓光,苏明,邹恒明,王宏志. 算法导论(原书第3版)[J]. 计算机教育(10期):51-51.</p>
-<p><img src="http://img.enderfga.cn/A2.jpg" srcset="/img/loading.gif" lazyload alt="A2"></p>
 
             </div>
             <hr>
@@ -723,7 +736,7 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
     
 
     
-      <a id="scroll-top-button" href="#" role="button">
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
         <i class="iconfont icon-arrowup" aria-hidden="true"></i>
       </a>
     
@@ -789,6 +802,10 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
 <!-- Plugins -->
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
   
     <script  src="/js/img-lazyload.js" ></script>
   
@@ -799,23 +816,18 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
-
-
-
-  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-
-
-
-  <script  src="/js/local-search.js" ></script>
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  
 
 
 
@@ -845,6 +857,9 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
       MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
         },
         options: {
           renderActions: {
@@ -889,21 +904,6 @@ P=\frac{D}{N},P\in \left( 0,1\right]</script></li>
 <!-- 主题的启动项 保持在最底部 -->
 <script  src="/js/boot.js" ></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
-  <!--End-->
-  <script>
-    fetch('https://v1.hitokoto.cn')
-      .then(function (res){
-        return res.json();
-      })
-      .then(function (data) {
-        var hitokoto = document.getElementById('hitokoto');
-        hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
-      })
-      .catch(function (err) {
-        console.error(err);
-      })
-  </script>
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/Enderfga/live2d-widget-models/packages/live2d-widget-model-hijiki/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
