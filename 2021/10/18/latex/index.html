@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="搭建Latex环境：Texlive+VScode 相关记录">
+  <meta name="author" content="Enderfga">
+  <meta name="keywords" content="">
+  <meta name="description" content="搭建Latex环境：Texlive+VScode 相关记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Texlive+VScode">
+<meta property="og:url" content="http://example.com/2021/10/18/latex/index.html">
+<meta property="og:site_name" content="Enderfga&#39;Blog">
+<meta property="og:description" content="搭建Latex环境：Texlive+VScode 相关记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/18/5UYncq.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/18/5UUe9H.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/18/5UaCGQ.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/18/5Ud4hD.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/18/5U0KJS.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/18/5U560K.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/18/5U5xcn.png">
+<meta property="og:image" content="https://z3.ax1x.com/2021/10/18/5Uo9xA.png">
+<meta property="article:published_time" content="2021-10-18T08:16:14.000Z">
+<meta property="article:modified_time" content="2021-10-18T13:53:49.825Z">
+<meta property="article:author" content="Enderfga">
+<meta property="article:tag" content="course">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://z3.ax1x.com/2021/10/18/5UYncq.png">
+  
+  <title>Texlive+VScode - Enderfga&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Enderfga</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://z3.ax1x.com/2021/10/18/5UJwkQ.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Texlive+VScode">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-18 16:16" pubdate>
+        2021年10月18日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      5k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Texlive+VScode</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年10月18日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>搭建Latex环境：Texlive+VScode 相关记录</p>
+<span id="more"></span>
+<h2 id="1-安装-Texlive"><a href="#1-安装-Texlive" class="headerlink" title="1.安装 Texlive"></a>1.安装 Texlive</h2><p>鉴于我校没有（我知道的）可用开源软件镜像站，所以在到清华大学开源软件镜像站的<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/">texlive</a>页下载。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5UYncq"><img src="https://z3.ax1x.com/2021/10/18/5UYncq.png" srcset="/img/loading.gif" lazyload alt="5UYncq.png"></a></p>
+<p>可能由于更新导致你打开之后的页面与上面的内容不一致，总之下载最新的texlive<em>*</em>.iso，虽然很大但各种宏包齐全，用起来能省去各种麻烦。</p>
+<p>在带宽扩容之后的校园网加持下，不用几年就能下载完这个iso文件了。</p>
+<p>如果你是windows 7甚至xp用户，我建议你把iso文件解压然后进行后续操作。</p>
+<p>如果是windows 10/11，系统自带虚拟光驱，直接双击进入即可。</p>
+<p>（ linux/macOS 我不了解，省略）效果如图：</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5UUe9H"><img src="https://z3.ax1x.com/2021/10/18/5UUe9H.png" srcset="/img/loading.gif" lazyload alt="5UUe9H.png"></a></p>
+<p>双击或者右键以管理员身份运行install-tl-advanced.bat，可以点进<strong>Advanced</strong>进入高级安装，点击<strong>Customize</strong>来取消你不需要安装的宏包，比如非中英的语言包，这里我只修改了安装目录，最后开始漫长的等待。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5UaCGQ"><img src="https://z3.ax1x.com/2021/10/18/5UaCGQ.png" srcset="/img/loading.gif" lazyload alt="5UaCGQ.png"></a></p>
+<p>（安装TeXworks前端也可以取消掉，毕竟都打算用vscode了，加上前面说的语言包之类的，可以省个1G左右，我想着留条后路就啥都没改，也不缺这点空间）</p>
+<p>（在我的电脑上一共安装了57 min 56 s，教程都快写完了，还没有装好）</p>
+<h2 id="2-安装-VSCode"><a href="#2-安装-VSCode" class="headerlink" title="2. 安装 VSCode"></a>2. 安装 VSCode</h2><p>到<a target="_blank" rel="noopener" href="https://code.visualstudio.com/Download">官网</a>根据你的系统选择下载安装即可，这部分应该大多数人都安装过了，没什么需要注意的。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5Ud4hD"><img src="https://z3.ax1x.com/2021/10/18/5Ud4hD.png" srcset="/img/loading.gif" lazyload alt="5Ud4hD.png"></a></p>
+<p>安装完成之后可以在应用商店挑选各种提高使用体验的扩展，跟本文相关的主要是<strong>Latex Workshop</strong>。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5U0KJS"><img src="https://z3.ax1x.com/2021/10/18/5U0KJS.png" srcset="/img/loading.gif" lazyload alt="5U0KJS.png"></a></p>
+<p>安装完成之后，可以创建或者打开一个tex文件，此时代码已经被高亮显示了。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5U560K"><img src="https://z3.ax1x.com/2021/10/18/5U560K.png" srcset="/img/loading.gif" lazyload alt="5U560K.png"></a></p>
+<p>按下快捷键Ctrl+Alt+B（build latex project），顺利生成，效果不错。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5U5xcn"><img src="https://z3.ax1x.com/2021/10/18/5U5xcn.png" srcset="/img/loading.gif" lazyload alt="5U5xcn.png"></a></p>
+<h2 id="3-配置-VSCode-的-插件"><a href="#3-配置-VSCode-的-插件" class="headerlink" title="3. 配置 VSCode 的 插件"></a>3. 配置 VSCode 的 插件</h2><p>按下F1或者Ctrl＋shift＋P，输入setjson，选择第三个（如图所示）。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5Uo9xA"><img src="https://z3.ax1x.com/2021/10/18/5Uo9xA.png" srcset="/img/loading.gif" lazyload alt="5Uo9xA.png"></a></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br></pre></td><td class="code"><pre><code class="hljs json">&quot;latex-workshop.view.pdf.viewer&quot;: &quot;tab&quot;,<br>    &quot;latex-workshop.latex.recipes&quot;: [<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;xelatex ➞ bibtex ➞ xelatex × 2&quot;</span>,<br>            <span class="hljs-attr">&quot;tools&quot;</span>: [<br>                <span class="hljs-string">&quot;xelatex&quot;</span>,<br>                <span class="hljs-string">&quot;bibtex&quot;</span>,<br>                <span class="hljs-string">&quot;xelatex&quot;</span>,<br>                <span class="hljs-string">&quot;xelatex&quot;</span><br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;latexmk 🔃&quot;</span>,<br>            <span class="hljs-attr">&quot;tools&quot;</span>: [<br>                <span class="hljs-string">&quot;latexmk&quot;</span><br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;latexmk (latexmkrc)&quot;</span>,<br>            <span class="hljs-attr">&quot;tools&quot;</span>: [<br>                <span class="hljs-string">&quot;latexmk_rconly&quot;</span><br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;latexmk (lualatex)&quot;</span>,<br>            <span class="hljs-attr">&quot;tools&quot;</span>: [<br>                <span class="hljs-string">&quot;lualatexmk&quot;</span><br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;pdflatex ➞ bibtex ➞ pdflatex × 2&quot;</span>,<br>            <span class="hljs-attr">&quot;tools&quot;</span>: [<br>                <span class="hljs-string">&quot;pdflatex&quot;</span>,<br>                <span class="hljs-string">&quot;bibtex&quot;</span>,<br>                <span class="hljs-string">&quot;pdflatex&quot;</span>,<br>                <span class="hljs-string">&quot;pdflatex&quot;</span><br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Compile Rnw files&quot;</span>,<br>            <span class="hljs-attr">&quot;tools&quot;</span>: [<br>                <span class="hljs-string">&quot;rnw2tex&quot;</span>,<br>                <span class="hljs-string">&quot;latexmk&quot;</span><br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Compile Jnw files&quot;</span>,<br>            <span class="hljs-attr">&quot;tools&quot;</span>: [<br>                <span class="hljs-string">&quot;jnw2tex&quot;</span>,<br>                <span class="hljs-string">&quot;latexmk&quot;</span><br>            ]<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;tectonic&quot;</span>,<br>            <span class="hljs-attr">&quot;tools&quot;</span>: [<br>                <span class="hljs-string">&quot;tectonic&quot;</span><br>            ]<br>        &#125;<br>    ],<br>    &quot;latex-workshop.latex.tools&quot;: [<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;xelatex&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;xelatex&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;-synctex=1&quot;</span>,<br>                <span class="hljs-string">&quot;-interaction=nonstopmode&quot;</span>,<br>                <span class="hljs-string">&quot;-file-line-error&quot;</span>,<br>                <span class="hljs-string">&quot;--shell-escape&quot;</span>,<br>                <span class="hljs-string">&quot;%DOC%&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;latexmk&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;latexmk&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;-synctex=1&quot;</span>,<br>                <span class="hljs-string">&quot;-interaction=nonstopmode&quot;</span>,<br>                <span class="hljs-string">&quot;-file-line-error&quot;</span>,<br>                <span class="hljs-string">&quot;-pdf&quot;</span>,<br>                <span class="hljs-string">&quot;-outdir=%OUTDIR%&quot;</span>,<br>                <span class="hljs-string">&quot;%DOC%&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;lualatexmk&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;latexmk&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;-synctex=1&quot;</span>,<br>                <span class="hljs-string">&quot;-interaction=nonstopmode&quot;</span>,<br>                <span class="hljs-string">&quot;-file-line-error&quot;</span>,<br>                <span class="hljs-string">&quot;-lualatex&quot;</span>,<br>                <span class="hljs-string">&quot;-outdir=%OUTDIR%&quot;</span>,<br>                <span class="hljs-string">&quot;%DOC%&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;latexmk_rconly&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;latexmk&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;%DOC%&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;pdflatex&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;pdflatex&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;-synctex=1&quot;</span>,<br>                <span class="hljs-string">&quot;-interaction=nonstopmode&quot;</span>,<br>                <span class="hljs-string">&quot;-file-line-error&quot;</span>,<br>                <span class="hljs-string">&quot;%DOC%&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;bibtex&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;bibtex&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;%DOCFILE%&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;rnw2tex&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;Rscript&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;-e&quot;</span>,<br>                <span class="hljs-string">&quot;knitr::opts_knit$set(concordance = TRUE); knitr::knit(&#x27;%DOCFILE_EXT%&#x27;)&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;jnw2tex&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;julia&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;-e&quot;</span>,<br>                <span class="hljs-string">&quot;using Weave; weave(\&quot;%DOC_EXT%\&quot;, doctype=\&quot;tex\&quot;)&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;jnw2texmintex&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;julia&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;-e&quot;</span>,<br>                <span class="hljs-string">&quot;using Weave; weave(\&quot;%DOC_EXT%\&quot;, doctype=\&quot;texminted\&quot;)&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;,<br>        &#123;<br>            <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;tectonic&quot;</span>,<br>            <span class="hljs-attr">&quot;command&quot;</span>: <span class="hljs-string">&quot;tectonic&quot;</span>,<br>            <span class="hljs-attr">&quot;args&quot;</span>: [<br>                <span class="hljs-string">&quot;--synctex&quot;</span>,<br>                <span class="hljs-string">&quot;--keep-logs&quot;</span>,<br>                <span class="hljs-string">&quot;%DOC%.tex&quot;</span><br>            ],<br>            <span class="hljs-attr">&quot;env&quot;</span>: &#123;&#125;<br>        &#125;<br>    ],<br>    &quot;latex-workshop.latex.recipe.default&quot;: &quot;first&quot;<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Ctrl+Alt+B 是编译</li>
+<li>Ctrl+Alt+V是编译+预览pdf</li>
+</ul>
+<p>我最开始写这些其实是想要把中大的foxitpdf设置成默认的pdf预览软件，不过最终效果并不好，所以作罢。</p>
+<p>上面这些设置主要是因为默认的编译工具是 latexmk，由于不需要用到 latexmk，因此把其修改为中文环境常用的 xelatex；将 tools 中的 %DOC%替换成%DOCFILE%就可以支持编译中文路径下的文件了。</p>
+<p>若要自动处理bib参考文献，在开头加上：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">%!<span class="hljs-keyword">BIB </span>program = <span class="hljs-keyword">bibtex </span> <br></code></pre></td></tr></table></figure>
+<p>若要使用pdflatex编译（纯英文文档），在开头加上：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs delphi">%!TEX <span class="hljs-keyword">program</span> = pdflatex<br></code></pre></td></tr></table></figure>
+<p>还可以研究的设置有很多，什么正向搜索反向搜索之类的，有兴趣的朋友可以自行了解。</p>
+<p><a target="_blank" rel="noopener" href="https://ericp.cn/cmd">公式指导手册</a></p>
+<p>如果中文无法显示就加上这一句：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">\usepackage<span class="hljs-selector-attr">[UTF8]</span>&#123;ctex&#125;<br></code></pre></td></tr></table></figure>
+<p>Latex的相关公式及使用就不再赘述了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/course/">course</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/20/picgo/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">typora+picgo+gitee高效写作</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/25/Helloworld/">
+                        <span class="hidden-mobile">Hello world!</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <p id="hitokoto">Nothing is true，everything is permitted.</p> <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener"><span> 粤ICP备2021112653号-1</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+    <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+    <script>
+      (function (window, document) {
+        var typing = Fluid.plugins.typing;
+        var title = document.getElementById('subtitle').title;
+        
+        typing(title)
+        
+      })(window, document);
+    </script>
+  
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/Enderfga/live2d-widget-models/packages/live2d-widget-model-hijiki/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
