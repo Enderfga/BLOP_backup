@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023143342594.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023150341520.png">
 <meta property="article:published_time" content="2021-10-23T15:19:18.000Z">
-<meta property="article:modified_time" content="2021-10-23T15:59:40.044Z">
+<meta property="article:modified_time" content="2021-10-24T14:27:24.258Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="course">
 <meta name="twitter:card" content="summary_large_image">
@@ -256,7 +256,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年10月23日 晚上
+                  本文最后更新于：2021年10月24日 晚上
                 
               </p>
             
@@ -446,7 +446,7 @@ r_{k-\mathrm{m}+\mathrm{i}} &=V_{k-\mathrm{m}+\mathrm{i}} \ldots V_{k-\mathrm{m}
 TPR=\frac{TP}{TP+FN}</script><script type="math/tex; mode=display">
 FPR=\frac{FP}{FP + TN}</script><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023004557339.png" srcset="/img/loading.gif" lazyload alt="image-20211023004557339"></p>
 <h4 id="3-1-2画图流程"><a href="#3-1-2画图流程" class="headerlink" title="3.1.2画图流程"></a>3.1.2画图流程</h4><ol>
-<li>给定m^+^个正例和m^-^个负例，根据学习器预测结果对样例进行排序</li>
+<li>给定m+个正例和m-个负例，根据学习器预测结果对样例进行排序</li>
 <li>然后把分类阈值设为最大，即把所有样例均预测为反例，此时真正例率和假正例率均为0，在坐标(0,0)处标记一个点</li>
 <li>将分类阈值依次设为每个样例的预测值，即依次将每个样例划分为正例，设前一个标记点坐标为(x,y)，当前若为真正例，则对应标记点的坐标为$\left ( x,y+\frac{1}{m^{+}} \right )$；当前若为假正例，则对应标记点的坐标为$\left ( x+\frac{1}{m^{-}},y \right )$</li>
 <li>最后用线段连接相邻点</li>
@@ -464,7 +464,7 @@ FPR=\frac{FP}{FP + TN}</script><p><img src="https://gitee.com/sysu_20354027/pic/
 <li>AUC = 0.5，跟随机猜测一样（例：丢铜板），模型没有预测价值。</li>
 <li>AUC &lt; 0.5，比随机猜测还差；但只要总是反预测而行，就优于随机猜测。</li>
 </ul>
-<p>假设ROC曲线由为{ ( x~1~,y~1~ ),⋯,( x~N′~,y~N′~ ) }的点按需连接而成且有x~1~=0,x~N’~=1，则AUC可估算为：</p>
+<p>假设ROC曲线由为{ ( x1,y1 ),⋯,( xN′,yN′ ) }的点按需连接而成且有x~1~=0,x~N’~=1，则AUC可估算为：</p>
 <script type="math/tex; mode=display">
 AUC=\frac{1}{2} \sum_{j=1}^{N{}'-1} \left ( x_{j+1}-x_{j}  \right ) \left ( y_{j+1}+y_{j}  \right )</script><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023143342594.png" srcset="/img/loading.gif" lazyload alt="image-20211023143342594"></p>
 <p>如图即为使用本次作业所提供数据绘制的ROC曲线。由于测试样例有限，所以仅能获得有限个（真正例率，假正例率）坐标对，无法产生光滑的ROC曲线；由此计算得到的AUC的值为0.9648，可以得知该模型的性能较优。</p>
@@ -550,6 +550,23 @@ F_{\beta}=\frac{\left(1+\beta^{2}\right) \times P \times R}{\left(\beta^{2} \tim
                   
                 </p>
               
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/20/picgo/">
+                        <span class="hidden-mobile">typora+picgo+gitee高效写作</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
