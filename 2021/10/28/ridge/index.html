@@ -36,6 +36,9 @@
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211027095448459.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/1335117-20180708193526314-357302334.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/1335117-20180708194712773-1094778410.png">
+<meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211028184420327.png">
+<meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211028184438472.png">
+<meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211028184450724.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211027100605390.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211028143446583.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211028143509634.png">
@@ -43,7 +46,7 @@
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/1335117-20180708193526314-357302334.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/1335117-20180708194712773-1094778410.png">
 <meta property="article:published_time" content="2021-10-28T10:35:47.000Z">
-<meta property="article:modified_time" content="2021-10-28T10:39:05.309Z">
+<meta property="article:modified_time" content="2021-10-28T10:44:54.542Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="course">
 <meta name="twitter:card" content="summary_large_image">
@@ -225,7 +228,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      42 分钟
+      40 分钟
     </span>
   
 
@@ -296,8 +299,7 @@
 </ol>
 <p>10折交叉验证的原理示意见下图。</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211026214227086.png" srcset="/img/loading.gif" lazyload alt="image-20211026214227086"></p>
-<p>由于将数据集D划分为k个子集同样存在多种划分方式，为了减小因样本划分不同而引入的差别，k折</p>
-<p>交叉验证通常要随机使用不同的划分重复p次。故我们可以采用“10次10折交叉验证”。</p>
+<p>由于将数据集D划分为k个子集同样存在多种划分方式，为了减小因样本划分不同而引入的差别，k折交叉验证通常要随机使用不同的划分重复p次。故我们可以采用“10次10折交叉验证”。</p>
 <h2 id="2-3-10折交叉验证函数python代码"><a href="#2-3-10折交叉验证函数python代码" class="headerlink" title="2.3 10折交叉验证函数python代码"></a>2.3 10折交叉验证函数python代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.model_selection <span class="hljs-keyword">import</span> KFold  <span class="hljs-comment"># 从sklearn导入KFold包</span><br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Ten_Flod_spilt</span>(<span class="hljs-params">fold,data,label</span>):</span><br>    <span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">    param fold: 要取第几折的数据。</span><br><span class="hljs-string">    param data: 需要分块的数据</span><br><span class="hljs-string">    param label: 对应的需要分块标签</span><br><span class="hljs-string">    return: 对应折的训练集、测试集和对应的标签</span><br><span class="hljs-string">    &#x27;&#x27;&#x27;</span><br>    split_list = []<br>    kf = KFold(n_splits=<span class="hljs-number">10</span>)<br>    <span class="hljs-keyword">for</span> train, test <span class="hljs-keyword">in</span> kf.split(data):<br>        split_list.append(train.tolist())<br>        split_list.append(test.tolist())<br>    train,test=split_list[<span class="hljs-number">2</span> * fold],split_list[<span class="hljs-number">2</span> * fold + <span class="hljs-number">1</span>]<br>    <span class="hljs-keyword">return</span>  data[train], data[test], label[train], label[test]  <span class="hljs-comment">#已经分好块的数据集</span><br></code></pre></td></tr></table></figure>
 <p>在后续使用中只需循环调用该函数即可达到10折交叉验证的目的：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">10</span>):<br>        x_train, x_test, y_train, y_test = Ten_Flod_spilt(i,X_s,y_s)<br></code></pre></td></tr></table></figure>
@@ -350,27 +352,12 @@ J(\mathbf{W})=\frac{1}{2}(\mathbf{X} \mathbf{W}-\mathbf{Y})^{T}(\mathbf{X} \math
 <p>L2倾向于使ω的分量取值更均衡，即非零分量个数更稠密，而L1倾向ω的分量取值更稀疏，即非零分量个数更少。所以从图可以看出L1的边缘比较尖锐，与目标函数的等高线相交时，交点会常在那些尖锐的地方，所以很多的参数就是0，即L1能产生稀疏解。所以在调参时如果我们主要的目的只是为了解决过拟合，一般选择L2正则化就够了。但是如果选择L2正则化发现还是过拟合，即预测效果差的时候，就可以考虑L1正则化。另外，如果模型的特征非常多，我们希望一些不重要的特征系数归零，从而让模型系数稀疏化的话，也可以使用L1正则化。</p>
 <p>综合考虑，我们在本次的损失函数中引入的是L2正则化。</p>
 <h2 id="4-3-算法"><a href="#4-3-算法" class="headerlink" title="4.3 算法"></a>4.3 算法</h2><h3 id="4-3-1-最小二乘法"><a href="#4-3-1-最小二乘法" class="headerlink" title="4.3.1 最小二乘法"></a>4.3.1 最小二乘法</h3><h4 id="4-3-1-1-问题分析"><a href="#4-3-1-1-问题分析" class="headerlink" title="4.3.1.1 问题分析"></a>4.3.1.1 问题分析</h4><p>我们的策略是</p>
-<script type="math/tex; mode=display">
-min\ L(W)=\frac{1}{2}(XW-y)^T(XW-y)+\frac{1}{2}\alpha||W||^2_2\\
-其中，X=\left(\begin{array}{ccccc}
-x_{11}&x_{12}&\ldots&x_{1n}&1\\
-x_{21}&x_{22}&\ldots&x_{2n}&1\\
-\vdots&\vdots&\ddots&\vdots&\vdots\\
-x_{m1}&x_{m2}&\ldots&x_{mn}&1
-\end{array}\right),W=\left(\begin{array}{c}
-\omega_1\\
-\omega_2\\
-\vdots\\
-\omega_n\\
-\omega_0
-\end{array}\right)</script><p>我们进行展开</p>
-<script type="math/tex; mode=display">
-&L(W)=\frac{1}{2}(XW-y)^T(XW-y)+\frac{1}{2}\alpha||W||^2_2\\
-&=\frac{1}{2}(W^TX^T-y^T)(XW-y)+\frac{1}{2}\alpha W^TW\\
-&\qquad \qquad \qquad=\frac{1}{2}(W^TX^TXW-W^TX^Ty-y^TXW+y^Ty)+\frac{1}{2}\alpha W^TW</script><p>下面，我们进行梯度推导</p>
-<script type="math/tex; mode=display">
-&\frac{\partial L}{\partial W}=\frac{1}{2}(2X^TXW-X^Ty-X^Ty)+\frac{1}{2}*2\alpha IW\\
-&\quad\quad\quad\quad=X^TXW-X^Ty+\alpha IW\quad(I是n\times n的单位矩阵)</script><p>由于$L(W)$是关于$W$的凸函数，所以我们在梯度为零的点，即是我们要求的最优解。</p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211028184420327.png" srcset="/img/loading.gif" lazyload alt="image-20211028184420327"></p>
+<p>我们进行展开</p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211028184438472.png" srcset="/img/loading.gif" lazyload alt="image-20211028184438472"></p>
+<p>下面，我们进行梯度推导</p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211028184450724.png" srcset="/img/loading.gif" lazyload alt="image-20211028184450724"></p>
+<p>由于$L(W)$是关于$W$的凸函数，所以我们在梯度为零的点，即是我们要求的最优解。</p>
 <script type="math/tex; mode=display">
 令\frac{\partial L}{\partial W}=0\\
 得(X^TX+\alpha I)W=X^Ty</script><p>我们要通过此方法求得$W$，需要的条件是$X^TX+\alpha I$可逆，若其可逆，则$W$的解是</p>
