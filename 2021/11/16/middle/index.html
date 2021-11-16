@@ -44,9 +44,8 @@
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211114222524771.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211114221915446.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211114221934910.png">
-<meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy92STluWWU5NGZzRmJubFJEeHdxZVozWG9YQ3dZR1JnVHdDRHFLaWFBZGRWZlp5elJKNnREekE3ejJCUlFpY0RzUlJhWGVpYVd6aWFoaWNldlFyRFIyVU1RQm9nLzY0MA">
 <meta property="article:published_time" content="2021-11-16T11:57:45.000Z">
-<meta property="article:modified_time" content="2021-11-16T12:09:36.374Z">
+<meta property="article:modified_time" content="2021-11-16T12:12:56.764Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="course">
 <meta name="twitter:card" content="summary_large_image">
@@ -443,8 +442,8 @@ f_{sigmoid}(x)^{(1)}=f_{sigmoid}(x)(1-f_{sigmoid}(x))\\
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211114102651780.png" srcset="/img/loading.gif" lazyload alt="image-20211114102651780"></p>
 <h2 id="3-4-结果分析"><a href="#3-4-结果分析" class="headerlink" title="3.4 结果分析"></a>3.4 结果分析</h2><h3 id="3-4-1-MAPE"><a href="#3-4-1-MAPE" class="headerlink" title="3.4.1 MAPE"></a>3.4.1 MAPE</h3><p><strong>平均绝对百分比误差（Mean Absolute Percentage Error）</strong></p>
 <script type="math/tex; mode=display">
-M A P E=\frac{100 \%}{n} \sum_{i=1}^{n}\left|\frac{\hat{y}_{i}-y_{i}}{y_{i}}\right|</script><p><strong>范围[0,+∞)，MAPE 为0%表示完美模型，MAPE 大于 100 %则表示劣质模型。</strong></p>
-<p><strong>注意：当真实值有数据等于0时，存在分母0除问题，该公式不可用！</strong></p>
+M A P E=\frac{100 \%}{n} \sum_{i=1}^{n}\left|\frac{\hat{y}_{i}-y_{i}}{y_{i}}\right|</script><p>范围[0,+∞)，MAPE 为0%表示完美模型，MAPE 大于 100 %则表示劣质模型。</p>
+<p>注意：当真实值有数据等于0时，存在分母0除问题，该公式不可用！</p>
 <h3 id="3-4-2-调参前结果及分析"><a href="#3-4-2-调参前结果及分析" class="headerlink" title="3.4.2 调参前结果及分析"></a>3.4.2 调参前结果及分析</h3><h4 id="3-4-2-1-代码"><a href="#3-4-2-1-代码" class="headerlink" title="3.4.2.1 代码"></a>3.4.2.1 代码</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros">mlp = MLPRegressor(hidden_layer_sizes=(100), <span class="hljs-attribute">activation</span>=<span class="hljs-string">&#x27;relu&#x27;</span>, <span class="hljs-attribute">solver</span>=<span class="hljs-string">&#x27;adam&#x27;</span>, <span class="hljs-attribute">alpha</span>=0.0001, <span class="hljs-attribute">batch_size</span>=<span class="hljs-string">&#x27;auto&#x27;</span>, <span class="hljs-attribute">learning_rate</span>=<span class="hljs-string">&#x27;constant&#x27;</span>, <span class="hljs-attribute">learning_rate_init</span>=0.001, <span class="hljs-attribute">power_t</span>=0.5, <span class="hljs-attribute">max_iter</span>=200, <span class="hljs-attribute">shuffle</span>=<span class="hljs-literal">True</span>, <span class="hljs-attribute">random_state</span>=None, <span class="hljs-attribute">tol</span>=0.0001, <span class="hljs-attribute">verbose</span>=<span class="hljs-literal">False</span>, <span class="hljs-attribute">warm_start</span>=<span class="hljs-literal">False</span>, <span class="hljs-attribute">momentum</span>=0.9, <span class="hljs-attribute">nesterovs_momentum</span>=<span class="hljs-literal">True</span>, <span class="hljs-attribute">early_stopping</span>=<span class="hljs-literal">False</span>, <span class="hljs-attribute">validation_fraction</span>=0.1, <span class="hljs-attribute">beta_1</span>=0.9, <span class="hljs-attribute">beta_2</span>=0.999, <span class="hljs-attribute">epsilon</span>=1e-08, <span class="hljs-attribute">n_iter_no_change</span>=10, <span class="hljs-attribute">max_fun</span>=15000) #所有参数默认<br>mlp.fit(X_std, Y)<br>MAPE = -1<span class="hljs-number">*c</span>ross_val_score(mlp, X_std, Y, <span class="hljs-attribute">cv</span>=rkf,scoring=&#x27;neg_mean_absolute_percentage_error&#x27;).mean()<br><span class="hljs-builtin-name">print</span>(<span class="hljs-string">&#x27;MAPE:&#x27;</span>,MAPE)<br></code></pre></td></tr></table></figure>
 <h4 id="3-4-2-2-结果及分析"><a href="#3-4-2-2-结果及分析" class="headerlink" title="3.4.2.2 结果及分析"></a>3.4.2.2 结果及分析</h4><p>首先我们使用<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neural_network"><code>sklearn.neural_network</code></a>.<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html?highlight=mlp#sklearn.neural_network.MLPRegressor">MLPRegressor</a>中的所有默认参数设置来训练模型，五次五折交叉验证的平均MAPE为：0.2036462204885882</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211114171851292.png" srcset="/img/loading.gif" lazyload alt="image-20211114171851292"></p>
@@ -465,8 +464,8 @@ M A P E=\frac{100 \%}{n} \sum_{i=1}^{n}\left|\frac{\hat{y}_{i}-y_{i}}{y_{i}}\rig
 <p>Fig.3  调参后残差图</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211114221934910.png" srcset="/img/loading.gif" lazyload alt="image-20211114221934910"></p>
 <p>Fig.4  调参后预测误差图</p>
-<p><strong>经过网格搜索最优参数后，我们的模型得到大幅度提升。从上可见，我们的训练和测试的R</strong>^2^均在0.98以上，说明模型对训练集的拟合效果和泛化能力都很强。</p>
-<h1 id="四、总结模型训练过程中的收获"><a href="#四、总结模型训练过程中的收获" class="headerlink" title="四、总结模型训练过程中的收获"></a>四、总结模型训练过程中的收获</h1><h2 id="4-1-神经网络的训练过程"><a href="#4-1-神经网络的训练过程" class="headerlink" title="4.1 神经网络的训练过程"></a>4.1 神经网络的训练过程</h2><p><strong>简单的神经网络的训练过程包括以下几个步骤：</strong></p>
+<p>经过网格搜索最优参数后，我们的模型得到大幅度提升。从上可见，我们的训练和测试的R^2^均在0.98以上，说明模型对训练集的拟合效果和泛化能力都很强。</p>
+<h1 id="四、总结模型训练过程中的收获"><a href="#四、总结模型训练过程中的收获" class="headerlink" title="四、总结模型训练过程中的收获"></a>四、总结模型训练过程中的收获</h1><h2 id="4-1-神经网络的训练过程"><a href="#4-1-神经网络的训练过程" class="headerlink" title="4.1 神经网络的训练过程"></a>4.1 神经网络的训练过程</h2><p>简单的神经网络的训练过程包括以下几个步骤：</p>
 <ol>
 <li><strong>定义一个包含多个可学习参数（权重）的神经网络；</strong></li>
 <li><strong>对输入的数据集进行迭代计算；</strong></li>
@@ -475,18 +474,18 @@ M A P E=\frac{100 \%}{n} \sum_{i=1}^{n}\left|\frac{\hat{y}_{i}-y_{i}}{y_{i}}\rig
 <li><strong>反向传播梯度到神经网络的参数中；</strong></li>
 <li><strong>根据更新规则来更新网络中的权重值。</strong></li>
 </ol>
-<h2 id="4-2-确定超参数"><a href="#4-2-确定超参数" class="headerlink" title="4.2 确定超参数"></a>4.2 确定超参数</h2><p><strong>其中，如何定义一个包含多个可学习参数的神经网络（即如何确定模型的超参数）是重点，会影响神经网络学习速度和最后结果。我们确定超参数的步骤如下：</strong></p>
-<p><strong>①我们根据经验结论手动调试模型，将各个超参数逐一修改并查看MAPE的变化结果，最终得出’**</strong>hidden_layer_sizes<strong>‘，’</strong>activation<strong>‘，’</strong>solver<strong>‘，’</strong>alpha**’，</p>
-<p><strong>‘**</strong>learning_rate**’这五个对结果影响较大的参数。</p>
-<p><strong>②搜集“经验总结”的资料后，我们用网格搜索法对下列超参数进行排列组合，得到10<em>*</em></strong>4<strong>*</strong>3<strong>*</strong>7<strong>*</strong>3=2520种超参数的排列组合方式。**</p>
+<h2 id="4-2-确定超参数"><a href="#4-2-确定超参数" class="headerlink" title="4.2 确定超参数"></a>4.2 确定超参数</h2><p>其中，如何定义一个包含多个可学习参数的神经网络（即如何确定模型的超参数）是重点，会影响神经网络学习速度和最后结果。我们确定超参数的步骤如下：</p>
+<p>①我们根据经验结论手动调试模型，将各个超参数逐一修改并查看MAPE的变化结果，最终得出’<strong>hidden_layer_sizes</strong>‘，’<strong>activation</strong>‘，’<strong>solver</strong>‘，’<strong>alpha</strong>‘，</p>
+<p>‘<strong>learning_rate</strong>‘这五个对结果影响较大的参数。</p>
+<p>②搜集“经验总结”的资料后，我们用网格搜索法对下列超参数进行排列组合，得到10<strong>*</strong>4<strong>*</strong>3<strong>*</strong>7<strong>*</strong>3=2520种超参数的排列组合方式。</p>
 <figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs gcode">parameters = &#123;<span class="hljs-string">&#x27;hidden_layer_sizes&#x27;</span>: [<span class="hljs-comment">(10,10,10,10,10)</span>,<span class="hljs-comment">(20,20,20,20,20)</span>,<span class="hljs-comment">(30,30,30,30,30)</span>,<span class="hljs-comment">(40,40,40,40,40)</span>,<span class="hljs-comment">(50,50,50,50,50)</span>,<span class="hljs-comment">(60,60,60,60,60)</span>,<span class="hljs-comment">(70,70,70,70,70)</span>,<span class="hljs-comment">(80,80,80,80,80)</span>,<span class="hljs-comment">(90,90,90,90,90)</span>,<span class="hljs-comment">(100,100,100,100,100)</span>],<br>                <span class="hljs-string">&#x27;activation&#x27;</span>: [<span class="hljs-string">&#x27;identity&#x27;</span>, <span class="hljs-string">&#x27;logistic&#x27;</span>,<span class="hljs-string">&#x27;tanh&#x27;</span>, <span class="hljs-string">&#x27;relu&#x27;</span>],<br>                <span class="hljs-string">&#x27;solver&#x27;</span>: [<span class="hljs-string">&#x27;adam&#x27;</span>,<span class="hljs-string">&#x27;lbgfs&#x27;</span>,<span class="hljs-string">&#x27;sgd&#x27;</span>],<br>                <span class="hljs-string">&#x27;alpha&#x27;</span>: [<span class="hljs-number">0.0001</span>, <span class="hljs-number">0.001</span>, <span class="hljs-number">0.01</span>, <span class="hljs-number">0.1</span>, <span class="hljs-number">1</span>,<span class="hljs-number">10</span>,<span class="hljs-number">100</span>],<br>                <span class="hljs-string">&#x27;learning_rate&#x27;</span>: [<span class="hljs-string">&#x27;constant&#x27;</span>, <span class="hljs-string">&#x27;invscaling&#x27;</span>, <span class="hljs-string">&#x27;adaptive&#x27;</span>]&#125;<br></code></pre></td></tr></table></figure>
-<p><strong>③使用五次五折将数据划分为25份，把上述2520种超参数的组合都跑一遍数据（计算神经网络中的最佳的参数用的是误差逆传播算法），每一个组合都会得到25个MAPE值，取平均；之后2520份MAPE中的最小值对应的超参数组合即为我们选定的最优超参数组合。</strong></p>
-<h2 id="4-3-防止过拟合的方法"><a href="#4-3-防止过拟合的方法" class="headerlink" title="4.3 防止过拟合的方法"></a>4.3 防止过拟合的方法</h2><p><strong>在机器学习模型（特别是深度学习模型）的训练过程中，模型是非常容易过拟合的。深度学习模型在不断的训练过程中训练误差会逐渐降低，但测试误差的走势则不一定。</strong></p>
-<p><strong>①正则化方法。正则化方法包括L0正则、L1正则和L2正则，而正则一般是在目标函数之后加上对于的范数。但是在机器学习中一般使用L2正则。</strong></p>
-<p><strong>②数据增强（Data augmentation），增大数据的训练量；还有一个原因就是我们用于训练的数据量太小导致的，训练数据占总数据的比例过小。</strong></p>
-<p><strong>③重新清洗数据，导致过拟合的一个原因也有可能是数据不纯导致的，如果出现了过拟合就需要我们重新清洗数据。</strong></p>
-<p><strong>④提前终止法（Early stopping），对模型进行训练的过程即是对模型的参数进行学习更新的过程，这个参数学习的过程往往会用到一些迭代方法，如梯度下降（Gradient descent）学习算法。提前终止法便是一种迭代次数截断的方法来防止过拟合的方法，即在模型对训练数据集迭代收敛之前停止迭代来防止过拟合。</strong></p>
-<p><strong>⑤丢弃法（Dropout）。这个方法在神经网络里面很常用。丢弃法是ImageNet中提出的一种方法，通俗一点讲就是丢弃法在训练的时候让神经元以一定的概率不工作。具体看下图：</strong><br><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy92STluWWU5NGZzRmJubFJEeHdxZVozWG9YQ3dZR1JnVHdDRHFLaWFBZGRWZlp5elJKNnREekE3ejJCUlFpY0RzUlJhWGVpYVd6aWFoaWNldlFyRFIyVU1RQm9nLzY0MA" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>③使用五次五折将数据划分为25份，把上述2520种超参数的组合都跑一遍数据（计算神经网络中的最佳的参数用的是误差逆传播算法），每一个组合都会得到25个MAPE值，取平均；之后2520份MAPE中的最小值对应的超参数组合即为我们选定的最优超参数组合。</p>
+<h2 id="4-3-防止过拟合的方法"><a href="#4-3-防止过拟合的方法" class="headerlink" title="4.3 防止过拟合的方法"></a>4.3 防止过拟合的方法</h2><p>在机器学习模型（特别是深度学习模型）的训练过程中，模型是非常容易过拟合的。深度学习模型在不断的训练过程中训练误差会逐渐降低，但测试误差的走势则不一定。</p>
+<p>①正则化方法。正则化方法包括L0正则、L1正则和L2正则，而正则一般是在目标函数之后加上对于的范数。但是在机器学习中一般使用L2正则。</p>
+<p>②数据增强（Data augmentation），增大数据的训练量；还有一个原因就是我们用于训练的数据量太小导致的，训练数据占总数据的比例过小。</p>
+<p>③重新清洗数据，导致过拟合的一个原因也有可能是数据不纯导致的，如果出现了过拟合就需要我们重新清洗数据。</p>
+<p>④提前终止法（Early stopping），对模型进行训练的过程即是对模型的参数进行学习更新的过程，这个参数学习的过程往往会用到一些迭代方法，如梯度下降（Gradient descent）学习算法。提前终止法便是一种迭代次数截断的方法来防止过拟合的方法，即在模型对训练数据集迭代收敛之前停止迭代来防止过拟合。</p>
+<p>⑤丢弃法（Dropout）。这个方法在神经网络里面很常用。丢弃法是ImageNet中提出的一种方法，通俗一点讲就是丢弃法在训练的时候让神经元以一定的概率不工作。</p>
 
             </div>
             <hr>
