@@ -65,7 +65,7 @@
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119171348116.png">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119185714226.png">
 <meta property="article:published_time" content="2021-11-16T11:57:45.000Z">
-<meta property="article:modified_time" content="2021-11-19T12:59:38.117Z">
+<meta property="article:modified_time" content="2021-11-22T15:23:15.621Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="course">
 <meta name="twitter:card" content="summary_large_image">
@@ -280,7 +280,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年11月19日 晚上
+                  本文最后更新于：2021年11月22日 晚上
                 
               </p>
             
@@ -513,7 +513,7 @@ M A P E=\frac{100 \%}{n} \sum_{i=1}^{n}\left|\frac{\hat{y}_{i}-y_{i}}{y_{i}}\rig
 <p>人工神经网络诞生之初并不是用来解决机器学习问题． 由于人工神经网络可以用作一个通用的函数逼近器（ 一个两层的神经网络可以逼近任意的函数），因此我们可以将人工神经网络看作一个可学习的函数， 并将其应用到机器学习中． 理论上， 只要有足够的训练数据和神经元数量， 人工神经网络就可以学到很多复杂的函数． 我们可以把一个人工神经网络塑造复杂函数的能力称为网络容量（ Network Capacity）， 这与可以被储存在网络中的信息的复杂度以及数量相关．</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119094549829.png" srcset="/img/loading.gif" lazyload alt="image-20211119094549829"></p>
 <h2 id="1-3-前馈神经网络"><a href="#1-3-前馈神经网络" class="headerlink" title="1.3 前馈神经网络"></a>1.3 前馈神经网络</h2><p>在本次作业中， 我们主要采用误差反向传播来进行学习的神经网络， 即作为一种机器学习模型的神经网络．从机器学习的角度来看， 神经网络一般可以看作一个非线性模型， 其基本组成单元为具有非线性激活函数的神经元， 通过大量神经元之间的连接， 使得神经网络成为一种高度非线性的模型． 神经元之间的连接权重就是需要学习的参数， 可以在机器学习的框架下通过梯度下降方法来进行学习．</p>
-<h3 id="1-3-1-神经元"><a href="#1-3-1-神经元" class="headerlink" title="1.3.1 神经元"></a>1.3.1 神经元</h3><p>1943 年， 心理学家 McCulloch 和数学家 Pitts 根据生物神经元的结构， 提出了一种非常简单的神经元模型， MP神经元． 现代神经网络中的神经元和 MP 神经元的结构并无太多变化． 不同的是， MP 神经元中的激活函数𝑓 为0或1的阶跃函数， 而现代神经元中的激活函数通常要求是连续可导的函数．  </p>
+<h3 id="1-3-1-神经元"><a href="#1-3-1-神经元" class="headerlink" title="1.3.1 神经元"></a>1.3.1 神经元</h3><p>1943 年， 心理学家 McCulloch 和数学家 Pitts 根据生物神经元的结构， 提出了一种非常简单的神经元模型， MP神经元． 现代神经网络中的神经元和 MP 神经元的结构并无太多变化． 不同的是， MP 神经元中的激活函数𝑓 为0或1的阶跃函数， 而现代神经元中的激活函数通常要求是连续可导的函数．</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119205516708.png" srcset="/img/loading.gif" lazyload alt="image-20211119205516708"></p>
 <p>净输入  <strong>z</strong>  在经过一个非线性函数  $f(\cdot) $ 后, 得到神经元的活性值 ( Activation ) <strong>a</strong> ,</p>
 <script type="math/tex; mode=display">
@@ -528,7 +528,7 @@ a=f(z)</script><p>其中非线性函数  $f(\cdot) $ 称为激活函数 ( Activa
 <h4 id="1-3-2-1-Sigmoid型函数"><a href="#1-3-2-1-Sigmoid型函数" class="headerlink" title="1.3.2.1 Sigmoid型函数"></a>1.3.2.1 Sigmoid型函数</h4><p>Sigmoid型函数是指一类S型曲线函数,为两端饱和函数.常用的Sigmoid型函数有Logistic 函数和Tanh 函数.</p>
 <h5 id="1-3-2-1-1-Logistic"><a href="#1-3-2-1-1-Logistic" class="headerlink" title="1.3.2.1.1 Logistic"></a>1.3.2.1.1 Logistic</h5><p>Logistic 函数定义为</p>
 <script type="math/tex; mode=display">
-\sigma(x)=\frac{1}{1+\exp (-x)}</script><p>Logistic 函数可以看成是一个“挤压” 函数， 把一个实数域的输入“挤压” 到(0, 1)． 当输入值在0附近时， Sigmoid型函数近似为线性函数； 当输入值靠近两端时， 对输入进行抑制． 输入越小， 越接近于 0； 输入越大， 越接近于 1． 这样的特点也和生物神经元类似， 对一些输入会产生兴奋（ 输出为1）， 对另一些输入产生抑制（ 输出为0）． 和感知器使用的阶跃激活函数相比， Logistic函数是连续可导的，其数学性质更好．因为Logistic函数的性质， 使得装备了Logistic激活函数的神经元具有以下两点性质： </p>
+\sigma(x)=\frac{1}{1+\exp (-x)}</script><p>Logistic 函数可以看成是一个“挤压” 函数， 把一个实数域的输入“挤压” 到(0, 1)． 当输入值在0附近时， Sigmoid型函数近似为线性函数； 当输入值靠近两端时， 对输入进行抑制． 输入越小， 越接近于 0； 输入越大， 越接近于 1． 这样的特点也和生物神经元类似， 对一些输入会产生兴奋（ 输出为1）， 对另一些输入产生抑制（ 输出为0）． 和感知器使用的阶跃激活函数相比， Logistic函数是连续可导的，其数学性质更好．因为Logistic函数的性质， 使得装备了Logistic激活函数的神经元具有以下两点性质：</p>
 <ol>
 <li>其输出直接可以看作概率分布， 使得神经网络可以更好地和统计学习模型进行结合．</li>
 <li>其可以看作一个软性门（ Soft Gate）， 用来控制其他神经元输出信息的数量.</li>
@@ -539,7 +539,7 @@ a=f(z)</script><p>其中非线性函数  $f(\cdot) $ 称为激活函数 ( Activa
 <script type="math/tex; mode=display">
 \tanh (x)=2 \sigma(2 x)-1</script><p>下图给出了 Logistic 函数和 Tanh 函数的形状． Tanh 函数的输出是零中心化的（ Zero-Centered）， 而 Logistic 函数的输出恒大于 0． 非零中心化的输出会使得其后一层的神经元的输入发生偏置偏移（ Bias Shift）， 并进一步使得梯度下降的收敛速度变慢 .</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119100752525.png" srcset="/img/loading.gif" lazyload alt="image-20211119100752525"></p>
-<p>Logistic函数和Tanh函数都是Sigmoid型函数， 具有饱和性， 但是计算开销较大． 因为这两个函数都是在中间（ 0附近） 近似线性， 两端饱和． 因此， 这两个函数可以通过分段函数来近似．  </p>
+<p>Logistic函数和Tanh函数都是Sigmoid型函数， 具有饱和性， 但是计算开销较大． 因为这两个函数都是在中间（ 0附近） 近似线性， 两端饱和． 因此， 这两个函数可以通过分段函数来近似．</p>
 <p>以 Logistic 函数 $ \sigma(x) $ 为例, 其导数为  $\sigma^{\prime}(x)=\sigma(x)(1-\sigma(x)) $. Logistic 函数 在 0 附近的一阶泰勒展开 ( Taylor expansion ) 为</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -566,7 +566,7 @@ g_{t}(x) & \approx \tanh (0)+x \times \tanh ^{\prime}(0) \\
 \operatorname{hard}-\tanh (x) &=\max \left(\min \left(g_{t}(x), 1\right),-1\right) \\
 &=\max (\min (x, 1),-1)
 \end{aligned}</script><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119101318245.png" srcset="/img/loading.gif" lazyload alt="image-20211119101318245"></p>
-<h4 id="1-3-2-2-ReLU函数"><a href="#1-3-2-2-ReLU函数" class="headerlink" title="1.3.2.2 ReLU函数"></a>1.3.2.2 ReLU函数</h4><p>ReLU（ Rectified Linear Unit， 修正线性单元） [Nair et al., 2010]， 也叫Rectifier函数[Glorot et al., 2011]， 是目前深度神经网络中经常使用的激活函数．ReLU实际上是一个斜坡（ ramp） 函数， 定义为  </p>
+<h4 id="1-3-2-2-ReLU函数"><a href="#1-3-2-2-ReLU函数" class="headerlink" title="1.3.2.2 ReLU函数"></a>1.3.2.2 ReLU函数</h4><p>ReLU（ Rectified Linear Unit， 修正线性单元） [Nair et al., 2010]， 也叫Rectifier函数[Glorot et al., 2011]， 是目前深度神经网络中经常使用的激活函数．ReLU实际上是一个斜坡（ ramp） 函数， 定义为</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \operatorname{ReLU}(x) &=\left\{\begin{array}{ll}
@@ -574,10 +574,10 @@ x & x \geq 0 \\
 0 & x<0
 \end{array}\right.\\
 &=\max (0, x)
-\end{aligned}</script><p><strong>优点</strong> 采用 ReLU 的神经元只需要进行加、 乘和比较的操作， 计算上更加高效．ReLU 函数也被认为具有生物学合理性（ Biological Plausibility）， 比如单侧抑制、宽兴奋边界（ 即兴奋程度可以非常高）． 在生物神经网络中， 同时处于兴奋状态的神经元非常稀疏． 人脑中在同一时刻大概只有 1% ∼ 4% 的神经元处于活跃状态． Sigmoid 型激活函数会导致一个非稀疏的神经网络， 而 ReLU 却具有很好的稀疏性， 大约50%的神经元会处于激活状态．<br>在优化方面， 相比于Sigmoid型函数的两端饱和， ReLU函数为左饱和函数，且在 𝑥 &gt; 0 时导数为 1， 在一定程度上缓解了神经网络的梯度消失问题， 加速梯度下降的收敛速度．  </p>
+\end{aligned}</script><p><strong>优点</strong> 采用 ReLU 的神经元只需要进行加、 乘和比较的操作， 计算上更加高效．ReLU 函数也被认为具有生物学合理性（ Biological Plausibility）， 比如单侧抑制、宽兴奋边界（ 即兴奋程度可以非常高）． 在生物神经网络中， 同时处于兴奋状态的神经元非常稀疏． 人脑中在同一时刻大概只有 1% ∼ 4% 的神经元处于活跃状态． Sigmoid 型激活函数会导致一个非稀疏的神经网络， 而 ReLU 却具有很好的稀疏性， 大约50%的神经元会处于激活状态．<br>在优化方面， 相比于Sigmoid型函数的两端饱和， ReLU函数为左饱和函数，且在 𝑥 &gt; 0 时导数为 1， 在一定程度上缓解了神经网络的梯度消失问题， 加速梯度下降的收敛速度．</p>
 <p><strong>缺点</strong> ReLU 函数的输出是非零中心化的， 给后一层的神经网络引入偏置偏移，会影响梯度下降的效率．此外， ReLU 神经元在训练时比较容易“死亡”． 在训练时， 如果参数在一次不恰当的更新后， 第一个隐藏层中的某个 ReLU 神经元在所有的训练数据上都不能被激活， 那么这个神经元自身参数的梯度永远都会是0， 在以后的训练过程中永远不能被激活． 这种现象称为死亡 ReLU 问题（ Dying ReLU Problem ),并且也有可能会发生在其他隐藏层.</p>
 <p>在实际使用中,为了避免上述情况,有几种 ReLU的变种也会被广泛使用.</p>
-<h5 id="1-3-2-2-1-带泄露的ReLU"><a href="#1-3-2-2-1-带泄露的ReLU" class="headerlink" title="1.3.2.2.1 带泄露的ReLU"></a>1.3.2.2.1 带泄露的ReLU</h5><p>带泄露的ReLU（ Leaky ReLU） 在输入 𝑥 &lt; 0时， 保持一个很小的梯度𝛾． 这样当神经元非激活时也能有一个非零的梯度可以更新参数， 避免永远不能被激活[Maas et al., 2013]． 带泄露的ReLU的定义如下：  </p>
+<h5 id="1-3-2-2-1-带泄露的ReLU"><a href="#1-3-2-2-1-带泄露的ReLU" class="headerlink" title="1.3.2.2.1 带泄露的ReLU"></a>1.3.2.2.1 带泄露的ReLU</h5><p>带泄露的ReLU（ Leaky ReLU） 在输入 𝑥 &lt; 0时， 保持一个很小的梯度𝛾． 这样当神经元非激活时也能有一个非零的梯度可以更新参数， 避免永远不能被激活[Maas et al., 2013]． 带泄露的ReLU的定义如下：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \operatorname{LeakyReLU}(x) &=\left\{\begin{array}{ll}
@@ -585,10 +585,10 @@ x & \text { if } x>0 \\
 \gamma x & \text { if } x \leq 0
 \end{array}\right.\\
 &=\max (0, x)+\gamma \min (0, x)
-\end{aligned}</script><p>其中 𝛾是一个很小的常数， 比如0.01． 当𝛾 &lt; 1时， 带泄露的ReLU也可以写为  </p>
+\end{aligned}</script><p>其中 𝛾是一个很小的常数， 比如0.01． 当𝛾 &lt; 1时， 带泄露的ReLU也可以写为</p>
 <script type="math/tex; mode=display">
 \operatorname{LeakyReLU}(x)=\max (x, \gamma x)</script><p>相当于是一个比较简单的maxout单元 .</p>
-<h5 id="1-3-2-2-2-带参数的ReLU"><a href="#1-3-2-2-2-带参数的ReLU" class="headerlink" title="1.3.2.2.2 带参数的ReLU"></a>1.3.2.2.2 带参数的ReLU</h5><p>带参数的 ReLU（ Parametric ReLU， PReLU） 引入一个可学习的参数， 不同神经元可以有不同的参数． 对于第 𝑖 个神经元， 其 PReLU 的定义为  </p>
+<h5 id="1-3-2-2-2-带参数的ReLU"><a href="#1-3-2-2-2-带参数的ReLU" class="headerlink" title="1.3.2.2.2 带参数的ReLU"></a>1.3.2.2.2 带参数的ReLU</h5><p>带参数的 ReLU（ Parametric ReLU， PReLU） 引入一个可学习的参数， 不同神经元可以有不同的参数． 对于第 𝑖 个神经元， 其 PReLU 的定义为</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \operatorname{PReLU}_{i}(x) &=\left\{\begin{array}{ll}
@@ -596,8 +596,8 @@ x & \text { if } x>0 \\
 \gamma_{i} x & \text { if } x \leq 0
 \end{array}\right.\\
 &=\max (0, x)+\gamma_{i} \min (0, x)
-\end{aligned}</script><p>其中 𝛾𝑖 为 𝑥 ≤ 0 时函数的斜率． 因此， PReLU 是非饱和函数． 如果 𝛾𝑖 = 0， 那么PReLU就退化为ReLU． 如果𝛾𝑖 为一个很小的常数， 则PReLU可以看作带泄露的ReLU． PReLU 可以允许不同神经元具有不同的参数， 也可以一组神经元共享一个参数．  </p>
-<h5 id="1-3-2-2-3-ELU函数"><a href="#1-3-2-2-3-ELU函数" class="headerlink" title="1.3.2.2.3 ELU函数"></a>1.3.2.2.3 ELU函数</h5><p>ELU（ Exponential Linear Unit， 指数线性单元）是一个近似的零中心化的非线性函数， 其定义为  </p>
+\end{aligned}</script><p>其中 𝛾𝑖 为 𝑥 ≤ 0 时函数的斜率． 因此， PReLU 是非饱和函数． 如果 𝛾𝑖 = 0， 那么PReLU就退化为ReLU． 如果𝛾𝑖 为一个很小的常数， 则PReLU可以看作带泄露的ReLU． PReLU 可以允许不同神经元具有不同的参数， 也可以一组神经元共享一个参数．</p>
+<h5 id="1-3-2-2-3-ELU函数"><a href="#1-3-2-2-3-ELU函数" class="headerlink" title="1.3.2.2.3 ELU函数"></a>1.3.2.2.3 ELU函数</h5><p>ELU（ Exponential Linear Unit， 指数线性单元）是一个近似的零中心化的非线性函数， 其定义为</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \operatorname{ELU}(x) &=\left\{\begin{array}{ll}
@@ -605,8 +605,8 @@ x & \text { if } x>0 \\
 \gamma(\exp (x)-1) & \text { if } x \leq 0
 \end{array}\right.\\
 &=\max (0, x)+\min (0, \gamma(\exp (x)-1))
-\end{aligned}</script><p>其中 𝛾 ≥ 0是一个超参数， 决定𝑥 ≤ 0时的饱和曲线， 并调整输出均值在0附近．  </p>
-<h5 id="1-3-2-2-4-Softplus函数"><a href="#1-3-2-2-4-Softplus函数" class="headerlink" title="1.3.2.2.4 Softplus函数"></a>1.3.2.2.4 Softplus函数</h5><p>Softplus 函数 可以看作 Rectifier 函数的平滑版本， 其定义为  </p>
+\end{aligned}</script><p>其中 𝛾 ≥ 0是一个超参数， 决定𝑥 ≤ 0时的饱和曲线， 并调整输出均值在0附近．</p>
+<h5 id="1-3-2-2-4-Softplus函数"><a href="#1-3-2-2-4-Softplus函数" class="headerlink" title="1.3.2.2.4 Softplus函数"></a>1.3.2.2.4 Softplus函数</h5><p>Softplus 函数 可以看作 Rectifier 函数的平滑版本， 其定义为</p>
 <script type="math/tex; mode=display">
 \operatorname{Softplus}(x)=\log (1+\exp (x))</script><p>Softplus函数其导数刚好是Logistic函数． Softplus函数虽然也具有单侧抑制、宽兴奋边界的特性， 却没有稀疏激活性 .</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119103024771.png" srcset="/img/loading.gif" lazyload alt="image-20211119103024771"></p>
@@ -661,7 +661,7 @@ x & \text { if } x>0 \\
 &=\frac{\partial \boldsymbol{a}^{(l)}}{\partial \boldsymbol{z}^{(l)}}  \cdot \frac{\partial \boldsymbol{z}^{(l+1)}}{\partial \boldsymbol{a}^{(l)}} \cdot \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{z}^{(l+1)}} \\
 &={\operatorname{diag}\left(f_{l}^{\prime}\left(\boldsymbol{z}^{(l)}\right)\right)} \cdot\left(\boldsymbol{W}^{(l+1)}\right)^{\top}  \cdot{\delta^{(l+1)}} \\
 &=f_{l}^{\prime}\left(\boldsymbol{z}^{(l)}\right) \odot\left(\left(\boldsymbol{W}^{(l+1)}\right)^{\top} \delta^{(l+1)}\right) \quad \in \mathbb{R}^{M_{l}},
-\end{aligned}</script><p>其中 $ \odot  $是向量的 Hadamard 积运算符, 表示每个元素相乘.<br>从上面的公式可以看出,第  l  层的误差项可以通过第  l+1  层的误差项计算得到, 这就是误差的反向传播 ( BackPropagation, BP ). 反向传播算法的含义是: 第  l  层的一个神经元的误差项 ( 或敏感性 ) 是所有与该神经元相连的第  l+1  层 的神经元的误差项的权重和. 然后, 再乘上该神经元激活函数的梯度.<br>在计算出上面三个偏导数之后, </p>
+\end{aligned}</script><p>其中 $ \odot  $是向量的 Hadamard 积运算符, 表示每个元素相乘.<br>从上面的公式可以看出,第  l  层的误差项可以通过第  l+1  层的误差项计算得到, 这就是误差的反向传播 ( BackPropagation, BP ). 反向传播算法的含义是: 第  l  层的一个神经元的误差项 ( 或敏感性 ) 是所有与该神经元相连的第  l+1  层 的神经元的误差项的权重和. 然后, 再乘上该神经元激活函数的梯度.<br>在计算出上面三个偏导数之后,</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial w_{i j}^{(l)}} &={l}_{i}\left(a_{j}^{(l-1)}\right) \delta^{(l)} \\
@@ -676,28 +676,28 @@ x & \text { if } x>0 \\
 \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{b}^{(l)}}=\delta^{(l)} \quad \in \mathbb{R}^{M_{l}}</script><h2 id="2-3-实现步骤与伪代码"><a href="#2-3-实现步骤与伪代码" class="headerlink" title="2.3 实现步骤与伪代码"></a>2.3 实现步骤与伪代码</h2><p>在计算出每一层的误差项之后, 我们就可以得到每一层参数的梯度. 因此, 使用误差反向传播算法的前馈神经网络训练过程可以分为以下三步:</p>
 <ol>
 <li>前馈计算每一层的净输入  $\boldsymbol{z}^{(l)}  $和激活值 $ \boldsymbol{a}^{(l)} $, 直到最后一层;</li>
-<li>反向传播计算每一层的误差项  \delta^{(l)} ;</li>
+<li>反向传播计算每一层的误差项  $\delta^{(l)}$ ;</li>
 <li>计算每一层参数的偏导数, 并更新参数.</li>
 </ol>
 <p>使用反向传播算法的随机梯度下降训练过程：</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119113727799.png" srcset="/img/loading.gif" lazyload alt="image-20211119113727799"></p>
-<h1 id="三、描述模型超参数确定的过程，分析模型训练结果-1"><a href="#三、描述模型超参数确定的过程，分析模型训练结果-1" class="headerlink" title="三、描述模型超参数确定的过程，分析模型训练结果"></a>三、描述模型超参数确定的过程，分析模型训练结果</h1><p>在神经网络中， 除了可学习的参数之外， 还存在很多超参数． 这些超参数对网络性能的影响也很大． 不同的机器学习任务往往需要不同的超参数． 常见的超参数有以下三类：  </p>
+<h1 id="三、描述模型超参数确定的过程，分析模型训练结果-1"><a href="#三、描述模型超参数确定的过程，分析模型训练结果-1" class="headerlink" title="三、描述模型超参数确定的过程，分析模型训练结果"></a>三、描述模型超参数确定的过程，分析模型训练结果</h1><p>在神经网络中， 除了可学习的参数之外， 还存在很多超参数． 这些超参数对网络性能的影响也很大． 不同的机器学习任务往往需要不同的超参数． 常见的超参数有以下三类：</p>
 <ol>
 <li>网络结构,包括神经元之间的连接关系、层数、每层的神经元数量、激活函数的类型等.</li>
 <li>优化参数,包括优化方法、学习率、小批量的样本数量等.</li>
 <li>正则化系数.</li>
 </ol>
-<p>超参数优化（ Hyperparameter Optimization） 主要存在两方面的困难： </p>
+<p>超参数优化（ Hyperparameter Optimization） 主要存在两方面的困难：</p>
 <ul>
 <li>超参数优化是一个组合优化问题， 无法像一般参数那样通过梯度下降方法来优化， 也没有一种通用有效的优化方法；</li>
-<li>评估一组超参数配置（ Configuration）的时间代价非常高， 从而导致一些优化方法（ 比如演化算法（ Evolution Algorithm）） 在超参数优化中难以应用  </li>
+<li>评估一组超参数配置（ Configuration）的时间代价非常高， 从而导致一些优化方法（ 比如演化算法（ Evolution Algorithm）） 在超参数优化中难以应用</li>
 </ul>
 <p>对于超参数的配置， 比较简单的方法有网格搜索、随机搜索、贝叶斯优化、动态资源分配和神经架构搜索 ，这次我们介绍最后两种。</p>
 <h2 id="3-1-动态资源分配"><a href="#3-1-动态资源分配" class="headerlink" title="3.1 动态资源分配"></a>3.1 动态资源分配</h2><p>在超参数优化中， 每组超参数配置的评估代价比较高． 如果我们可以在较早的阶段就估计出一组配置的效果会比较差， 那么我们就可以中止这组配置的评估， 将更多的资源留给其他配置．这个问题可以归结为多臂赌博机问题的一个泛化问题： <strong>最优臂问题（ Best-Arm Problem）</strong>， 即在给定有限的机会次数下， 如何玩这些赌博机并找到收益最大的臂． 和多臂赌博机问题类似， 最优臂问题也是在利用和探索之间找到最佳的平衡．</p>
 <p>由于目前神经网络的优化方法一般都采取随机梯度下降， 因此我们可以通过一组超参数的学习曲线来预估这组超参数配置是否有希望得到比较好的结果． 如果一组超参数配置的学习曲线不收敛或者收敛比较差， 我们可以应用<strong>早期停止（ Early-Stopping）</strong> 策略来中止当前的训练．</p>
-<p>动态资源分配的关键是将有限的资源分配给更有可能带来收益的超参数组合． 一种有效方法是<strong>逐次减半（ Successive Halving）</strong> 方法， 将超参数优化看作一种非随机的最优臂问题． 假设要尝试 𝑁 组超参数配置， 总共可利用的资源预算（ 摇臂的次数） 为𝐵， 我们可以通过𝑇 = ⌈log2(𝑁)⌉ - 1轮逐次减半的方法来选取最优的配置， 具体过程如算法7.2所示．  </p>
+<p>动态资源分配的关键是将有限的资源分配给更有可能带来收益的超参数组合． 一种有效方法是<strong>逐次减半（ Successive Halving）</strong> 方法， 将超参数优化看作一种非随机的最优臂问题． 假设要尝试 𝑁 组超参数配置， 总共可利用的资源预算（ 摇臂的次数） 为𝐵， 我们可以通过𝑇 = ⌈log2(𝑁)⌉ - 1轮逐次减半的方法来选取最优的配置．</p>
 <h3 id="3-1-1-实现步骤与伪代码"><a href="#3-1-1-实现步骤与伪代码" class="headerlink" title="3.1.1 实现步骤与伪代码"></a>3.1.1 实现步骤与伪代码</h3><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119165313867.png" srcset="/img/loading.gif" lazyload alt="image-20211119165313867"></p>
-<p>在逐次减半方法中， 尝试的超参数配置数量 𝑁 十分关键． 如果𝑁 越大， 得到最佳配置的机会也越大， 但每组配置分到的资源就越少， 这样早期的评估结果可能不准确． 反之， 如果 𝑁 越小， 每组超参数配置的评估会越准确， 但有可能无法得到最优的配置． 因此， 如何设置 𝑁 是平衡“利用-探索” 的一个关键因素． 一种改进的方法是<strong>HyperBand方法</strong>， 通过尝试不同的𝑁 来选取最优参数．  </p>
+<p>在逐次减半方法中， 尝试的超参数配置数量 𝑁 十分关键． 如果𝑁 越大， 得到最佳配置的机会也越大， 但每组配置分到的资源就越少， 这样早期的评估结果可能不准确． 反之， 如果 𝑁 越小， 每组超参数配置的评估会越准确， 但有可能无法得到最优的配置． 因此， 如何设置 𝑁 是平衡“利用-探索” 的一个关键因素． 一种改进的方法是<strong>HyperBand方法</strong>， 通过尝试不同的𝑁 来选取最优参数．</p>
 <h2 id="3-2-神经架构搜索"><a href="#3-2-神经架构搜索" class="headerlink" title="3.2 神经架构搜索"></a>3.2 神经架构搜索</h2><p>上面介绍的超参数优化方法都是在固定（ 或变化比较小） 的超参数空间 𝒳中进行最优配置搜索， 而最重要的神经网络架构一般还是需要由有经验的专家来进行设计 . 神经架构搜索（ Neural Architecture Search， NAS） 是一个新的比较有前景的研究方向， 通过神经网络来自动实现网络架构的设计． 一个神经网络的架构可以用一个变长的字符串来描述． 利用元学习的思想， 神经架构搜索利用一个控制器来生成另一个子网络的架构描述． 控制器可以由一个循环神经网络来实现． 控制器的训练可以通过强化学习来完成， 其奖励信号为生成的子网络在开发集上的准确率  .</p>
 <h2 id="3-3-结果分析"><a href="#3-3-结果分析" class="headerlink" title="3.3 结果分析"></a>3.3 结果分析</h2><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119191016077.png" srcset="/img/loading.gif" lazyload alt="image-20211119191016077"></p>
 <p>在两次报告中我们一共介绍了5种超参数调优方式，也都尝试过应用到实验中，但并没有获得很大的提升。且结合数据量较小，网络结构较简单的实际，我们依旧选择了根据一些“经验结论”来进行网格搜索。</p>
@@ -719,12 +719,12 @@ x & \text { if } x>0 \\
 <h1 id="四、总结模型训练过程中的收获-1"><a href="#四、总结模型训练过程中的收获-1" class="headerlink" title="四、总结模型训练过程中的收获"></a>四、总结模型训练过程中的收获</h1><h2 id="4-1-优化与正则化"><a href="#4-1-优化与正则化" class="headerlink" title="4.1 优化与正则化"></a>4.1 优化与正则化</h2><p>神经网络的优化和正则化是既对立又统一的关系． 一方面我们希望优化算法能找到一个全局最优解（ 或较好的局部最优解）， 另一方面我们又不希望模型优化到最优解， 这可能陷入过拟合． 优化和正则化的统一目标是期望风险最小化．</p>
 <h3 id="4-1-1-优化"><a href="#4-1-1-优化" class="headerlink" title="4.1.1 优化"></a>4.1.1 优化</h3><p>在优化方面， 训练神经网络时的主要难点是非凸优化以及梯度消失问题． 在深度学习技术发展的初期， 我们通常需要利用预训练和逐层训练等比较低效的<br>方法来辅助优化．随着深度学习技术的发展， 我们目前通常可以高效地、 端到端地训练一个深度神经网络． 这些提高训练效率的方法通常分为以下 3 个方面：</p>
 <ol>
-<li>修改网络模型来得到更好的优化地形， 比如使用逐层归一化、 残差连接以及ReLU激活函数等； </li>
-<li>使用更有效的优化算法， 比如动态学习率以及梯度估计修正等； </li>
-<li>使用更好的参数初始化方法  </li>
+<li>修改网络模型来得到更好的优化地形， 比如使用逐层归一化、 残差连接以及ReLU激活函数等；</li>
+<li>使用更有效的优化算法， 比如动态学习率以及梯度估计修正等；</li>
+<li>使用更好的参数初始化方法</li>
 </ol>
 <h3 id="4-1-2-泛化"><a href="#4-1-2-泛化" class="headerlink" title="4.1.2 泛化"></a>4.1.2 泛化</h3><p>在泛化方面， 传统的机器学习中有一些很好的理论可以帮助我们在模型的表示能力、复杂度和泛化能力之间找到比较好的平衡， 但是这些理论无法解释深度神经网络在实际应用中的泛化能力表现． 根据通用近似定理，神经网络的表示能力十分强大． 从直觉上， 一个过度参数化的神经网络很容易产生过拟合现象， 因为它的容量足够记住所有训练数据． 但是实验表明， 神经网络在训练过程中依然优先记住训练数据中的一般模式（ Pattern）， 即具有高泛化能力的模式 ． 但目前， 神经网络的泛化能力还没有很好的理论支持． 在传统机器学习模型上比较有效的ℓ1 或ℓ2 正则化在深度神经网络中作用也比较有限， 而一些经验的做法（ 比如小的批量大小、大的学习率、提前停止、丢弃法、数据增强） 会更有效  。</p>
-<h2 id="4-2-与回归的差异"><a href="#4-2-与回归的差异" class="headerlink" title="4.2 与回归的差异"></a>4.2 与回归的差异</h2><p>和回归问题不同， 分类问题中的目标标签 𝑦 是离散的类别标签， 因此分类问题中的决策函数需要输出离散值或是标签的后验概率． 线性分类模型一般是一个广义线性函数， 即一个或多个线性判别函数加上一个非线性激活函数． 所谓“线性”是指决策边界由一个或多个超平面组成．  </p>
+<h2 id="4-2-与回归的差异"><a href="#4-2-与回归的差异" class="headerlink" title="4.2 与回归的差异"></a>4.2 与回归的差异</h2><p>和回归问题不同， 分类问题中的目标标签 𝑦 是离散的类别标签， 因此分类问题中的决策函数需要输出离散值或是标签的后验概率． 线性分类模型一般是一个广义线性函数， 即一个或多个线性判别函数加上一个非线性激活函数． 所谓“线性”是指决策边界由一个或多个超平面组成．</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119171348116.png" srcset="/img/loading.gif" lazyload alt="image-20211119171348116"></p>
 <h2 id="4-3-对深度学习框架的初步了解"><a href="#4-3-对深度学习框架的初步了解" class="headerlink" title="4.3 对深度学习框架的初步了解"></a>4.3 对深度学习框架的初步了解</h2><p>在深度学习中， 一般通过误差反向传播算法来进行参数学习． 采用手工方式来计算梯度再写代码实现的方式会非常低效， 并且容易出错． 此外， 深度学习模型需要的计算机资源比较多， 一般需要在 CPU 和 GPU 之间不断进行切换， 开发难度也比较大． 因此， 一些支持自动梯度计算、无缝CPU和GPU切换等功能的深度学习框架就应运而生．比较有代表性的框架包括： Theano、Caffe、TensorFlow、Pytorch、飞桨（ PaddlePaddle）、Chainer和MXNet等。</p>
 <p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211119185714226.png" srcset="/img/loading.gif" lazyload alt="image-20211119185714226"></p>
@@ -751,6 +751,23 @@ x & \text { if } x>0 \\
                   
                 </p>
               
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/28/ridge/">
+                        <span class="hidden-mobile">岭回归，特征工程分析advertising.csv</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
               
             </div>
 
