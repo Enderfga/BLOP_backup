@@ -1,262 +1,163 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
-  <link rel="icon" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Enderfga">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="My First blog:Something about Enderfga">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hello world! | Enderfga'Blog</title><meta name="keywords" content="self"><meta name="author" content="Enderfga"><meta name="copyright" content="Enderfga"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="My First blog:Something about Enderfga">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello world!">
-<meta property="og:url" content="http://example.com/2021/04/25/Helloworld/index.html">
+<meta property="og:url" content="http://enderfga.cn/2021/04/25/Helloworld/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
 <meta property="og:description" content="My First blog:Something about Enderfga">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211208140734004.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
 <meta property="article:published_time" content="2021-04-25T02:19:31.000Z">
 <meta property="article:modified_time" content="2021-12-08T06:13:10.941Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="self">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211208140734004.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://enderfga.cn/2021/04/25/Helloworld/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hello world!',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-12-08 14:13:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  <title>Hello world! - Enderfga&#39;Blog</title>
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-<!-- 自定义样式保持在最底部 -->
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="\assets\css\APlayer.min.css" class="aplayer-style-marker">
 <script src="\assets\js\APlayer.min.js" class="aplayer-script-marker"></script>
-</head>
-
-
-<body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Enderfga</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/">
-                <i class="iconfont icon-link-fill"></i>
-                友链
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211208140734004.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello world!">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-04-25 10:19" pubdate>
-        2021年4月25日 上午
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      2.8k 字
-    </span>
-  
-
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      24 分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
-          
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Hello world!</h1>
-            
-              <p class="note note-info">
-                
-                  本文最后更新于：2021年12月8日 下午
-                
-              </p>
-            
-            <div class="markdown-body">
-              <p>My First blog:Something about Enderfga</p>
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Enderfga'Blog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hello world!</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-04-25T02:19:31.000Z" title="发表于 2021-04-25 10:19:31">2021-04-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-12-08T06:13:10.941Z" title="更新于 2021-12-08 14:13:10">2021-12-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Hello world!"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>My First blog:Something about Enderfga</p>
 <span id="more"></span>
 <h1 id="Think-twice-code-once"><a href="#Think-twice-code-once" class="headerlink" title="Think twice, code once."></a>Think twice, code once.</h1>
-        <div id="aplayer-gjtWdiZg" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-OVdbDQzt" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-gjtWdiZg"),
+            element: document.getElementById("aplayer-OVdbDQzt"),
             narrow: false,
             autoplay: true,
             showlrc: false,
@@ -271,48 +172,48 @@
           window.aplayers || (window.aplayers = []);
           window.aplayers.push(ap);
         </script>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gAAR54"><img src="https://z3.ax1x.com/2021/04/30/gAAR54.jpg" srcset="/img/loading.gif" lazyload alt="gAAR54.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gAAR54"><img src="https://z3.ax1x.com/2021/04/30/gAAR54.jpg" alt="gAAR54.jpg"></a></p>
 <p>自打成为一个程序猿开始，翻阅博客文章学习就成了我的日常（质量确实有够参差不齐···），CSDN、博客园、简书、知乎、GitHub等我都经常光顾，于是萌生了自己写blog的想法，苦于技术力不足一直搁置至今（现在也不怎么样哈哈哈）。在GZTime的协助下，我自己的小破站终于建成啦~希望我早日产出点技术性文章，现在只能拿来记流水账了······</p>
 <h1 id="Enderfga？"><a href="#Enderfga？" class="headerlink" title="Enderfga？"></a>Enderfga？</h1><p>关于我的id来源其实挺傻的，在成为程序猿之前我是一名资深游戏玩家，我还清楚地记得我接触的第一款网络游戏叫植物大战僵尸OL，然后是洛克王国，卡布西游，奥奇传说···直到六年级那年，我玩了第一款我愿将其称之为“游戏”或者说是“第九艺术”的作品——Minecraft。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gAAhG9"><img src="https://z3.ax1x.com/2021/04/30/gAAhG9.jpg" srcset="/img/loading.gif" lazyload alt="gAAhG9.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gAAhG9"><img src="https://z3.ax1x.com/2021/04/30/gAAhG9.jpg" alt="gAAhG9.jpg"></a></p>
 <p>MC一直陪我走到今天，我对编程的兴趣基本也是萌芽于此。虽然课程里没有涉及Java，但有机会我还是会争取好好自学Java和C#的。至于MC，不管怎么更新换代，mod/红石/命令方块/欺负末影龙/种田养猪都挺吸引我的。</p>
-<figure class="highlight mizar"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mizar">EnderDragon—Enderman-Enderfga,Doesn&#x27;t <span class="hljs-keyword">that</span> sound cool?<br>&quot;This <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> the <span class="hljs-keyword">end</span>,this <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> even the beginning <span class="hljs-keyword">of</span><br> the <span class="hljs-keyword">end</span>,but,perhaps,the <span class="hljs-keyword">end</span> <span class="hljs-keyword">of</span> the beginning.&quot;<br>                   ——Winston Leonard Spencer Churchill<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">EnderDragon—Enderman-Enderfga,Doesn&#39;t that sound cool?</span><br><span class="line">&quot;This is not the end,this is not even the beginning of</span><br><span class="line"> the end,but,perhaps,the end of the beginning.&quot;</span><br><span class="line">                   ——Winston Leonard Spencer Churchill</span><br></pre></td></tr></table></figure>
 <p>这个id不知不觉间居然用了七年了，从个别网站到所有账户统一，我也不舍得换新的了（在互联网上统一貌似不是什么好习惯，还容易查到我年轻的时候留下的黑历史···）只希望外国友人看到这么沙雕的英语名不要笑我哈哈哈。（谷歌娘念的好可爱！）</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gAm5Bq"><img src="https://z3.ax1x.com/2021/04/30/gAm5Bq.jpg" srcset="/img/loading.gif" lazyload alt="gAm5Bq.jpg"></a></p>
-<h1 id="ACGN-引きこもり"><a href="#ACGN-引きこもり" class="headerlink" title="ACGN-引きこもり"></a>ACGN-引きこもり</h1><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fgsIRU"><img src="https://z3.ax1x.com/2021/08/15/fgsIRU.jpg" srcset="/img/loading.gif" lazyload alt="fgsIRU.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gAm5Bq"><img src="https://z3.ax1x.com/2021/04/30/gAm5Bq.jpg" alt="gAm5Bq.jpg"></a></p>
+<h1 id="ACGN-引きこもり"><a href="#ACGN-引きこもり" class="headerlink" title="ACGN-引きこもり"></a>ACGN-引きこもり</h1><p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fgsIRU"><img src="https://z3.ax1x.com/2021/08/15/fgsIRU.jpg" alt="fgsIRU.jpg"></a></p>
 <div style="text-align:center">宿舍一角</div>
 
 <h2 id="Animation"><a href="#Animation" class="headerlink" title="Animation"></a>Animation</h2><p>二次元浓度++；</p>
 <p>很庆幸自己的童年有虹猫蓝兔七侠传，洛洛历险记，蓝猫淘气三千问，秦时明月，东方神娃······等等优秀国产作品陪伴（甚至顺便在里面学会了普通话），后来在星空卫视的《动漫先锋》栏目里入坑了日漫：犬夜叉，海贼王，钢之炼金术师，七龙珠，<strong>火影忍者</strong>，<strong>银魂</strong>······没有这几部番，肯定也没有现在时而中二热血，时而沙雕废柴的我。<br>至于B站的入站时间是2015-07-10 17:20:10（这是通过答题的时间，终于不是游客了！）（用时间戳查的，我怎么可能记得这种东西）</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/wallhaven-j3dg1m.jpg" srcset="/img/loading.gif" lazyload alt="General 2560x1440 Aerith Gainsborough Final Fantasy video games women ponytail flowers jacket dress"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/wallhaven-j3dg1m.jpg" alt="General 2560x1440 Aerith Gainsborough Final Fantasy video games women ponytail flowers jacket dress"></p>
 <p>那个时候特地去看了某科学的超电磁炮，lovelive什么的，四舍五入也算是二刺猿入门了（吧？）</p>
 <p>从零开始的异世界生活，一拳超人，灵能百分百，小林家的龙女仆，干物妹小埋，刺客伍六七，<strong>紫罗兰永恒花园</strong>······这些年看番的频率虽然少了，但那种每周等更新看番的热情已经刻进DNA了。每顿饭的时候刷刷B站的剪辑还能感慨一下“爷青回”，泪目一会。</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211208140846878.png" srcset="/img/loading.gif" lazyload alt="image-20211208140846878"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211208140846878.png" alt="image-20211208140846878"></p>
 <p>另外我的头像其实是桂小太郎，不过因为版权意识的加深，可能有机会还是得重画一个。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fgyay4"><img src="https://z3.ax1x.com/2021/08/15/fgyay4.jpg" srcset="/img/loading.gif" lazyload alt="fgyay4.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/fgyay4"><img src="https://z3.ax1x.com/2021/08/15/fgyay4.jpg" alt="fgyay4.jpg"></a></p>
 <p>更新：桂先生成功升级了，参考了尼尔机械纪元中9S的装扮，现在科技感满满！</p>
 <h2 id="Comic"><a href="#Comic" class="headerlink" title="Comic"></a>Comic</h2><p>回忆了一下，我好像不怎么看漫画。起初看漫画是因为死火海更新太慢了，后来在快看上看了几部，记得名字的有阎王不高兴，哑舍，快把我哥带走，<strong>蝉女</strong>。好看是好看，感觉有点像折中选择，不如动画灵动也不如小说全面。</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/20180718145340_ZKfkz.thumb.1000_0.jpeg" srcset="/img/loading.gif" lazyload alt="蝉女"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/20180718145340_ZKfkz.thumb.1000_0.jpeg" alt="蝉女"></p>
 <p>已经完全想不起来蝉女讲什么了，但画风针不戳。最近听了《<a target="_blank" rel="noopener" href="https://bilibili.com/video/BV1WX4y1G7ok">鉴情师</a>》这首歌才想起来的。</p>
 <h2 id="Game"><a href="#Game" class="headerlink" title="Game"></a>Game</h2><p>说到这个我可就不困了（zzzzz….）</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gV9KCn"><img src="https://z3.ax1x.com/2021/05/01/gV9KCn.jpg" srcset="/img/loading.gif" lazyload alt="gV9KCn.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gV9KCn"><img src="https://z3.ax1x.com/2021/05/01/gV9KCn.jpg" alt="gV9KCn.jpg"></a></p>
 <div style="text-align:center"><iframe width="100%" height="500" src="https://player.bilibili.com/player.html?aid=5868975&bvid=BV1Ts411k73E&cid=9531080&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></iframe></div>
 
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gV9eEQ"><img src="https://z3.ax1x.com/2021/05/01/gV9eEQ.jpg" srcset="/img/loading.gif" lazyload alt="gV9eEQ.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gV9eEQ"><img src="https://z3.ax1x.com/2021/05/01/gV9eEQ.jpg" alt="gV9eEQ.jpg"></a></p>
 <div style="text-align:center"><iframe width="100%" height="500" src="https://player.bilibili.com/player.html?aid=460307938&bvid=BV1t5411w723&cid=331362469&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></iframe></div>
 
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211208141258648.png" srcset="/img/loading.gif" lazyload alt="image-20211208141258648"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211208141258648.png" alt="image-20211208141258648"></p>
 <div style="text-align:center"><iframe width="100%" height="500" src="https://player.bilibili.com/player.html?aid=12069119&bvid=BV1Wx411q7zb&cid=19911067&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
 
 <p>我记得当年进b站答题的时候有一道题让我选出“老头滚动条”的原名，百度的过程中我了解到“上古卷轴5”(老滚)mod的丰富程度堪比MC，中世纪剑与魔法的世界也让我着迷，于是我毅然决然地成为了一名抓根宝（龙裔），但通关的过程中我饱受迷路的困扰：黑灯瞎火的洞窟、乱七八糟的陷阱、不可名状的地图···于是我决定找一款我想怎么走就怎么走的游戏——《Assassin‘s Creed》。一入坑就是10年，我愿时间永远停留在佛罗伦萨塔顶的月圆之夜。库里的全套刺客信条通关了，我又想念剑与魔法的故事了，因为久仰其大名我下载了——《The Witcher 3》。这是一部我最喜欢的游戏，没有之一，这也许就是“第九艺术”吧。三言两语不能表达出其中的波澜壮阔，每一个支线，每一部DLC都值得我一遍又一遍地游玩。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs plain">我吻过凯尔莫罕忽然冷冽而至的白雪，<br>我听过史凯利杰伴着海妖清啸的海风。<br>我仰头饮尽诺威格瑞陈年的矮人烈酒，<br>我策马走遍全威伦最艰险的万水千山。<br>对我而言，家是什么地方。<br>是那抹黑白裙摆的倩影，<br>还是那丁香与醋栗的芬芳。<br></code></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">我吻过凯尔莫罕忽然冷冽而至的白雪，</span><br><span class="line">我听过史凯利杰伴着海妖清啸的海风。</span><br><span class="line">我仰头饮尽诺威格瑞陈年的矮人烈酒，</span><br><span class="line">我策马走遍全威伦最艰险的万水千山。</span><br><span class="line">对我而言，家是什么地方。</span><br><span class="line">是那抹黑白裙摆的倩影，</span><br><span class="line">还是那丁香与醋栗的芬芳。</span><br></pre></td></tr></table></figure>
 <p>给我留下深刻印象的游戏有很多，尼尔里的“世界竟然如此美丽”，2077里的”以我残躯化烈火”，死亡搁浅里的“我在冥滩等你”······希望我的程序猿之路最终可以走到像小岛秀夫那样，拥有自己的工作室，书写自己的艺术。</p>
 <p>（另外上面2B那张图的作者是Wlop，我最喜欢的画师）</p>
 <h2 id="Novel"><a href="#Novel" class="headerlink" title="Novel"></a>Novel</h2><p>我还年轻的时候会看一些天蚕土豆，唐家三少，耳根写的小说······对我的文学水平真是没有半点提升。</p>
 <p>在高二语文老师的耳濡目染下，我一个理工男对文学兴趣盎然。即使很忙，也想抽点时间陶冶情操。</p>
 <div style="text-align:center">落霞与孤鹜齐飞，秋水共长天一色</div>
 
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gV41qf"><img src="https://z3.ax1x.com/2021/05/01/gV41qf.jpg" srcset="/img/loading.gif" lazyload alt="gV41qf.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/gV41qf"><img src="https://z3.ax1x.com/2021/05/01/gV41qf.jpg" alt="gV41qf.jpg"></a></p>
 <p>除了诗与词，还记得名字的书只剩下《巨人的陨落》、《三体》、《外婆的道歉信》、《自由在高处》······</p>
 <p>剩下的各种悬疑侦探小说就不列举了（不过强推一手《神探夏洛克》《POI疑犯追踪》）。</p>
 <h2 id="Music"><a href="#Music" class="headerlink" title="Music"></a>Music</h2><p>我这个人听的歌有亿点点杂，基本歌单里什么都沾一点（二次元&amp;欧美占比较大）</p>
@@ -320,243 +221,8 @@
 <div style="text-align:center"><iframe width="100%" height="500" src="https://player.bilibili.com/player.html?aid=4848309&bvid=BV1Cs411i7B1&cid=7870718&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></div>
 
 <p>2016-10-01至今，永远单推憨憨！</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4jdP0g"><img src="https://z3.ax1x.com/2021/10/05/4jdP0g.jpg" srcset="/img/loading.gif" lazyload alt="4jdP0g.jpg"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/4jdP0g"><img src="https://z3.ax1x.com/2021/10/05/4jdP0g.jpg" alt="4jdP0g.jpg"></a></p>
 <h1 id="Enderfga。"><a href="#Enderfga。" class="headerlink" title="Enderfga。"></a>Enderfga。</h1><p>不知不觉写了好多废话了······</p>
 <p>总之，大学生活开始了，希望我能当好一个神奇海螺/哆啦安梦。</p>
 <div align="right">----Nothing is true，everything is permitted.</div>
-
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/self/">self</a>
-                    
-                  </div>
-                
-              </div>
-              
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/10/18/latex/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Texlive+VScode</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-
-    
-  </main>
-
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <p id="jinrishici-sentence">愿我如星君如月，夜夜流光相皎洁</p> <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener"><span> 粤ICP备2021112653号-1</span></a> 
-  </div>
-  
-
-  
-
-  
-</footer>
-
-
-  <!-- SCRIPTS -->
-  
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-<!-- Plugins -->
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-  
-
-
-
-  
-    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
-  
-
-
-
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        loader: {
-          
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
-<script  src="/js/boot.js" ></script>
-
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/Enderfga/live2d-widget-models/packages/live2d-widget-model-hijiki/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
-</html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Enderfga</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://enderfga.cn/2021/04/25/Helloworld/">http://enderfga.cn/2021/04/25/Helloworld/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://enderfga.cn" target="_blank">Enderfga'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/self/">self</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2021/06/07/FWQ/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">吃好睡好，万事都好</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/10/01/LY/" title="我用什么才能留住你"><img class="cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-01</div><div class="title">我用什么才能留住你</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Enderfga</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">12</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Think-twice-code-once"><span class="toc-number">1.</span> <span class="toc-text">Think twice, code once.</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Enderfga%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">Enderfga？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ACGN-%E5%BC%95%E3%81%8D%E3%81%93%E3%82%82%E3%82%8A"><span class="toc-number">3.</span> <span class="toc-text">ACGN-引きこもり</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Animation"><span class="toc-number">3.1.</span> <span class="toc-text">Animation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comic"><span class="toc-number">3.2.</span> <span class="toc-text">Comic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Game"><span class="toc-number">3.3.</span> <span class="toc-text">Game</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Novel"><span class="toc-number">3.4.</span> <span class="toc-text">Novel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Music"><span class="toc-number">3.5.</span> <span class="toc-text">Music</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Enderfga%E3%80%82"><span class="toc-number">4.</span> <span class="toc-text">Enderfga。</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/20/AI/" title="深度学习在新冠肺炎辅助诊断中的应用"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深度学习在新冠肺炎辅助诊断中的应用"/></a><div class="content"><a class="title" href="/2021/12/20/AI/" title="深度学习在新冠肺炎辅助诊断中的应用">深度学习在新冠肺炎辅助诊断中的应用</a><time datetime="2021-12-20T08:10:56.440Z" title="发表于 2021-12-20 16:10:56">2021-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/26/wsl/" title="wsl安装与开发环境搭建"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="wsl安装与开发环境搭建"/></a><div class="content"><a class="title" href="/2021/11/26/wsl/" title="wsl安装与开发环境搭建">wsl安装与开发环境搭建</a><time datetime="2021-11-26T02:45:27.000Z" title="发表于 2021-11-26 10:45:27">2021-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/23/onehot/" title="One-Hot Encoding 独热编码"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="One-Hot Encoding 独热编码"/></a><div class="content"><a class="title" href="/2021/11/23/onehot/" title="One-Hot Encoding 独热编码">One-Hot Encoding 独热编码</a><time datetime="2021-11-23T11:41:34.000Z" title="发表于 2021-11-23 19:41:34">2021-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/16/middle/" title="神经网络回归与分类（波士顿房价与红酒分类）"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="神经网络回归与分类（波士顿房价与红酒分类）"/></a><div class="content"><a class="title" href="/2021/11/16/middle/" title="神经网络回归与分类（波士顿房价与红酒分类）">神经网络回归与分类（波士顿房价与红酒分类）</a><time datetime="2021-11-16T11:57:45.000Z" title="发表于 2021-11-16 19:57:45">2021-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/28/ridge/" title="岭回归，特征工程分析advertising.csv"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="岭回归，特征工程分析advertising.csv"/></a><div class="content"><a class="title" href="/2021/10/28/ridge/" title="岭回归，特征工程分析advertising.csv">岭回归，特征工程分析advertising.csv</a><time datetime="2021-10-28T10:35:47.000Z" title="发表于 2021-10-28 18:35:47">2021-10-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Enderfga</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/Enderfga/live2d-widget-models/packages/live2d-widget-model-hijiki/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
