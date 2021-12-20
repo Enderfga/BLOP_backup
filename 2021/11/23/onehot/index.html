@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>One-Hot Encoding 独热编码 | Enderfga'Blog</title><meta name="keywords" content="course"><meta name="author" content="Enderfga"><meta name="copyright" content="Enderfga"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="One-Hot Encoding学习记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="One-Hot Encoding 独热编码">
+<meta property="og:url" content="http://enderfga.cn/2021/11/23/onehot/index.html">
+<meta property="og:site_name" content="Enderfga&#39;Blog">
+<meta property="og:description" content="One-Hot Encoding学习记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg">
+<meta property="article:published_time" content="2021-11-23T11:41:34.000Z">
+<meta property="article:modified_time" content="2021-11-23T12:15:48.198Z">
+<meta property="article:author" content="Enderfga">
+<meta property="article:tag" content="course">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png"><link rel="canonical" href="http://enderfga.cn/2021/11/23/onehot/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'One-Hot Encoding 独热编码',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-23 20:15:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Enderfga'Blog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">One-Hot Encoding 独热编码</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-23T11:41:34.000Z" title="发表于 2021-11-23 19:41:34">2021-11-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-23T12:15:48.198Z" title="更新于 2021-11-23 20:15:48">2021-11-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="One-Hot Encoding 独热编码"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>One-Hot Encoding学习记录</p>
+<span id="more"></span>
+<h1 id="一、One-Hot-Encoding"><a href="#一、One-Hot-Encoding" class="headerlink" title="一、One-Hot Encoding"></a>一、One-Hot Encoding</h1><p>One-Hot 编码，又称为一位有效编码，主要是采用位状态寄存器来对个状态进行编码，每个状态都由他独立的寄存器位，并且在任意时候只有一位有效。<br>在实际的机器学习的应用任务中，特征有时候并不总是连续值，有可能是一些分类值，如性别可分为“ male ”和“ female ”。在机器学习任务中，对于这样的特征，</p>
+<p>One-hot在数位电路中被用来表示一种特殊的位元组合，该字节里，仅容许单一位元为1，其他位元都必须为0。之所以称为one-hot就是因为只能有一个1（hot）。若情况相反，只有一个0，其余为1，则称为one-cold。在机器学习里，也有one-hot向量（英语：one-hot vector）的概念。在一任意维度的向量中，仅有一个维度的值是1，其余为0。譬如向量 ${\displaystyle [0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0]}{\displaystyle [0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0\ 0]}$，即为15维空间中的一组one-hot向量。将类别性资料转换成one-hot向量的过程则称one-hot编码（英语：one-hot encoding）。在统计学中，虚拟变数代表了类似的概念。</p>
+<p>One-hot目前并无公认或被广泛使用的中文译名。目前可见的one-hot encoding译名有独热编码以及一位有效编码。</p>
+<p>通常我们需要对其进行特征数字化，如下面的例子，这些特征值并不是连续的，而是离散的，无序的。</p>
+<p>有如下三个特征属性：</p>
+<ul>
+<li>性别：[“male”，”female”]</li>
+<li>地区：[“Europe”，”US”，”Asia”]</li>
+<li>浏览器：[“Firefox”，”Chrome”，”Safari”，”Internet Explorer”]</li>
+</ul>
+<p>对于某一个样本，如[“male”，”US”，”Internet Explorer”]，我们需要将这个分类值的特征数字化，最直接的方法，我们可以采用序列化的方式：[0,1,3]。但是这样的特征处理并不能直接放入机器学习算法中。</p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/20190514150006715.jpg" alt="img"></p>
+<h1 id="二、One-Hot-Encoding的处理方法"><a href="#二、One-Hot-Encoding的处理方法" class="headerlink" title="二、One-Hot Encoding的处理方法"></a>二、One-Hot Encoding的处理方法</h1><p>One-Hot 编码是分类变量作为二进制向量的表示。</p>
+<ol>
+<li><p>将分类值映射到整数值。</p>
+</li>
+<li><p>每个整数值被表示为二进制向量，除了整数的索引之外，它都是零值，它被标记为1。</p>
+</li>
+</ol>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211123195029323.png" alt="image-20211123195029323"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211123195041636.png" alt="image-20211123195041636"></p>
+<p>对于上述的问题，性别的属性是二维的，同理，地区是三维的，浏览器则是四维的，这样，我们可以采用One-Hot编码的方式对上述的样本“[“male”，”US”，”Internet Explorer”]”编码，“male”则对应着[1，0]，同理“US”对应着[0，1，0]，“Internet Explorer”对应着[0，0，0，1]。</p>
+<p>则完整的特征数字化的结果为：[1,0,0,1,0,0,0,0,1]。这样导致的一个结果就是数据会变得非常的稀疏。</p>
+<h1 id="三、Python代码举例"><a href="#三、Python代码举例" class="headerlink" title="三、Python代码举例"></a>三、Python代码举例</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line"> </span><br><span class="line">enc = preprocessing.OneHotEncoder()</span><br><span class="line">enc.fit([[<span class="number">0</span>,<span class="number">0</span>,<span class="number">3</span>],[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">2</span>,<span class="number">1</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">2</span>]])</span><br><span class="line"> </span><br><span class="line">array = enc.transform([[<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>]]).toarray()</span><br><span class="line"> </span><br><span class="line"><span class="built_in">print</span>(array)</span><br></pre></td></tr></table></figure>
+<p>结果：[[ 1.  0.  0.  1.  0.  0.  0.  0.  1.]]</p>
+<h1 id="四、优缺点分析"><a href="#四、优缺点分析" class="headerlink" title="四、优缺点分析"></a>四、优缺点分析</h1><p><strong>优点：</strong></p>
+<p>(1) 解决了分类器不好处理离散数据的问题。</p>
+<pre><code>a. 欧式空间。在回归，分类，聚类等机器学习算法中，特征之间 距离计算 或 相似度计算 是非常重要的，而我们常用的距离或相似度的计算都是在欧式空间的相似度计算，计算余弦相似性，基于的就是欧式空间。
+
+b. one-hot 编码。使用 one-hot 编码，将离散特征的取值扩展到了欧式空间，离散特征的某个取值就对应欧式空间的某个点。将离散型特征使用 one-hot 编码，确实会让 特征之间的距离计算更加合理。
+</code></pre><p>(2) 在一定程度上也起到了扩充特征的作用。</p>
+<p><strong>缺点：</strong></p>
+<p>(1) 它是一个词袋模型，不考虑词与词之间的<strong>顺序</strong>（文本中词的顺序信息也是很重要的）；</p>
+<p>(2) 它<strong>假设词与词相互独立</strong>（在大多数情况下，词与词是相互影响的）；</p>
+<p>(3) 它得到的特征是<strong>离散稀疏</strong>的 （这个问题最严重）。</p>
+<p><strong>与其他编码的差异：</strong></p>
+<ul>
+<li>决定状态机目前状态的时间成本低，因为读取一个正反器的时间成本固定。</li>
+<li>改变机器的状态所需时间成本也是固定，因为每次只需要改变两个正反器的值。</li>
+<li>设计及设计变更容易。</li>
+<li>容易侦测出非法状态。</li>
+<li>可以有效率地使用FPGA的大量正反器。</li>
+<li>相较于其他编码，使用one-hot来实现状态机通常可以达到更高的时脉频率。</li>
+<li>比起其他编码，需要更多的正反器，使得其在PAL装置上不切实际。</li>
+<li>会有很多非法状态存在[7]。这是由于${\displaystyle N}$个正反器构成的计数器总共有${\displaystyle 2^{N}}$个状态（每个正反器可以是0或1，所以总共${\displaystyle 2^{N}}$种可能状态），但是合法状态却只有${\displaystyle N}$个（即同一时间只允许一个正反器是1,其他必须为0），所以总共会有${\displaystyle 2^{N}-N}$个可能的非法状态。</li>
+</ul>
+<h1 id="五、应用"><a href="#五、应用" class="headerlink" title="五、应用"></a>五、应用</h1><p><strong>自然语言处理</strong><br>在自然语言处理中，若有个字典或字库里有${\displaystyle N}$个单字，则每个单字可以被一个${\displaystyle N}$维的one-hot向量代表。譬如若字库里仅有apple（苹果），banana（香蕉），以及pineapple（凤梨）这三个单字，则他们各自的one-hot向量可以为：</p>
+<script type="math/tex; mode=display">{\displaystyle {\begin{array}{ll}apple&=[1\ 0\ 0]\\banana&=[0\ 1\ 0]\\pineapple&=[0\ 0\ 1]\end{array}}}</script><p>由于电脑无法理解非数字类的数据，One-hot编码可以将类别性数据转换成统一的数字格式，方便机器学习的算法进行处理及计算。而转换成固定维度的向量则方便机器学习算法进行线性代数上的计算。另外由于一个one-hot向量中，绝大部分的数字都是0，所以若使用稀疏矩阵的数据结构，则可以节省电脑内存的使用量。</p>
+<p><strong>有限状态机</strong><br>One-hot编码常常被用来表示一个有限状态机的状态。如果使用二进制或格雷码来代表状态，则需要用到解码器才能得知该码代表的状态。使用one-hot来代表状态的话，则不需要解码器，因为若第${\displaystyle n}$个位元为1，就代表机器目前在第${\displaystyle n}$个状态。</p>
+<p>一个有限状态机的例子是由15个状态构成的环状计数器。使用one-hot编码来实现此状态机的话，可以将15个正反器串联在一起，每个正反器的Q输出接到下一个正反器的D输入，而第一个正反器的D输入则是接到第15个的Q输出，形成一个环状。第一个正反器代表机器的第一个状态，第二个正反器代表第二个状态，依此类推。当机器被归零重设时，第一个正反器的值为1，其余为0。当一个时脉边缘抵达正反器时，会将1推进到下一个正反器。依照这种方式，1可一步步推进到第15个正反器，亦即第15个状态，再之后则重新回到第一个状态。</p>
+<p>位址解码器可以将二进制或格雷码转换成one-shot表示形式。而优先编码器则是作用相反。</p>
+<h1 id="六、资料来源"><a href="#六、资料来源" class="headerlink" title="六、资料来源"></a>六、资料来源</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/One-hot">https://zh.wikipedia.org/wiki/One-hot</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/google19890102/article/details/44039761">https://blog.csdn.net/google19890102/article/details/44039761</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15192373/article/details/89552498">https://blog.csdn.net/qq_15192373/article/details/89552498</a></li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Enderfga</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://enderfga.cn/2021/11/23/onehot/">http://enderfga.cn/2021/11/23/onehot/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://enderfga.cn" target="_blank">Enderfga'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/course/">course</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/26/wsl/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">wsl安装与开发环境搭建</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/16/middle/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">神经网络回归与分类（波士顿房价与红酒分类）</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/12/20/AI/" title="深度学习在新冠肺炎辅助诊断中的应用"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-20</div><div class="title">深度学习在新冠肺炎辅助诊断中的应用</div></div></a></div><div><a href="/2021/10/20/picgo/" title="typora+picgo+gitee高效写作"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-20</div><div class="title">typora+picgo+gitee高效写作</div></div></a></div><div><a href="/2021/10/18/latex/" title="Texlive+VScode"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-18</div><div class="title">Texlive+VScode</div></div></a></div><div><a href="/2021/11/26/wsl/" title="wsl安装与开发环境搭建"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-26</div><div class="title">wsl安装与开发环境搭建</div></div></a></div><div><a href="/2021/10/19/8puzzle/" title="使用搜索算法解决八数码问题"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-19</div><div class="title">使用搜索算法解决八数码问题</div></div></a></div><div><a href="/2021/10/23/logistic/" title="逻辑回归模型及lbfgs算法公式推导"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-23</div><div class="title">逻辑回归模型及lbfgs算法公式推导</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Enderfga</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81One-Hot-Encoding"><span class="toc-number">1.</span> <span class="toc-text">一、One-Hot Encoding</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81One-Hot-Encoding%E7%9A%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">二、One-Hot Encoding的处理方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81Python%E4%BB%A3%E7%A0%81%E4%B8%BE%E4%BE%8B"><span class="toc-number">3.</span> <span class="toc-text">三、Python代码举例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E4%BC%98%E7%BC%BA%E7%82%B9%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">四、优缺点分析</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%BA%94%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">五、应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%B5%84%E6%96%99%E6%9D%A5%E6%BA%90"><span class="toc-number">6.</span> <span class="toc-text">六、资料来源</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/20/AI/" title="深度学习在新冠肺炎辅助诊断中的应用"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深度学习在新冠肺炎辅助诊断中的应用"/></a><div class="content"><a class="title" href="/2021/12/20/AI/" title="深度学习在新冠肺炎辅助诊断中的应用">深度学习在新冠肺炎辅助诊断中的应用</a><time datetime="2021-12-20T08:10:56.440Z" title="发表于 2021-12-20 16:10:56">2021-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/26/wsl/" title="wsl安装与开发环境搭建"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="wsl安装与开发环境搭建"/></a><div class="content"><a class="title" href="/2021/11/26/wsl/" title="wsl安装与开发环境搭建">wsl安装与开发环境搭建</a><time datetime="2021-11-26T02:45:27.000Z" title="发表于 2021-11-26 10:45:27">2021-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/23/onehot/" title="One-Hot Encoding 独热编码"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="One-Hot Encoding 独热编码"/></a><div class="content"><a class="title" href="/2021/11/23/onehot/" title="One-Hot Encoding 独热编码">One-Hot Encoding 独热编码</a><time datetime="2021-11-23T11:41:34.000Z" title="发表于 2021-11-23 19:41:34">2021-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/16/middle/" title="神经网络回归与分类（波士顿房价与红酒分类）"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="神经网络回归与分类（波士顿房价与红酒分类）"/></a><div class="content"><a class="title" href="/2021/11/16/middle/" title="神经网络回归与分类（波士顿房价与红酒分类）">神经网络回归与分类（波士顿房价与红酒分类）</a><time datetime="2021-11-16T11:57:45.000Z" title="发表于 2021-11-16 19:57:45">2021-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/28/ridge/" title="岭回归，特征工程分析advertising.csv"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="岭回归，特征工程分析advertising.csv"/></a><div class="content"><a class="title" href="/2021/10/28/ridge/" title="岭回归，特征工程分析advertising.csv">岭回归，特征工程分析advertising.csv</a><time datetime="2021-10-28T10:35:47.000Z" title="发表于 2021-10-28 18:35:47">2021-10-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Enderfga</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/Enderfga/live2d-widget-models/packages/live2d-widget-model-hijiki/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
