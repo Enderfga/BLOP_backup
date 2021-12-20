@@ -1,156 +1,255 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>逻辑回归模型及lbfgs算法公式推导 | Enderfga'Blog</title><meta name="keywords" content="course"><meta name="author" content="Enderfga"><meta name="copyright" content="Enderfga"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="机器学习第一次作业记录。小组成员：方桂安，刘玥，周敏。">
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Enderfga">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="机器学习第一次作业记录。小组成员：方桂安，刘玥，周敏。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="逻辑回归模型及lbfgs算法公式推导">
 <meta property="og:url" content="http://enderfga.cn/2021/10/23/logistic/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
 <meta property="og:description" content="机器学习第一次作业记录。小组成员：方桂安，刘玥，周敏。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg">
+<meta property="og:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/1990595-20200922165029694-1712738583.png">
 <meta property="article:published_time" content="2021-10-23T15:19:18.000Z">
 <meta property="article:modified_time" content="2021-10-24T14:27:24.258Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="course">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg"><link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png"><link rel="canonical" href="http://enderfga.cn/2021/10/23/logistic/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
-  copy: {
-    success: '复制成功',
-    error: '复制错误',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  date_suffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'fancybox',
-  Snackbar: undefined,
-  source: {
-    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
-    justifiedGallery: {
-      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
-    },
-    fancybox: {
-      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
-      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
-    }
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isanchor: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '逻辑回归模型及lbfgs算法公式推导',
-  isPost: true,
-  isHome: false,
-  isHighlightShrink: false,
-  isToc: true,
-  postUpdate: '2021-10-24 22:27:24'
-}</script><noscript><style type="text/css">
-  #nav {
-    opacity: 1
-  }
-  .justified-gallery img {
-    opacity: 1
-  }
-
-  #recent-posts time,
-  #post-meta time {
-    display: inline !important
-  }
-</style></noscript><script>(win=>{
-    win.saveToLocal = {
-      set: function setWithExpiry(key, value, ttl) {
-        if (ttl === 0) return
-        const now = new Date()
-        const expiryDay = ttl * 86400000
-        const item = {
-          value: value,
-          expiry: now.getTime() + expiryDay,
-        }
-        localStorage.setItem(key, JSON.stringify(item))
-      },
-
-      get: function getWithExpiry(key) {
-        const itemStr = localStorage.getItem(key)
-
-        if (!itemStr) {
-          return undefined
-        }
-        const item = JSON.parse(itemStr)
-        const now = new Date()
-
-        if (now.getTime() > item.expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return item.value
-      }
-    }
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://gitee.com/sysu_20354027/pic/raw/master/img/1990595-20200922165029694-1712738583.png">
   
-    win.getScript = url => new Promise((resolve, reject) => {
-      const script = document.createElement('script')
-      script.src = url
-      script.async = true
-      script.onerror = reject
-      script.onload = script.onreadystatechange = function() {
-        const loadState = this.readyState
-        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
-        script.onload = script.onreadystatechange = null
-        resolve()
-      }
-      document.head.appendChild(script)
-    })
   
-      win.activateDarkMode = function () {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      win.activateLightMode = function () {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
-      const t = saveToLocal.get('theme')
+  <title>逻辑回归模型及lbfgs算法公式推导 - Enderfga&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
     
-          if (t === 'dark') activateDarkMode()
-          else if (t === 'light') activateLightMode()
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"enderfga.cn","root":"/","version":"1.8.13","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Enderfga</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        if (asideStatus === 'hide') {
-          document.documentElement.classList.add('hide-aside')
-        } else {
-          document.documentElement.classList.remove('hide-aside')
-        }
-      }
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="逻辑回归模型及lbfgs算法公式推导">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-10-23 23:19" pubdate>
+        2021年10月23日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      16k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      134 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
     
-    const detectApple = () => {
-      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Enderfga'Blog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">逻辑回归模型及lbfgs算法公式推导</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-10-23T15:19:18.000Z" title="发表于 2021-10-23 23:19:18">2021-10-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-10-24T14:27:24.258Z" title="更新于 2021-10-24 22:27:24">2021-10-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="逻辑回归模型及lbfgs算法公式推导"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div><article class="post-content" id="article-container"><p>机器学习第一次作业记录。小组成员：方桂安，刘玥，周敏。</p>
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">逻辑回归模型及lbfgs算法公式推导</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年10月24日 晚上
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>机器学习第一次作业记录。小组成员：方桂安，刘玥，周敏。</p>
 <span id="more"></span>
 <h2 id="一、描述逻辑回归模型"><a href="#一、描述逻辑回归模型" class="headerlink" title="一、描述逻辑回归模型"></a>一、描述逻辑回归模型</h2><h3 id="1-1数据"><a href="#1-1数据" class="headerlink" title="1.1数据"></a>1.1数据</h3><script type="math/tex; mode=display">
-D=\{(x_1,y_1),(x_2,y_2),\dots,(x_N,y_N)\},x_i\in \mathbb{R}^n,y_i\in\{0,1\}</script><h3 id="1-2模型"><a href="#1-2模型" class="headerlink" title="1.2模型"></a>1.2模型</h3><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235517425.png" alt="image-20211023235517425"></p>
+D=\{(x_1,y_1),(x_2,y_2),\dots,(x_N,y_N)\},x_i\in \mathbb{R}^n,y_i\in\{0,1\}</script><h3 id="1-2模型"><a href="#1-2模型" class="headerlink" title="1.2模型"></a>1.2模型</h3><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235517425.png" srcset="/img/loading.gif" lazyload alt="image-20211023235517425"></p>
 <p>最初模型：</p>
 <script type="math/tex; mode=display">
 f(x_i)=\omega^Tx_i+b,使得f(x_i)\simeq g(y_i)</script><p>我们的标记变量y的范围是0或1，所以我们需要一个函数能够将上述x的线性组合转化为0或1，最理想的是阶跃函数。</p>
@@ -160,31 +259,31 @@ f(x_i)=\omega^Tx_i+b,使得f(x_i)\simeq g(y_i)</script><p>我们的标记变量y
 0.5, & \omega^Tx+b=0\\
 1, & \omega^Tx+b>0
 \end{cases}</script><p>但由于阶跃函数不连续，不满足单调可微的条件。所以我们希望通过一个一定程度上近似阶跃函数的“替代函数”，并且希望它单调可微。由此，我们想到了逻辑斯蒂函数。</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235558559.png" alt="image-20211023235558559"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235558559.png" srcset="/img/loading.gif" lazyload alt="image-20211023235558559"></p>
 <p>它的图像如下：</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/1990595-20200922165029694-1712738583.png" alt="img"></p>
-<p>因为Logistic 回归主要用于分类问题，以二分类为例，对于所给数据集假设存在这样的一条直线可以将数据完成线性可分。                <img src="https://gitee.com/sysu_20354027/pic/raw/master/img/tW5koNMJrG193KEtuAH7cQ.png" alt="img"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/1990595-20200922165029694-1712738583.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>因为Logistic 回归主要用于分类问题，以二分类为例，对于所给数据集假设存在这样的一条直线可以将数据完成线性可分。                <img src="https://gitee.com/sysu_20354027/pic/raw/master/img/tW5koNMJrG193KEtuAH7cQ.png" srcset="/img/loading.gif" lazyload alt="img"></p>
 <p>当我们要找到分类概率 P(Y=1) 与输入向量 x 的直接关系时，我们引入Sigmoid函数，然后通过比较概率值来判断类别。</p>
 <p>引入sigmoid函数具体实现如下：</p>
 <p>但因为逻辑斯蒂函数的值域在[0,1]之间，无法直接输出0或1。在此基础上，考虑到$\omega^Tx+b$取值是连续的，因此它不能拟合离散变量。可以考虑用它来拟合条件概率$p(y=1|x)$，因为概率的取值也是连续的,我们将逻辑斯蒂函数的输出作为输入x能预测到y为1的概率，并利用对数几率函数，得到下面三个式子。通过此方法，我们将线性模型转换为概率模型。</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235625407.png" alt="image-20211023235625407"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235625407.png" srcset="/img/loading.gif" lazyload alt="image-20211023235625407"></p>
 <h3 id="1-3策略"><a href="#1-3策略" class="headerlink" title="1.3策略"></a>1.3策略</h3><p>在策略上，我们采用极大似然法。即选择最优的w，b使得我们输入x得到的正确的y的概率最大，即下式：</p>
 <script type="math/tex; mode=display">
 (w^*,b^*)=\mathop{argmax}\limits_{(w,b)}\prod_{i=1}^Np(y_i|x_i;\omega,b)</script><p>我们这里做一点变换：</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235646944.png" alt="image-20211023235646944"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235646944.png" srcset="/img/loading.gif" lazyload alt="image-20211023235646944"></p>
 <p>因为上式是连乘的函数，我们通过对数似然函数将之转化为求和，即下式：</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235715659.png" alt="image-20211023235715659"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235715659.png" srcset="/img/loading.gif" lazyload alt="image-20211023235715659"></p>
 <p>为了方便计算，我们做以下处理</p>
 <script type="math/tex; mode=display">
 assume \ that\  \hat{\omega}=(\omega;b),\hat{x}=(x;1)</script><p>则上式可化为</p>
 <script type="math/tex; mode=display">
 \hat{\omega^*}=\mathop{argmin}\limits_{\hat{\omega}}\sum_{i=1}^N(-y_i\hat{\omega }x_i+ln(1+e^{\hat{\omega}^T\hat{x}_i}))</script><p>这是一个凸函数，可用经典的数值优化算法，如梯度下降法、牛顿法求解。</p>
 <p>最终，我们学得的逻辑斯蒂回归模型为</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235742051.png" alt="image-20211023235742051"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235742051.png" srcset="/img/loading.gif" lazyload alt="image-20211023235742051"></p>
 <h2 id="二、描述训练模型所使用的算法"><a href="#二、描述训练模型所使用的算法" class="headerlink" title="二、描述训练模型所使用的算法"></a>二、描述训练模型所使用的算法</h2><h3 id="2-1梯度下降法"><a href="#2-1梯度下降法" class="headerlink" title="2.1梯度下降法"></a>2.1梯度下降法</h3><h4 id="2-1-1问题分析"><a href="#2-1-1问题分析" class="headerlink" title="2.1.1问题分析"></a>2.1.1问题分析</h4><p>首先，我们的目标是下式</p>
 <script type="math/tex; mode=display">
 E(\hat{\omega})=\sum_{i=1}^N(-y_i\hat{\omega}^T\hat{x}_i+ln(1+e^{\hat{\omega}^T\hat{x}_i})),\hat{\omega}^*=\mathop{argmin}_{\hat{\omega}}E(\hat{\omega})</script><p>梯度下降法是一种迭代算法：我们选取适当的初始值$\hat{\omega}^{(0)}$，不断迭代，更新$\hat{\omega}$的值，进行目标函数的极小化，直到收敛。由于负梯度方向是使得函数值下降最快的方向，在迭代的每一步，以负梯度方向更新$\hat{\omega}$的值，从而达到减小函数值的目的。如下图形象化表示：</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023152139696.png" alt="image-20211023152139696"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023152139696.png" srcset="/img/loading.gif" lazyload alt="image-20211023152139696"></p>
 <h4 id="2-1-2核心思想："><a href="#2-1-2核心思想：" class="headerlink" title="2.1.2核心思想："></a>2.1.2核心思想：</h4><ol>
 <li>$E(\hat{\omega})$是具有一阶连续偏导数的凸函数，其极值点在一阶导数为零的地方取得</li>
 <li>一阶泰勒展开：$E(\hat{\omega})\thickapprox E(\hat{\omega}^{(k)})+\nabla E(\hat{\omega}^{(k)})(\hat{\omega}-\hat{\omega}^{(k)})$，其中，$\nabla E(\hat{\omega}^{(k)})$是$E(\hat{\omega})$在$\hat{\omega}^{(k)}$的梯度：</li>
@@ -208,9 +307,9 @@ E(\hat{\omega})=\sum_{i=1}^N(-y_i\hat{\omega}^T\hat{x}_i+ln(1+e^{\hat{\omega}^T\
 <p>（5）否则，置k=k+1，转步骤（3）。</p>
 <h4 id="2-1-4分析"><a href="#2-1-4分析" class="headerlink" title="2.1.4分析"></a>2.1.4分析</h4><p>优点：方法简单，易理解</p>
 <p>缺点：迭代次数多，下降速度慢，如下图，我们采用梯度下降法，迭代近50000次才收敛</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023152205584.png" alt="image-20211023152205584"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023152205584.png" srcset="/img/loading.gif" lazyload alt="image-20211023152205584"></p>
 <p>且准确率如下，可以看出准确率不高。</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023152217061.png" alt="image-20211023152217061"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023152217061.png" srcset="/img/loading.gif" lazyload alt="image-20211023152217061"></p>
 <h3 id="2-2牛顿法"><a href="#2-2牛顿法" class="headerlink" title="2.2牛顿法"></a>2.2牛顿法</h3><h4 id="2-2-1核心思想："><a href="#2-2-1核心思想：" class="headerlink" title="2.2.1核心思想："></a>2.2.1核心思想：</h4><p>$E(\hat{\omega})$是具有二阶连续偏导数的函数</p>
 <p>二阶泰勒展开：$E(\hat{\omega})\thickapprox E(\hat{\omega}^{(k)})+\nabla E(\hat{\omega}^{(k)})(\hat{\omega}-\hat{\omega}^{(k)})+\frac{1}{2}(\hat{\omega}-\hat{\omega}^{(k)})^TH(\hat{\omega}^{(k)})(\hat{\omega}-\hat{\omega}^{(k)})$</p>
 <script type="math/tex; mode=display">
@@ -251,7 +350,7 @@ s_{k}} \quad(1)</script><p>公式推导如下：</p>
 =H^{-1}+\frac{s s^{T} y^{T} \mathrm{~s}}{\left(s^{T} y\right)^{2}}+\frac{s s^{T} y^{T} H^{-1} y}{\left(s^{T} y\right)^{2}}-\frac{s y^{T} H^{-1}}{s^{T} y}-\frac{H^{-1} y s^{T}}{s^{T} y}\\
 =H^{-1}\left(I-\frac{y s^{T}}{s^{T} y}\right)-\frac{s y^{T} H^{-1}}{s^{T} y}\left(I-\frac{y s^{T}}{s^{T} y}\right)+\frac{s s^{T}}{s^{T} y}\\
 =\left(I-\frac{s y^{T}}{s^{T} y}\right) H^{-1}\left(I-\frac{y s^{T}}{s^{T} y}\right)+\frac{s s^{T}}{s^{T} y}
-\end{array}</script><h3 id="2-4-L-BFGS算法"><a href="#2-4-L-BFGS算法" class="headerlink" title="2.4 L-BFGS算法"></a>2.4 L-BFGS算法</h3><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235811630.png" alt="image-20211023235811630"></p>
+\end{array}</script><h3 id="2-4-L-BFGS算法"><a href="#2-4-L-BFGS算法" class="headerlink" title="2.4 L-BFGS算法"></a>2.4 L-BFGS算法</h3><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235811630.png" srcset="/img/loading.gif" lazyload alt="image-20211023235811630"></p>
 <script type="math/tex; mode=display">
 \begin{array}{c}
 H_{k+1}=V_{k}^{T} H_{k} V_{k}+\rho_{k} s_{k} s_{k}^{T} \\
@@ -300,7 +399,7 @@ r_{i}=r_{i-1}+s_{i} \alpha_{i}-\beta_{i} \\
 \text { end for } \\
 \text { End, The result is } H_{k+1} \nabla f=r
 \end{array}</script><p>Two-Loop算法解析—-第一个循环：</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235846434.png" alt="image-20211023235846434"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235846434.png" srcset="/img/loading.gif" lazyload alt="image-20211023235846434"></p>
 <p>重写公式：</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
@@ -310,7 +409,7 @@ H_{k} \nabla f &=\left(V_{K-1}^{T} V_{K-2}^{T} \ldots V_{K-m}^{T}\right) H_{0}\l
 &+V_{k-1} s_{k-1} \alpha_{k-2} \\
 &+s_{k-1} \alpha_{k-1}
 \end{aligned}</script><p>Two-Loop算法解析—-第二个循环：</p>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235910775.png" alt="image-20211023235910775"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023235910775.png" srcset="/img/loading.gif" lazyload alt="image-20211023235910775"></p>
 <p>初始:</p>
 <script type="math/tex; mode=display">
 r_{k-\mathrm{m}}=V_{k-\mathrm{m}} H_{0} V_{k-\mathrm{m}} V_{k-\mathrm{m}+1} \ldots V_{k-1} \nabla \mathrm{f}+\mathrm{s}_{k-\mathrm{m}} \alpha_{k-m}</script><p>得：</p>
@@ -323,14 +422,14 @@ r_{k-\mathrm{m}+\mathrm{i}} &=V_{k-\mathrm{m}+\mathrm{i}} \ldots V_{k-\mathrm{m}
 &s_{k-m+1}\alpha_{k-m+i}
 \end{aligned}</script><p>$r_{k-1}$即是所求的搜索方向d。</p>
 <p>使用LBFGS求解逻辑回归模型代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> StandardScaler</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="comment"># 进一步处理数据集和测试集，将输入和输出分割</span></span><br><span class="line">train.columns=<span class="built_in">list</span>([<span class="string">&#x27;x1&#x27;</span>,<span class="string">&#x27;x2&#x27;</span>,<span class="string">&#x27;y&#x27;</span>])</span><br><span class="line">test.columns=<span class="built_in">list</span>([<span class="string">&#x27;x1&#x27;</span>,<span class="string">&#x27;x2&#x27;</span>,<span class="string">&#x27;y&#x27;</span>])</span><br><span class="line">X_train = np.asarray(train.get([<span class="string">&#x27;x1&#x27;</span>, <span class="string">&#x27;x2&#x27;</span>]))</span><br><span class="line">y_train = np.asarray(train.get(<span class="string">&#x27;y&#x27;</span>))</span><br><span class="line">X_test = np.asarray(test.get([<span class="string">&#x27;x1&#x27;</span>, <span class="string">&#x27;x2&#x27;</span>]))</span><br><span class="line">y_test = np.asarray(test.get(<span class="string">&#x27;y&#x27;</span>))</span><br><span class="line"><span class="comment"># 使用 sklearn 的 LogisticRegression 作为模型</span></span><br><span class="line"><span class="comment"># 其中有 penalty，solver，multi_class 几个比较重要的参数，不同的参数有不同的准确率</span></span><br><span class="line">model = LogisticRegression(solver=<span class="string">&#x27;newton-cg&#x27;</span>)</span><br><span class="line"><span class="comment"># newton-cg sag lbfgs liblinear</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数据进行标准化</span></span><br><span class="line">ss = StandardScaler()</span><br><span class="line">X_train = ss.fit_transform(X_train) </span><br><span class="line">X_test = ss.fit_transform(X_test)</span><br><span class="line"><span class="comment"># 拟合</span></span><br><span class="line">model.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 预测测试集</span></span><br><span class="line">predictions = model.predict(X_test)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印准确率</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;测试集准确率：&#x27;</span>, accuracy_score(y_test, predictions))</span><br><span class="line"></span><br><span class="line">weights = np.column_stack((model.intercept_, model.coef_)).transpose()</span><br><span class="line"><span class="comment">#print(weights)</span></span><br></pre></td></tr></table></figure>
-<h2 id="三、绘制ROC曲线和PR曲线"><a href="#三、绘制ROC曲线和PR曲线" class="headerlink" title="三、绘制ROC曲线和PR曲线"></a>三、绘制ROC曲线和PR曲线</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">该部分出现的英语缩写：</span><br><span class="line">TP: True Positive</span><br><span class="line">FP: False Positive</span><br><span class="line">FN: False Negative</span><br><span class="line">TN: True Negative</span><br><span class="line">P: Precision</span><br><span class="line">R: Recall</span><br><span class="line">TPR: True Positive Rate</span><br><span class="line">FPR: False Positive Rate</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn.linear_model <span class="hljs-keyword">import</span> LogisticRegression<br><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> accuracy_score<br><span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> StandardScaler<br><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np<br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-comment"># 进一步处理数据集和测试集，将输入和输出分割</span><br>train.columns=<span class="hljs-built_in">list</span>([<span class="hljs-string">&#x27;x1&#x27;</span>,<span class="hljs-string">&#x27;x2&#x27;</span>,<span class="hljs-string">&#x27;y&#x27;</span>])<br>test.columns=<span class="hljs-built_in">list</span>([<span class="hljs-string">&#x27;x1&#x27;</span>,<span class="hljs-string">&#x27;x2&#x27;</span>,<span class="hljs-string">&#x27;y&#x27;</span>])<br>X_train = np.asarray(train.get([<span class="hljs-string">&#x27;x1&#x27;</span>, <span class="hljs-string">&#x27;x2&#x27;</span>]))<br>y_train = np.asarray(train.get(<span class="hljs-string">&#x27;y&#x27;</span>))<br>X_test = np.asarray(test.get([<span class="hljs-string">&#x27;x1&#x27;</span>, <span class="hljs-string">&#x27;x2&#x27;</span>]))<br>y_test = np.asarray(test.get(<span class="hljs-string">&#x27;y&#x27;</span>))<br><span class="hljs-comment"># 使用 sklearn 的 LogisticRegression 作为模型</span><br><span class="hljs-comment"># 其中有 penalty，solver，multi_class 几个比较重要的参数，不同的参数有不同的准确率</span><br>model = LogisticRegression(solver=<span class="hljs-string">&#x27;newton-cg&#x27;</span>)<br><span class="hljs-comment"># newton-cg sag lbfgs liblinear</span><br><br><br><span class="hljs-comment"># 对数据进行标准化</span><br>ss = StandardScaler()<br>X_train = ss.fit_transform(X_train) <br>X_test = ss.fit_transform(X_test)<br><span class="hljs-comment"># 拟合</span><br>model.fit(X_train, y_train)<br><br><span class="hljs-comment"># 预测测试集</span><br>predictions = model.predict(X_test)<br><br><span class="hljs-comment"># 打印准确率</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;测试集准确率：&#x27;</span>, accuracy_score(y_test, predictions))<br><br>weights = np.column_stack((model.intercept_, model.coef_)).transpose()<br><span class="hljs-comment">#print(weights)</span><br></code></pre></td></tr></table></figure>
+<h2 id="三、绘制ROC曲线和PR曲线"><a href="#三、绘制ROC曲线和PR曲线" class="headerlink" title="三、绘制ROC曲线和PR曲线"></a>三、绘制ROC曲线和PR曲线</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs markdown">该部分出现的英语缩写：<br>TP: True Positive<br>FP: False Positive<br>FN: False Negative<br>TN: True Negative<br>P: Precision<br>R: Recall<br>TPR: True Positive Rate<br>FPR: False Positive Rate<br></code></pre></td></tr></table></figure>
 <h3 id="3-1-ROC曲线"><a href="#3-1-ROC曲线" class="headerlink" title="3.1 ROC曲线"></a>3.1 ROC曲线</h3><h4 id="3-1-1介绍"><a href="#3-1-1介绍" class="headerlink" title="3.1.1介绍"></a>3.1.1介绍</h4><p>ROC全称是“受试者工作特征”(Receiver Operating Characteristic)曲线，它源于“二战”中用于敌机检测的雷达信号分析技术，二十世纪六七十年代开始被用于一些心理学、医学检测应用中，此后被引入机器学习领域，用来评判分类、检测结果的好坏。因此，ROC曲线是非常重要和常见的统计分析方法。</p>
 <p>为了绘制ROC曲线，我们需要计算出两个重要量的值（</p>
 <p><strong>TPR</strong>、<strong>FPR</strong>），分别以它们为横、纵坐标作图。其中的TP、FP、TN、FN来自于<strong>混淆矩阵</strong>，且TP+FP+TN+FN=样本总数。</p>
 <script type="math/tex; mode=display">
 TPR=\frac{TP}{TP+FN}</script><script type="math/tex; mode=display">
-FPR=\frac{FP}{FP + TN}</script><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023004557339.png" alt="image-20211023004557339"></p>
+FPR=\frac{FP}{FP + TN}</script><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023004557339.png" srcset="/img/loading.gif" lazyload alt="image-20211023004557339"></p>
 <h4 id="3-1-2画图流程"><a href="#3-1-2画图流程" class="headerlink" title="3.1.2画图流程"></a>3.1.2画图流程</h4><ol>
 <li>给定m+个正例和m-个负例，根据学习器预测结果对样例进行排序</li>
 <li>然后把分类阈值设为最大，即把所有样例均预测为反例，此时真正例率和假正例率均为0，在坐标(0,0)处标记一个点</li>
@@ -352,10 +451,10 @@ FPR=\frac{FP}{FP + TN}</script><p><img src="https://gitee.com/sysu_20354027/pic/
 </ul>
 <p>假设ROC曲线由为{ ( x1,y1 ),⋯,( xN′,yN′ ) }的点按需连接而成且有x~1~=0,x~N’~=1，则AUC可估算为：</p>
 <script type="math/tex; mode=display">
-AUC=\frac{1}{2} \sum_{j=1}^{N{}'-1} \left ( x_{j+1}-x_{j}  \right ) \left ( y_{j+1}+y_{j}  \right )</script><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023143342594.png" alt="image-20211023143342594"></p>
+AUC=\frac{1}{2} \sum_{j=1}^{N{}'-1} \left ( x_{j+1}-x_{j}  \right ) \left ( y_{j+1}+y_{j}  \right )</script><p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023143342594.png" srcset="/img/loading.gif" lazyload alt="image-20211023143342594"></p>
 <p>如图即为使用本次作业所提供数据绘制的ROC曲线。由于测试样例有限，所以仅能获得有限个（真正例率，假正例率）坐标对，无法产生光滑的ROC曲线；由此计算得到的AUC的值为0.9648，可以得知该模型的性能较优。</p>
 <p>完整代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_roc</span>(<span class="params">confidence_scores, data_labels</span>):</span></span><br><span class="line">    <span class="comment">#真正率，假正率</span></span><br><span class="line">    fpr, tpr, thresholds = roc_curve(data_labels, confidence_scores)</span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.grid()</span><br><span class="line">    plt.title(<span class="string">&#x27;ROC Curve&#x27;</span>)</span><br><span class="line">    plt.xlabel(<span class="string">&#x27;FPR&#x27;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&#x27;TPR&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> auc</span><br><span class="line">    auc=auc(fpr, tpr) <span class="comment">#AUC计算</span></span><br><span class="line">    plt.plot(fpr,tpr,<span class="string">&#x27;k--&#x27;</span>, label = <span class="string">&#x27;roc_curve(AUC=%0.4f)&#x27;</span> % auc)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_roc</span>(<span class="hljs-params">confidence_scores, data_labels</span>):</span><br>    <span class="hljs-comment">#真正率，假正率</span><br>    fpr, tpr, thresholds = roc_curve(data_labels, confidence_scores)<br>    plt.figure()<br>    plt.grid()<br>    plt.title(<span class="hljs-string">&#x27;ROC Curve&#x27;</span>)<br>    plt.xlabel(<span class="hljs-string">&#x27;FPR&#x27;</span>)<br>    plt.ylabel(<span class="hljs-string">&#x27;TPR&#x27;</span>)<br> <br>    <span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> auc<br>    auc=auc(fpr, tpr) <span class="hljs-comment">#AUC计算</span><br>    plt.plot(fpr,tpr,<span class="hljs-string">&#x27;k--&#x27;</span>, label = <span class="hljs-string">&#x27;roc_curve(AUC=%0.4f)&#x27;</span> % auc)<br>    plt.legend()<br>    plt.show()<br></code></pre></td></tr></table></figure>
 <h3 id="3-2-PR曲线"><a href="#3-2-PR曲线" class="headerlink" title="3.2 PR曲线"></a>3.2 PR曲线</h3><h4 id="3-2-1介绍"><a href="#3-2-1介绍" class="headerlink" title="3.2.1介绍"></a>3.2.1介绍</h4><p>PR曲线全称为查准率-查全率曲线，查准率P与查全率R分别定义为：</p>
 <script type="math/tex; mode=display">
 P=\frac{TP}{TP+FP}，R=\frac{TP}{TP+FN}</script><p>查准率和查全率是一对矛盾的度量。一般来说，查准率高时，查全率往往偏低；而查全率高时，查准率往往偏低。</p>
@@ -376,10 +475,10 @@ F_{\beta}=\frac{\left(1+\beta^{2}\right) \times P \times R}{\left(\beta^{2} \tim
 <li>β&gt;1：偏重查全率（逃犯信息检索）</li>
 <li>β&lt;1：偏重查准率（商品推荐系统）</li>
 </ul>
-<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023150341520.png" alt="image-20211023150341520"></p>
+<p><img src="https://gitee.com/sysu_20354027/pic/raw/master/img/image-20211023150341520.png" srcset="/img/loading.gif" lazyload alt="image-20211023150341520"></p>
 <p>如图即为使用本次作业所提供数据绘制的PR曲线。在现实任务中，PR曲线是非单调、不平滑的，在很多局部有上下波动；由此计算得到的AP的值为0.9751，可以得知该模型的性能较优。</p>
 <p>完整代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_pr</span>(<span class="params">confidence_scores, data_labels</span>):</span></span><br><span class="line">    plt.figure()</span><br><span class="line">    plt.title(<span class="string">&#x27;PR Curve&#x27;</span>)</span><br><span class="line">    plt.xlabel(<span class="string">&#x27;Recall&#x27;</span>)</span><br><span class="line">    plt.ylabel(<span class="string">&#x27;Precision&#x27;</span>)</span><br><span class="line">    plt.grid()</span><br><span class="line"> </span><br><span class="line">    <span class="comment">#精确率，召回率，阈值</span></span><br><span class="line">    precision,recall,thresholds = precision_recall_curve(data_labels,confidence_scores)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> average_precision_score</span><br><span class="line">    AP = average_precision_score(data_labels, confidence_scores) <span class="comment"># 计算AP</span></span><br><span class="line">    plt.plot(recall, precision,<span class="string">&#x27;k--&#x27;</span>, label = <span class="string">&#x27;pr_curve(AP=%0.4f)&#x27;</span> % AP)</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">draw_pr</span>(<span class="hljs-params">confidence_scores, data_labels</span>):</span><br>    plt.figure()<br>    plt.title(<span class="hljs-string">&#x27;PR Curve&#x27;</span>)<br>    plt.xlabel(<span class="hljs-string">&#x27;Recall&#x27;</span>)<br>    plt.ylabel(<span class="hljs-string">&#x27;Precision&#x27;</span>)<br>    plt.grid()<br> <br>    <span class="hljs-comment">#精确率，召回率，阈值</span><br>    precision,recall,thresholds = precision_recall_curve(data_labels,confidence_scores)<br> <br>    <span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> average_precision_score<br>    AP = average_precision_score(data_labels, confidence_scores) <span class="hljs-comment"># 计算AP</span><br>    plt.plot(recall, precision,<span class="hljs-string">&#x27;k--&#x27;</span>, label = <span class="hljs-string">&#x27;pr_curve(AP=%0.4f)&#x27;</span> % AP)<br>    plt.legend()<br>    plt.show()<br></code></pre></td></tr></table></figure>
 <h2 id="四、总结模型训练过程中的收获"><a href="#四、总结模型训练过程中的收获" class="headerlink" title="四、总结模型训练过程中的收获"></a>四、总结模型训练过程中的收获</h2><h3 id="4-1加深了对逻辑斯蒂回归的理解"><a href="#4-1加深了对逻辑斯蒂回归的理解" class="headerlink" title="4.1加深了对逻辑斯蒂回归的理解"></a>4.1加深了对逻辑斯蒂回归的理解</h3><h4 id="4-1-1简述对模型的理解："><a href="#4-1-1简述对模型的理解：" class="headerlink" title="4.1.1简述对模型的理解："></a>4.1.1简述对模型的理解：</h4><p>因为线性回归模型产生的预测值是一系列实值。为了使得输出的预测结果变成分类所需的0和1，我们需要在线性回归的基础式子外再套一个函数将其输出变成0和1，又要求该函数单调可微，所以我们引入logistic函数，将输出的预测结果成功转为概率值。这样，逻辑斯蒂回归模型被成功应用于解决分类模型。</p>
 <h4 id="4-1-2关于算法的择优："><a href="#4-1-2关于算法的择优：" class="headerlink" title="4.1.2关于算法的择优："></a>4.1.2关于算法的择优：</h4><p>在代码实现过程中，我们最开始使用的是梯度下降法，但是迭代速度较慢，拟合效果不是很好；之后我们选择了牛顿法，但是因为计算海森矩阵的复杂度太高，我们选择用一种拟牛顿法——‘L-BFGS’来逼近海森矩阵，最终达到了我们理想的效果。</p>
 <p>梯度下降法和牛顿法/拟牛顿法相比，两者都是迭代求解，不过梯度下降法是梯度求解，而牛顿法/拟牛顿法是用二阶的海森矩阵的逆矩阵或伪逆矩阵求解。相对而言，使用牛顿法/拟牛顿法收敛更快。</p>
@@ -414,49 +513,245 @@ F_{\beta}=\frac{\left(1+\beta^{2}\right) \times P \times R}{\left(\beta^{2} \tim
 </div>
 <h3 id="4-3提高了公式推导和文章排版能力"><a href="#4-3提高了公式推导和文章排版能力" class="headerlink" title="4.3提高了公式推导和文章排版能力"></a>4.3提高了公式推导和文章排版能力</h3><p>报告中的所有公式，我们都脚踏实地，一步步手动推导，并学习使用latex将其手动输入并排版。在这个过程中，我们对算法中公式的来源更加清楚，对其原理理解更加深透。这提高了我们的公式推导能力和文章排版能力。</p>
 <h3 id="4-4锻炼了小组合作精神，提高了小组合作能力"><a href="#4-4锻炼了小组合作精神，提高了小组合作能力" class="headerlink" title="4.4锻炼了小组合作精神，提高了小组合作能力"></a>4.4锻炼了小组合作精神，提高了小组合作能力</h3><p>在正式写报告之前，我们对本次作业任务以及对逻辑斯蒂回归模型的理解进行了讨论；然后为了加深彼此对知识的掌握程度，每个人都对代码进行了独立编写，在实现的过程中探讨互助；最后，我们根据彼此的优势项对任务进行了分工合作，齐心协力创作出了这份尽可能完善的报告。</p>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Enderfga</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://enderfga.cn/2021/10/23/logistic/">http://enderfga.cn/2021/10/23/logistic/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://enderfga.cn" target="_blank">Enderfga'Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/course/">course</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/10/28/ridge/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">岭回归，特征工程分析advertising.csv</div></div></a></div><div class="next-post pull-right"><a href="/2021/10/20/picgo/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">typora+picgo+gitee高效写作</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2021/12/20/AI/" title="深度学习在新冠肺炎辅助诊断中的应用"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-20</div><div class="title">深度学习在新冠肺炎辅助诊断中的应用</div></div></a></div><div><a href="/2021/11/23/onehot/" title="One-Hot Encoding 独热编码"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-23</div><div class="title">One-Hot Encoding 独热编码</div></div></a></div><div><a href="/2021/10/20/picgo/" title="typora+picgo+gitee高效写作"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-20</div><div class="title">typora+picgo+gitee高效写作</div></div></a></div><div><a href="/2021/10/18/latex/" title="Texlive+VScode"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-18</div><div class="title">Texlive+VScode</div></div></a></div><div><a href="/2021/11/26/wsl/" title="wsl安装与开发环境搭建"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-11-26</div><div class="title">wsl安装与开发环境搭建</div></div></a></div><div><a href="/2021/10/19/8puzzle/" title="使用搜索算法解决八数码问题"><img class="cover" src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-10-19</div><div class="title">使用搜索算法解决八数码问题</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Enderfga</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%8F%8F%E8%BF%B0%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">一、描述逻辑回归模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E6%95%B0%E6%8D%AE"><span class="toc-number">1.1.</span> <span class="toc-text">1.1数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">1.2模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E7%AD%96%E7%95%A5"><span class="toc-number">1.3.</span> <span class="toc-text">1.3策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%8F%8F%E8%BF%B0%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B%E6%89%80%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">二、描述训练模型所使用的算法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">2.1梯度下降法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="toc-number">2.1.1.</span> <span class="toc-text">2.1.1问题分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%EF%BC%9A"><span class="toc-number">2.1.2.</span> <span class="toc-text">2.1.2核心思想：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-3%E4%BC%AA%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="toc-number">2.1.3.</span> <span class="toc-text">2.1.3伪代码：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-4%E5%88%86%E6%9E%90"><span class="toc-number">2.1.4.</span> <span class="toc-text">2.1.4分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E7%89%9B%E9%A1%BF%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">2.2牛顿法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3%EF%BC%9A"><span class="toc-number">2.2.1.</span> <span class="toc-text">2.2.1核心思想：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2%E4%BC%AA%E4%BB%A3%E7%A0%81"><span class="toc-number">2.2.2.</span> <span class="toc-text">2.2.2伪代码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3%E5%88%86%E6%9E%90"><span class="toc-number">2.2.3.</span> <span class="toc-text">2.2.3分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-BFGS%E7%AE%97%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 BFGS算法:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-L-BFGS%E7%AE%97%E6%B3%95"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 L-BFGS算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BB%98%E5%88%B6ROC%E6%9B%B2%E7%BA%BF%E5%92%8CPR%E6%9B%B2%E7%BA%BF"><span class="toc-number">3.</span> <span class="toc-text">三、绘制ROC曲线和PR曲线</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-ROC%E6%9B%B2%E7%BA%BF"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 ROC曲线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-1%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.1.</span> <span class="toc-text">3.1.1介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-2%E7%94%BB%E5%9B%BE%E6%B5%81%E7%A8%8B"><span class="toc-number">3.1.2.</span> <span class="toc-text">3.1.2画图流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-3-AUC%E5%88%86%E6%9E%90"><span class="toc-number">3.1.3.</span> <span class="toc-text">3.1.3 AUC分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-PR%E6%9B%B2%E7%BA%BF"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 PR曲线</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.2.1.</span> <span class="toc-text">3.2.1介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2%E7%94%BB%E5%9B%BE%E6%B5%81%E7%A8%8B"><span class="toc-number">3.2.2.</span> <span class="toc-text">3.2.2画图流程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-AP%E5%88%86%E6%9E%90"><span class="toc-number">3.2.3.</span> <span class="toc-text">3.2.3 AP分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%80%BB%E7%BB%93%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E6%94%B6%E8%8E%B7"><span class="toc-number">4.</span> <span class="toc-text">四、总结模型训练过程中的收获</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E5%8A%A0%E6%B7%B1%E4%BA%86%E5%AF%B9%E9%80%BB%E8%BE%91%E6%96%AF%E8%92%82%E5%9B%9E%E5%BD%92%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">4.1.</span> <span class="toc-text">4.1加深了对逻辑斯蒂回归的理解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-1%E7%AE%80%E8%BF%B0%E5%AF%B9%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9A"><span class="toc-number">4.1.1.</span> <span class="toc-text">4.1.1简述对模型的理解：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-2%E5%85%B3%E4%BA%8E%E7%AE%97%E6%B3%95%E7%9A%84%E6%8B%A9%E4%BC%98%EF%BC%9A"><span class="toc-number">4.1.2.</span> <span class="toc-text">4.1.2关于算法的择优：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E5%AE%9E%E7%8E%B0%E4%BA%86%E4%BB%A3%E7%A0%81%E6%8A%80%E8%83%BD%E7%9A%84%E6%8F%90%E5%8D%87"><span class="toc-number">4.2.</span> <span class="toc-text">4.2实现了代码技能的提升</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3%E6%8F%90%E9%AB%98%E4%BA%86%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E5%92%8C%E6%96%87%E7%AB%A0%E6%8E%92%E7%89%88%E8%83%BD%E5%8A%9B"><span class="toc-number">4.3.</span> <span class="toc-text">4.3提高了公式推导和文章排版能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4%E9%94%BB%E7%82%BC%E4%BA%86%E5%B0%8F%E7%BB%84%E5%90%88%E4%BD%9C%E7%B2%BE%E7%A5%9E%EF%BC%8C%E6%8F%90%E9%AB%98%E4%BA%86%E5%B0%8F%E7%BB%84%E5%90%88%E4%BD%9C%E8%83%BD%E5%8A%9B"><span class="toc-number">4.4.</span> <span class="toc-text">4.4锻炼了小组合作精神，提高了小组合作能力</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/12/20/AI/" title="深度学习在新冠肺炎辅助诊断中的应用"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深度学习在新冠肺炎辅助诊断中的应用"/></a><div class="content"><a class="title" href="/2021/12/20/AI/" title="深度学习在新冠肺炎辅助诊断中的应用">深度学习在新冠肺炎辅助诊断中的应用</a><time datetime="2021-12-20T08:10:56.440Z" title="发表于 2021-12-20 16:10:56">2021-12-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/26/wsl/" title="wsl安装与开发环境搭建"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="wsl安装与开发环境搭建"/></a><div class="content"><a class="title" href="/2021/11/26/wsl/" title="wsl安装与开发环境搭建">wsl安装与开发环境搭建</a><time datetime="2021-11-26T02:45:27.000Z" title="发表于 2021-11-26 10:45:27">2021-11-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/23/onehot/" title="One-Hot Encoding 独热编码"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="One-Hot Encoding 独热编码"/></a><div class="content"><a class="title" href="/2021/11/23/onehot/" title="One-Hot Encoding 独热编码">One-Hot Encoding 独热编码</a><time datetime="2021-11-23T11:41:34.000Z" title="发表于 2021-11-23 19:41:34">2021-11-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/16/middle/" title="神经网络回归与分类（波士顿房价与红酒分类）"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="神经网络回归与分类（波士顿房价与红酒分类）"/></a><div class="content"><a class="title" href="/2021/11/16/middle/" title="神经网络回归与分类（波士顿房价与红酒分类）">神经网络回归与分类（波士顿房价与红酒分类）</a><time datetime="2021-11-16T11:57:45.000Z" title="发表于 2021-11-16 19:57:45">2021-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/10/28/ridge/" title="岭回归，特征工程分析advertising.csv"><img src="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/defaultbanner.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="岭回归，特征工程分析advertising.csv"/></a><div class="content"><a class="title" href="/2021/10/28/ridge/" title="岭回归，特征工程分析advertising.csv">岭回归，特征工程分析advertising.csv</a><time datetime="2021-10-28T10:35:47.000Z" title="发表于 2021-10-28 18:35:47">2021-10-28</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Enderfga</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
-  window.MathJax = {
-    tex: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"]],
-      tags: 'ams'
-    },
-    chtml: {
-      scale: 1.2
-    },
-    options: {
-      renderActions: {
-        findScript: [10, doc => {
-          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
-            const display = !!node.type.match(/; *mode=display/)
-            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
-            const text = document.createTextNode('')
-            node.parentNode.replaceChild(text, node)
-            math.start = {node: text, delim: '', n: 0}
-            math.end = {node: text, delim: '', n: 0}
-            doc.math.push(math)
-          }
-        }, ''],
-        insertScript: [200, () => {
-          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
-            const target = node.parentNode
-            if (target.nodeName.toLowerCase() === 'li') {
-              target.parentNode.classList.add('has-jax')
-            } else {
-              target.classList.add('has-jax')
-            }
-          });
-        }, '', false]
-      }
-    }
-  }
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/course/">course</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/10/28/ridge/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">岭回归，特征工程分析advertising.csv</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/10/20/picgo/">
+                        <span class="hidden-mobile">typora+picgo+gitee高效写作</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <p id="jinrishici-sentence">愿我如星君如月，夜夜流光相皎洁</p> <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener"><span> 粤ICP备2021112653号-1</span></a> 
+  </div>
   
-  const script = document.createElement('script')
-  script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
-  script.id = 'MathJax-script'
-  script.async = true
-  document.head.appendChild(script)
-} else {
-  MathJax.startup.document.state(0)
-  MathJax.texReset()
-  MathJax.typeset()
-}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/Enderfga/live2d-widget-models/packages/live2d-widget-model-hijiki/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/Enderfga/live2d-widget-models/packages/live2d-widget-model-hijiki/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
