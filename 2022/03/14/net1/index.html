@@ -16,23 +16,23 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="智能机器人技术作业记录">
+    <meta name="description" content="第一章计算机网络和因特网小结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="智能机器人技术——位形空间">
-<meta property="og:url" content="http://enderfga.cn/2022/03/02/robot1/index.html">
+<meta property="og:title" content="计算机网络和因特网">
+<meta property="og:url" content="http://enderfga.cn/2022/03/14/net1/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="智能机器人技术作业记录">
+<meta property="og:description" content="第一章计算机网络和因特网小结">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220302214614790.png">
-<meta property="article:published_time" content="2022-03-02T13:41:13.000Z">
-<meta property="article:modified_time" content="2022-03-04T12:01:02.352Z">
+<meta property="og:image" content="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220314222941459.png">
+<meta property="article:published_time" content="2022-03-14T14:40:45.000Z">
+<meta property="article:modified_time" content="2022-03-14T14:44:30.669Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="course">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220302214614790.png">
+<meta name="twitter:image" content="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220314222941459.png">
   
   
-  <title>智能机器人技术——位形空间 - Enderfga&#39;Blog</title>
+  <title>计算机网络和因特网 - Enderfga&#39;Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -178,7 +178,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="智能机器人技术——位形空间">
+            <span class="h2" id="subtitle" title="计算机网络和因特网">
               
             </span>
 
@@ -188,8 +188,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-03-02 21:41" pubdate>
-        2022年3月2日 晚上
+      <time datetime="2022-03-14 22:40" pubdate>
+        2022年3月14日 晚上
       </time>
     </span>
   
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.3k 字
+      1.7k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      12 分钟
+      15 分钟
     </span>
   
 
@@ -237,50 +237,83 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">智能机器人技术——位形空间</h1>
+            <h1 style="display: none">计算机网络和因特网</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月4日 晚上
+                  本文最后更新于：2022年3月14日 晚上
                 
               </p>
             
             <div class="markdown-body">
-              <p>智能机器人技术作业记录</p>
+              <p>第一章计算机网络和因特网小结</p>
 <span id="more"></span>
-<p><img src="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220302214614790.png" srcset="/img/loading.gif" lazyload alt="image-20220302214614790"></p>
-<h1 id="智能机器人技术——位形空间"><a href="#智能机器人技术——位形空间" class="headerlink" title="智能机器人技术——位形空间"></a>智能机器人技术——位形空间</h1><p>一、选择/填空题（10 分）。</p>
+<p>1.<strong>简述面向连接和无连接两种服务的特点。</strong></p>
+<p>面向连接服务：质量可靠，确保从发送方发出的数据最终按顺序完整地交付给接收方。</p>
+<p>无连接服务：质量不可靠，不能对最终交付作任何保证。</p>
+<p><img src="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220313164646441.png" srcset="/img/loading.gif" lazyload alt="image-20220313164646441"></p>
+<p><strong>面向连接服务</strong>(connection-oriented)</p>
+<p>面向连接服务具有<strong>可靠的数据传送，流控制，拥塞控制</strong>三个特性。</p>
+<p>特点：</p>
+<p>1、面向连接的数据传输过程必须经过建立连接、连接维护和释放连接的3个过程；</p>
+<p>2、数据传输过程中，各分组不需要携带目的地址。</p>
+<p>面向连接数据传输的收发数据顺序不变，因此传输的可靠性好，但协议复杂，通信效率不高。</p>
+<p><strong>无连接服务</strong>(connectionless)</p>
+<p>两个实体之间的通信<strong>不需要先建立好连接</strong>。是一种不可靠的服务。这种服务常被描述为“尽最大努力交付”(best effort delivery)或“尽力而为”。</p>
+<p>特点：</p>
+<p>1、数据传输过程中，每个分组都携带完整的目的地址，各分组在系统中是独立传送的。因此，无连接中的数据传输过程不需要经过3个过程；</p>
+<p>2、由于无连接发送的不同的分组，可能经历不同路径到目的主机，所以先发送的不一定先到，因此无连接的数据分组传输过程中，目的主机接收的数据分组可能出现乱序、重复与丢失的现象。</p>
+<p>无连接的可靠性不是很好，但因其省去许多保征机制，因此通信协议相对简单，通信效率较高。</p>
+<p>2.<strong>什么是多路复用？常分为哪两种类型。</strong></p>
+<p>多路复用是指在一条传输链路上同时建立多条连接，分别传输数据。</p>
+<p>常分为以下两种类型：</p>
+<p><strong>频分多路复用FDM(frequency-division multiplexing)</strong>：链路的频谱由跨越链路创建的连接所共享，按频率划分若干频段，每个频段专用于一个连接。</p>
+<p><strong>时分多路复用TDM (time-division multiplexing)</strong> ：时间划分为固定区间的帧，每帧再划分为固定数量的时隙，每一个时隙专用于一个连接，用于传输数据。</p>
+<p><img src="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220314223649714.png" srcset="/img/loading.gif" lazyload alt="image-20220314223649714"></p>
+<p>3.<strong>简述电路交换和分组交换特点及工作过程。</strong></p>
+<p><strong>特点：</strong></p>
 <ol>
-<li>机器人的自由度是 (<strong>D</strong>) ?<br>A. 机器人上点的数量<br>B. 机器人关节数量<br>C. 组成机器人的刚体的数量<br>D. 组成机器人的刚体的数量, 减去刚体间独立约束的数量</li>
-<li>二维平面刚体的自由度为 (<strong>3</strong>) ； 三维空间刚体的自由度为 (<strong>6</strong>) 。</li>
-<li>根据课堂上推算三维空间内刚体自由度的方法, 推算出四维空间中刚体的自由度 (<strong>10</strong>)、有关角度的自由度 (<strong>6</strong>)、有关平移位置的自由度 (<strong>4</strong>)。(如, 三维空间中分别为 $6,3,3$ )</li>
-<li>假设你的手臂（从肩膀到手掌）, 有 7 个自由度。你如同一位服务生一样水平端着餐盘, 防止洒出酒水。你的手臂此时有几个自由度：<strong>5</strong>， 这个任务空间的自由度是：<strong>4</strong>。</li>
+<li><strong>电路交换 (circuit switching)</strong><br>预留端到端资源：端系统之间通信路径上所需要的资源 (缓存，链路带宽)，建立连接；<br>发送方以恒定速率向接收方传送数据。<br>如，电话网络。</li>
+<li><strong>分组交换(packet switching)</strong><br>不需要资源预留；<br>按需使用资源，可能要排队等待，同时有其它分组发送。<br>如，因特网。</li>
 </ol>
-<p>二、简答题, 请写出解题过程 (10 分)。</p>
+<p><strong>工作过程：</strong></p>
 <ol>
-<li><p>考虑两个刚体之间的一个关节。每个刚体有 $\mathrm{m}$ 个自由度（二维空间刚体 $m=3$, 三维空间刚体 $m=6$ ), 并且没有任何约束。关节有 $f$ 个自由度（旋转关节 $\mathrm{f}=1$, 球形关节 $\mathrm{f}=3$ 等)。试问, 用这个关节关联两个刚体, 那么引入了多少个约束（一个刚体相对于另一个, 用字母表示）?</p>
-<p><img src="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220302212205280.png" srcset="/img/loading.gif" lazyload alt="image-20220302212205280"></p>
-<p><strong>解：$自由度f+平面约束c=平面自由度3，自由度f＋空间约束c=空间自由度6$</strong></p>
-<p><strong>故$\pmb{c=-f+m}$</strong></p>
+<li><p>电路交换：</p>
+<p>在两台主机A、B之间创建一条专用的端到端连接，分别占用每条链路中的一条电路；</p>
+<p>该连接获得链路带宽的1/n，进行通信。</p>
 </li>
-<li><p>考虑一个机构包含了 3 个三维空间刚体 (记住, 包括地面, 所以 $\mathrm{N}=4$ ), 和 4 个关节: 1 个转动, 1 个平移, 一个万向, 一个球形。使用 Grubler 公式, 计算机构的自由度。</p>
-<p><strong>解：转动副$f_1=1$，移动副$f_2=1$，万向铰$f_3=2$，球形铰$f_4=3$</strong></p>
-<p><strong>又$\because N=4$，$J=4$，$m=6$</strong></p>
-<p><strong>$\therefore \pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(4-1-4\right)+\left(1+1+2+3\right)=1}$</strong></p>
+<li><p>分组交换：</p>
+<p>源端将报文划分为较小的数据块（分组packet）；</p>
+<p>每个分组通过一系列链路和分组交换机传送，直到目的端</p>
+<p>目的端恢复原报文。</p>
 </li>
-<li>如下图的 SRS (球形-转动-球形) 机构, 正在抓取一个物体。试问, 当机构紧握物体时 (物体与机构中的机械臂最后一段没有相对运动时), 自由度是多少?</li>
 </ol>
-<p><img src="https://gitee.com/sysu_20354027/fig/raw/master/img/2022_02_28_40f28045fe8caa2a438eg-1.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><strong>解：Spherical Joint即为球形铰$f=3$，共8个；Revolute Joint即为转动副$f=1$，共4个；</strong></p>
-<p><strong>又$\because N=14$，$J=16$，$m=6$</strong></p>
-<p>$\therefore \pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(14-1-16\right)+\left(3\times8+1\times4\right)=10}$</p>
+<p><img src="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220314220812885.png" srcset="/img/loading.gif" lazyload alt="image-20220314220812885"></p>
+<p>4.<strong>什么是协议？分层的服务模型？</strong></p>
+<p><strong>协议</strong>：控制网络中信息的发送和接收。定义了通信实体之间交换报文的格式和次序，以及在报文传输和/或接收或其他事件所采取的动作。</p>
+<p><img src="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220314223735346.png" srcset="/img/loading.gif" lazyload alt="image-20220314223735346"></p>
+<p><strong>分层的服务模型</strong>：上层调用下层的服务，下层为上层提供服务。</p>
+<p>通过第n层本身执行某些动作，或再使用其相邻下层（第n-1层）的服务，来完成向其上层（第n+1层）提供的服务。</p>
+<p>5.<strong>简述分层的特点和分层后数据的传递过程。</strong></p>
+<p><strong>分层特点：</strong></p>
+<ul>
+<li>每层功能独立；</li>
+<li>每两个相邻层之间有一逻辑接口，可交换信息；</li>
+<li>上一层建立在下一层基础上，上一层可调用下一层的服务，下一层为上一层提供服务。</li>
+</ul>
+<p><strong>分层后数据的传递过程</strong>：主机（端系统）间数据传送实际上并不是在对等层间直接进行，而是通过相邻层间的传递合作完成。</p>
+<p>发送方：将用户数据由高层向低层逐层传递，每经过一层，加上该层的控制信息，直到最低层（物理层），然后直接通过物理媒体传输到目的方。（逐层封装）</p>
+<p>接收方：将收到的数据由低层向高层逐层传递，每经过一层，去掉该层的控制信息，直到最高层，恢复为用户数据。（逐层解封）</p>
+<p><img src="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220314222653398.png" srcset="/img/loading.gif" lazyload alt="image-20220314222653398"></p>
+<p>6.<strong>因特网分层模型及各层功能。</strong></p>
+<p>因特网的协议栈由5个层次组成：物理层、链路层、网络层、运输层和应用层。</p>
+<p><img src="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220314222941459.png" srcset="/img/loading.gif" lazyload alt="image-20220314222941459"></p>
 <ol>
-<li><p>同上题, 如果现在有 $n$ 条这样的机械臂 (题 3 中 $n=4$ ), 机构的自由度是?</p>
-<p><strong>同理：$\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(3n+2-1-4n\right)+\left(3\times2n+1\times n\right)=n+6}$</strong></p>
-</li>
-<li><p>同上题, 假设 $n$ 条机械臂的转动关节, 被替换成了万向关节, 机构的自由度是?</p>
-<p><strong>同理：$\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(3n+2-1-4n\right)+\left(3\times2n+2\times n\right)=2n+6}$</strong></p>
-</li>
+<li>应用层：提供各种网络应用。传输应用报文。<br>FTP、 SMTP、 HTTP</li>
+<li>运输层：在应用程序的客户机和服务器之间提供传输应用层报文服务。传输报文段。<br>TCP、 UDP</li>
+<li>网络层：主机和主机之间传输网络层分组（数据报）。<br>IP协议、 选路协议</li>
+<li>链路层： 在邻近单元之间传输数据（帧 ）。<br>PPP、以太网</li>
+<li>物理层：在节点之间传输比特流。<br>传输媒体</li>
 </ol>
 
             </div>
@@ -309,18 +342,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/14/net1/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">计算机网络和因特网</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/12/31/2022/">
-                        <span class="hidden-mobile">2022’summary</span>
+                      <a href="/2022/03/02/robot1/">
+                        <span class="hidden-mobile">智能机器人技术——位形空间</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
