@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/fig/raw/master/img/photo-1613068687893-5e85b4638b56">
 <meta property="article:published_time" content="2022-03-17T15:46:56.000Z">
-<meta property="article:modified_time" content="2022-03-17T15:54:16.023Z">
+<meta property="article:modified_time" content="2022-03-17T15:55:58.511Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="course">
 <meta name="twitter:card" content="summary_large_image">
@@ -253,19 +253,28 @@
 <p>Employee( person_name, street, city)<br>Works (person_name, company_name, salary)<br>Company(company_name, city)<br><strong>Figure 2.14</strong> </p>
 <p>What are the appropriate primary keys? </p>
 <p><strong>My answer:</strong></p>
-<script type="math/tex; mode=display">employee (\underline{person\_name}, street, city)</script><p>$works (\underline{person_name}, company_name, salary) $</p>
-<script type="math/tex; mode=display">company (\underline{company\_name}, city)</script><p><strong>Exercise</strong> <strong>2.7</strong> Consider the relational database of Figure 2.14. Given an expression in the relational algebra to express each of the following queries:</p>
+<p>$employee (\underline{person_name}, street, city)$</p>
+<p>$works (\underline{person_name}, company_name, salary) $</p>
+<p>$company (\underline{company_name}, city)$</p>
+<p><strong>Exercise</strong> <strong>2.7</strong> Consider the relational database of Figure 2.14. Given an expression in the relational algebra to express each of the following queries:</p>
 <p>a.Find the names of all employees who live in city “Miami”</p>
 <p>b.Find the names of all employees whose salary is greater than $100,000.</p>
 <p>c.Find the names of all employees who live in “Miami” and whose salary is greater than $100,000.</p>
 <p><strong>My answer:</strong></p>
-<script type="math/tex; mode=display">a.  \Pi_{person\_name }\left(\sigma_{\text {city } = \text { “Miami” }}(\right.  employee  \left.)\right)</script><script type="math/tex; mode=display">b.  \Pi_{person\_name }\left(\sigma_{\text {salary }>} 100000(\right.  employee  \bowtie  works  \left.)\right)</script><script type="math/tex; mode=display">c.  \Pi_{person\_name }\left(\sigma_{\text {city } = "{Miami}" \wedge \text { salary }>100000}(\right.  employee  \bowtie  works  \left.)\right)</script><p><strong>Exercise</strong> <strong>2.9</strong> Consider the bank database of Figure 2.15.</p>
+<p>$a.  \Pi<em>{person_name }\left(\sigma</em>{\text {city } = \text { “Miami” }}(\right.  employee  \left.)\right) $<br>$b.  \Pi<em>{person_name }\left(\sigma</em>{\text {salary }&gt;} 100000(\right.  employee  \bowtie  works  \left.)\right)$<br>$c.  \Pi<em>{person_name }\left(\sigma</em>{\text {city } = “{Miami}” \wedge \text { salary }&gt;100000}(\right.  employee  \bowtie  works  \left.)\right) $</p>
+<p><strong>Exercise</strong> <strong>2.9</strong> Consider the bank database of Figure 2.15.</p>
 <p>branch(branch_name, branch_city, assets)<br>customer(customer_name, customer_street, customer_city)<br>loan(loan_number, branch_name, amount)<br>borrower(customer_name, loan_number)<br>account(account_number, loan_number)<br>depositor(customer_name, account_number)<br><strong>Figure 2.15</strong></p>
 <p>a.  What are the appropriate primary keys?</p>
 <p>b. Given your choice of primary keys, identify appropriate foreign keys. Assume that branch names and customer names uniquely identify branches and customers, but loans and accounts can be associated with more than one customer.</p>
 <p><strong>My answer:</strong></p>
 <p>The primary keys are marked with an $\underline{underline}$, and the foreign keys are marked with a $\overline{overline}$.</p>
-<script type="math/tex; mode=display">branch(\underline{branch\_name}, branch\_city, assets)</script><script type="math/tex; mode=display">customer(\underline{customer\_name}, customer\_street, customer\_city)</script><script type="math/tex; mode=display">loan(\underline{loan\_number}, \overline{branch\_name}, amount)</script><script type="math/tex; mode=display">borrower(\overline{\underline{customer\_name}}, \overline{loan\_number})</script><script type="math/tex; mode=display">account(\underline{account\_number}, loan\_number)</script><script type="math/tex; mode=display">depositor(\overline{\underline{customer\_name}}, \overline{account\_number})</script>
+<p>$branch(\underline{branch_name}, branch_city, assets)$</p>
+<p>$customer(\underline{customer_name}, customer_street, customer_city)$</p>
+<p>$loan(\underline{loan_number}, \overline{branch_name}, amount)$</p>
+<p>$borrower(\overline{\underline{customer_name}}, \overline{loan_number})$</p>
+<p>$account(\underline{account_number}, loan_number)$</p>
+<p>$depositor(\overline{\underline{customer_name}}, \overline{account_number})$</p>
+
             </div>
             <hr>
             <div>
