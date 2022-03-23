@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/sysu_20354027/fig/raw/master/img/image-20220323230708879.png">
 <meta property="article:published_time" content="2022-03-23T15:07:52.000Z">
-<meta property="article:modified_time" content="2022-03-23T15:09:07.011Z">
+<meta property="article:modified_time" content="2022-03-23T15:10:52.912Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="course">
 <meta name="twitter:card" content="summary_large_image">
@@ -257,7 +257,8 @@
 <p>e. Assume that the companies may be located in several cities. Find all companies located in every city in which “Small Bank Corporation” is located.</p>
 <p>f. Find the company that has the most employees.</p>
 <p>g. Find those companies whose employees earn a higher salary, on average, than the average salary at “First Bank Corporation”.</p>
-<script type="math/tex; mode=display">employee (\underline{employee\_name}, street, city)\\
+<script type="math/tex; mode=display">
+employee (\underline{employee\_name}, street, city)\\
 works (\underline{employee\_name}, company\_name, salary)\\
 company (\underline{company\_name}, city)\\
 manages ( \underline{ employee\_name, } manager\_name )\\
@@ -280,7 +281,8 @@ Figure~~3.20~~Employee~~database~~for~~Exercises~~3.9</script><p><strong>My answ
 <p>a. Find all customers of the bank who have an account but not a loan.</p>
 <p>b. Find the names of all customers who live on the same street and in the same city as “Smith”.</p>
 <p>c. Find the names of all branches with customers who have an account in the bank and who live in “Harrison”.</p>
-<script type="math/tex; mode=display">branch(\underline{branch\_name}, branch\_city, assets)\\
+<script type="math/tex; mode=display">
+branch(\underline{branch\_name}, branch\_city, assets)\\
 customer (\underline{customer\_name}, customer\_street, customer\_city)\\ loan (\underline{loan\_numbe}r, branch\_name, amount)\\
 borrower (\underline{customer\_name}, \underline{loan\_number})\\
 account (\underline{account\_number}, branch\_name, balance)\\
@@ -304,7 +306,7 @@ Figure~~3.19~~Banking~~database~~for~~Exercises~~3.8~~and~~3.15</script><p><stro
 <p><strong>except</strong></p>
 <p>(<strong>select</strong> R.branch_name</p>
 <p><strong>from</strong> depositor <strong>as</strong> T, account <strong>as</strong> R</p>
-<p><strong>where</strong> T.account_number = R.account_number </p>
+<p><strong>where</strong> T.account_number = R.account_number</p>
 <p><strong>and</strong> S.customer_name = T.customer_name))</p>
 <p>b.</p>
 <p><strong>select</strong> <strong>sum</strong>(amount) <strong>as</strong> sum_loan</p>
