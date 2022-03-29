@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Enderfga">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="智能机器人技术作业记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="智能机器人技术——位形空间">
+<meta property="og:url" content="http://enderfga.cn/2022/03/02/robot1/index.html">
+<meta property="og:site_name" content="Enderfga&#39;Blog">
+<meta property="og:description" content="智能机器人技术作业记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220302214614790.png">
+<meta property="article:published_time" content="2022-03-02T13:41:13.000Z">
+<meta property="article:modified_time" content="2022-03-29T16:25:07.024Z">
+<meta property="article:author" content="Enderfga">
+<meta property="article:tag" content="course">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220302214614790.png">
+  
+  
+  <title>智能机器人技术——位形空间 - Enderfga&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"enderfga.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Enderfga</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://cdn.jsdelivr.net/gh/Enderfga/Enderfga/Backup/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="智能机器人技术——位形空间">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-03-02 21:41" pubdate>
+        2022年3月2日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.3k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">智能机器人技术——位形空间</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2022年3月30日 凌晨
+                
+              </p>
+            
+            <div class="markdown-body">
+              <p>智能机器人技术作业记录</p>
+<span id="more"></span>
+<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220302214614790.png" srcset="/img/loading.gif" lazyload alt="image-20220302214614790"></p>
+<h1 id="智能机器人技术——位形空间"><a href="#智能机器人技术——位形空间" class="headerlink" title="智能机器人技术——位形空间"></a>智能机器人技术——位形空间</h1><p>一、选择/填空题（10 分）。</p>
+<ol>
+<li>机器人的自由度是 (<strong>D</strong>) ?<br>A. 机器人上点的数量<br>B. 机器人关节数量<br>C. 组成机器人的刚体的数量<br>D. 组成机器人的刚体的数量, 减去刚体间独立约束的数量</li>
+<li>二维平面刚体的自由度为 (<strong>3</strong>) ； 三维空间刚体的自由度为 (<strong>6</strong>) 。</li>
+<li>根据课堂上推算三维空间内刚体自由度的方法, 推算出四维空间中刚体的自由度 (<strong>10</strong>)、有关角度的自由度 (<strong>6</strong>)、有关平移位置的自由度 (<strong>4</strong>)。(如, 三维空间中分别为 $6,3,3$ )</li>
+<li>假设你的手臂（从肩膀到手掌）, 有 7 个自由度。你如同一位服务生一样水平端着餐盘, 防止洒出酒水。你的手臂此时有几个自由度：<strong>5</strong>， 这个任务空间的自由度是：<strong>4</strong>。</li>
+</ol>
+<p>二、简答题, 请写出解题过程 (10 分)。</p>
+<ol>
+<li><p>考虑两个刚体之间的一个关节。每个刚体有 $\mathrm{m}$ 个自由度（二维空间刚体 $m=3$, 三维空间刚体 $m=6$ ), 并且没有任何约束。关节有 $f$ 个自由度（旋转关节 $\mathrm{f}=1$, 球形关节 $\mathrm{f}=3$ 等)。试问, 用这个关节关联两个刚体, 那么引入了多少个约束（一个刚体相对于另一个, 用字母表示）?</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220302212205280.png" srcset="/img/loading.gif" lazyload alt="image-20220302212205280"></p>
+<p><strong>解：$自由度f+平面约束c=平面自由度3，自由度f＋空间约束c=空间自由度6$</strong></p>
+<p><strong>故$\pmb{c=-f+m}$</strong></p>
+</li>
+<li><p>考虑一个机构包含了 3 个三维空间刚体 (记住, 包括地面, 所以 $\mathrm{N}=4$ ), 和 4 个关节: 1 个转动, 1 个平移, 一个万向, 一个球形。使用 Grubler 公式, 计算机构的自由度。</p>
+<p><strong>解：转动副$f_1=1$，移动副$f_2=1$，万向铰$f_3=2$，球形铰$f_4=3$</strong></p>
+<p><strong>又$\because N=4$，$J=4$，$m=6$</strong></p>
+<p><strong>$\therefore \pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(4-1-4\right)+\left(1+1+2+3\right)=1}$</strong></p>
+</li>
+<li>如下图的 SRS (球形-转动-球形) 机构, 正在抓取一个物体。试问, 当机构紧握物体时 (物体与机构中的机械臂最后一段没有相对运动时), 自由度是多少?</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/2022_02_28_40f28045fe8caa2a438eg-1.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><strong>解：Spherical Joint即为球形铰$f=3$，共8个；Revolute Joint即为转动副$f=1$，共4个；</strong></p>
+<p><strong>又$\because N=14$，$J=16$，$m=6$</strong></p>
+<p>$\therefore \pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(14-1-16\right)+\left(3\times8+1\times4\right)=10}$</p>
+<ol>
+<li><p>同上题, 如果现在有 $n$ 条这样的机械臂 (题 3 中 $n=4$ ), 机构的自由度是?</p>
+<p><strong>同理：$\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(3n+2-1-4n\right)+\left(3\times2n+1\times n\right)=n+6}$</strong></p>
+</li>
+<li><p>同上题, 假设 $n$ 条机械臂的转动关节, 被替换成了万向关节, 机构的自由度是?</p>
+<p><strong>同理：$\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(3n+2-1-4n\right)+\left(3\times2n+2\times n\right)=2n+6}$</strong></p>
+</li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/course/">course</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/14/net1/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">计算机网络和因特网</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/12/31/2022/">
+                        <span class="hidden-mobile">2022’summary</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <p id="jinrishici-sentence">愿我如星君如月，夜夜流光相皎洁</p> <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener"><span> 粤ICP备2021112653号-1</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/Enderfga/live2d-widget-models/packages/live2d-widget-model-hijiki/assets/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
