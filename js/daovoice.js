@@ -1,5 +1,5 @@
 <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>!(function() {
-  var appId = 'g8qn5ztp4obt0dx6ibaw2uscbcfui99mmezhirde';
+  var appId = '9987ea8c';
 
   (function (i, s, o, g, r, a, m) {  
     i['DaoVoiceObject'] = r;
