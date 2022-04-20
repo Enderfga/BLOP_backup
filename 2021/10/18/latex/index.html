@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://z3.ax1x.com/2021/10/18/5UJwkQ.png">
 <meta property="article:published_time" content="2021-10-18T08:16:14.000Z">
-<meta property="article:modified_time" content="2022-04-03T13:51:08.047Z">
+<meta property="article:modified_time" content="2022-04-20T07:08:35.808Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="course">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.7k 字
+      3.3k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      23 分钟
+      28 分钟
     </span>
   
 
@@ -241,7 +241,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年4月3日 晚上
+                  本文最后更新于：2022年4月20日 下午
                 
               </p>
             
@@ -283,6 +283,8 @@
 <p>如果中文无法显示就加上这一句：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css">\usepackage<span class="hljs-selector-attr">[UTF8]</span>&#123;ctex&#125;<br></code></pre></td></tr></table></figure>
 <p>Latex的相关公式及使用就不再赘述了。</p>
+<p>由于vscode不一定能成功实现4次编译，故我编写了以下bat文件，可以一次性生成pdf并清除所有过程文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs shell">::======================================<br>:: 四次编译：xe-bib-xe-xe<br>::======================================<br>xelatex report<br>bibtex report<br>xelatex report<br>xelatex report<br>::======================================<br>:: 清除文件以及清除更多文件<br>::======================================<br>:clean<br>echo 删除编译临时文件<br>del /f /q /s *.log *.glo *.ilg *.lof *.ind *.out *.thm *.toc *.lot *.loe *.out.bak *.blg *.synctex.gz *.aux *.bbl *.xdv<br>del /f /q *.idx<br>del /f /s *.dvi *.ps<br>goto end<br><br>::======================================<br>:: 结束符，无任何具体意义<br>::======================================<br>:end<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
