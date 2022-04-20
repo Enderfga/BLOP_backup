@@ -8,3 +8,14 @@ http://enderfga.cn/2022/03/28/NUWA/
 http://enderfga.cn/2022/03/28/UAV/
 http://enderfga.cn/2021/10/19/8puzzle/
 http://enderfga.cn/2021/12/31/2022/
+http://enderfga.cn/2022/03/17/data1/
+http://enderfga.cn/2022/03/23/data2/
+http://enderfga.cn/2022/03/24/graph/
+http://enderfga.cn/2021/10/23/logistic/
+http://enderfga.cn/2021/11/16/middle/
+http://enderfga.cn/2022/03/14/net1/
+http://enderfga.cn/2021/11/23/onehot/
+http://enderfga.cn/2021/10/28/ridge/
+http://enderfga.cn/2022/03/02/robot1/
+http://enderfga.cn/2022/03/21/robot2/
+http://enderfga.cn/2021/11/26/wsl/
