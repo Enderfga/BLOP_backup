@@ -202,7 +202,7 @@
 
   <url>
     <loc>http://enderfga.cn/</loc>
-    <lastmod>2022-04-20</lastmod>
+    <lastmod>2022-04-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -210,14 +210,14 @@
   
   <url>
     <loc>http://enderfga.cn/tags/self/</loc>
-    <lastmod>2022-04-20</lastmod>
+    <lastmod>2022-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://enderfga.cn/tags/course/</loc>
-    <lastmod>2022-04-20</lastmod>
+    <lastmod>2022-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
