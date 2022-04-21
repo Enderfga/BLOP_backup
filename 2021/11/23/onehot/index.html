@@ -25,9 +25,9 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20190514150006715.jpg">
 <meta property="article:published_time" content="2021-11-23T11:41:34.000Z">
-<meta property="article:modified_time" content="2022-03-29T16:25:09.150Z">
+<meta property="article:modified_time" content="2022-04-21T05:30:56.887Z">
 <meta property="article:author" content="Enderfga">
-<meta property="article:tag" content="course">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20190514150006715.jpg">
   
@@ -253,7 +253,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年3月30日 凌晨
+                  本文最后更新于：2022年4月21日 下午
                 
               </p>
             
@@ -274,10 +274,8 @@
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20190514150006715.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h1 id="二、One-Hot-Encoding的处理方法"><a href="#二、One-Hot-Encoding的处理方法" class="headerlink" title="二、One-Hot Encoding的处理方法"></a>二、One-Hot Encoding的处理方法</h1><p>One-Hot 编码是分类变量作为二进制向量的表示。</p>
 <ol>
-<li><p>将分类值映射到整数值。</p>
-</li>
-<li><p>每个整数值被表示为二进制向量，除了整数的索引之外，它都是零值，它被标记为1。</p>
-</li>
+<li>将分类值映射到整数值。</li>
+<li>每个整数值被表示为二进制向量，除了整数的索引之外，它都是零值，它被标记为1。</li>
 </ol>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195029323.png" srcset="/img/loading.gif" lazyload alt="image-20211123195029323"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195041636.png" srcset="/img/loading.gif" lazyload alt="image-20211123195041636"></p>
@@ -307,7 +305,8 @@ b. one-hot 编码。使用 one-hot 编码，将离散特征的取值扩展到了
 <li>会有很多非法状态存在[7]。这是由于${\displaystyle N}$个正反器构成的计数器总共有${\displaystyle 2^{N}}$个状态（每个正反器可以是0或1，所以总共${\displaystyle 2^{N}}$种可能状态），但是合法状态却只有${\displaystyle N}$个（即同一时间只允许一个正反器是1,其他必须为0），所以总共会有${\displaystyle 2^{N}-N}$个可能的非法状态。</li>
 </ul>
 <h1 id="五、应用"><a href="#五、应用" class="headerlink" title="五、应用"></a>五、应用</h1><p><strong>自然语言处理</strong><br>在自然语言处理中，若有个字典或字库里有${\displaystyle N}$个单字，则每个单字可以被一个${\displaystyle N}$维的one-hot向量代表。譬如若字库里仅有apple（苹果），banana（香蕉），以及pineapple（凤梨）这三个单字，则他们各自的one-hot向量可以为：</p>
-<script type="math/tex; mode=display">{\displaystyle {\begin{array}{ll}apple&=[1\ 0\ 0]\\banana&=[0\ 1\ 0]\\pineapple&=[0\ 0\ 1]\end{array}}}</script><p>由于电脑无法理解非数字类的数据，One-hot编码可以将类别性数据转换成统一的数字格式，方便机器学习的算法进行处理及计算。而转换成固定维度的向量则方便机器学习算法进行线性代数上的计算。另外由于一个one-hot向量中，绝大部分的数字都是0，所以若使用稀疏矩阵的数据结构，则可以节省电脑内存的使用量。</p>
+<script type="math/tex; mode=display">
+{\displaystyle {\begin{array}{ll}apple&=[1\ 0\ 0]\\banana&=[0\ 1\ 0]\\pineapple&=[0\ 0\ 1]\end{array}}}</script><p>由于电脑无法理解非数字类的数据，One-hot编码可以将类别性数据转换成统一的数字格式，方便机器学习的算法进行处理及计算。而转换成固定维度的向量则方便机器学习算法进行线性代数上的计算。另外由于一个one-hot向量中，绝大部分的数字都是0，所以若使用稀疏矩阵的数据结构，则可以节省电脑内存的使用量。</p>
 <p><strong>有限状态机</strong><br>One-hot编码常常被用来表示一个有限状态机的状态。如果使用二进制或格雷码来代表状态，则需要用到解码器才能得知该码代表的状态。使用one-hot来代表状态的话，则不需要解码器，因为若第${\displaystyle n}$个位元为1，就代表机器目前在第${\displaystyle n}$个状态。</p>
 <p>一个有限状态机的例子是由15个状态构成的环状计数器。使用one-hot编码来实现此状态机的话，可以将15个正反器串联在一起，每个正反器的Q输出接到下一个正反器的D输入，而第一个正反器的D输入则是接到第15个的Q输出，形成一个环状。第一个正反器代表机器的第一个状态，第二个正反器代表第二个状态，依此类推。当机器被归零重设时，第一个正反器的值为1，其余为0。当一个时脉边缘抵达正反器时，会将1推进到下一个正反器。依照这种方式，1可一步步推进到第15个正反器，亦即第15个状态，再之后则重新回到第一个状态。</p>
 <p>位址解码器可以将二进制或格雷码转换成one-shot表示形式。而优先编码器则是作用相反。</p>
@@ -326,7 +325,7 @@ b. one-hot 编码。使用 one-hot 编码，将离散特征的取值扩展到了
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/course/">course</a>
+                      <a class="hover-with-bg" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
                     
                   </div>
                 
