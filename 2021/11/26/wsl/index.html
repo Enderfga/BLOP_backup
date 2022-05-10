@@ -44,7 +44,17 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/themes/prism-twilight.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" />
+      
     
   
 
@@ -212,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.7k 字
+      4.6k 字
     </span>
   
 
@@ -221,7 +231,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      40 分钟
+      39 分钟
     </span>
   
 
@@ -282,7 +292,7 @@
 <h2 id="WSL-2安装"><a href="#WSL-2安装" class="headerlink" title="WSL 2安装"></a>WSL 2安装</h2><p>需要CPU开启VT（Virtualization Technology），这一步根据CPU不同操作方式不同就不细说了。</p>
 <p>需要先启用“适用于 Linux 的 Windows 子系统”可选功能，然后才能在 Windows 上安装 Linux 分发。</p>
 <p>以管理员身份打开 PowerShell 并运行：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">dism.exe /online /<span class="hljs-built_in">enable-feature</span> /featurename:Microsoft<span class="hljs-literal">-Windows</span><span class="hljs-literal">-Subsystem</span><span class="hljs-literal">-Linux</span> /all /norestart<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span><span class="token function">enable-feature</span> <span class="token operator">/</span>featurename:Microsoft<span class="token operator">-</span>Windows<span class="token operator">-</span>Subsystem<span class="token operator">-</span>Linux <span class="token operator">/</span>all <span class="token operator">/</span>norestart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>若要更新到 WSL 2，需要运行 Windows 10。</p>
 <ul>
 <li>对于 x64 系统：<strong>版本 1903</strong> 或更高版本，采用 <strong>内部版本 18362</strong> 或更高版本。</li>
@@ -293,12 +303,12 @@
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126110320999.png" srcset="/img/loading.gif" lazyload alt="image-20211126110320999"></p>
 <p>安装 WSL 2 之前，必须启用“虚拟机平台”可选功能。 计算机需要<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed">虚拟化功能</a>才能使用此功能。</p>
 <p>以管理员身份打开 PowerShell 并运行：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">dism.exe /online /<span class="hljs-built_in">enable-feature</span> /featurename:VirtualMachinePlatform /all /norestart<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span><span class="token function">enable-feature</span> <span class="token operator">/</span>featurename:VirtualMachinePlatform <span class="token operator">/</span>all <span class="token operator">/</span>norestart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126110900611.png" srcset="/img/loading.gif" lazyload alt="image-20211126110900611"></p>
 <p><strong>重新启动</strong> 计算机，以完成 WSL 安装并更新到 WSL 2。</p>
 <p>重启之后<a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">下载安装</a> Linux 内核更新包并将 WSL 2 设置为默认版本。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126111436728.png" srcset="/img/loading.gif" lazyload alt="image-20211126111436728"></p>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">wsl -<span class="hljs-literal">-set</span><span class="hljs-literal">-default</span><span class="hljs-literal">-version</span> <span class="hljs-number">2</span><br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">wsl <span class="token operator">--</span><span class="token function">set-default</span><span class="token operator">-</span>version 2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126111557676.png" srcset="/img/loading.gif" lazyload alt="image-20211126111557676"></p>
 <p>最后，打开 <a target="_blank" rel="noopener" href="https://aka.ms/wslstore">Microsoft Store</a>，并选择你偏好的 Linux 分发版。</p>
 <p>单击以下链接会打开每个分发版的 Microsoft Store 页面：</p>
@@ -319,25 +329,36 @@
 <p>首次启动新安装的 Linux 分发版时，将打开一个控制台窗口，系统会要求你等待一分钟或两分钟，以便文件解压缩并存储到电脑上。 未来的所有启动时间应不到一秒。</p>
 <p>然后，需要为新的 Linux 分发版创建用户帐户和密码。</p>
 <p>另外，以上内容貌似（？）可以使用以下一行命令解决</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">wsl --install -d Ubuntu-20.04<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl --install -d Ubuntu-20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126142919333.png" srcset="/img/loading.gif" lazyload alt="image-20211126142919333"></p>
 <p>另外我发现用户名不能用大写，并且密码是不会显示出来的。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126143140954.png" srcset="/img/loading.gif" lazyload alt="image-20211126143140954"></p>
 <h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>如果遇到下载速度较慢，或者下载失败等问题，我们还可以把官方源换成国内源。</p>
 <p><strong>备份list文件</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">cd /etc/apt/<br>sudo cp sources.list sources.list.bak<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /etc/apt/
+<span class="token function">sudo</span> <span class="token function">cp</span> sources.list sources.list.bak<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 <p>备份了，如果下面的哪一步出错了好恢复。</p>
 <p><strong>修改list文件</strong></p>
 <p>管理员权限，使用 vim 进行修改：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo vim sources.list<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">vim</span> sources.list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>把想要更换的源复制在剪切板，这里以阿里源为例：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p>我们先通过按<strong>ggdG</strong>这几个字母将里面的内容全部删除，</p>
-<figure class="highlight plain"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs plain">通过按下gg后发现光标移动到文件首行了。其中，gg为跳转到文件首行；dG为删除光标所在行以及其下所有行的内容。d为删除，G为跳转到文件末尾行。<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">通过按下gg后发现光标移动到文件首行了。其中，gg为跳转到文件首行；dG为删除光标所在行以及其下所有行的内容。d为删除，G为跳转到文件末尾行。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>按鼠标右键会进行粘贴，然后输入    :wq!    进行退出与保存。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126135607014.png" srcset="/img/loading.gif" lazyload alt="image-20211126135607014"></p>
 <p>最后复制这两条命令进行更新镜像源列表。</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get update<br>sudo apt-get upgrade<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 <h1 id="Windows-terminal-vscode"><a href="#Windows-terminal-vscode" class="headerlink" title="Windows terminal+vscode"></a>Windows terminal+vscode</h1><p><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&amp;activetab=pivot:overviewtab">Windows Terminal</a> <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/terminal/get-started">https://docs.microsoft.com/en-us/windows/terminal/get-started</a></p>
 <p>VS Code <a target="_blank" rel="noopener" href="https://code.visualstudio.com">https://code.visualstudio.com</a></p>
 <p>这两样软件可以大幅提高效率（还很装逼很好看）</p>
@@ -346,49 +367,67 @@
 <p>可以在工作区文件夹内右键然后在windows终端打开</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126112958904.png" srcset="/img/loading.gif" lazyload alt="image-20211126112958904"></p>
 <p>也可以直接打开window终端，cd到对应文件夹，然后输入</p>
-<figure class="highlight powershell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs powershell">code .<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">code <span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126113402308.png" srcset="/img/loading.gif" lazyload alt="image-20211126113402308"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126113507900.png" srcset="/img/loading.gif" lazyload alt="image-20211126113507900"></p>
 <p>至此就可以实现在windows环境下编程，在linux环境下测试。</p>
 <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p>使用以下脚本可以实现自动安装。</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> install docker</span><br>curl -fsSL get.docker.com -o get-docker.sh<br>sh get-docker.sh<br><br>if [ ! $(getent group docker) ];<br>then <br>    sudo groupadd docker;<br>else<br>    echo &quot;docker user group already exists&quot;<br>fi<br><br>sudo gpasswd -a $USER docker<br>sudo service docker restart<br><br>rm -rf get-docker.sh<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># install docker</span>
+<span class="token function">curl</span> -fsSL get.docker.com -o get-docker.sh
+<span class="token function">sh</span> get-docker.sh
+
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token variable"><span class="token variable">$(</span>getent group docker<span class="token variable">)</span></span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">then</span> 
+    <span class="token function">sudo</span> <span class="token function">groupadd</span> docker<span class="token punctuation">;</span>
+<span class="token keyword">else</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"docker user group already exists"</span>
+<span class="token keyword">fi</span>
+
+<span class="token function">sudo</span> gpasswd -a <span class="token environment constant">$USER</span> docker
+<span class="token function">sudo</span> <span class="token function">service</span> docker restart
+
+<span class="token function">rm</span> -rf get-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126133921891.png" srcset="/img/loading.gif" lazyload alt="image-20211126133921891"></p>
 <p>可以直接复制到txt中，然后修改文件类型跟文件名为install-docker.sh（后缀是sh，名字任意）</p>
 <p>例如我在桌面放置了该脚本，右键打开终端之后输入以下命令即可完成安装。</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sh install-docker.sh<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> install-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126140126640.png" srcset="/img/loading.gif" lazyload alt="image-20211126140126640"></p>
 <p>接下来输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo service docker start<br>docker version<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">service</span> docker start
+docker version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 <p>就可以启动服务，查看版本，证明我们已经安装成功。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126140532065.png" srcset="/img/loading.gif" lazyload alt="image-20211126140532065"></p>
 <p>如果不希望每次都特地启动docker的服务可以使用以下命令设置自启动：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo systemctl enable docker<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>关于docker的使用就大家自己研究啦。</p>
 <h1 id="On-my-zsh"><a href="#On-my-zsh" class="headerlink" title="On-my-zsh"></a>On-my-zsh</h1><p>一个美观且功能强大的终端</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126145704636.png" srcset="/img/loading.gif" lazyload alt="image-20211126145704636"></p>
 <p>用windows terminal启动Ubuntu，输入以下命令安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get install -y zsh<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y <span class="token function">zsh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>oh-my-zsh中整理了常用的zsh<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins">扩展</a>和<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">主题</a>,所以先安装oh-my-zsh</p>
 <p>使用curl安装 :</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sh -c &quot;$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>使用wget安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sh -c &quot;$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">wget</span> https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>虽然我列出了上面两条命令，但最好还是看看<a target="_blank" rel="noopener" href="https://ohmyz.sh/#install">官网</a>的安装页面，确保命令的最新版本。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126150308574.png" srcset="/img/loading.gif" lazyload alt="image-20211126150308574"></p>
 <p>接下来输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">cd<br>code .zshrc<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span>
+code .zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 <p>就可以cd到根目录文件夹，用vscode的可视化界面编辑配置文件，添加需要的扩展与主题了。</p>
 <p>扩展与主题根据个人需求添加，本文不再赘述。</p>
 <h1 id="Python开发"><a href="#Python开发" class="headerlink" title="Python开发"></a>Python开发</h1><p>花里胡哨那么多东西了，讲一点实战（假的）。</p>
 <p>默认Ubuntu已经安装了python，我们只需要安装pip，就可以进行一些简单的编程。</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get install python3-pip<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126151809809.png" srcset="/img/loading.gif" lazyload alt="image-20211126151809809"></p>
 <p>当然我们不能局限于简单的编程，我们需要<strong>创建虚拟环境</strong>，确保各个环境互相隔离，互不影响。</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo apt-get install python3-venv<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-venv<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>创建虚拟环境：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">sudo python3 -m venv env<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> python3 -m venv <span class="token function">env</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>激活与退出：</p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">source env/bin/activate<br><br>deactivate<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> env/bin/activate
+
+deactivate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126181729703.png" srcset="/img/loading.gif" lazyload alt="image-20211126181729703"></p>
 <p>接下来就可以尽情地pip install了，在工作环境下新建文件夹，再用vscode打开，即可开始编程。</p>
 
@@ -604,6 +643,8 @@
 
 
 
+  
+    
   
 
 

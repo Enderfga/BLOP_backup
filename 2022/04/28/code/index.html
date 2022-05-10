@@ -44,7 +44,17 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/themes/prism-twilight.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" />
+      
     
   
 
@@ -212,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.6k 字
+      6.2k 字
     </span>
   
 
@@ -221,7 +231,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      56 分钟
+      52 分钟
     </span>
   
 
@@ -264,41 +274,45 @@
 <span id="more"></span>
 <h1 id="Anaconda-amp-python"><a href="#Anaconda-amp-python" class="headerlink" title="Anaconda&amp;python"></a>Anaconda&amp;python</h1><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220428093957780.png" srcset="/img/loading.gif" lazyload alt="image-20220428093957780"></p>
 <p><strong>pip安装（tensorflow-gpu为例）</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip  install tensorflow-gpu<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip  install tensorflow-gpu<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>conda安装</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">conda  install tensorflow-gpu<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda  install tensorflow-gpu<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>pip3安装（指定版本号只需在命令末尾添加==1.12.0版本号）</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip3  install tensorflow-gpu==1.12.0<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip3  install tensorflow-gpu&#x3D;&#x3D;1.12.0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>使用清华镜像下载</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip install tensorflow-gpu==1.10 -i https://pypi.tuna.tsinghua.edu.cn/simple<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install tensorflow-gpu&#x3D;&#x3D;1.10 -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>指定目录安装</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">pip install -t D:\ProgramData\Anaconda3\Lib\site-packages torch-1.0.1-cp36-cp36m-win_amd64.whl<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install -t D:\ProgramData\Anaconda3\Lib\site-packages torch-1.0.1-cp36-cp36m-win_amd64.whl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>卸载安装（pip\pip3只需将conda换成pip\pip3）</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">conda  uninstall tensorflow-gpu<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda  uninstall tensorflow-gpu<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>创建虚拟环境（conda为例）</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">conda create -n py36 python=3.6  #py36虚拟环境的名字  python=3.6  python版本<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda create -n py36 python&#x3D;3.6  #py36虚拟环境的名字  python&#x3D;3.6  python版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>删除虚拟环境</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">conda remove -n py36 --all<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda remove -n py36 --all<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>激活虚拟环境</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">conda activate py36<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda activate py36<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>退出虚拟环境</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">conda deactivate<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda deactivate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>查看所有创建的虚拟环境</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">conda env list<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda env list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>用virtualenv创建虚拟环境</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">VENV_DIR=venv<br>pip install virtualenv<br>virtualenv <span class="hljs-variable">$VENV_DIR</span><br><span class="hljs-built_in">source</span> <span class="hljs-variable">$VENV_DIR</span>/bin/activate<br>deactivate<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">VENV_DIR</span><span class="token operator">=</span>venv
+pip <span class="token function">install</span> virtualenv
+virtualenv <span class="token variable">$VENV_DIR</span>
+<span class="token builtin class-name">source</span> <span class="token variable">$VENV_DIR</span>/bin/activate
+deactivate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p><strong>nohup送入后台运行</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">nohup python train.py &gt;nohup 2&gt;&amp;1 &amp;      #train.py运行的文件  nohup生成的日志文件<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">nohup</span> python train.py <span class="token operator">></span>nohup <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span>      <span class="token comment">#train.py运行的文件  nohup生成的日志文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>CUDA指定GPU</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">CUDA_VISIBLE_DEVICES=0 nohup python train.py  &gt; nohup.log 2&gt;&amp;1 &amp;<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token assign-left variable">CUDA_VISIBLE_DEVICES</span><span class="token operator">=</span><span class="token number">0</span> <span class="token function">nohup</span> python train.py  <span class="token operator">></span> nohup.log <span class="token operator"><span class="token file-descriptor important">2</span>></span><span class="token file-descriptor important">&amp;1</span> <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>导出requirements.txt</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">python3 -m pip freeze &gt; requirements.txt<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python3 -m pip freeze <span class="token operator">></span> requirements.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>查看GPU使用情况</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">nvidia-smi<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">nvidia-smi<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>查看进程号</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">ps aux<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ps</span> aux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><strong>根据进程号杀死进程</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs shell">kill -9 进程号<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">kill</span> -9 进程号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/200301122312741.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
 <h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><p>linux不像Windows 分了盘，它根目录下有如下常用文件夹:</p>
 <p><em>home</em>         —————        用户的家</p>
@@ -375,39 +389,273 @@
 </ul>
 </blockquote>
 <h2 id="一、新建代码库"><a href="#一、新建代码库" class="headerlink" title="一、新建代码库"></a>一、新建代码库</h2><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 在当前目录新建一个Git代码库</span><br>$ git init<br><br><span class="hljs-comment"># 新建一个目录，将其初始化为Git代码库</span><br>$ git init [project-name]<br><br><span class="hljs-comment"># 下载一个项目和它的整个代码历史</span><br>$ git <span class="hljs-built_in">clone</span> [url]<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在当前目录新建一个Git代码库</span>
+$ <span class="token function">git</span> init
+
+<span class="token comment"># 新建一个目录，将其初始化为Git代码库</span>
+$ <span class="token function">git</span> init <span class="token punctuation">[</span>project-name<span class="token punctuation">]</span>
+
+<span class="token comment"># 下载一个项目和它的整个代码历史</span>
+$ <span class="token function">git</span> clone <span class="token punctuation">[</span>url<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </blockquote>
 <h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><p>Git的设置文件为 <code>.gitconfig</code>，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
 <blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 显示当前的Git配置</span><br>$ git config --list<br><br><span class="hljs-comment"># 编辑Git配置文件</span><br>$ git config -e [--global]<br><br><span class="hljs-comment"># 设置提交代码时的用户信息</span><br>$ git config [--global] user.name <span class="hljs-string">&quot;[name]&quot;</span><br>$ git config [--global] user.email <span class="hljs-string">&quot;[email address]&quot;</span><br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 显示当前的Git配置</span>
+$ <span class="token function">git</span> config --list
+
+<span class="token comment"># 编辑Git配置文件</span>
+$ <span class="token function">git</span> config -e <span class="token punctuation">[</span>--global<span class="token punctuation">]</span>
+
+<span class="token comment"># 设置提交代码时的用户信息</span>
+$ <span class="token function">git</span> config <span class="token punctuation">[</span>--global<span class="token punctuation">]</span> user.name <span class="token string">"[name]"</span>
+$ <span class="token function">git</span> config <span class="token punctuation">[</span>--global<span class="token punctuation">]</span> user.email <span class="token string">"[email address]"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </blockquote>
 <h2 id="三、增加-删除文件"><a href="#三、增加-删除文件" class="headerlink" title="三、增加/删除文件"></a>三、增加/删除文件</h2><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 添加指定文件到暂存区</span><br>$ git add [file1] [file2] ...<br><br><span class="hljs-comment"># 添加指定目录到暂存区，包括子目录</span><br>$ git add [dir]<br><br><span class="hljs-comment"># 添加当前目录的所有文件到暂存区</span><br>$ git add .<br><br><span class="hljs-comment"># 添加每个变化前，都会要求确认</span><br><span class="hljs-comment"># 对于同一个文件的多处变化，可以实现分次提交</span><br>$ git add -p<br><br><span class="hljs-comment"># 删除工作区文件，并且将这次删除放入暂存区</span><br>$ git rm [file1] [file2] ...<br><br><span class="hljs-comment"># 停止追踪指定文件，但该文件会保留在工作区</span><br>$ git rm --cached [file]<br><br><span class="hljs-comment"># 改名文件，并且将这个改名放入暂存区</span><br>$ git mv [file-original] [file-renamed]<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加指定文件到暂存区</span>
+$ <span class="token function">git</span> <span class="token function">add</span> <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
+
+<span class="token comment"># 添加指定目录到暂存区，包括子目录</span>
+$ <span class="token function">git</span> <span class="token function">add</span> <span class="token punctuation">[</span>dir<span class="token punctuation">]</span>
+
+<span class="token comment"># 添加当前目录的所有文件到暂存区</span>
+$ <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+
+<span class="token comment"># 添加每个变化前，都会要求确认</span>
+<span class="token comment"># 对于同一个文件的多处变化，可以实现分次提交</span>
+$ <span class="token function">git</span> <span class="token function">add</span> -p
+
+<span class="token comment"># 删除工作区文件，并且将这次删除放入暂存区</span>
+$ <span class="token function">git</span> <span class="token function">rm</span> <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
+
+<span class="token comment"># 停止追踪指定文件，但该文件会保留在工作区</span>
+$ <span class="token function">git</span> <span class="token function">rm</span> --cached <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 改名文件，并且将这个改名放入暂存区</span>
+$ <span class="token function">git</span> <span class="token function">mv</span> <span class="token punctuation">[</span>file-original<span class="token punctuation">]</span> <span class="token punctuation">[</span>file-renamed<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </blockquote>
 <h2 id="四、代码提交"><a href="#四、代码提交" class="headerlink" title="四、代码提交"></a>四、代码提交</h2><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 提交暂存区到仓库区</span><br>$ git commit -m [message]<br><br><span class="hljs-comment"># 提交暂存区的指定文件到仓库区</span><br>$ git commit [file1] [file2] ... -m [message]<br><br><span class="hljs-comment"># 提交工作区自上次commit之后的变化，直接到仓库区</span><br>$ git commit -a<br><br><span class="hljs-comment"># 提交时显示所有diff信息</span><br>$ git commit -v<br><br><span class="hljs-comment"># 使用一次新的commit，替代上一次提交</span><br><span class="hljs-comment"># 如果代码没有任何新变化，则用来改写上一次commit的提交信息</span><br>$ git commit --amend -m [message]<br><br><span class="hljs-comment"># 重做上一次commit，并包括指定文件的新变化</span><br>$ git commit --amend [file1] [file2] ...<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 提交暂存区到仓库区</span>
+$ <span class="token function">git</span> commit -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
+
+<span class="token comment"># 提交暂存区的指定文件到仓库区</span>
+$ <span class="token function">git</span> commit <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>. -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
+
+<span class="token comment"># 提交工作区自上次commit之后的变化，直接到仓库区</span>
+$ <span class="token function">git</span> commit -a
+
+<span class="token comment"># 提交时显示所有diff信息</span>
+$ <span class="token function">git</span> commit -v
+
+<span class="token comment"># 使用一次新的commit，替代上一次提交</span>
+<span class="token comment"># 如果代码没有任何新变化，则用来改写上一次commit的提交信息</span>
+$ <span class="token function">git</span> commit --amend -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
+
+<span class="token comment"># 重做上一次commit，并包括指定文件的新变化</span>
+$ <span class="token function">git</span> commit --amend <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </blockquote>
 <h2 id="五、分支"><a href="#五、分支" class="headerlink" title="五、分支"></a>五、分支</h2><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 列出所有本地分支</span><br>$ git branch<br><br><span class="hljs-comment"># 列出所有远程分支</span><br>$ git branch -r<br><br><span class="hljs-comment"># 列出所有本地分支和远程分支</span><br>$ git branch -a<br><br><span class="hljs-comment"># 新建一个分支，但依然停留在当前分支</span><br>$ git branch [branch-name]<br><br><span class="hljs-comment"># 新建一个分支，并切换到该分支</span><br>$ git checkout -b [branch]<br><br><span class="hljs-comment"># 新建一个分支，指向指定commit</span><br>$ git branch [branch] [commit]<br><br><span class="hljs-comment"># 新建一个分支，与指定的远程分支建立追踪关系</span><br>$ git branch --track [branch] [remote-branch]<br><br><span class="hljs-comment"># 切换到指定分支，并更新工作区</span><br>$ git checkout [branch-name]<br><br><span class="hljs-comment"># 切换到上一个分支</span><br>$ git checkout -<br><br><span class="hljs-comment"># 建立追踪关系，在现有分支与指定的远程分支之间</span><br>$ git branch --set-upstream [branch] [remote-branch]<br><br><span class="hljs-comment"># 合并指定分支到当前分支</span><br>$ git merge [branch]<br><br><span class="hljs-comment"># 选择一个commit，合并进当前分支</span><br>$ git cherry-pick [commit]<br><br><span class="hljs-comment"># 删除分支</span><br>$ git branch -d [branch-name]<br><br><span class="hljs-comment"># 删除远程分支</span><br>$ git push origin --delete [branch-name]<br>$ git branch -dr [remote/branch]<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 列出所有本地分支</span>
+$ <span class="token function">git</span> branch
+
+<span class="token comment"># 列出所有远程分支</span>
+$ <span class="token function">git</span> branch -r
+
+<span class="token comment"># 列出所有本地分支和远程分支</span>
+$ <span class="token function">git</span> branch -a
+
+<span class="token comment"># 新建一个分支，但依然停留在当前分支</span>
+$ <span class="token function">git</span> branch <span class="token punctuation">[</span>branch-name<span class="token punctuation">]</span>
+
+<span class="token comment"># 新建一个分支，并切换到该分支</span>
+$ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 新建一个分支，指向指定commit</span>
+$ <span class="token function">git</span> branch <span class="token punctuation">[</span>branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 新建一个分支，与指定的远程分支建立追踪关系</span>
+$ <span class="token function">git</span> branch --track <span class="token punctuation">[</span>branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 切换到指定分支，并更新工作区</span>
+$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>branch-name<span class="token punctuation">]</span>
+
+<span class="token comment"># 切换到上一个分支</span>
+$ <span class="token function">git</span> checkout -
+
+<span class="token comment"># 建立追踪关系，在现有分支与指定的远程分支之间</span>
+$ <span class="token function">git</span> branch --set-upstream <span class="token punctuation">[</span>branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 合并指定分支到当前分支</span>
+$ <span class="token function">git</span> merge <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 选择一个commit，合并进当前分支</span>
+$ <span class="token function">git</span> cherry-pick <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 删除分支</span>
+$ <span class="token function">git</span> branch -d <span class="token punctuation">[</span>branch-name<span class="token punctuation">]</span>
+
+<span class="token comment"># 删除远程分支</span>
+$ <span class="token function">git</span> push origin --delete <span class="token punctuation">[</span>branch-name<span class="token punctuation">]</span>
+$ <span class="token function">git</span> branch -dr <span class="token punctuation">[</span>remote/branch<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </blockquote>
 <h2 id="六、标签"><a href="#六、标签" class="headerlink" title="六、标签"></a>六、标签</h2><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 列出所有tag</span><br>$ git tag<br><br><span class="hljs-comment"># 新建一个tag在当前commit</span><br>$ git tag [tag]<br><br><span class="hljs-comment"># 新建一个tag在指定commit</span><br>$ git tag [tag] [commit]<br><br><span class="hljs-comment"># 删除本地tag</span><br>$ git tag -d [tag]<br><br><span class="hljs-comment"># 删除远程tag</span><br>$ git push origin :refs/tags/[tagName]<br><br><span class="hljs-comment"># 查看tag信息</span><br>$ git show [tag]<br><br><span class="hljs-comment"># 提交指定tag</span><br>$ git push [remote] [tag]<br><br><span class="hljs-comment"># 提交所有tag</span><br>$ git push [remote] --tags<br><br><span class="hljs-comment"># 新建一个分支，指向某个tag</span><br>$ git checkout -b [branch] [tag]<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 列出所有tag</span>
+$ <span class="token function">git</span> tag
+
+<span class="token comment"># 新建一个tag在当前commit</span>
+$ <span class="token function">git</span> tag <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+
+<span class="token comment"># 新建一个tag在指定commit</span>
+$ <span class="token function">git</span> tag <span class="token punctuation">[</span>tag<span class="token punctuation">]</span> <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 删除本地tag</span>
+$ <span class="token function">git</span> tag -d <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+
+<span class="token comment"># 删除远程tag</span>
+$ <span class="token function">git</span> push origin :refs/tags/<span class="token punctuation">[</span>tagName<span class="token punctuation">]</span>
+
+<span class="token comment"># 查看tag信息</span>
+$ <span class="token function">git</span> show <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+
+<span class="token comment"># 提交指定tag</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>tag<span class="token punctuation">]</span>
+
+<span class="token comment"># 提交所有tag</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> --tags
+
+<span class="token comment"># 新建一个分支，指向某个tag</span>
+$ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>tag<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </blockquote>
 <h2 id="七、查看信息"><a href="#七、查看信息" class="headerlink" title="七、查看信息"></a>七、查看信息</h2><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 显示有变更的文件</span><br>$ git status<br><br><span class="hljs-comment"># 显示当前分支的版本历史</span><br>$ git <span class="hljs-built_in">log</span><br><br><span class="hljs-comment"># 显示commit历史，以及每次commit发生变更的文件</span><br>$ git <span class="hljs-built_in">log</span> --<span class="hljs-built_in">stat</span><br><br><span class="hljs-comment"># 搜索提交历史，根据关键词</span><br>$ git <span class="hljs-built_in">log</span> -S [keyword]<br><br><span class="hljs-comment"># 显示某个commit之后的所有变动，每个commit占据一行</span><br>$ git <span class="hljs-built_in">log</span> [tag] HEAD --pretty=format:%s<br><br><span class="hljs-comment"># 显示某个commit之后的所有变动，其&quot;提交说明&quot;必须符合搜索条件</span><br>$ git <span class="hljs-built_in">log</span> [tag] HEAD --grep feature<br><br><span class="hljs-comment"># 显示某个文件的版本历史，包括文件改名</span><br>$ git <span class="hljs-built_in">log</span> --follow [file]<br>$ git whatchanged [file]<br><br><span class="hljs-comment"># 显示指定文件相关的每一次diff</span><br>$ git <span class="hljs-built_in">log</span> -p [file]<br><br><span class="hljs-comment"># 显示过去5次提交</span><br>$ git <span class="hljs-built_in">log</span> -5 --pretty --oneline<br><br><span class="hljs-comment"># 显示所有提交过的用户，按提交次数排序</span><br>$ git shortlog -sn<br><br><span class="hljs-comment"># 显示指定文件是什么人在什么时间修改过</span><br>$ git blame [file]<br><br><span class="hljs-comment"># 显示暂存区和工作区的差异</span><br>$ git diff<br><br><span class="hljs-comment"># 显示暂存区和上一个commit的差异</span><br>$ git diff --cached [file]<br><br><span class="hljs-comment"># 显示工作区与当前分支最新commit之间的差异</span><br>$ git diff HEAD<br><br><span class="hljs-comment"># 显示两次提交之间的差异</span><br>$ git diff [first-branch]...[second-branch]<br><br><span class="hljs-comment"># 显示今天你写了多少行代码</span><br>$ git diff --shortstat <span class="hljs-string">&quot;@&#123;0 day ago&#125;&quot;</span><br><br><span class="hljs-comment"># 显示某次提交的元数据和内容变化</span><br>$ git show [commit]<br><br><span class="hljs-comment"># 显示某次提交发生变化的文件</span><br>$ git show --name-only [commit]<br><br><span class="hljs-comment"># 显示某次提交时，某个文件的内容</span><br>$ git show [commit]:[filename]<br><br><span class="hljs-comment"># 显示当前分支的最近几次提交</span><br>$ git reflog<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 显示有变更的文件</span>
+$ <span class="token function">git</span> status
+
+<span class="token comment"># 显示当前分支的版本历史</span>
+$ <span class="token function">git</span> log
+
+<span class="token comment"># 显示commit历史，以及每次commit发生变更的文件</span>
+$ <span class="token function">git</span> log --stat
+
+<span class="token comment"># 搜索提交历史，根据关键词</span>
+$ <span class="token function">git</span> log -S <span class="token punctuation">[</span>keyword<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示某个commit之后的所有变动，每个commit占据一行</span>
+$ <span class="token function">git</span> log <span class="token punctuation">[</span>tag<span class="token punctuation">]</span> HEAD --pretty<span class="token operator">=</span>format:%s
+
+<span class="token comment"># 显示某个commit之后的所有变动，其"提交说明"必须符合搜索条件</span>
+$ <span class="token function">git</span> log <span class="token punctuation">[</span>tag<span class="token punctuation">]</span> HEAD --grep feature
+
+<span class="token comment"># 显示某个文件的版本历史，包括文件改名</span>
+$ <span class="token function">git</span> log --follow <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+$ <span class="token function">git</span> whatchanged <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示指定文件相关的每一次diff</span>
+$ <span class="token function">git</span> log -p <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示过去5次提交</span>
+$ <span class="token function">git</span> log -5 --pretty --oneline
+
+<span class="token comment"># 显示所有提交过的用户，按提交次数排序</span>
+$ <span class="token function">git</span> shortlog -sn
+
+<span class="token comment"># 显示指定文件是什么人在什么时间修改过</span>
+$ <span class="token function">git</span> blame <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示暂存区和工作区的差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span>
+
+<span class="token comment"># 显示暂存区和上一个commit的差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> --cached <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示工作区与当前分支最新commit之间的差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> HEAD
+
+<span class="token comment"># 显示两次提交之间的差异</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> <span class="token punctuation">[</span>first-branch<span class="token punctuation">]</span><span class="token punctuation">..</span>.<span class="token punctuation">[</span>second-branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示今天你写了多少行代码</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> --shortstat <span class="token string">"@&#123;0 day ago&#125;"</span>
+
+<span class="token comment"># 显示某次提交的元数据和内容变化</span>
+$ <span class="token function">git</span> show <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示某次提交发生变化的文件</span>
+$ <span class="token function">git</span> show --name-only <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示某次提交时，某个文件的内容</span>
+$ <span class="token function">git</span> show <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>:<span class="token punctuation">[</span>filename<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示当前分支的最近几次提交</span>
+$ <span class="token function">git</span> reflog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </blockquote>
 <h2 id="八、远程同步"><a href="#八、远程同步" class="headerlink" title="八、远程同步"></a>八、远程同步</h2><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 下载远程仓库的所有变动</span><br>$ git fetch [remote]<br><br><span class="hljs-comment"># 显示所有远程仓库</span><br>$ git remote -v<br><br><span class="hljs-comment"># 显示某个远程仓库的信息</span><br>$ git remote show [remote]<br><br><span class="hljs-comment"># 增加一个新的远程仓库，并命名</span><br>$ git remote add [shortname] [url]<br><br><span class="hljs-comment"># 取回远程仓库的变化，并与本地分支合并</span><br>$ git pull [remote] [branch]<br><br><span class="hljs-comment"># 上传本地指定分支到远程仓库</span><br>$ git push [remote] [branch]<br><br><span class="hljs-comment"># 强行推送当前分支到远程仓库，即使有冲突</span><br>$ git push [remote] --force<br><br><span class="hljs-comment"># 推送所有分支到远程仓库</span><br>$ git push [remote] --all<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载远程仓库的所有变动</span>
+$ <span class="token function">git</span> fetch <span class="token punctuation">[</span>remote<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示所有远程仓库</span>
+$ <span class="token function">git</span> remote -v
+
+<span class="token comment"># 显示某个远程仓库的信息</span>
+$ <span class="token function">git</span> remote show <span class="token punctuation">[</span>remote<span class="token punctuation">]</span>
+
+<span class="token comment"># 增加一个新的远程仓库，并命名</span>
+$ <span class="token function">git</span> remote <span class="token function">add</span> <span class="token punctuation">[</span>shortname<span class="token punctuation">]</span> <span class="token punctuation">[</span>url<span class="token punctuation">]</span>
+
+<span class="token comment"># 取回远程仓库的变化，并与本地分支合并</span>
+$ <span class="token function">git</span> pull <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 上传本地指定分支到远程仓库</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 强行推送当前分支到远程仓库，即使有冲突</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> --force
+
+<span class="token comment"># 推送所有分支到远程仓库</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> --all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </blockquote>
 <h2 id="九、撤销"><a href="#九、撤销" class="headerlink" title="九、撤销"></a>九、撤销</h2><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 恢复暂存区的指定文件到工作区</span><br>$ git checkout [file]<br><br><span class="hljs-comment"># 恢复某个commit的指定文件到暂存区和工作区</span><br>$ git checkout [commit] [file]<br><br><span class="hljs-comment"># 恢复暂存区的所有文件到工作区</span><br>$ git checkout .<br><br><span class="hljs-comment"># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span><br>$ git reset [file]<br><br><span class="hljs-comment"># 重置暂存区与工作区，与上一次commit保持一致</span><br>$ git reset --hard<br><br><span class="hljs-comment"># 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</span><br>$ git reset [commit]<br><br><span class="hljs-comment"># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</span><br>$ git reset --hard [commit]<br><br><span class="hljs-comment"># 重置当前HEAD为指定commit，但保持暂存区和工作区不变</span><br>$ git reset --keep [commit]<br><br><span class="hljs-comment"># 新建一个commit，用来撤销指定commit</span><br><span class="hljs-comment"># 后者的所有变化都将被前者抵消，并且应用到当前分支</span><br>$ git revert [commit]<br><br><span class="hljs-comment"># 暂时将未提交的变化移除，稍后再移入</span><br>$ git stash<br>$ git stash pop<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 恢复暂存区的指定文件到工作区</span>
+$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 恢复某个commit的指定文件到暂存区和工作区</span>
+$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>commit<span class="token punctuation">]</span> <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 恢复暂存区的所有文件到工作区</span>
+$ <span class="token function">git</span> checkout <span class="token builtin class-name">.</span>
+
+<span class="token comment"># 重置暂存区的指定文件，与上一次commit保持一致，但工作区不变</span>
+$ <span class="token function">git</span> reset <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 重置暂存区与工作区，与上一次commit保持一致</span>
+$ <span class="token function">git</span> reset --hard
+
+<span class="token comment"># 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变</span>
+$ <span class="token function">git</span> reset <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 重置当前分支的HEAD为指定commit，同时重置暂存区和工作区，与指定commit一致</span>
+$ <span class="token function">git</span> reset --hard <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 重置当前HEAD为指定commit，但保持暂存区和工作区不变</span>
+$ <span class="token function">git</span> reset --keep <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 新建一个commit，用来撤销指定commit</span>
+<span class="token comment"># 后者的所有变化都将被前者抵消，并且应用到当前分支</span>
+$ <span class="token function">git</span> revert <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 暂时将未提交的变化移除，稍后再移入</span>
+$ <span class="token function">git</span> stash
+$ <span class="token function">git</span> stash pop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 </blockquote>
 <h2 id="十、其他"><a href="#十、其他" class="headerlink" title="十、其他"></a>十、其他</h2><blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash"><span class="hljs-comment"># 生成一个可供发布的压缩包</span><br>$ git archive<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成一个可供发布的压缩包</span>
+$ <span class="token function">git</span> archive<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 </blockquote>
 <p>一个常用的实例</p>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git remote add origin xxx(复制的SSH链接)<br>git branch -m master main<br></code></pre></div></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">git add . <br>git commit -m <span class="hljs-string">&quot;注释&quot;</span> <br>git pull --rebase origin main<br>git push origin main<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote <span class="token function">add</span> origin xxx<span class="token punctuation">(</span>复制的SSH链接<span class="token punctuation">)</span>
+<span class="token function">git</span> branch -m master main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span> 
+<span class="token function">git</span> commit -m <span class="token string">"注释"</span> 
+<span class="token function">git</span> pull --rebase origin main
+<span class="token function">git</span> push origin main<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
 
             </div>
             <hr>
@@ -621,6 +869,8 @@
 
 
 
+  
+    
   
 
 

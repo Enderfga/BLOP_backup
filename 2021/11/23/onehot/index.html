@@ -44,7 +44,17 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/themes/prism-twilight.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" />
+      
     
   
 
@@ -212,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.2k 字
+      3.1k 字
     </span>
   
 
@@ -282,11 +292,18 @@
 <p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195041636.png" srcset="/img/loading.gif" lazyload alt="image-20211123195041636"></p>
 <p>对于上述的问题，性别的属性是二维的，同理，地区是三维的，浏览器则是四维的，这样，我们可以采用One-Hot编码的方式对上述的样本“[“male”，”US”，”Internet Explorer”]”编码，“male”则对应着[1，0]，同理“US”对应着[0，1，0]，“Internet Explorer”对应着[0，0，0，1]。</p>
 <p>则完整的特征数字化的结果为：[1,0,0,1,0,0,0,0,1]。这样导致的一个结果就是数据会变得非常的稀疏。</p>
-<h1 id="三、Python代码举例"><a href="#三、Python代码举例" class="headerlink" title="三、Python代码举例"></a>三、Python代码举例</h1><figure class="highlight python"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> preprocessing<br> <br>enc = preprocessing.OneHotEncoder()<br>enc.fit([[<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">3</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>],[<span class="hljs-number">0</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>],[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>]])<br> <br>array = enc.transform([[<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>]]).toarray()<br> <br><span class="hljs-built_in">print</span>(array)<br></code></pre></div></td></tr></table></figure>
+<h1 id="三、Python代码举例"><a href="#三、Python代码举例" class="headerlink" title="三、Python代码举例"></a>三、Python代码举例</h1><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn <span class="token keyword">import</span> preprocessing
+ 
+enc <span class="token operator">=</span> preprocessing<span class="token punctuation">.</span>OneHotEncoder<span class="token punctuation">(</span><span class="token punctuation">)</span>
+enc<span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+ 
+array <span class="token operator">=</span> enc<span class="token punctuation">.</span>transform<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toarray<span class="token punctuation">(</span><span class="token punctuation">)</span>
+ 
+<span class="token keyword">print</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p>结果：[[ 1.  0.  0.  1.  0.  0.  0.  0.  1.]]</p>
 <h1 id="四、优缺点分析"><a href="#四、优缺点分析" class="headerlink" title="四、优缺点分析"></a>四、优缺点分析</h1><p><strong>优点：</strong></p>
 <p>(1) 解决了分类器不好处理离散数据的问题。</p>
-<div class="hljs code-wrapper"><pre><code class="hljs">a. 欧式空间。在回归，分类，聚类等机器学习算法中，特征之间 距离计算 或 相似度计算 是非常重要的，而我们常用的距离或相似度的计算都是在欧式空间的相似度计算，计算余弦相似性，基于的就是欧式空间。
+<div class="code-wrapper"><pre class="language-none"><code class="language-none">a. 欧式空间。在回归，分类，聚类等机器学习算法中，特征之间 距离计算 或 相似度计算 是非常重要的，而我们常用的距离或相似度的计算都是在欧式空间的相似度计算，计算余弦相似性，基于的就是欧式空间。
 
 b. one-hot 编码。使用 one-hot 编码，将离散特征的取值扩展到了欧式空间，离散特征的某个取值就对应欧式空间的某个点。将离散型特征使用 one-hot 编码，确实会让 特征之间的距离计算更加合理。
 </code></pre></div><p>(2) 在一定程度上也起到了扩充特征的作用。</p>
@@ -529,6 +546,8 @@ b. one-hot 编码。使用 one-hot 编码，将离散特征的取值扩展到了
 
 
 
+  
+    
   
 
 

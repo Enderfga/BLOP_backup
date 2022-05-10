@@ -44,7 +44,17 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+      
+        
+          
+          
+          
+        
+        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/themes/prism-twilight.min.css" />
+      
+      
+        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" />
+      
     
   
 
@@ -212,7 +222,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2k 字
+      1.9k 字
     </span>
   
 
@@ -271,13 +281,35 @@
 <p>depositor ( customer_name, account_number )</p>
 <p><strong>Figure 5.25</strong></p>
 <p><strong>My answer:</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">trigger</span> <span class="hljs-keyword">check</span><span class="hljs-operator">-</span><span class="hljs-keyword">delete</span><span class="hljs-operator">-</span><span class="hljs-keyword">trigger</span> after <span class="hljs-keyword">delete</span> <span class="hljs-keyword">on</span> account <br><span class="hljs-keyword">referencing</span> <span class="hljs-keyword">old</span> <span class="hljs-type">row</span> <span class="hljs-keyword">as</span> orow<br><span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> <span class="hljs-type">row</span><br><span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> depositor<br><span class="hljs-keyword">where</span> depositor.customer_name <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span><br>   ( <span class="hljs-keyword">select</span> customer_name <span class="hljs-keyword">from</span> depositor <br>    <span class="hljs-keyword">where</span> account_number <span class="hljs-operator">&lt;&gt;</span> orow.account_number ) <br><span class="hljs-keyword">end</span><br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">trigger</span> <span class="token keyword">check</span><span class="token operator">-</span><span class="token keyword">delete</span><span class="token operator">-</span><span class="token keyword">trigger</span> <span class="token keyword">after</span> <span class="token keyword">delete</span> <span class="token keyword">on</span> account 
+referencing old <span class="token keyword">row</span> <span class="token keyword">as</span> orow
+<span class="token keyword">for each row</span>
+<span class="token keyword">delete</span> <span class="token keyword">from</span> depositor
+<span class="token keyword">where</span> depositor<span class="token punctuation">.</span>customer_name <span class="token operator">not</span> <span class="token operator">in</span>
+   <span class="token punctuation">(</span> <span class="token keyword">select</span> customer_name <span class="token keyword">from</span> depositor 
+    <span class="token keyword">where</span> account_number <span class="token operator">&lt;></span> orow<span class="token punctuation">.</span>account_number <span class="token punctuation">)</span> 
+<span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p><strong>Exercise</strong> <strong>5.15</strong> Consider an employee database with two relations<br>employee ($\underline{employee_name}$, street, city)<br>works ($\underline{employee_name}$, company_name, salary)<br>where the primary keys are underlined. Write a query to find companies whose employees earn a higher salary, on average, than the average salary at “First Bank Corporation”.<br>a. Using SQL functions as appropriate.<br>b. Without using SQL functions.</p>
 <p><strong>My answer:</strong></p>
 <p>a)</p>
-<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">function</span> avg_salary(cname <span class="hljs-type">varchar</span>(<span class="hljs-number">15</span>))<br><span class="hljs-keyword">return</span> <span class="hljs-type">integer</span><br>     <span class="hljs-keyword">declare</span> <span class="hljs-keyword">result</span> <span class="hljs-type">integer</span>;<br><span class="hljs-keyword">select</span> <span class="hljs-built_in">avg</span>(salary) <span class="hljs-keyword">into</span> <span class="hljs-keyword">result</span><br><span class="hljs-keyword">from</span> works<br><span class="hljs-keyword">where</span> works.company.name <span class="hljs-operator">=</span> cname<br><span class="hljs-keyword">return</span> <span class="hljs-keyword">result</span>;<br><span class="hljs-keyword">end</span><br><span class="hljs-keyword">select</span> company_name<br><span class="hljs-keyword">from</span> works<br><span class="hljs-keyword">where</span> avg_salary(company_name) <span class="hljs-operator">&gt;</span> avg_salary(“<span class="hljs-keyword">First</span> Bank Corporation”)<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">function</span> avg_salary<span class="token punctuation">(</span>cname <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">return</span> <span class="token keyword">integer</span>
+     <span class="token keyword">declare</span> result <span class="token keyword">integer</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token function">avg</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token keyword">into</span> result
+<span class="token keyword">from</span> works
+<span class="token keyword">where</span> works<span class="token punctuation">.</span>company<span class="token punctuation">.</span>name <span class="token operator">=</span> cname
+<span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token keyword">end</span>
+<span class="token keyword">select</span> company_name
+<span class="token keyword">from</span> works
+<span class="token keyword">where</span> avg_salary<span class="token punctuation">(</span>company_name<span class="token punctuation">)</span> <span class="token operator">></span> avg_salary<span class="token punctuation">(</span>“<span class="token keyword">First</span> Bank Corporation”<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p>b)</p>
-<figure class="highlight sql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs sql"><span class="hljs-keyword">select</span> company_name<br><span class="hljs-keyword">from</span> works<br><span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> company_name<br><span class="hljs-keyword">having</span> <span class="hljs-built_in">avg</span>(salary) <span class="hljs-operator">&gt;</span> (<span class="hljs-keyword">select</span> <span class="hljs-built_in">avg</span>(salary)<br>								<span class="hljs-keyword">from</span> works<br><span class="hljs-keyword">where</span> company_name<span class="hljs-operator">=</span>”<span class="hljs-keyword">First</span> Bank Corporation”)<br></code></pre></div></td></tr></table></figure>
+<div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> company_name
+<span class="token keyword">from</span> works
+<span class="token keyword">group</span> <span class="token keyword">by</span> company_name
+<span class="token keyword">having</span> <span class="token function">avg</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">avg</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
+								<span class="token keyword">from</span> works
+<span class="token keyword">where</span> company_name<span class="token operator">=</span>”<span class="token keyword">First</span> Bank Corporation”<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <hr>
 <p><strong>Exercise 6.1</strong> Write the following queries in relational algebra, using the university schema.<br> <strong>a</strong>. Find the titles of courses in the Comp. Sci. department that have 3 credits.<br> <strong>b</strong>. Find the IDs of all students who were taught by an instructor named Einstein; make sure there are no duplicates in the result.<br> <strong>c</strong>. Find the highest salary of any instructor.<br> <strong>d</strong>. Find all instructors earning the highest salary (there may be more than one with the same salary).</p>
 <p><strong>My answer:</strong></p>
@@ -495,6 +527,8 @@
 
 
 
+  
+    
   
 
 
