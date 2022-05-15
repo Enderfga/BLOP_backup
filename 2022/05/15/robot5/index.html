@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220515125458389.png">
 <meta property="article:published_time" content="2022-05-15T06:05:29.000Z">
-<meta property="article:modified_time" content="2022-05-15T06:09:41.043Z">
+<meta property="article:modified_time" content="2022-05-15T06:49:20.664Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="机器人">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.5k 字
+      5.7k 字
     </span>
   
 
@@ -229,7 +229,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      46 分钟
+      48 分钟
     </span>
   
 
@@ -269,34 +269,45 @@
             <div class="markdown-body">
               <p>智能机器人技术作业记录</p>
 <span id="more"></span>
-<h1 id="智能机器人技术机器人运动学奇异分析与性能评价">智能机器人技术——机器人运动学奇异分析与性能评价</h1>
+<h1
+id="智能机器人技术机器人运动学奇异分析与性能评价">智能机器人技术——机器人运动学奇异分析与性能评价</h1>
 <p>一、给定平面2R机械臂状态参数，</p>
 <p>状态描述：</p>
 <ul>
-<li>关节状态: <span class="math inline">\quad\left[\theta_{1}, \theta_{2}\right]^{\mathrm{T}}</span></li>
-<li>末端位置: <span class="math inline">\quad\left[x_{e}, y_{e}\right]^{\mathrm{T}}</span></li>
+<li>关节状态: <span class="math inline">\(\quad\left[\theta_{1},
+\theta_{2}\right]^{\mathrm{T}}\)</span></li>
+<li>末端位置: <span class="math inline">\(\quad\left[x_{e},
+y_{e}\right]^{\mathrm{T}}\)</span></li>
 </ul>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220508155155580.png" srcset="/img/loading.gif" lazyload alt="image-20220508155155580" /><figcaption aria-hidden="true">image-20220508155155580</figcaption>
+<img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220508155155580.png" srcset="/img/loading.gif" lazyload
+alt="image-20220508155155580" />
+<figcaption aria-hidden="true">image-20220508155155580</figcaption>
 </figure>
 <ol type="1">
-<li><p>计算逆运动学，求解关节角的表达式（已知末端位置<span class="math inline">\quad\left[x_{e}, y_{e}\right]^{\mathrm{T}}</span>，求关节角<span class="math inline">\quad\left[\theta_{1}, \theta_{2}\right]^{\mathrm{T}}</span>）</p>
+<li><p>计算逆运动学，求解关节角的表达式（已知末端位置<span
+class="math inline">\(\quad\left[x_{e},
+y_{e}\right]^{\mathrm{T}}\)</span>，求关节角<span
+class="math inline">\(\quad\left[\theta_{1},
+\theta_{2}\right]^{\mathrm{T}}\)</span>）</p>
 <p>根据几何关系, 可推导出机械臂末端位置与机械臂关节变量的关系:</p>
-<p><span class="math display">
+<p><span class="math display">\[
 \begin{array}{l}
 p_{\mathrm{ex}}=l_{1} c_{1}+l_{2} c_{12} \\
 p_{\mathrm{ey}}=l_{1} s_{1}+l_{2} s_{12}
 \end{array}
-</span></p>
+\]</span></p>
 <p>其中,</p>
-<p><span class="math display">
+<p><span class="math display">\[
 \left\{\begin{array}{l}
 s_{1}=\sin \theta_{1}, c_{1}=\cos \theta_{1} \\
-s_{12}=\sin \left(\theta_{1}+\theta_{2}\right), c_{12}=\cos \left(\theta_{1}+\theta_{2}\right)
+s_{12}=\sin \left(\theta_{1}+\theta_{2}\right), c_{12}=\cos
+\left(\theta_{1}+\theta_{2}\right)
 \end{array}\right.
-</span></p>
+\]</span></p>
 <p>其向量形式为：</p>
-<p><span class="math display">
+<p><span class="math display">\[
 p_{\mathrm{e}}=\left[\begin{array}{l}
 p_{\mathrm{ex}} \\
 p_{\mathrm{e} y}
@@ -307,53 +318,68 @@ l_{1} s_{1}+l_{2} s_{12}
 l_{1} \cos \theta_{1}+l_{2} \cos \left(\theta_{1}+\theta_{2}\right) \\
 l_{1} \sin \theta_{1}+l_{2} \sin \left(\theta_{1}+\theta_{2}\right)
 \end{array}\right]
-</span></p>
+\]</span></p>
 <p>将式子两边的平方相加, 有</p>
-<p><span class="math display">
-p_{\mathrm{e}}^{2}=l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2}\left(c_{1} c_{12}+s_{1} s_{12}\right)
-</span></p>
-<p><span class="math inline">p_{\mathrm{e}}^{2}=p_{\mathrm{ex}}^{2}+p_{\mathrm{ey}}^{2}</span> 为基坐标系原点到末端坐标系原点的距离。</p>
+<p><span class="math display">\[
+p_{\mathrm{e}}^{2}=l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2}\left(c_{1}
+c_{12}+s_{1} s_{12}\right)
+\]</span></p>
+<p><span
+class="math inline">\(p_{\mathrm{e}}^{2}=p_{\mathrm{ex}}^{2}+p_{\mathrm{ey}}^{2}\)</span>
+为基坐标系原点到末端坐标系原点的距离。</p>
 <p>根据三角函数的性质, 有</p>
-<p><span class="math display">
+<p><span class="math display">\[
 c_{1} c_{12}+s_{1} s_{12}=c_{2}
-</span></p>
+\]</span></p>
 <p>故可化简为</p>
-<p><span class="math display">
+<p><span class="math display">\[
 p_{\mathrm{e}}^{2}=l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}
-</span></p>
+\]</span></p>
 <p>因此，</p>
-<p><span class="math display">
+<p><span class="math display">\[
 \left\{\begin{array}{l}
-p_{\mathrm{e}}^{2} \leqslant l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2}=\left(l_{1}+l_{2}\right)^{2} \\
-p_{\mathrm{e}}^{2} \geqslant l_{1}^{2}+l_{2}^{2}-2 l_{1} l_{2}=\left(l_{1}-l_{2}\right)^{2}
+p_{\mathrm{e}}^{2} \leqslant l_{1}^{2}+l_{2}^{2}+2 l_{1}
+l_{2}=\left(l_{1}+l_{2}\right)^{2} \\
+p_{\mathrm{e}}^{2} \geqslant l_{1}^{2}+l_{2}^{2}-2 l_{1}
+l_{2}=\left(l_{1}-l_{2}\right)^{2}
 \end{array}\right.\\
 \left|l_{1}-l_{2}\right| \leqslant p_{e} \leqslant l_{1}+l_{2}
-</span></p>
-<p>上式即表示了该 <span class="math inline">2 \mathrm{R}</span> 机械臂的工作空间范围, 其最小边沿和最大边沿分别对应于 <span class="math inline">\theta_{2}=\pi</span> 和 <span class="math inline">\theta_{2}=0</span> 的情况。</p>
+\]</span></p>
+<p>上式即表示了该 <span class="math inline">\(2 \mathrm{R}\)</span>
+机械臂的工作空间范围, 其最小边沿和最大边沿分别对应于 <span
+class="math inline">\(\theta_{2}=\pi\)</span> 和 <span
+class="math inline">\(\theta_{2}=0\)</span> 的情况。</p>
 <p>进一步有，</p>
-<p><span class="math display">
-\left|\frac{p_{\mathrm{e}}^{2}-l_{1}^{2}-l_{2}^{2}}{2 l_{1} l_{2}}\right| \leqslant 1
-</span></p>
+<p><span class="math display">\[
+\left|\frac{p_{\mathrm{e}}^{2}-l_{1}^{2}-l_{2}^{2}}{2 l_{1}
+l_{2}}\right| \leqslant 1
+\]</span></p>
 <p>解得：</p>
-<p><span class="math display">
-\theta_{2}=\pm \arccos \frac{p_{\mathrm{e}}^{2}-l_{1}^{2}-l_{2}^{2}}{2 l_{1} l_{2}}=\pm \arccos \frac{x_{\mathrm{e}}^{2}+y_{\mathrm{e}}^{2}-l_{1}^{2}-l_{2}^{2}}{2 l_{1} l_{2}}
-</span></p>
-<p>关节角 <span class="math inline">\theta_{2}</span> 解出后, 将其代入方程组中, 可进一步解出关节角 <span class="math inline">\theta_{1}</span> 。首先根据三角函数的性质:</p>
-<p><span class="math display">
+<p><span class="math display">\[
+\theta_{2}=\pm \arccos \frac{p_{\mathrm{e}}^{2}-l_{1}^{2}-l_{2}^{2}}{2
+l_{1} l_{2}}=\pm \arccos
+\frac{x_{\mathrm{e}}^{2}+y_{\mathrm{e}}^{2}-l_{1}^{2}-l_{2}^{2}}{2 l_{1}
+l_{2}}
+\]</span></p>
+<p>关节角 <span class="math inline">\(\theta_{2}\)</span> 解出后,
+将其代入方程组中, 可进一步解出关节角 <span
+class="math inline">\(\theta_{1}\)</span> 。首先根据三角函数的性质:</p>
+<p><span class="math display">\[
 \begin{aligned}
 &amp;c_{12}=c_{1} c_{2}-s_{1} s_{2} \\
 &amp;s_{12}=s_{1} c_{2}+c_{1} s_{2}
 \end{aligned}
-</span></p>
+\]</span></p>
 <p>有，</p>
-<p><span class="math display">
+<p><span class="math display">\[
 \left\{\begin{array}{l}
-\left(l_{1}+l_{2} c_{2}\right) c_{1}-l_{2} s_{2} s_{1}=p_{\mathrm{ex}} \\
+\left(l_{1}+l_{2} c_{2}\right) c_{1}-l_{2} s_{2} s_{1}=p_{\mathrm{ex}}
+\\
 l_{2} s_{2} c_{1}+\left(l_{1}+l_{2} c_{2}\right) s_{1}=p_{\mathrm{e} y}
 \end{array}\right.
-</span></p>
+\]</span></p>
 <p>可写成如下形式:</p>
-<p><span class="math display">
+<p><span class="math display">\[
 \left[\begin{array}{cc}
 l_{1}+l_{2} c_{2} &amp; -l_{2} s_{2} \\
 l_{2} s_{2} &amp; l_{1}+l_{2} c_{2}
@@ -364,16 +390,21 @@ s_{1}
 p_{e x} \\
 p_{\mathrm{ey}}
 \end{array}\right]
-</span></p>
-<p>方程组的系数矩阵 <span class="math inline">\boldsymbol{A}</span> 及其行列式分别为</p>
-<p><span class="math display">
+\]</span></p>
+<p>方程组的系数矩阵 <span class="math inline">\(\boldsymbol{A}\)</span>
+及其行列式分别为</p>
+<p><span class="math display">\[
 \boldsymbol{A}=\left[\begin{array}{cc}
 l_{1}+l_{2} c_{2} &amp; -l_{2} s_{2} \\
 l_{2} s_{2} &amp; l_{1}+l_{2} c_{2}
-\end{array}\right], \operatorname{det}(\boldsymbol{A})=l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}
-</span></p>
-<p>若 <span class="math inline">\operatorname{det}(\boldsymbol{A}) \neq 0</span>, 则矩阵 <span class="math inline">\boldsymbol{A}</span> 满秩, 方程组有解, 即:</p>
-<p><span class="math display">
+\end{array}\right],
+\operatorname{det}(\boldsymbol{A})=l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2}
+c_{2}
+\]</span></p>
+<p>若 <span class="math inline">\(\operatorname{det}(\boldsymbol{A})
+\neq 0\)</span>, 则矩阵 <span
+class="math inline">\(\boldsymbol{A}\)</span> 满秩, 方程组有解, 即:</p>
+<p><span class="math display">\[
 \left[\begin{array}{l}
 c_{1} \\
 s_{1}
@@ -383,44 +414,76 @@ l_{2} s_{2} &amp; l_{1}+l_{2} c_{2}
 \end{array}\right]^{-1}\left[\begin{array}{l}
 p_{\mathrm{ex}} \\
 p_{\mathrm{ey}}
-\end{array}\right]=\frac{1}{l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}}\left[\begin{array}{c}
-\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ex}}+l_{2} s_{2} p_{\mathrm{ey}} \\
--l_{2} s_{2} p_{\mathrm{ex}}+\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ey}}
+\end{array}\right]=\frac{1}{l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2}
+c_{2}}\left[\begin{array}{c}
+\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ex}}+l_{2} s_{2}
+p_{\mathrm{ey}} \\
+-l_{2} s_{2} p_{\mathrm{ex}}+\left(l_{1}+l_{2} c_{2}\right)
+p_{\mathrm{ey}}
 \end{array}\right]
-</span></p>
-<p><span class="math inline">\theta_{1}</span> 可根据解出的 <span class="math inline">s_{1}</span> 和 <span class="math inline">c_{1}</span> 求出, 即:</p>
-<p><span class="math display">
+\]</span></p>
+<p><span class="math inline">\(\theta_{1}\)</span> 可根据解出的 <span
+class="math inline">\(s_{1}\)</span> 和 <span
+class="math inline">\(c_{1}\)</span> 求出, 即:</p>
+<p><span class="math display">\[
 \begin{aligned}
-\theta_{1} &amp;=\arctan 2\left(s_{1}, c_{1}\right)=\arctan 2\left(\frac{-l_{2} s_{2} p_{\mathrm{ex}}+\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ey}}}{l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}}, \frac{\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ex}}+l_{2} s_{2} p_{\mathrm{ey}}}{l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}}\right) \\
-&amp;=\arctan 2\left(-l_{2} s_{2} p_{\mathrm{ex}}+\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ey}},\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ex}}+l_{2} s_{2} p_{\mathrm{ey}}\right)
+\theta_{1} &amp;=\arctan 2\left(s_{1}, c_{1}\right)=\arctan
+2\left(\frac{-l_{2} s_{2} p_{\mathrm{ex}}+\left(l_{1}+l_{2} c_{2}\right)
+p_{\mathrm{ey}}}{l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}},
+\frac{\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ex}}+l_{2} s_{2}
+p_{\mathrm{ey}}}{l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}}\right) \\
+&amp;=\arctan 2\left(-l_{2} s_{2} p_{\mathrm{ex}}+\left(l_{1}+l_{2}
+c_{2}\right) p_{\mathrm{ey}},\left(l_{1}+l_{2} c_{2}\right)
+p_{\mathrm{ex}}+l_{2} s_{2} p_{\mathrm{ey}}\right)
 \end{aligned}
-</span></p>
-<p>根据基本不等式及三级函数的性质, 令 <span class="math inline">\operatorname{det}(\boldsymbol{A})=0</span>, 则必有 <span class="math inline">l_{1}=l_{2}</span> 且 <span class="math inline">\theta_{2}=\pi</span>, 即:</p>
-<p><span class="math display">
-\operatorname{det}(\boldsymbol{A})=0 \Rightarrow\left\{\begin{array} { l } 
-{ l _ { 1 } ^ { 2 } + l _ { 2 } ^ { 2 } + 2 l _ { 1 } l _ { 2 } c _ { 2 } = 0 } \\
-{ l _ { 1 } ^ { 2 } + l _ { 2 } ^ { 2 } \geqslant 2 l _ { 1 } l _ { 2 } } \\
+\]</span></p>
+<p>根据基本不等式及三级函数的性质, 令 <span
+class="math inline">\(\operatorname{det}(\boldsymbol{A})=0\)</span>,
+则必有 <span class="math inline">\(l_{1}=l_{2}\)</span> 且 <span
+class="math inline">\(\theta_{2}=\pi\)</span>, 即:</p>
+<p><span class="math display">\[
+\operatorname{det}(\boldsymbol{A})=0 \Rightarrow\left\{\begin{array} { l
+}
+{ l _ { 1 } ^ { 2 } + l _ { 2 } ^ { 2 } + 2 l _ { 1 } l _ { 2 } c _ { 2
+} = 0 } \\
+{ l _ { 1 } ^ { 2 } + l _ { 2 } ^ { 2 } \geqslant 2 l _ { 1 } l _ { 2 }
+} \\
 { | c _ { 2 } | \leqslant 1 }
 \end{array} \Rightarrow \left\{\begin{array}{l}
 l_{1}=l_{2} \\
 \theta_{2}=\pi
 \end{array}\right.\right.
-</span></p>
-<p>综上所述, 结果可以求出两组解, 对应于机器人的两种臂型, 分别称为高臂 (肘) 和低臂 (肘), 平面 <span class="math inline">2 \mathrm{R}</span> 机械臂逆运动学多解情况分析下图所示。也就是说, 对于前述的 <span class="math inline">2 \mathrm{R}</span> 机械臂, 当给定末端点的一个位置 <span class="math inline">\boldsymbol{p}_{\mathrm{e}}</span> 时, 有两组关节角与之对应, 即位置级逆运动学有多解。</p>
+\]</span></p>
+<p>综上所述, 结果可以求出两组解, 对应于机器人的两种臂型, 分别称为高臂
+(肘) 和低臂 (肘), 平面 <span class="math inline">\(2 \mathrm{R}\)</span>
+机械臂逆运动学多解情况分析下图所示。也就是说, 对于前述的 <span
+class="math inline">\(2 \mathrm{R}\)</span> 机械臂,
+当给定末端点的一个位置 <span
+class="math inline">\(\boldsymbol{p}_{\mathrm{e}}\)</span> 时,
+有两组关节角与之对应, 即位置级逆运动学有多解。</p>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220515125458389.png" srcset="/img/loading.gif" lazyload alt="image-20220515125458389" /><figcaption aria-hidden="true">image-20220515125458389</figcaption>
+<img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220515125458389.png" srcset="/img/loading.gif" lazyload
+alt="image-20220515125458389" />
+<figcaption aria-hidden="true">image-20220515125458389</figcaption>
 </figure></li>
 <li><p>计算雅克比矩阵</p></li>
 </ol>
 <p>根据机械臂末端位置与机械臂关节变量的关系求导得：</p>
-<p><span class="math display">
+<p><span class="math display">\[
 \left\{\begin{array}{l}
-\dot{p}_{\mathrm{ex}}=-l_{1} s_{1} \dot{\theta}_{1}-l_{2} s_{12}\left(\dot{\theta}_{1}+\dot{\theta}_{2}\right)=-\left(l_{1} s_{1}+l_{2} s_{12}\right) \dot{\theta}_{1}-l_{2} s_{12} \dot{\theta}_{2} \\
-\dot{p}_{\mathrm{cy}}=l_{1} c_{1} \dot{\theta}_{1}+l_{2} c_{12}\left(\dot{\theta}_{1}+\dot{\theta}_{2}\right)=\left(l_{1} c_{1}+l_{2} c_{12}\right) \dot{\theta}_{1}+l_{2} c_{12} \dot{\theta}_{2} \\
+\dot{p}_{\mathrm{ex}}=-l_{1} s_{1} \dot{\theta}_{1}-l_{2}
+s_{12}\left(\dot{\theta}_{1}+\dot{\theta}_{2}\right)=-\left(l_{1}
+s_{1}+l_{2} s_{12}\right) \dot{\theta}_{1}-l_{2} s_{12} \dot{\theta}_{2}
+\\
+\dot{p}_{\mathrm{cy}}=l_{1} c_{1} \dot{\theta}_{1}+l_{2}
+c_{12}\left(\dot{\theta}_{1}+\dot{\theta}_{2}\right)=\left(l_{1}
+c_{1}+l_{2} c_{12}\right) \dot{\theta}_{1}+l_{2} c_{12} \dot{\theta}_{2}
+\\
 \end{array}\right.
-</span></p>
+\]</span></p>
 <p>即:</p>
-<p><span class="math display">
+<p><span class="math display">\[
 \left[\begin{array}{l}
 \dot{p}_{\mathrm{ex}} \\
 \dot{p}_{\mathrm{ey}}
@@ -431,31 +494,37 @@ l_{1} c_{1}+l_{2} c_{12} &amp; l_{2} c_{12}
 \dot{\theta}_{1} \\
 \dot{\theta}_{2}
 \end{array}\right]
-</span></p>
+\]</span></p>
 <p>其矩阵形式为：</p>
-<p><span class="math display">
-\dot{\boldsymbol{p}}_{\mathrm{e}}=\boldsymbol{J}_{v}(\boldsymbol{\Theta}) \dot{\boldsymbol{\Theta}}
-</span></p>
-<p>此时, <span class="math inline">\boldsymbol{J}_{v}</span> 为 <span class="math inline">2 \times 2</span> 的方阵:</p>
-<p><span class="math display">
+<p><span class="math display">\[
+\dot{\boldsymbol{p}}_{\mathrm{e}}=\boldsymbol{J}_{v}(\boldsymbol{\Theta})
+\dot{\boldsymbol{\Theta}}
+\]</span></p>
+<p>此时, <span class="math inline">\(\boldsymbol{J}_{v}\)</span> 为
+<span class="math inline">\(2 \times 2\)</span> 的方阵:</p>
+<p><span class="math display">\[
 \boldsymbol{J}_{v}=\left[\begin{array}{cc}
 -l_{1} s_{1}-l_{2} s_{12} &amp; -l_{2} s_{12} \\
 l_{1} c_{1}+l_{2} c_{12} &amp; l_{2} c_{12}
 \end{array}\right]
-</span></p>
+\]</span></p>
 <p>二、给点D-H坐标系，填写D-H参数表。</p>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220515131813671.png" srcset="/img/loading.gif" lazyload alt="image-20220515131813671" /><figcaption aria-hidden="true">image-20220515131813671</figcaption>
+<img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220515131813671.png" srcset="/img/loading.gif" lazyload
+alt="image-20220515131813671" />
+<figcaption aria-hidden="true">image-20220515131813671</figcaption>
 </figure>
-<p><span class="math display">
+<p><span class="math display">\[
 \begin{array}{ccccc}
-\hline  \text { 连杆i } &amp; \theta_{i} &amp; \alpha_{i} &amp; a_{i} &amp; d_{i} \\
+\hline  \text { 连杆i } &amp; \theta_{i} &amp; \alpha_{i} &amp; a_{i}
+&amp; d_{i} \\
 \hline1 &amp; 0 &amp; -90^{\circ} &amp; 0 &amp; d_{1} \\
 2 &amp; 0 &amp; 0 &amp; a_{2} &amp; 0 \\
   3 &amp; 0 &amp; 0 &amp; a_{3} &amp; 0\\
   \hline
 \end{array}
-</span></p>
+\]</span></p>
 
             </div>
             <hr>
@@ -707,8 +776,43 @@ l_{1} c_{1}+l_{2} c_{12} &amp; l_{2} c_{12}
   
 
   
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://lib.baomitu.com/mathjax/3.2.0/tex-svg.js" ></script>
+
   
 
 

@@ -220,7 +220,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.8k 字
+      3.9k 字
     </span>
   
 
@@ -229,7 +229,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      32 分钟
+      33 分钟
     </span>
   
 
@@ -270,83 +270,157 @@
               <p>Database System Concepts Exercises of Chapter 3</p>
 <span id="more"></span>
 <figure>
-<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220323230708879.png" srcset="/img/loading.gif" lazyload alt="image-20220323230708879" /><figcaption aria-hidden="true">image-20220323230708879</figcaption>
+<img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220323230708879.png" srcset="/img/loading.gif" lazyload
+alt="image-20220323230708879" />
+<figcaption aria-hidden="true">image-20220323230708879</figcaption>
 </figure>
-<h1 id="database-system-concepts-exercises-of-chapter-3">Database System Concepts Exercises of Chapter 3</h1>
-<p><strong>Exercises 3.9</strong> Consider the employee database of Figure <span class="math inline">3.20</span>, where the primary keys are underlined. Give an expression in SQL for each of the following queries.</p>
+<h1 id="database-system-concepts-exercises-of-chapter-3">Database System
+Concepts Exercises of Chapter 3</h1>
+<p><strong>Exercises 3.9</strong> Consider the employee database of
+Figure <span class="math inline">\(3.20\)</span>, where the primary keys
+are underlined. Give an expression in SQL for each of the following
+queries.</p>
 <ol type="a">
-<li><p>Find the names and cities of residence of all employees who work for "First Bank Corporation".</p></li>
-<li><p>Find the names, street addresses, and cities of residence of all employees who work for "First Bank Corporation" and earn more than <span class="math inline">\$ 10,000</span>.</p></li>
-<li><p>Find all employees in the database who do not work for "First Bank Corporation".</p></li>
-<li><p>Find all employees in the database who earn more than each employee of "Small Bank Corporation".</p></li>
-<li><p>Assume that the companies may be located in several cities. Find all companies located in every city in which "Small Bank Corporation" is located.</p></li>
+<li><p>Find the names and cities of residence of all employees who work
+for "First Bank Corporation".</p></li>
+<li><p>Find the names, street addresses, and cities of residence of all
+employees who work for "First Bank Corporation" and earn more than <span
+class="math inline">\(\$ 10,000\)</span>.</p></li>
+<li><p>Find all employees in the database who do not work for "First
+Bank Corporation".</p></li>
+<li><p>Find all employees in the database who earn more than each
+employee of "Small Bank Corporation".</p></li>
+<li><p>Assume that the companies may be located in several cities. Find
+all companies located in every city in which "Small Bank Corporation" is
+located.</p></li>
 <li><p>Find the company that has the most employees.</p></li>
-<li><p>Find those companies whose employees earn a higher salary, on average, than the average salary at "First Bank Corporation".</p></li>
+<li><p>Find those companies whose employees earn a higher salary, on
+average, than the average salary at "First Bank Corporation".</p></li>
 </ol>
-<p><span class="math display">
+<p><span class="math display">\[
 employee (\underline{employee\_name}, street, city)\\
 works (\underline{employee\_name}, company\_name, salary)\\
 company (\underline{company\_name}, city)\\
 manages ( \underline{ employee\_name, } manager\_name )\\
 Figure~~3.20~~Employee~~database~~for~~Exercises~~3.9
-</span></p>
+\]</span></p>
 <p><strong>My answer：</strong></p>
 <ol type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> e.employee_name, city <strong>from</strong> employee <strong>as</strong> e, works <strong>as</strong> w <strong>where</strong> w.company_name <span class="math inline">=</span> 'First Bank Corporation' <strong>and</strong> w.employee_name <span class="math inline">=</span> e.employee_name</p>
+<p><strong>select</strong> e.employee_name, city <strong>from</strong>
+employee <strong>as</strong> e, works <strong>as</strong> w
+<strong>where</strong> w.company_name <span
+class="math inline">\(=\)</span> 'First Bank Corporation'
+<strong>and</strong> w.employee_name <span
+class="math inline">\(=\)</span> e.employee_name</p>
 <ol start="2" type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> * <strong>from</strong> employee <strong>where</strong> employee_name <strong>in</strong> (<strong>select</strong> employee_name <strong>from</strong> works <strong>where</strong> company_name = 'First Bank Corporation' <strong>and</strong> salary <span class="math inline">&gt;10000</span> )</p>
+<p><strong>select</strong> * <strong>from</strong> employee
+<strong>where</strong> employee_name <strong>in</strong>
+(<strong>select</strong> employee_name <strong>from</strong> works
+<strong>where</strong> company_name = 'First Bank Corporation'
+<strong>and</strong> salary <span
+class="math inline">\(&gt;10000\)</span> )</p>
 <ol start="3" type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> employee_name <strong>from</strong> works <strong>where</strong> company_name <span class="math inline">\neq</span> 'First Bank Corporation'</p>
+<p><strong>select</strong> employee_name <strong>from</strong> works
+<strong>where</strong> company_name <span
+class="math inline">\(\neq\)</span> 'First Bank Corporation'</p>
 <ol start="4" type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> employee_name <strong>from</strong> works <strong>where</strong> salary <span class="math inline">&gt;</span> <strong>all</strong> (<strong>select</strong> salary <strong>from</strong> works <strong>where</strong> company_name <span class="math inline">=</span> 'Small Bank Corporation')</p>
+<p><strong>select</strong> employee_name <strong>from</strong> works
+<strong>where</strong> salary <span class="math inline">\(&gt;\)</span>
+<strong>all</strong> (<strong>select</strong> salary
+<strong>from</strong> works <strong>where</strong> company_name <span
+class="math inline">\(=\)</span> 'Small Bank Corporation')</p>
 <ol start="5" type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> S.company_name <strong>from</strong> company <strong>as</strong> <span class="math inline">S</span> <strong>where</strong> <strong>not exists</strong> ((<strong>select</strong> city <strong>from</strong> company <strong>where</strong> company_name <span class="math inline">=</span> 'Small Bank Corporation') <strong>except</strong> (<strong>select</strong> city <strong>from</strong> company <strong>as</strong> <span class="math inline">T</span> <strong>where</strong> S.company_name <span class="math inline">=</span> T.company_name ) )</p>
+<p><strong>select</strong> S.company_name <strong>from</strong> company
+<strong>as</strong> <span class="math inline">\(S\)</span>
+<strong>where</strong> <strong>not exists</strong>
+((<strong>select</strong> city <strong>from</strong> company
+<strong>where</strong> company_name <span
+class="math inline">\(=\)</span> 'Small Bank Corporation')
+<strong>except</strong> (<strong>select</strong> city
+<strong>from</strong> company <strong>as</strong> <span
+class="math inline">\(T\)</span> <strong>where</strong> S.company_name
+<span class="math inline">\(=\)</span> T.company_name ) )</p>
 <ol start="6" type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> company_name <strong>from</strong> works <strong>group by</strong> company_name <strong>having count</strong> (<strong>distinct</strong> employee_name) <span class="math inline">&gt;=</span> <strong>all</strong> (<strong>select</strong> <strong>count</strong> (<strong>distinct</strong> employee_name) <strong>from</strong> works <strong>group by</strong> company_name)</p>
+<p><strong>select</strong> company_name <strong>from</strong> works
+<strong>group by</strong> company_name <strong>having count</strong>
+(<strong>distinct</strong> employee_name) <span
+class="math inline">\(&gt;=\)</span> <strong>all</strong>
+(<strong>select</strong> <strong>count</strong>
+(<strong>distinct</strong> employee_name) <strong>from</strong> works
+<strong>group by</strong> company_name)</p>
 <ol start="7" type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> company_name <strong>from</strong> works <strong>group by</strong> company_name <strong>having</strong> <strong>avg</strong> (salary) <span class="math inline">&gt;</span> (<strong>select</strong> <strong>avg</strong> (salary) <strong>from</strong> works <strong>where</strong> company_name <span class="math inline">=</span> 'First Bank Corporation')</p>
-<p><strong>Exercises 3.8</strong> Consider the bank database of Figure <span class="math inline">3.19</span>, where the primary keys are underlined. Construct the following SQL queries for this relational database.</p>
+<p><strong>select</strong> company_name <strong>from</strong> works
+<strong>group by</strong> company_name <strong>having</strong>
+<strong>avg</strong> (salary) <span class="math inline">\(&gt;\)</span>
+(<strong>select</strong> <strong>avg</strong> (salary)
+<strong>from</strong> works <strong>where</strong> company_name <span
+class="math inline">\(=\)</span> 'First Bank Corporation')</p>
+<p><strong>Exercises 3.8</strong> Consider the bank database of Figure
+<span class="math inline">\(3.19\)</span>, where the primary keys are
+underlined. Construct the following SQL queries for this relational
+database.</p>
 <ol type="a">
-<li><p>Find all customers of the bank who have an account but not a loan.</p></li>
-<li><p>Find the names of all customers who live on the same street and in the same city as "Smith".</p></li>
-<li><p>Find the names of all branches with customers who have an account in the bank and who live in "Harrison".</p></li>
+<li><p>Find all customers of the bank who have an account but not a
+loan.</p></li>
+<li><p>Find the names of all customers who live on the same street and
+in the same city as "Smith".</p></li>
+<li><p>Find the names of all branches with customers who have an account
+in the bank and who live in "Harrison".</p></li>
 </ol>
-<p><span class="math display">
+<p><span class="math display">\[
 branch(\underline{branch\_name}, branch\_city, assets)\\
-customer (\underline{customer\_name}, customer\_street, customer\_city)\\ loan (\underline{loan\_numbe}r, branch\_name, amount)\\
+customer (\underline{customer\_name}, customer\_street,
+customer\_city)\\ loan (\underline{loan\_numbe}r, branch\_name,
+amount)\\
 borrower (\underline{customer\_name}, \underline{loan\_number})\\
 account (\underline{account\_number}, branch\_name, balance)\\
 depositor (\underline{customer\_name}, \underline{account\_number})\\
 Figure~~3.19~~Banking~~database~~for~~Exercises~~3.8~~and~~3.15
-</span></p>
+\]</span></p>
 <p><strong>My answer:</strong></p>
 <ol type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> customer_name <strong>from</strong> depositor <strong>except</strong> (<strong>select</strong> customer_name <strong>from</strong> borrower)</p>
+<p><strong>select</strong> customer_name <strong>from</strong> depositor
+<strong>except</strong> (<strong>select</strong> customer_name
+<strong>from</strong> borrower)</p>
 <ol start="2" type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> F.customer_name <strong>from</strong> customer <strong>as</strong> <span class="math inline">F</span> join customer <strong>as</strong> <span class="math inline">S</span> using(customer_street, customer_city) <strong>where</strong> S.customer_name <span class="math inline">=</span> 'Smith'</p>
+<p><strong>select</strong> F.customer_name <strong>from</strong>
+customer <strong>as</strong> <span class="math inline">\(F\)</span> join
+customer <strong>as</strong> <span class="math inline">\(S\)</span>
+using(customer_street, customer_city) <strong>where</strong>
+S.customer_name <span class="math inline">\(=\)</span> 'Smith'</p>
 <ol start="3" type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> <strong>distinct</strong> branch_name <strong>from</strong> account <strong>natural join</strong> depositor <strong>natural join</strong> customer <strong>where</strong> customer_city = 'Harrison'</p>
-<p><strong>Exercises 3.15</strong> Consider the bank database of Figure 3.19, where the primary keys are underlined. Construct the following SQL queries for this relational database. a. Find all customers who have an account at all the branches located in "Brooklyn". b. Find out the total sum of all loan amounts in the bank. c. Find the names of all branches that have assets greater than those of at least one branch located in "Brooklyn".</p>
+<p><strong>select</strong> <strong>distinct</strong> branch_name
+<strong>from</strong> account <strong>natural join</strong> depositor
+<strong>natural join</strong> customer <strong>where</strong>
+customer_city = 'Harrison'</p>
+<p><strong>Exercises 3.15</strong> Consider the bank database of Figure
+3.19, where the primary keys are underlined. Construct the following SQL
+queries for this relational database. a. Find all customers who have an
+account at all the branches located in "Brooklyn". b. Find out the total
+sum of all loan amounts in the bank. c. Find the names of all branches
+that have assets greater than those of at least one branch located in
+"Brooklyn".</p>
 <p><strong>My answer:</strong></p>
 <ol type="a">
 <li></li>
@@ -359,13 +433,15 @@ Figure~~3.19~~Banking~~database~~for~~Exercises~~3.8~~and~~3.15
 <p><strong>where</strong> branch_city = 'Brooklyn')</p>
 <p><strong>except</strong></p>
 <p>(<strong>select</strong> R.branch_name</p>
-<p><strong>from</strong> depositor <strong>as</strong> T, account <strong>as</strong> R</p>
+<p><strong>from</strong> depositor <strong>as</strong> T, account
+<strong>as</strong> R</p>
 <p><strong>where</strong> T.account_number = R.account_number</p>
 <p><strong>and</strong> S.customer_name = T.customer_name))</p>
 <ol start="2" type="a">
 <li></li>
 </ol>
-<p><strong>select</strong> <strong>sum</strong>(amount) <strong>as</strong> sum_loan</p>
+<p><strong>select</strong> <strong>sum</strong>(amount)
+<strong>as</strong> sum_loan</p>
 <p><strong>from</strong> loan</p>
 <ol start="3" type="a">
 <li></li>
@@ -633,8 +709,43 @@ Figure~~3.19~~Banking~~database~~for~~Exercises~~3.8~~and~~3.15
   
 
   
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://lib.baomitu.com/mathjax/3.2.0/tex-svg.js" ></script>
+
   
 
 

@@ -270,30 +270,50 @@
               <p>搭建Latex环境：Texlive+VScode 相关记录</p>
 <span id="more"></span>
 <h2 id="安装-texlive">1.安装 Texlive</h2>
-<p>鉴于我校没有（我知道的）可用开源软件镜像站，所以在到清华大学开源软件镜像站的<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/">texlive</a>页下载。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5UYncq"><img src="https://z3.ax1x.com/2021/10/18/5UYncq.png" srcset="/img/loading.gif" lazyload alt="5UYncq.png" /></a></p>
+<p>鉴于我校没有（我知道的）可用开源软件镜像站，所以在到清华大学开源软件镜像站的<a
+target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/">texlive</a>页下载。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5UYncq"><img
+src="https://z3.ax1x.com/2021/10/18/5UYncq.png" srcset="/img/loading.gif" lazyload
+alt="5UYncq.png" /></a></p>
 <p>可能由于更新导致你打开之后的页面与上面的内容不一致，总之下载最新的texlive***.iso，虽然很大但各种宏包齐全，用起来能省去各种麻烦。</p>
 <p>在带宽扩容之后的校园网加持下，不用几年就能下载完这个iso文件了。</p>
-<p>如果你是windows 7甚至xp用户，我建议你把iso文件解压然后进行后续操作。</p>
+<p>如果你是windows
+7甚至xp用户，我建议你把iso文件解压然后进行后续操作。</p>
 <p>如果是windows 10/11，系统自带虚拟光驱，直接双击进入即可。</p>
 <p>（ linux/macOS 我不了解，省略）效果如图：</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5UUe9H"><img src="https://z3.ax1x.com/2021/10/18/5UUe9H.png" srcset="/img/loading.gif" lazyload alt="5UUe9H.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5UUe9H"><img
+src="https://z3.ax1x.com/2021/10/18/5UUe9H.png" srcset="/img/loading.gif" lazyload
+alt="5UUe9H.png" /></a></p>
 <p>双击或者右键以管理员身份运行install-tl-advanced.bat，可以点进<strong>Advanced</strong>进入高级安装，点击<strong>Customize</strong>来取消你不需要安装的宏包，比如非中英的语言包，这里我只修改了安装目录，最后开始漫长的等待。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5UaCGQ"><img src="https://z3.ax1x.com/2021/10/18/5UaCGQ.png" srcset="/img/loading.gif" lazyload alt="5UaCGQ.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5UaCGQ"><img
+src="https://z3.ax1x.com/2021/10/18/5UaCGQ.png" srcset="/img/loading.gif" lazyload
+alt="5UaCGQ.png" /></a></p>
 <p>（安装TeXworks前端也可以取消掉，毕竟都打算用vscode了，加上前面说的语言包之类的，可以省个1G左右，我想着留条后路就啥都没改，也不缺这点空间）</p>
 <p>（在我的电脑上一共安装了57 min 56 s，教程都快写完了，还没有装好）</p>
 <h2 id="安装-vscode">2. 安装 VSCode</h2>
-<p>到<a target="_blank" rel="noopener" href="https://code.visualstudio.com/Download">官网</a>根据你的系统选择下载安装即可，这部分应该大多数人都安装过了，没什么需要注意的。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5Ud4hD"><img src="https://z3.ax1x.com/2021/10/18/5Ud4hD.png" srcset="/img/loading.gif" lazyload alt="5Ud4hD.png" /></a></p>
-<p>安装完成之后可以在应用商店挑选各种提高使用体验的扩展，跟本文相关的主要是<strong>Latex Workshop</strong>。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5U0KJS"><img src="https://z3.ax1x.com/2021/10/18/5U0KJS.png" srcset="/img/loading.gif" lazyload alt="5U0KJS.png" /></a></p>
+<p>到<a
+target="_blank" rel="noopener" href="https://code.visualstudio.com/Download">官网</a>根据你的系统选择下载安装即可，这部分应该大多数人都安装过了，没什么需要注意的。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5Ud4hD"><img
+src="https://z3.ax1x.com/2021/10/18/5Ud4hD.png" srcset="/img/loading.gif" lazyload
+alt="5Ud4hD.png" /></a></p>
+<p>安装完成之后可以在应用商店挑选各种提高使用体验的扩展，跟本文相关的主要是<strong>Latex
+Workshop</strong>。</p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5U0KJS"><img
+src="https://z3.ax1x.com/2021/10/18/5U0KJS.png" srcset="/img/loading.gif" lazyload
+alt="5U0KJS.png" /></a></p>
 <p>安装完成之后，可以创建或者打开一个tex文件，此时代码已经被高亮显示了。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5U560K"><img src="https://z3.ax1x.com/2021/10/18/5U560K.png" srcset="/img/loading.gif" lazyload alt="5U560K.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5U560K"><img
+src="https://z3.ax1x.com/2021/10/18/5U560K.png" srcset="/img/loading.gif" lazyload
+alt="5U560K.png" /></a></p>
 <p>按下快捷键Ctrl+Alt+B（build latex project），顺利生成，效果不错。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5U5xcn"><img src="https://z3.ax1x.com/2021/10/18/5U5xcn.png" srcset="/img/loading.gif" lazyload alt="5U5xcn.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5U5xcn"><img
+src="https://z3.ax1x.com/2021/10/18/5U5xcn.png" srcset="/img/loading.gif" lazyload
+alt="5U5xcn.png" /></a></p>
 <h2 id="配置-vscode-的-插件">3. 配置 VSCode 的 插件</h2>
 <p>按下F1或者Ctrl＋shift＋P，输入setjson，选择第三个（如图所示）。</p>
-<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5Uo9xA"><img src="https://z3.ax1x.com/2021/10/18/5Uo9xA.png" srcset="/img/loading.gif" lazyload alt="5Uo9xA.png" /></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgtu.com/i/5Uo9xA"><img
+src="https://z3.ax1x.com/2021/10/18/5Uo9xA.png" srcset="/img/loading.gif" lazyload
+alt="5Uo9xA.png" /></a></p>
 <div class="code-wrapper"><pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token property">"latex-workshop.latex.tools"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
         <span class="token punctuation">&#123;</span>
    <span class="token comment">// 编译工具和命令</span>
@@ -367,7 +387,9 @@
 </ul>
 <p>我最开始写这些其实是想要把中大的foxitpdf设置成默认的pdf预览软件，不过最终效果并不好，所以作罢。</p>
 <p>（咨询了foxit的技术客服，他们说目前是实现不了的）</p>
-<p>上面这些设置主要是因为默认的编译工具是 latexmk，由于不需要用到 latexmk，因此把其修改为中文环境常用的 xelatex；将 tools 中的 %DOC%替换成%DOCFILE%就可以支持编译中文路径下的文件了。</p>
+<p>上面这些设置主要是因为默认的编译工具是 latexmk，由于不需要用到
+latexmk，因此把其修改为中文环境常用的 xelatex；将 tools 中的
+%DOC%替换成%DOCFILE%就可以支持编译中文路径下的文件了。</p>
 <p>还可以研究的设置有很多，什么正向搜索反向搜索之类的，有兴趣的朋友可以自行了解。</p>
 <p><a target="_blank" rel="noopener" href="https://ericp.cn/cmd">公式指导手册</a></p>
 <p>如果中文无法显示就加上这一句：</p>
@@ -652,8 +674,43 @@ goto end
   
 
   
-    <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://lib.baomitu.com/mathjax/3.2.0/tex-svg.js" ></script>
+
   
 
 
