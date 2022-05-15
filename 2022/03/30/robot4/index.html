@@ -220,7 +220,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.4k 字
+      5.9k 字
     </span>
   
 
@@ -229,7 +229,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      45 分钟
+      50 分钟
     </span>
   
 
@@ -269,49 +269,51 @@
             <div class="markdown-body">
               <p>智能机器人技术作业记录</p>
 <span id="more"></span>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/gVyodA.jpg" srcset="/img/loading.gif" lazyload alt="1648571793860.png"></p>
-<h1 id="智能机器人技术——一阶运动学与静力学"><a href="#智能机器人技术——一阶运动学与静力学" class="headerlink" title="智能机器人技术——一阶运动学与静力学"></a>智能机器人技术——一阶运动学与静力学</h1><p>一、计算/解答题, 请写出解题过程 (30 分)。</p>
-<ol>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/gVyodA.jpg" srcset="/img/loading.gif" lazyload alt="1648571793860.png" /><figcaption aria-hidden="true">1648571793860.png</figcaption>
+</figure>
+<h1 id="智能机器人技术一阶运动学与静力学">智能机器人技术——一阶运动学与静力学</h1>
+<p>一、计算/解答题, 请写出解题过程 (30 分)。</p>
+<ol type="1">
 <li>如下图所示有一处于初始位形的 RRP 机器人 (即讲义例 3 ), 求 (10 分):</li>
 </ol>
-<p>a) 写出各关节相对空间坐标系 ${s}$ 的旋量坐标。求解当 $\theta=\left(90^{\circ}, 90^{\circ}, 1\right)$ 时的正向运动学; 手绘此时的机器人, 标注 ${s}$ 系和 ${b}$ 系, 求解此时的空间雅克比 $J_{s}$;</p>
-<p>b) 写出各关节相对末端坐标系 ${b}$ 的旋量坐标。求解当 $\theta=\left(90^{\circ}, 90^{\circ}, 1\right)$ 时的正向运动学, 确认与 a) 中结果相同; 求解此时的物体雅克比 $J_{b}$ 。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220330002641939.png" srcset="/img/loading.gif" lazyload alt="image-20220330002641939"></p>
-<p>a)</p>
+<ol type="a">
+<li><p>写出各关节相对空间坐标系 <span class="math inline">\{s\}</span> 的旋量坐标。求解当 <span class="math inline">\theta=\left(90^{\circ}, 90^{\circ}, 1\right)</span> 时的正向运动学; 手绘此时的机器人, 标注 <span class="math inline">\{s\}</span> 系和 <span class="math inline">\{b\}</span> 系, 求解此时的空间雅克比 <span class="math inline">J_{s}</span>;</p></li>
+<li><p>写出各关节相对末端坐标系 <span class="math inline">\{b\}</span> 的旋量坐标。求解当 <span class="math inline">\theta=\left(90^{\circ}, 90^{\circ}, 1\right)</span> 时的正向运动学, 确认与 a) 中结果相同; 求解此时的物体雅克比 <span class="math inline">J_{b}</span> 。</p></li>
+</ol>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220330002641939.png" srcset="/img/loading.gif" lazyload alt="image-20220330002641939" /><figcaption aria-hidden="true">image-20220330002641939</figcaption>
+</figure>
+<ol type="a">
+<li></li>
+</ol>
 <p>此时的机器人如图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220330002652483.png" srcset="/img/loading.gif" lazyload alt="image-20220330002652483"></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220330002652483.png" srcset="/img/loading.gif" lazyload alt="image-20220330002652483" /><figcaption aria-hidden="true">image-20220330002652483</figcaption>
+</figure>
 <p>初始位形<strong>M</strong>：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">
 M=\left[\begin{array}{cccc}
--1 & 0 & 0 & 0  \\
-0 & 0 & 1 & 3  \\
-0 & 1 & 0 & 2 \\
-0 & 0 & 0 & 1
-\end{array}\right]</script><p>相对空间坐标系 ${s}$ 的旋量坐标为：</p>
-<script type="math/tex; mode=display">
+-1 &amp; 0 &amp; 0 &amp; 0  \\
+0 &amp; 0 &amp; 1 &amp; 3  \\
+0 &amp; 1 &amp; 0 &amp; 2 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+</span></p>
+<p>相对空间坐标系 <span class="math inline">\{s\}</span> 的旋量坐标为：</p>
+<p><span class="math display">
 \mathcal{S}_{i}：~\begin{array}{|c||c|c|}
-\hline i & \omega_{i}  & v_{i} \\
-\hline \hline 1 & (0,0,1) & (0, 0,0) \\
-\hline 2 & (1,0,0) & (0, 2,0) \\
-\hline 3 & (0,0,0)  & (0, 1,0) \\
+\hline i &amp; \omega_{i}  &amp; v_{i} \\
+\hline \hline 1 &amp; (0,0,1) &amp; (0, 0,0) \\
+\hline 2 &amp; (1,0,0) &amp; (0, 2,0) \\
+\hline 3 &amp; (0,0,0)  &amp; (0, 1,0) \\
 \hline
-\end{array}\\</script><p>故当$\theta=\left(90^{\circ}, 90^{\circ}, 1\right)$ 时的正向运动学<strong>PoE</strong>与空间雅克比 $J_{s}$：</p>
-<script type="math/tex; mode=display">
-T=\left[\begin{array}{cccc}
-0 & 0 & -1 & -3 \\
--1 & 0 & 0 & 0\\
-0 & 1 & 0 & 2\\
-0 & 0 & 0 & 1\\
-\end{array}\right]\\
-
-J_{s}(\theta)=\left[\begin{array}{ccc}
-0 & 0 & 0 \\
-0 & 1 & 0 \\
-1 & 0 & 0 \\
-0 & -2 & 0 \\
-0 & 0 & 0 \\
-0 & 0 & 1
-\end{array}\right]</script><p>使用到的函数如下：</p>
+\end{array}\\
+</span></p>
+<p>故当<span class="math inline">\theta=\left(90^{\circ}, 90^{\circ}, 1\right)</span> 时的正向运动学<strong>PoE</strong>与空间雅克比 <span class="math inline">J_{s}</span>：</p>
+<p>$$ T=\</p>
+<p>J_{s}()=$$</p>
+<p>使用到的函数如下：</p>
 <div class="code-wrapper"><pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token keyword">function</span> T <span class="token operator">=</span> <span class="token function">FKinSpace</span><span class="token punctuation">(</span>M<span class="token punctuation">,</span> Slist<span class="token punctuation">,</span> thetalist<span class="token punctuation">)</span>
 T <span class="token operator">=</span> M<span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token function">size</span><span class="token punctuation">(</span>thetalist<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token operator">:</span> <span class="token number">1</span>
@@ -326,38 +328,46 @@ T <span class="token operator">=</span> <span class="token function">eye</span><
 	<span class="token function">Js</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span> <span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">Adjoint</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">Slist</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span> <span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">end</span>
 <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<p>b)</p>
+<ol start="2" type="a">
+<li></li>
+</ol>
 <p>初始位形<strong>M</strong>：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">
 M=\left[\begin{array}{cccc}
--1 & 0 & 0 & 0  \\
-0 & 0 & 1 & 3  \\
-0 & 1 & 0 & 2 \\
-0 & 0 & 0 & 1
-\end{array}\right]</script><p>相对空间坐标系 ${b}$ 的旋量坐标为：</p>
-<script type="math/tex; mode=display">
+-1 &amp; 0 &amp; 0 &amp; 0  \\
+0 &amp; 0 &amp; 1 &amp; 3  \\
+0 &amp; 1 &amp; 0 &amp; 2 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{array}\right]
+</span></p>
+<p>相对空间坐标系 <span class="math inline">\{b\}</span> 的旋量坐标为：</p>
+<p><span class="math display">
 \mathcal{B}_{i}：~\begin{array}{|c||c|c|}
-\hline i & \omega_{i}  & v_{i} \\
-\hline \hline 1 & (0,1,0) & (3, 0,0) \\
-\hline 2 & (-1,0,0) & (0, 3,0) \\
-\hline 3 & (0,0,0)  & (0, 0,1) \\
+\hline i &amp; \omega_{i}  &amp; v_{i} \\
+\hline \hline 1 &amp; (0,1,0) &amp; (3, 0,0) \\
+\hline 2 &amp; (-1,0,0) &amp; (0, 3,0) \\
+\hline 3 &amp; (0,0,0)  &amp; (0, 0,1) \\
 \hline
-\end{array}\\</script><p>故当$\theta=\left(90^{\circ}, 90^{\circ}, 1\right)$ 时的正向运动学<strong>PoE</strong>与物体雅克比 $J_{b}$：</p>
-<script type="math/tex; mode=display">
+\end{array}\\
+</span></p>
+<p>故当<span class="math inline">\theta=\left(90^{\circ}, 90^{\circ}, 1\right)</span> 时的正向运动学<strong>PoE</strong>与物体雅克比 <span class="math inline">J_{b}</span>：</p>
+<p><span class="math display">
 T=\left[\begin{array}{cccc}
-0 & 0 & -1 & -3 \\
--1 & 0 & 0 & 0\\
-0 & 1 & 0 & 2\\
-0 & 0 & 0 & 1\\
+0 &amp; 0 &amp; -1 &amp; -3 \\
+-1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 2\\
+0 &amp; 0 &amp; 0 &amp; 1\\
 \end{array}\right]\\(与a中结果相同)\\
 J_{b}(\theta)=\left[\begin{array}{ccc}
-0 & -1 & 0 \\
-0 & 0 & 0 \\
-1 & 0 & 0 \\
-0 & 0 & 0 \\
-0 & 4 & 0 \\
-0 & 0 & 1
-\end{array}\right]</script><p>使用到的函数如下：</p>
+0 &amp; -1 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 4 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right]
+</span></p>
+<p>使用到的函数如下：</p>
 <div class="code-wrapper"><pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token keyword">function</span> T <span class="token operator">=</span> <span class="token function">FKinBody</span><span class="token punctuation">(</span>M<span class="token punctuation">,</span> Blist<span class="token punctuation">,</span> thetalist<span class="token punctuation">)</span>
 T <span class="token operator">=</span> M<span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token number">i</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span> <span class="token function">size</span><span class="token punctuation">(</span>thetalist<span class="token punctuation">)</span>
@@ -372,59 +382,76 @@ T <span class="token operator">=</span> <span class="token function">eye</span><
 	<span class="token function">Jb</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span> <span class="token number">i</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">Adjoint</span><span class="token punctuation">(</span>T<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token function">Blist</span><span class="token punctuation">(</span><span class="token operator">:</span><span class="token punctuation">,</span> <span class="token number">i</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">end</span>
 <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<ol>
-<li>如下图所示有一处于初始位形的 RRRP 空间开链机器人, $p$ 为${b}$ 系原点相对于 ${s}$ 系的坐标, 求 (10 分):</li>
+<ol start="2" type="1">
+<li>如下图所示有一处于初始位形的 RRRP 空间开链机器人, <span class="math inline">p</span> 为<span class="math inline">\{b\}</span> 系原点相对于 <span class="math inline">\{s\}</span> 系的坐标, 求 (10 分):</li>
 </ol>
-<p>a) 试求当 $\theta=(0,0, \pi / 2, L)$ 时的物体雅克比 $J_{b}(\theta)$;<br>b) 试求当 $\theta=(0,0, \pi / 2, L)$ 且 $\dot{\theta}=(1,1,1,1)$ 时的 $\dot{p}$。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220330002705450.png" srcset="/img/loading.gif" lazyload alt="image-20220330002705450"></p>
-<p>a)</p>
-<p>相对空间坐标系 ${b}$ 的旋量坐标为：</p>
-<script type="math/tex; mode=display">
+<ol type="a">
+<li>试求当 <span class="math inline">\theta=(0,0, \pi / 2, L)</span> 时的物体雅克比 <span class="math inline">J_{b}(\theta)</span>;</li>
+<li>试求当 <span class="math inline">\theta=(0,0, \pi / 2, L)</span> 且 <span class="math inline">\dot{\theta}=(1,1,1,1)</span> 时的 <span class="math inline">\dot{p}</span>。</li>
+</ol>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220330002705450.png" srcset="/img/loading.gif" lazyload alt="image-20220330002705450" /><figcaption aria-hidden="true">image-20220330002705450</figcaption>
+</figure>
+<ol type="a">
+<li></li>
+</ol>
+<p>相对空间坐标系 <span class="math inline">\{b\}</span> 的旋量坐标为：</p>
+<p><span class="math display">
 \mathcal{B}_{i}：~\begin{array}{|c||c|c|}
-\hline i & \omega_{i}  & v_{i} \\
-\hline \hline 1 & (0,0,1) & (-L, 0,0) \\
-\hline 2 & (1,0,0) & (0, 0,L) \\
-\hline 3 & (0,0,1)  & (0, 0,0) \\
-\hline 4 & (0,0,0)  & (0, 1,0) \\
+\hline i &amp; \omega_{i}  &amp; v_{i} \\
+\hline \hline 1 &amp; (0,0,1) &amp; (-L, 0,0) \\
+\hline 2 &amp; (1,0,0) &amp; (0, 0,L) \\
+\hline 3 &amp; (0,0,1)  &amp; (0, 0,0) \\
+\hline 4 &amp; (0,0,0)  &amp; (0, 1,0) \\
 \hline
-\end{array}\\</script><p>使用JacobianBody(Blist, thetalist)计算得，当 $\theta=(0,0, \pi / 2, L)$ 时的物体雅克比 $J_{b}(\theta)$：</p>
-<script type="math/tex; mode=display">
+\end{array}\\
+</span></p>
+<p>使用JacobianBody(Blist, thetalist)计算得，当 <span class="math inline">\theta=(0,0, \pi / 2, L)</span> 时的物体雅克比 <span class="math inline">J_{b}(\theta)</span>：</p>
+<p><span class="math display">
 J_{b}(\theta)=\left[\begin{array}{cccC}
-0 & 0 & 0 &0\\
-0 & -1 & 0 &0\\
-1 & 0 & 1 &0\\
--L & 0 & -L&0 \\
-L & 0 & 0 &1\\
-0 & L & 0&0
-\end{array}\right]</script><p>b)</p>
-<p>当 $\dot{\theta}=(1,1,1,1)$时：</p>
-<script type="math/tex; mode=display">
+0 &amp; 0 &amp; 0 &amp;0\\
+0 &amp; -1 &amp; 0 &amp;0\\
+1 &amp; 0 &amp; 1 &amp;0\\
+-L &amp; 0 &amp; -L&amp;0 \\
+L &amp; 0 &amp; 0 &amp;1\\
+0 &amp; L &amp; 0&amp;0
+\end{array}\right]
+</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p>当 <span class="math inline">\dot{\theta}=(1,1,1,1)</span>时：</p>
+<p><span class="math display">
 \mathcal{V}_{b}=J_{b}(\theta) \dot{\theta}=\left[\begin{array}{c}
 \omega_{b} \\
 v_{b}
 \end{array}\right] =\left[\begin{array}{c}0\\-1\\2\\-2L\\L+1\\L\end{array}\right]\\
 \because R_{s b}=\left[\begin{array}{rrc}
-0 & -1 & 0 \\
-1 & 0 & 0 \\
-0 & 0 & 1
+0 &amp; -1 &amp; 0 \\
+1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1
 \end{array}\right] \\
 \therefore
 \dot{p}=R_{s b} v_{b}=\left[\begin{array}{c}
 -L-1 \\
 -2 L \\
 L
-\end{array}\right]</script><ol>
-<li>如下图所示有一处于初始位形的 PRPRRR 空间开链机器人, 此时基坐标系原点与末端坐标系原点之间距离为 $L$, 求 (10 分):</li>
+\end{array}\right]
+</span></p>
+<ol start="3" type="1">
+<li>如下图所示有一处于初始位形的 PRPRRR 空间开链机器人, 此时基坐标系原点与末端坐标系原点之间距离为 <span class="math inline">L</span>, 求 (10 分):</li>
 </ol>
-<p>a) 空间雅克比 $J_{S}$ 的前三列;</p>
-<p>b) 物体雅克比 $J_{b}$ 的后两列;</p>
-<p>c) 初始位形时的 $J_{S}(0)$;</p>
-<p>d) 初始位形时, 若在末端坐标系的 $-\hat{z}_{b}$ 方向产生 $100 \mathrm{~N}$ 的力, 需要关节提供多少力或力矩?<br><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220330002722057.png" srcset="/img/loading.gif" lazyload alt="image-20220330002722057"></p>
-<p>a)</p>
-<p>空间雅克比 $J_{S}$ 的前三列：</p>
-<script type="math/tex; mode=display">
+<ol type="a">
+<li><p>空间雅克比 <span class="math inline">J_{S}</span> 的前三列;</p></li>
+<li><p>物体雅克比 <span class="math inline">J_{b}</span> 的后两列;</p></li>
+<li><p>初始位形时的 <span class="math inline">J_{S}(0)</span>;</p></li>
+<li><p>初始位形时, 若在末端坐标系的 <span class="math inline">-\hat{z}_{b}</span> 方向产生 <span class="math inline">100 \mathrm{~N}</span> 的力, 需要关节提供多少力或力矩? <img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220330002722057.png" srcset="/img/loading.gif" lazyload alt="image-20220330002722057" /></p></li>
+<li></li>
+</ol>
+<p>空间雅克比 <span class="math inline">J_{S}</span> 的前三列：</p>
+<p><span class="math display">
 \begin{aligned}
-&\mathcal{V}_{s 1}(\theta): \quad \omega_{s 1}=\left[\begin{array}{l}
+&amp;\mathcal{V}_{s 1}(\theta): \quad \omega_{s 1}=\left[\begin{array}{l}
 0 \\
 0 \\
 0
@@ -433,7 +460,7 @@ L
 0 \\
 1
 \end{array}\right] \\
-&\mathcal{V}_{s 2}(\theta): \quad \omega_{s 2}=\left[\begin{array}{l}
+&amp;\mathcal{V}_{s 2}(\theta): \quad \omega_{s 2}=\left[\begin{array}{l}
 0 \\
 0 \\
 1
@@ -446,7 +473,7 @@ L
 0 \\
 0
 \end{array}\right] \\
-&\mathcal{V}_{s 3}(\theta): \quad \omega_{s 3}=\left[\begin{array}{l}
+&amp;\mathcal{V}_{s 3}(\theta): \quad \omega_{s 3}=\left[\begin{array}{l}
 0 \\
 0 \\
 0
@@ -459,11 +486,15 @@ L
 \cos \theta_{2} \\
 0
 \end{array}\right]
-\end{aligned}</script><p>b)</p>
-<p>物体雅克比 $J_{b}$ 的后两列：</p>
-<script type="math/tex; mode=display">
+\end{aligned}
+</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p>物体雅克比 <span class="math inline">J_{b}</span> 的后两列：</p>
+<p><span class="math display">
 \begin{aligned}
-&\mathcal{V}_{b 6}(\theta): \quad \omega_{b 6}=\left[\begin{array}{l}
+&amp;\mathcal{V}_{b 6}(\theta): \quad \omega_{b 6}=\left[\begin{array}{l}
 1 \\
 0 \\
 0
@@ -476,7 +507,7 @@ L
 0 \\
 0
 \end{array}\right] \\
-&\mathcal{V}_{b 5}(\theta): \quad \omega_{b 5}=e^{\hat{x}\left(-\theta_{6}\right)}\left[\begin{array}{l}
+&amp;\mathcal{V}_{b 5}(\theta): \quad \omega_{b 5}=e^{\hat{x}\left(-\theta_{6}\right)}\left[\begin{array}{l}
 0 \\
 0 \\
 1
@@ -493,30 +524,38 @@ L
 0 \\
 0
 \end{array}\right]
-\end{aligned}</script><p>c)</p>
+\end{aligned}
+</span></p>
+<ol start="3" type="a">
+<li></li>
+</ol>
 <p>初始位形时θ=0，故$ J_{S}(0)$：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">
 \because \mathcal{S}_{i}：~\begin{array}{|c||c|c|}
-\hline i & \omega_{i}  & v_{i} \\
-\hline \hline 1 & (0,0,0) & (0, 0,1) \\
-\hline 2 & (0,0,1) & (0,0,0) \\
-\hline 3 & (0,0,0)  & (0, 1,0) \\
-\hline 4 & (0,1,0) & (0, 0,0) \\
-\hline 5 & (0,0,1)  & (L, 0,0) \\
-\hline 6 & (1,0,0) & (0, 0,-L) \\
+\hline i &amp; \omega_{i}  &amp; v_{i} \\
+\hline \hline 1 &amp; (0,0,0) &amp; (0, 0,1) \\
+\hline 2 &amp; (0,0,1) &amp; (0,0,0) \\
+\hline 3 &amp; (0,0,0)  &amp; (0, 1,0) \\
+\hline 4 &amp; (0,1,0) &amp; (0, 0,0) \\
+\hline 5 &amp; (0,0,1)  &amp; (L, 0,0) \\
+\hline 6 &amp; (1,0,0) &amp; (0, 0,-L) \\
 \hline
 \end{array}\\
 \therefore J_{s}(0)=\left[\begin{array}{cccccc}
-0 & 0 & 0 & 0 & 0 & 1 \\
-0 & 0 & 0 & 1 & 0 & 0 \\
-0 & 1 & 0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 0 & L & 0 \\
-0 & 0 & 1 & 0 & 0 & 0 \\
-1 & 0 & 0 & 0 & 0 & -L
-\end{array}\right]</script><p>d)</p>
-<script type="math/tex; mode=display">
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; L &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -L
+\end{array}\right]
+</span></p>
+<ol start="4" type="a">
+<li></li>
+</ol>
+<p><span class="math display">
 \begin{aligned}
-&\because r_{s b}=\left[\begin{array}{l}
+&amp;\because r_{s b}=\left[\begin{array}{l}
 0 \\
 L \\
 0
@@ -525,7 +564,7 @@ L \\
 0 \\
 -100
 \end{array}\right]\\
-&\therefore\mathcal{F}_{s}=\left[\begin{array}{c}
+&amp;\therefore\mathcal{F}_{s}=\left[\begin{array}{c}
 m_{s} \\
 f_{s}
 \end{array}\right]=\left[\begin{array}{c}
@@ -539,14 +578,14 @@ f_{b}
 0 \\
 -100
 \end{array}\right]\\
-&\therefore \tau=J_{s}^{T}(0) \mathcal{F}_{s}\\
-&=\left[\begin{array}{cccccc}
-0 & 0 & 0 & 0 & 0 & 1 \\
-0 & 0 & 1 & 0 & 0 & 0 \\
-0 & 0 & 0 & 0 & 1 & 0 \\
-0 & 1 & 0 & 0 & 0 & 0 \\
-0 & 0 & 1 & L & 0 & 0 \\
-1 & 0 & 0 & 0 & 0 & -L
+&amp;\therefore \tau=J_{s}^{T}(0) \mathcal{F}_{s}\\
+&amp;=\left[\begin{array}{cccccc}
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; L &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -L
 \end{array}\right]\left[\begin{array}{c}
 -100 L \\
 0 \\
@@ -562,7 +601,9 @@ f_{b}
 0 \\
 0
 \end{array}\right]
-\end{aligned}</script>
+\end{aligned}
+</span></p>
+
             </div>
             <hr>
             <div>
@@ -820,7 +861,7 @@ f_{b}
 
   
     <!-- KaTeX -->
-    <link  rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/KaTeX/0.15.2/katex.min.css" />
+    <link  rel="stylesheet" href="https://lib.baomitu.com/KaTeX/0.15.2/katex.min.css" />
   
 
 
