@@ -220,7 +220,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      27k 字
+      29k 字
     </span>
   
 
@@ -229,7 +229,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      223 分钟
+      246 分钟
     </span>
   
 
@@ -269,28 +269,52 @@
             <div class="markdown-body">
               <p>机器学习期中大作业，神经网络回归与分类</p>
 <span id="more"></span>
-<h1 id="一、描述所使用的神经网络模型"><a href="#一、描述所使用的神经网络模型" class="headerlink" title="一、描述所使用的神经网络模型"></a>一、描述所使用的神经网络模型</h1><h2 id="1-1-神经元模型"><a href="#1-1-神经元模型" class="headerlink" title="1.1 神经元模型"></a>1.1 神经元模型</h2><h3 id="1-1-1-神经元模型的定义"><a href="#1-1-1-神经元模型的定义" class="headerlink" title="1.1.1 神经元模型的定义"></a>1.1.1 神经元模型的定义</h3><p><strong>神经网络是由具有适应性的简单单元组成的广泛并行互联的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。神经网络中最基本的成分是神经元模型，即上述的“简单单元”。</strong></p>
-<h3 id="1-1-2-M-P神经元模型"><a href="#1-1-2-M-P神经元模型" class="headerlink" title="1.1.2 M-P神经元模型"></a>1.1.2 M-P神经元模型</h3><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180429830.png" srcset="/img/loading.gif" lazyload alt="image-20211114180429830"></p>
+<h1 id="一描述所使用的神经网络模型">一、描述所使用的神经网络模型</h1>
+<h2 id="神经元模型">1.1 神经元模型</h2>
+<h3 id="神经元模型的定义">1.1.1 神经元模型的定义</h3>
+<p><strong>神经网络是由具有适应性的简单单元组成的广泛并行互联的网络，它的组织能够模拟生物神经系统对真实世界物体所作出的交互反应。神经网络中最基本的成分是神经元模型，即上述的“简单单元”。</strong></p>
+<h3 id="m-p神经元模型">1.1.2 M-P神经元模型</h3>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180429830.png" srcset="/img/loading.gif" lazyload alt="image-20211114180429830" /><figcaption aria-hidden="true">image-20211114180429830</figcaption>
+</figure>
 <p><strong>输入</strong>：来自其他n个神经元传递过来的输入信号</p>
 <p><strong>处理</strong>：输入信号通过带权重的连接进行传递, 神经元接受到总输入值将其与神经元的阈值进行比较</p>
 <p><strong>输出</strong>：通过激活函数的处理以得到输出</p>
-<h3 id="1-1-3-激活函数"><a href="#1-1-3-激活函数" class="headerlink" title="1.1.3 激活函数"></a>1.1.3 激活函数</h3><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180032126.png" srcset="/img/loading.gif" lazyload alt="image-20211114180032126"></p>
-<h4 id="1-1-3-1-激活函数的介绍"><a href="#1-1-3-1-激活函数的介绍" class="headerlink" title="1.1.3.1 激活函数的介绍"></a>1.1.3.1 激活函数的介绍</h4><p><strong>如下图所示，神经网络中的每个神经元节点接受上一层神经元的输出值作为本神经元的输入值，并将输入值传递给下一层，输入层神经元节点会将输入属性值直接传递给下一层（隐层或输出层）。在多层神经网络中，上层节点的输出和下层节点的输入之间具有一个函数关系，这个函数称为激活函数（又称激励函数）。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213541281.png" srcset="/img/loading.gif" lazyload alt="image-20211113213541281"></p>
-<h4 id="1-1-3-2-激活函数的用途"><a href="#1-1-3-2-激活函数的用途" class="headerlink" title="1.1.3.2 激活函数的用途"></a>1.1.3.2 激活函数的用途</h4><p><strong>如果不用激励函数（相当于激励函数是f(x) = x），每一层节点的输入都是上层输出的线性函数，这样无论神经网络有多少层，输出都是输入的线性组合，这种情况就是最原始的感知机，网络的逼近能力就相当有限。当我们引入非线性函数作为激励函数，深层神经网络表达能力就更加强大，不再是输入的线性组合，几乎可以逼近任意函数。</strong></p>
-<h4 id="1-1-3-3-一些常见的激活函数及其性质"><a href="#1-1-3-3-一些常见的激活函数及其性质" class="headerlink" title="1.1.3.3 一些常见的激活函数及其性质"></a>1.1.3.3 一些常见的激活函数及其性质</h4><h5 id="1-1-3-3-1-Relu激活函数"><a href="#1-1-3-3-1-Relu激活函数" class="headerlink" title="1.1.3.3.1 Relu激活函数"></a>1.1.3.3.1 Relu激活函数</h5><p><strong>Relu函数的解析式：</strong></p>
-<script type="math/tex; mode=display">
-f_{Relu}(x)=max(0,x)</script><p><strong>Relu函数及其导数的图像如下图所示：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213557078.png" srcset="/img/loading.gif" lazyload alt="image-20211113213557078"></p>
+<h3 id="激活函数">1.1.3 激活函数</h3>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180032126.png" srcset="/img/loading.gif" lazyload alt="image-20211114180032126" /><figcaption aria-hidden="true">image-20211114180032126</figcaption>
+</figure>
+<h4 id="激活函数的介绍">1.1.3.1 激活函数的介绍</h4>
+<p><strong>如下图所示，神经网络中的每个神经元节点接受上一层神经元的输出值作为本神经元的输入值，并将输入值传递给下一层，输入层神经元节点会将输入属性值直接传递给下一层（隐层或输出层）。在多层神经网络中，上层节点的输出和下层节点的输入之间具有一个函数关系，这个函数称为激活函数（又称激励函数）。</strong></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213541281.png" srcset="/img/loading.gif" lazyload alt="image-20211113213541281" /><figcaption aria-hidden="true">image-20211113213541281</figcaption>
+</figure>
+<h4 id="激活函数的用途">1.1.3.2 激活函数的用途</h4>
+<p><strong>如果不用激励函数（相当于激励函数是f(x) = x），每一层节点的输入都是上层输出的线性函数，这样无论神经网络有多少层，输出都是输入的线性组合，这种情况就是最原始的感知机，网络的逼近能力就相当有限。当我们引入非线性函数作为激励函数，深层神经网络表达能力就更加强大，不再是输入的线性组合，几乎可以逼近任意函数。</strong></p>
+<h4 id="一些常见的激活函数及其性质">1.1.3.3 一些常见的激活函数及其性质</h4>
+<h5 id="relu激活函数">1.1.3.3.1 Relu激活函数</h5>
+<p><strong>Relu函数的解析式：</strong></p>
+<p><span class="math display">\[
+f_{Relu}(x)=max(0,x)
+\]</span></p>
+<p><strong>Relu函数及其导数的图像如下图所示：</strong></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213557078.png" srcset="/img/loading.gif" lazyload alt="image-20211113213557078" /><figcaption aria-hidden="true">image-20211113213557078</figcaption>
+</figure>
 <p><strong>优点：</strong></p>
 <p><strong>①计算效率较高</strong></p>
 <p><strong>②兼具线性和非线性特性</strong></p>
 <p><strong>缺点：</strong></p>
 <p><strong>梯度消失问题：在x&lt;0时，神经元保持非激活状态，且在反向传导（backward pass）中梯度为零</strong></p>
-<h5 id="1-1-3-3-2-Sigmoid激活函数"><a href="#1-1-3-3-2-Sigmoid激活函数" class="headerlink" title="1.1.3.3.2 Sigmoid激活函数"></a>1.1.3.3.2 Sigmoid激活函数</h5><p><strong>Sigmoid 函数的解析式：</strong></p>
-<script type="math/tex; mode=display">
-f_{Sigmoid}(x)=\frac{1}{1+e^{-x}}</script><p><strong>Sigmoid函数及其导数的图像如下图所示：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180235544.png" srcset="/img/loading.gif" lazyload alt="image-20211114180235544"></p>
+<h5 id="sigmoid激活函数">1.1.3.3.2 Sigmoid激活函数</h5>
+<p><strong>Sigmoid 函数的解析式：</strong></p>
+<p><span class="math display">\[
+f_{Sigmoid}(x)=\frac{1}{1+e^{-x}}
+\]</span></p>
+<p><strong>Sigmoid函数及其导数的图像如下图所示：</strong></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180235544.png" srcset="/img/loading.gif" lazyload alt="image-20211114180235544" /><figcaption aria-hidden="true">image-20211114180235544</figcaption>
+</figure>
 <p><strong>优点：</strong></p>
 <p><strong>①梯度的“平滑性”</strong></p>
 <p><strong>②输出在“0-1区间”</strong></p>
@@ -298,100 +322,167 @@ f_{Sigmoid}(x)=\frac{1}{1+e^{-x}}</script><p><strong>Sigmoid函数及其导数�
 <p><strong>①梯度消失问题：神经网络使用 Sigmoid 激活函数进行反向传播时，输出接近0或1的神经元其梯度趋近于0 </strong></p>
 <p><strong>②计算成本问题：涉及指数计算</strong></p>
 <p><strong>③不以零为中心：Sigmoid 输出不以零为中心</strong></p>
-<h5 id="1-1-3-3-3-tanh-激活函数"><a href="#1-1-3-3-3-tanh-激活函数" class="headerlink" title="1.1.3.3.3  tanh 激活函数"></a>1.1.3.3.3  tanh 激活函数</h5><p><strong>tanh函数的解析式：</strong></p>
-<script type="math/tex; mode=display">
-f_{tanh}(x)=\frac{1-e^{-2x}}{1+e^{-2x}}</script><p><strong>tanh函数及其导数的图像如下图所示：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213650281.png" srcset="/img/loading.gif" lazyload alt="image-20211113213650281"></p>
+<h5 id="tanh-激活函数">1.1.3.3.3 tanh 激活函数</h5>
+<p><strong>tanh函数的解析式：</strong></p>
+<p><span class="math display">\[
+f_{tanh}(x)=\frac{1-e^{-2x}}{1+e^{-2x}}
+\]</span></p>
+<p><strong>tanh函数及其导数的图像如下图所示：</strong></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213650281.png" srcset="/img/loading.gif" lazyload alt="image-20211113213650281" /><figcaption aria-hidden="true">image-20211113213650281</figcaption>
+</figure>
 <p><strong>优点：</strong></p>
 <p><strong>①梯度的“平滑性”</strong></p>
 <p><strong>②输出以零为中心</strong></p>
 <p><strong>缺点：</strong></p>
 <p><strong>①梯度消失问题：神经网络使用 tanh 激活函数进行反向传播时，输出接近-1或1的神经元其梯度趋近于0</strong></p>
 <p><strong>②计算成本问题：涉及指数计算</strong></p>
-<h2 id="1-2-神经网络模型"><a href="#1-2-神经网络模型" class="headerlink" title="1.2 神经网络模型"></a>1.2 神经网络模型</h2><h3 id="1-2-1-神经网络模型的定义"><a href="#1-2-1-神经网络模型的定义" class="headerlink" title="1.2.1 神经网络模型的定义"></a>1.2.1 神经网络模型的定义</h3><p><strong>将若干神经元按一定的层次结构连接起来就得到了神经网络，可将神经网络视为包含了若干参数的数学模型，这个模型是由若干个函数相互（嵌套）代入而得。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213743041.png" srcset="/img/loading.gif" lazyload alt="image-20211113213743041"></p>
-<h3 id="1-2-2-多层前馈神经网络"><a href="#1-2-2-多层前馈神经网络" class="headerlink" title="1.2.2 多层前馈神经网络"></a>1.2.2 多层前馈神经网络</h3><h4 id="1-2-2-1-定义"><a href="#1-2-2-1-定义" class="headerlink" title="1.2.2.1 定义"></a>1.2.2.1 定义</h4><p><strong>每层神经元与下一层神经元全互联，神经元之间不存在同层连接也不存在跨层连接。输入层接受外界输入，隐含层与输出层神经元对信号进行加工，最终结果由输出层神经元输出。根据训练数据来调整神经元之间的“连接权”以及每个功能神经元的“阈值”。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213753140.png" srcset="/img/loading.gif" lazyload alt="image-20211113213753140"></p>
-<h4 id="1-2-2-2-模型训练"><a href="#1-2-2-2-模型训练" class="headerlink" title="1.2.2.2 模型训练"></a>1.2.2.2 模型训练</h4><p><strong>数据</strong>：</p>
-<script type="math/tex; mode=display">
-D=\{(x_1,y_1),(x_2,y_2),……,(x_m,y_m)\},x_i∈R^d,y_i∈R^l</script><p><strong>模型</strong>：若干神经元按一定的层次结构连接起来，每层神经元与下一层神经元全互联，神经元之间不存在同层连接也不存在跨层连接，所形成的神经网络模型。</p>
+<h2 id="神经网络模型">1.2 神经网络模型</h2>
+<h3 id="神经网络模型的定义">1.2.1 神经网络模型的定义</h3>
+<p><strong>将若干神经元按一定的层次结构连接起来就得到了神经网络，可将神经网络视为包含了若干参数的数学模型，这个模型是由若干个函数相互（嵌套）代入而得。</strong></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213743041.png" srcset="/img/loading.gif" lazyload alt="image-20211113213743041" /><figcaption aria-hidden="true">image-20211113213743041</figcaption>
+</figure>
+<h3 id="多层前馈神经网络">1.2.2 多层前馈神经网络</h3>
+<h4 id="定义">1.2.2.1 定义</h4>
+<p><strong>每层神经元与下一层神经元全互联，神经元之间不存在同层连接也不存在跨层连接。输入层接受外界输入，隐含层与输出层神经元对信号进行加工，最终结果由输出层神经元输出。根据训练数据来调整神经元之间的“连接权”以及每个功能神经元的“阈值”。</strong></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113213753140.png" srcset="/img/loading.gif" lazyload alt="image-20211113213753140" /><figcaption aria-hidden="true">image-20211113213753140</figcaption>
+</figure>
+<h4 id="模型训练">1.2.2.2 模型训练</h4>
+<p><strong>数据</strong>：</p>
+<p><span class="math display">\[
+D=\{(x_1,y_1),(x_2,y_2),……,(x_m,y_m)\},x_i∈R^d,y_i∈R^l
+\]</span></p>
+<p><strong>模型</strong>：若干神经元按一定的层次结构连接起来，每层神经元与下一层神经元全互联，神经元之间不存在同层连接也不存在跨层连接，所形成的神经网络模型。</p>
 <p><strong>策略</strong>：</p>
 <p><strong>①平方损失（回归问题）</strong></p>
-<script type="math/tex; mode=display">
-L(y_i,f(x_i))=(y_i-f(x_i)^2),ERM</script><p><strong> ②交叉熵损失（二分类问题）</strong></p>
-<hr>
-<script type="math/tex; mode=display">
-L(y_i,f(x_i))=-y_ilog(p(y_i=1|x_i))-(1-y_i)log(p(y_i=0|x_i))</script><p><strong>算法</strong>：误差逆传播算法（error Back Propagation）</p>
-<h1 id="二、描述训练模型所使用的算法"><a href="#二、描述训练模型所使用的算法" class="headerlink" title="二、描述训练模型所使用的算法"></a>二、描述训练模型所使用的算法</h1><h1 id="2-1-误差逆传播算法"><a href="#2-1-误差逆传播算法" class="headerlink" title="2.1 误差逆传播算法"></a>2.1 误差逆传播算法</h1><h3 id="2-1-1-应用领域"><a href="#2-1-1-应用领域" class="headerlink" title="2.1.1 应用领域"></a>2.1.1 应用领域</h3><p><strong>反向传播算法应用较为广泛，从字面意思理解，与前向传播相互对应。在简单的神经网络中，反向传播算法，可以理解为最优化损失函数过程，求解每个参与运算的参数的梯度的方法。在前馈神经网中，反向传播从求解损失函数偏导过程中，步步向前求解每一层的参数梯度。在卷积神经网络中，反向传播可以求解全连接层的参数梯度。在循环神经网络中，反向传播算法可以求解每一个时刻t或者状态t的参数梯度（在RNN\LSTM\GRU中，反向传播更多是BPTT）。如今对于BP的理解，认为是在优化损失函数或者目标函数过程中，求解参与运算的参数的梯度方法，是一种比较普遍的说法。</strong></p>
-<h3 id="2-1-2-网络结构"><a href="#2-1-2-网络结构" class="headerlink" title="2.1.2 网络结构"></a>2.1.2 网络结构</h3><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113192037294.png" srcset="/img/loading.gif" lazyload alt="image-20211113192037294"></p>
-<ol>
+<p><span class="math display">\[
+L(y_i,f(x_i))=(y_i-f(x_i)^2),ERM
+\]</span></p>
+<p>** ②交叉熵损失（二分类问题）**</p>
+<hr />
+<p><span class="math display">\[
+L(y_i,f(x_i))=-y_ilog(p(y_i=1|x_i))-(1-y_i)log(p(y_i=0|x_i))
+\]</span></p>
+<p><strong>算法</strong>：误差逆传播算法（error Back Propagation）</p>
+<h1 id="二描述训练模型所使用的算法">二、描述训练模型所使用的算法</h1>
+<h1 id="误差逆传播算法">2.1 误差逆传播算法</h1>
+<h3 id="应用领域">2.1.1 应用领域</h3>
+<p><strong>反向传播算法应用较为广泛，从字面意思理解，与前向传播相互对应。在简单的神经网络中，反向传播算法，可以理解为最优化损失函数过程，求解每个参与运算的参数的梯度的方法。在前馈神经网中，反向传播从求解损失函数偏导过程中，步步向前求解每一层的参数梯度。在卷积神经网络中，反向传播可以求解全连接层的参数梯度。在循环神经网络中，反向传播算法可以求解每一个时刻t或者状态t的参数梯度（在RNN，反向传播更多是BPTT）。如今对于BP的理解，认为是在优化损失函数或者目标函数过程中，求解参与运算的参数的梯度方法，是一种比较普遍的说法。</strong></p>
+<h3 id="网络结构">2.1.2 网络结构</h3>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113192037294.png" srcset="/img/loading.gif" lazyload alt="image-20211113192037294" /><figcaption aria-hidden="true">image-20211113192037294</figcaption>
+</figure>
+<ol type="1">
 <li><strong>正向传播求损失，反向传播回传误差</strong></li>
 <li><strong>根据误差信号修正每层的权重</strong></li>
 <li><strong>f是激活函数；f(netj)是隐层的输出； f(netk）是输出层的输出O; d是target。</strong></li>
 </ol>
-<h3 id="2-1-2-基本参数结构"><a href="#2-1-2-基本参数结构" class="headerlink" title="2.1.2 基本参数结构"></a>2.1.2 基本参数结构</h3><p><strong>为了方便讨论，我们以一个隐层的神经网络结构进行推导。多隐层的神经网络推导思想与此类似，可推广。如下图为一个神经网络结构。</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113192136112.png" srcset="/img/loading.gif" lazyload alt="image-20211113192136112"></p>
-<h4 id="2-1-2-1参数简述"><a href="#2-1-2-1参数简述" class="headerlink" title="2.1.2.1参数简述"></a>2.1.2.1参数简述</h4><script type="math/tex; mode=display">
+<h3 id="基本参数结构">2.1.2 基本参数结构</h3>
+<p><strong>为了方便讨论，我们以一个隐层的神经网络结构进行推导。多隐层的神经网络推导思想与此类似，可推广。如下图为一个神经网络结构。</strong></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211113192136112.png" srcset="/img/loading.gif" lazyload alt="image-20211113192136112" /><figcaption aria-hidden="true">image-20211113192136112</figcaption>
+</figure>
+<h4 id="参数简述">2.1.2.1参数简述</h4>
+<p><span class="math display">\[
 \begin{align}
-&输入参数：x_1^k,\dots ,x_i^k,\dots,x_d^k\\
-&输入层到第一隐层第h个神经元的权重：v_{1h},\dots,v_{ih},\dots,v_{dh}\\
-&第一层第h个神经元输入：\alpha _{h}= \sum_{i=1}^{d}v_{ih}x_i^k\\
-&第一隐层阙值：\gamma _{1},\dots,\gamma _{h},\dots,\gamma _{q}\\
-&第一隐层第h个输出：b_h=f_{sigmoid}(\alpha _h-\gamma _h) \\
-&第一隐层到第j个输出神经元的权重：w_{1j},\dots,w_{hj},\dots,w_{qj}\\
-&第j个输出神经元的输入：\beta _j=\sum_{h=1}^{q}w_{hj}b_h\\
-&输出层阙值：\theta _{1},\dots,\theta _{j},\dots,\theta_{l}\\
-&输出值：y_j^k=f_{sigmoid}(\alpha _h-\gamma _h)
-\end{align}</script><p><strong>所以前向传播计算误差为：</strong></p>
-<script type="math/tex; mode=display">
-E_{k}=\frac{1}{2} \sum_{j=1}^{l}\left(y_{j}^{k}-\hat{y}_{j}^{k}\right)^{2}</script><h3 id="2-1-3-参数调整策略"><a href="#2-1-3-参数调整策略" class="headerlink" title="2.1.3 参数调整策略"></a>2.1.3 参数调整策略</h3><p><strong>BP算法的核心思想：使用梯度下降来搜索可能的权向量的假设空间，以找到最佳的拟合样例的权向量。具体而言，即利用损失函数，每次向损失函数负梯度方向移动，直到损失函数取得最小值。或者说，反向传播算法，是根据损失函数，求出损失函数关于每一层的权值及偏置项的偏导数，也称为梯度，用该值更新初始的权值和偏置项，一直更新到损失函数取得最小值或是设置的迭代次数完成为止。以此来计算神经网络中的最佳的参数。</strong></p>
-<script type="math/tex; mode=display">
-损失函数：E_{k}=\frac{1}{2} \sum_{j=1}^{l}\left(y_{j}^{k}-\hat{y}_{j}^{k}\right)^{2}</script><h4 id="2-1-3-1-计算准备"><a href="#2-1-3-1-计算准备" class="headerlink" title="2.1.3.1 计算准备"></a>2.1.3.1 计算准备</h4><script type="math/tex; mode=display">
+&amp;输入参数：x_1^k,\dots ,x_i^k,\dots,x_d^k\\
+&amp;输入层到第一隐层第h个神经元的权重：v_{1h},\dots,v_{ih},\dots,v_{dh}\\
+&amp;第一层第h个神经元输入：\alpha _{h}= \sum_{i=1}^{d}v_{ih}x_i^k\\
+&amp;第一隐层阙值：\gamma _{1},\dots,\gamma _{h},\dots,\gamma _{q}\\
+&amp;第一隐层第h个输出：b_h=f_{sigmoid}(\alpha _h-\gamma _h) \\
+&amp;第一隐层到第j个输出神经元的权重：w_{1j},\dots,w_{hj},\dots,w_{qj}\\
+&amp;第j个输出神经元的输入：\beta _j=\sum_{h=1}^{q}w_{hj}b_h\\
+&amp;输出层阙值：\theta _{1},\dots,\theta _{j},\dots,\theta_{l}\\
+&amp;输出值：y_j^k=f_{sigmoid}(\alpha _h-\gamma _h)
+\end{align}
+\]</span></p>
+<p><strong>所以前向传播计算误差为：</strong></p>
+<p><span class="math display">\[
+E_{k}=\frac{1}{2} \sum_{j=1}^{l}\left(y_{j}^{k}-\hat{y}_{j}^{k}\right)^{2}
+\]</span></p>
+<h3 id="参数调整策略">2.1.3 参数调整策略</h3>
+<p><strong>BP算法的核心思想：使用梯度下降来搜索可能的权向量的假设空间，以找到最佳的拟合样例的权向量。具体而言，即利用损失函数，每次向损失函数负梯度方向移动，直到损失函数取得最小值。或者说，反向传播算法，是根据损失函数，求出损失函数关于每一层的权值及偏置项的偏导数，也称为梯度，用该值更新初始的权值和偏置项，一直更新到损失函数取得最小值或是设置的迭代次数完成为止。以此来计算神经网络中的最佳的参数。</strong></p>
+<p><span class="math display">\[
+损失函数：E_{k}=\frac{1}{2} \sum_{j=1}^{l}\left(y_{j}^{k}-\hat{y}_{j}^{k}\right)^{2}
+\]</span></p>
+<h4 id="计算准备">2.1.3.1 计算准备</h4>
+<p><span class="math display">\[
 \frac{\partial E_k}{\partial \hat{y_j^k} }=(y_j^k-\hat{y_j^k})(-1)\\
 f_{sigmoid}(x)^{(1)}=f_{sigmoid}(x)(1-f_{sigmoid}(x))\\
-\eta:学习率</script><p><strong>下面，我们讲分别讨论每个参数的更新：</strong></p>
-<h4 id="2-1-3-2-w更新"><a href="#2-1-3-2-w更新" class="headerlink" title="2.1.3.2 w更新"></a>2.1.3.2 <strong>w</strong>更新</h4><script type="math/tex; mode=display">
-更新公式：w_{hj}=w_{hj}+\bigtriangleup w_{hj}</script><p>下面对<strong>w</strong>进行讨论:</p>
-<script type="math/tex; mode=display">
+\eta:学习率
+\]</span></p>
+<p><strong>下面，我们讲分别讨论每个参数的更新：</strong></p>
+<h4 id="w更新">2.1.3.2 <strong>w</strong>更新</h4>
+<p><span class="math display">\[
+更新公式：w_{hj}=w_{hj}+\bigtriangleup w_{hj}
+\]</span></p>
+<p>下面对<strong>w</strong>进行讨论:</p>
+<p><span class="math display">\[
 \begin{align}
-\bigtriangleup w_{hj}=&-\eta  \frac{\partial E_k}{\partial w_{hj}}\\
-=&-\eta (\frac{\partial E_k}{\partial \hat{y_j^k} }\cdot\frac{\partial \hat{y_j^k}}{\partial \beta _j}  \cdot \frac{\partial \beta _j}{\partial w_{hj}}  )\\
-=&-\eta (y_j^k-\hat{y_j^k})(-1)\cdot \hat{y_j^k} (1-\hat{y_j^k})\cdot b_h\\
-令g_j&=(y_j^k-\hat{y_j^k})\cdot \hat{y_j^k} (1-\hat{y_j^k})\\
+\bigtriangleup w_{hj}=&amp;-\eta  \frac{\partial E_k}{\partial w_{hj}}\\
+=&amp;-\eta (\frac{\partial E_k}{\partial \hat{y_j^k} }\cdot\frac{\partial \hat{y_j^k}}{\partial \beta _j}  \cdot \frac{\partial \beta _j}{\partial w_{hj}}  )\\
+=&amp;-\eta (y_j^k-\hat{y_j^k})(-1)\cdot \hat{y_j^k} (1-\hat{y_j^k})\cdot b_h\\
+令g_j&amp;=(y_j^k-\hat{y_j^k})\cdot \hat{y_j^k} (1-\hat{y_j^k})\\
 \\
-最终可得&\bigtriangleup w_{hj}=\eta g_jb_h
-\end{align}</script><h4 id="2-1-3-3-θ更新"><a href="#2-1-3-3-θ更新" class="headerlink" title="2.1.3.3 θ更新"></a>2.1.3.3 <strong>θ</strong>更新</h4><script type="math/tex; mode=display">
-更新公式：\theta_{j}=\theta_{j}+\bigtriangleup \theta_{j}</script><p><strong>下面对</strong>θ<strong>进行讨论：</strong></p>
-<script type="math/tex; mode=display">
+最终可得&amp;\bigtriangleup w_{hj}=\eta g_jb_h
+\end{align}
+\]</span></p>
+<h4 id="θ更新">2.1.3.3 <strong>θ</strong>更新</h4>
+<p><span class="math display">\[
+更新公式：\theta_{j}=\theta_{j}+\bigtriangleup \theta_{j}
+\]</span></p>
+<p><strong>下面对</strong>θ<strong>进行讨论：</strong></p>
+<p><span class="math display">\[
 \begin{align}
-\bigtriangleup \theta_j=&-\eta  \frac{\partial E_k}{\partial \theta_{j}}\\
-=&-\eta  (\frac{\partial E_k}{\partial \hat{y_j^k} }\cdot\frac{\partial \hat{y_j^k}}{\partial \theta _j}    )\\
-=&-\eta (y_j^k-\hat{y_j^k})(-1)\cdot \hat{y_j^k} (1-\hat{y_j^k})\cdot(-1)\\
-=&-\eta g_j
-\end{align}</script><h4 id="2-1-3-4-v更新"><a href="#2-1-3-4-v更新" class="headerlink" title="2.1.3.4 v更新"></a>2.1.3.4 <strong>v</strong>更新</h4><script type="math/tex; mode=display">
-更新公式：v_{ih}=v_{ih}+\bigtriangleup v_{ih}</script><p><strong>下面对</strong>v<strong>进行讨论：</strong></p>
-<script type="math/tex; mode=display">
+\bigtriangleup \theta_j=&amp;-\eta  \frac{\partial E_k}{\partial \theta_{j}}\\
+=&amp;-\eta  (\frac{\partial E_k}{\partial \hat{y_j^k} }\cdot\frac{\partial \hat{y_j^k}}{\partial \theta _j}    )\\
+=&amp;-\eta (y_j^k-\hat{y_j^k})(-1)\cdot \hat{y_j^k} (1-\hat{y_j^k})\cdot(-1)\\
+=&amp;-\eta g_j
+\end{align}
+\]</span></p>
+<h4 id="v更新">2.1.3.4 <strong>v</strong>更新</h4>
+<p><span class="math display">\[
+更新公式：v_{ih}=v_{ih}+\bigtriangleup v_{ih}
+\]</span></p>
+<p><strong>下面对</strong>v<strong>进行讨论：</strong></p>
+<p><span class="math display">\[
 \begin{align}
-\bigtriangleup v_{ih}=&-\eta \frac{\partial E_k}{\partial v_{ih}}\\ 
-=&-\eta\frac{\partial E_k}{\partial b_h}\cdot  \frac{\partial b_h}{\partial \alpha _h}\cdot  \frac{\partial \alpha _h}{\partial v_{ih}} \\
-=&-\eta(\sum_{j=1}^{l}\frac{\partial E_k}{\partial \hat{y_j^k} }\cdot\frac{\partial \hat{y_j^k}}{\partial \beta _j}  \cdot \frac{\partial \beta _j}{\partial b_{h}})\cdot b_h(1-b_h)\cdot x_i^k\\
-=&\eta \sum_{j=1}^{l}g_jw_{hj}b_h(1-b_h)x_i^k 
-\end{align}</script><h4 id="2-1-3-5γ更新"><a href="#2-1-3-5γ更新" class="headerlink" title="2.1.3.5γ更新"></a>2.1.3.5γ更新</h4><script type="math/tex; mode=display">
-更新公式：\gamma_{h}=\gamma_{h}+\bigtriangleup \gamma_{h}</script><p><strong>下面对</strong>γ<strong>进行讨论：</strong></p>
-<script type="math/tex; mode=display">
+\bigtriangleup v_{ih}=&amp;-\eta \frac{\partial E_k}{\partial v_{ih}}\\ 
+=&amp;-\eta\frac{\partial E_k}{\partial b_h}\cdot  \frac{\partial b_h}{\partial \alpha _h}\cdot  \frac{\partial \alpha _h}{\partial v_{ih}} \\
+=&amp;-\eta(\sum_{j=1}^{l}\frac{\partial E_k}{\partial \hat{y_j^k} }\cdot\frac{\partial \hat{y_j^k}}{\partial \beta _j}  \cdot \frac{\partial \beta _j}{\partial b_{h}})\cdot b_h(1-b_h)\cdot x_i^k\\
+=&amp;\eta \sum_{j=1}^{l}g_jw_{hj}b_h(1-b_h)x_i^k 
+\end{align}
+\]</span></p>
+<h4 id="γ更新">2.1.3.5γ更新</h4>
+<p><span class="math display">\[
+更新公式：\gamma_{h}=\gamma_{h}+\bigtriangleup \gamma_{h}
+\]</span></p>
+<p><strong>下面对</strong>γ<strong>进行讨论：</strong></p>
+<p><span class="math display">\[
 \begin{align}
-\bigtriangleup \gamma_{h}=&-\eta \frac{\partial E_k}{\partial \gamma_{h}}\\ 
-=&-\eta\frac{\partial E_k}{\partial b_h}\cdot  \frac{\partial b_h}{\partial \gamma _h} \\
-=&-\eta(\sum_{j=1}^{l}\frac{\partial E_k}{\partial \hat{y_j^k} }\cdot\frac{\partial \hat{y_j^k}}{\partial \beta _j}  \cdot \frac{\partial \beta _j}{\partial b_{h}})\cdot b_h(1-b_h)\cdot (-1)\\
-=&\eta \sum_{j=1}^{l}g_jw_{hj}b_h(1-b_h)(-1)
-\end{align}</script><h3 id="2-1-3-算法伪代码"><a href="#2-1-3-算法伪代码" class="headerlink" title="2.1.3 算法伪代码"></a>2.1.3 算法伪代码</h3><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180628211.png" srcset="/img/loading.gif" lazyload alt="image-20211114180628211"></p>
-<h1 id="三、描述模型超参数确定的过程，分析模型训练结果"><a href="#三、描述模型超参数确定的过程，分析模型训练结果" class="headerlink" title="三、描述模型超参数确定的过程，分析模型训练结果"></a>三、描述模型超参数确定的过程，分析模型训练结果</h1><h2 id="3-1-超参数的概念"><a href="#3-1-超参数的概念" class="headerlink" title="3.1 超参数的概念"></a>3.1 超参数的概念</h2><p>大部分机器学习算法都需要花费大量时间去训练，而在训练之前需要提前配置一些变量。这些变量对训练结果影响很大，但没有对任何数据集都适用的一组变量，需要根据具体应用具体配置，这些需要配置的变量称之为超参数（hyperparameters）。区分超参数和模型参数最大的一点就是是否通过数据来进行调整，模型参数通常是有数据来驱动调整，超参数则不需要数据来驱动，而是在训练前或者训练中人为的进行调整的参数。例如卷积核的具体核参数就是指模型参数，这是由数据驱动的。而学习率则是人为来进行调整的超参数。这里需要注意的是，通常情况下卷积核数量、卷积核尺寸这些也是超参数，注意与卷积核的核参数区分。</p>
-<h2 id="3-2-神经网络包含的超参数"><a href="#3-2-神经网络包含的超参数" class="headerlink" title="3.2 神经网络包含的超参数"></a>3.2 神经网络包含的超参数</h2><h3 id="3-2-1-超参数种类"><a href="#3-2-1-超参数种类" class="headerlink" title="3.2.1 超参数种类"></a>3.2.1 超参数种类</h3><p>通常可以将超参数分为三类：网络参数、优化参数、正则化参数。</p>
+\bigtriangleup \gamma_{h}=&amp;-\eta \frac{\partial E_k}{\partial \gamma_{h}}\\ 
+=&amp;-\eta\frac{\partial E_k}{\partial b_h}\cdot  \frac{\partial b_h}{\partial \gamma _h} \\
+=&amp;-\eta(\sum_{j=1}^{l}\frac{\partial E_k}{\partial \hat{y_j^k} }\cdot\frac{\partial \hat{y_j^k}}{\partial \beta _j}  \cdot \frac{\partial \beta _j}{\partial b_{h}})\cdot b_h(1-b_h)\cdot (-1)\\
+=&amp;\eta \sum_{j=1}^{l}g_jw_{hj}b_h(1-b_h)(-1)
+\end{align}
+\]</span></p>
+<h3 id="算法伪代码">2.1.3 算法伪代码</h3>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180628211.png" srcset="/img/loading.gif" lazyload alt="image-20211114180628211" /><figcaption aria-hidden="true">image-20211114180628211</figcaption>
+</figure>
+<h1 id="三描述模型超参数确定的过程分析模型训练结果">三、描述模型超参数确定的过程，分析模型训练结果</h1>
+<h2 id="超参数的概念">3.1 超参数的概念</h2>
+<p>大部分机器学习算法都需要花费大量时间去训练，而在训练之前需要提前配置一些变量。这些变量对训练结果影响很大，但没有对任何数据集都适用的一组变量，需要根据具体应用具体配置，这些需要配置的变量称之为超参数（hyperparameters）。区分超参数和模型参数最大的一点就是是否通过数据来进行调整，模型参数通常是有数据来驱动调整，超参数则不需要数据来驱动，而是在训练前或者训练中人为的进行调整的参数。例如卷积核的具体核参数就是指模型参数，这是由数据驱动的。而学习率则是人为来进行调整的超参数。这里需要注意的是，通常情况下卷积核数量、卷积核尺寸这些也是超参数，注意与卷积核的核参数区分。</p>
+<h2 id="神经网络包含的超参数">3.2 神经网络包含的超参数</h2>
+<h3 id="超参数种类">3.2.1 超参数种类</h3>
+<p>通常可以将超参数分为三类：网络参数、优化参数、正则化参数。</p>
 <p>网络参数：可指网络层与层之间的交互方式（相加、相乘或者串接等）、卷积核数量和卷积核尺寸、网络层数（也称深度）和激活函数等。</p>
 <p>优化参数：一般指学习率（learning rate）、批样本数量（batch size）、不同优化器的参数以及部分损失函数的可调参数。</p>
 <p>正则化：权重衰减系数，丢弃法比率（dropout）</p>
 <p><strong>神经网络包含的超参数具体为以下十一个：</strong></p>
-<ol>
+<ol type="1">
 <li><strong>学习率 η</strong></li>
 <li><strong>正则化参数 λ</strong></li>
 <li><strong>神经网络的层数 L</strong></li>
@@ -404,63 +495,95 @@ f_{sigmoid}(x)^{(1)}=f_{sigmoid}(x)(1-f_{sigmoid}(x))\\
 <li><strong>神经元激活函数的种类</strong></li>
 <li><strong>参加训练模型数据的规模</strong></li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211112080119294.png" srcset="/img/loading.gif" lazyload alt="image-20211112080119294"></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211112080119294.png" srcset="/img/loading.gif" lazyload alt="image-20211112080119294" /><figcaption aria-hidden="true">image-20211112080119294</figcaption>
+</figure>
 <p>在上图中可以看到超参数 2，3，4， 7 主要影响的时神经网络的分类正确率；9 主要影响代价函数曲线下降速度，同时有时也会影响正确率；1，8，10 主要影响学习速度，这点主要体现在训练数据代价函数曲线的下降速度上；5，6，11 主要影响模型分类正确率和训练用总体时间。这上面所提到的时某个超参数对于神经网络想到的首要影响，并不代表着该超参数只影响学习速度或者正确率。</p>
-<h3 id="3-2-2-超参数重要性顺序"><a href="#3-2-2-超参数重要性顺序" class="headerlink" title="3.2.2 超参数重要性顺序"></a>3.2.2 超参数重要性顺序</h3><ul>
+<h3 id="超参数重要性顺序">3.2.2 超参数重要性顺序</h3>
+<ul>
 <li>首先， 学习率，损失函数上的可调参数。在网络参数、优化参数、正则化参数中最重要的超参数可能就是学习率了。学习率直接控制着训练中网络梯度更新的量级，直接影响着模型的有效容限能力；损失函数上的可调参数，这些参数通常情况下需要结合实际的损失函数来调整，大部分情况下这些参数也能很直接的影响到模型的的有效容限能力。这些损失一般可分成三类，第一类辅助损失结合常见的损失函数，起到辅助优化特征表达的作用。例如度量学习中的Center loss，通常结合交叉熵损失伴随一个权重完成一些特定的任务。这种情况下一般建议辅助损失值不高于或者不低于交叉熵损失值的两个数量级；第二类，多任务模型的多个损失函数，每个损失函数之间或独立或相关，用于各自任务，这种情况取决于任务之间本身的相关性，目前笔者并没有一个普适的经验由于提供参考；第三类，独立损失函数，这类损失通常会在特定的任务有显著性的效果。例如RetinaNet中的focal loss，其中的参数γ，α，对最终的效果会产生较大的影响。这类损失通常论文中会给出特定的建议值。</li>
 <li>其次，批样本数量，动量优化器（Gradient Descent with Momentum）的动量参数β。批样本决定了数量梯度下降的方向。过小的批数量，极端情况下，例如batch size为1，即每个样本都去修正一次梯度方向，样本之间的差异越大越难以收敛。若网络中存在批归一化（batchnorm），batch size过小则更难以收敛，甚至垮掉。这是因为数据样本越少，统计量越不具有代表性，噪声也相应的增加。而过大的batch size，会使得梯度方向基本稳定，容易陷入局部最优解，降低精度。一般参考范围会取在[1:1024]之间，当然这个不是绝对的，需要结合具体场景和样本情况；动量衰减参数β是计算梯度的指数加权平均数，并利用该值来更新参数，设置为 0.9 是一个常见且效果不错的选择；</li>
 <li>最后，Adam优化器的超参数、权重衰减系数、丢弃法比率（dropout）和网络参数。在这里说明下，这些参数重要性放在最后并不等价于这些参数不重要。而是表示这些参数在大部分实践中不建议过多尝试，例如Adam优化器中的β1，β2，ϵ，常设为 0.9、0.999、10−8就会有不错的表现。权重衰减系数通常会有个建议值，例如0.0005 ，使用建议值即可，不必过多尝试。dropout通常会在全连接层之间使用防止过拟合，建议比率控制在[0.2,0.5]之间。使用dropout时需要特别注意两点：一、在RNN中，如果直接放在memory cell中,循环会放大噪声，扰乱学习。一般会建议放在输入和输出层；二、不建议dropout后直接跟上batchnorm，dropout很可能影响batchnorm计算统计量，导致方差偏移，这种情况下会使得推理阶段出现模型完全垮掉的极端情况；网络参数通常也属于超参数的范围内，通常情况下增加网络层数能增加模型的容限能力，但模型真正有效的容限能力还和样本数量和质量、层之间的关系等有关，所以一般情况下会选择先固定网络层数，调优到一定阶段或者有大量的硬件资源支持可以在网络深度上进行进一步调整。</li>
 </ul>
-<h2 id="3-3-模型超参数确定"><a href="#3-3-模型超参数确定" class="headerlink" title="3.3 模型超参数确定"></a>3.3 模型超参数确定</h2><h3 id="3-3-1-超参数调优的原因"><a href="#3-3-1-超参数调优的原因" class="headerlink" title="3.3.1 超参数调优的原因"></a>3.3.1 超参数调优的原因</h3><p>本质上，这是模型优化寻找最优解和正则项之间的关系。网络模型优化调整的目的是为了寻找到全局最优解（或者相比更好的局部最优解），而正则项又希望模型尽量拟合到最优。两者通常情况下，存在一定的对立，但两者的目标是一致的，即最小化期望风险。模型优化希望最小化经验风险，而容易陷入过拟合，正则项用来约束模型复杂度。所以如何平衡两者之间的关系，得到最优或者较优的解就是超参数调整优化的目的。</p>
-<h3 id="3-3-2-模型超参数的确定"><a href="#3-3-2-模型超参数的确定" class="headerlink" title="3.3.2 模型超参数的确定"></a>3.3.2 模型超参数的确定</h3><p><strong>四种主流超参数调优技术：</strong></p>
-<ol>
+<h2 id="模型超参数确定">3.3 模型超参数确定</h2>
+<h3 id="超参数调优的原因">3.3.1 超参数调优的原因</h3>
+<p>本质上，这是模型优化寻找最优解和正则项之间的关系。网络模型优化调整的目的是为了寻找到全局最优解（或者相比更好的局部最优解），而正则项又希望模型尽量拟合到最优。两者通常情况下，存在一定的对立，但两者的目标是一致的，即最小化期望风险。模型优化希望最小化经验风险，而容易陷入过拟合，正则项用来约束模型复杂度。所以如何平衡两者之间的关系，得到最优或者较优的解就是超参数调整优化的目的。</p>
+<h3 id="模型超参数的确定">3.3.2 模型超参数的确定</h3>
+<p><strong>四种主流超参数调优技术：</strong></p>
+<ol type="1">
 <li><strong>传统或手动调参</strong></li>
 <li><strong>网格搜索</strong></li>
 <li><strong>随机搜索</strong></li>
 <li><strong>贝叶斯搜索</strong></li>
 </ol>
 <p>在传统的调优中，我们通过手动检查随机超参数集来训练算法，并选择最适合我们目标的参数集。但这种方法不能保证得到最佳的参数组合，反复试验会消耗更多的时间。</p>
-<h4 id="3-3-2-1-网格搜索"><a href="#3-3-2-1-网格搜索" class="headerlink" title="3.3.2.1 网格搜索"></a>3.3.2.1 网格搜索</h4><ul>
+<h4 id="网格搜索">3.3.2.1 网格搜索</h4>
+<ul>
 <li>网格搜索是一种基本的超参数调整技术。它类似于手动调优，为网格中指定的所有给定超参数值的每个排列建立模型，并评估和选择最佳模型。由于它尝试每一种超参数组合，并根据交叉验证分数选择最佳组合，这使得 GridsearchCV 极其缓慢。</li>
 <li>这种启发式的搜索算法对超参数搜索算法，被称之为网格搜索。(如果人工处理所有可能的超参数组合，通常的办法是，根据超参数的维度，列成相应的表格，比如说k的取值有[2，3，4，5，6，7，8]，另一个系数比如λ取值有[0.01,0.03,0.1,0.3]等，这样就可以列出一个二维表格，组合出7*4种可能性的超参数组合，再对每一个格子中具体的超参数组合，通过交叉验证的方式进行模型性能的评估，然后通过验证性能的比较，最终筛选出最佳的超参数数据组合)</li>
-<li>网格搜索采用交叉验证的方法，来寻找更好的超参数组合的过程非常耗时，由于各个新模型在执行交叉验证的过程中是相互独立的，那么我们可以充分利用多核处理器甚至是分布式的计算资源来从事并行搜索，从而成倍的节省运算时间。<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/482493cc74974f85ba09b50697801c27.jpeg" srcset="/img/loading.gif" lazyload alt="img"></li>
+<li>网格搜索采用交叉验证的方法，来寻找更好的超参数组合的过程非常耗时，由于各个新模型在执行交叉验证的过程中是相互独立的，那么我们可以充分利用多核处理器甚至是分布式的计算资源来从事并行搜索，从而成倍的节省运算时间。<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/482493cc74974f85ba09b50697801c27.jpeg" srcset="/img/loading.gif" lazyload alt="img" /></li>
 </ul>
-<h4 id="3-3-2-2-随机搜索"><a href="#3-3-2-2-随机搜索" class="headerlink" title="3.3.2.2 随机搜索"></a>3.3.2.2 随机搜索</h4><p>使用随机搜索代替网格搜索的动机是，在许多情况下，所有的超参数可能并非同等重要。随机搜索从超参数空间中随机选择参数组合，参数按 n_iter 给定的迭代次数进行选择。随机搜索已经被实践证明比网格搜索得到的结果更好，但随机搜索的问题是它不能保证给出最佳的参数组合。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180715729.png" srcset="/img/loading.gif" lazyload alt="image-20211114180715729"></p>
-<h4 id="3-3-2-3-贝叶斯优化"><a href="#3-3-2-3-贝叶斯优化" class="headerlink" title="3.3.2.3 贝叶斯优化"></a>3.3.2.3 贝叶斯优化</h4><p>贝叶斯优化属于一类被称为<strong><em>sequential model-based optimization</em>(SMBO)</strong>的优化算法。这些算法使用先前对损失 f 的观测，来确定下一个(最佳)点来取样 f。该算法大致可以概括如下：</p>
-<ol>
+<h4 id="随机搜索">3.3.2.2 随机搜索</h4>
+<p>使用随机搜索代替网格搜索的动机是，在许多情况下，所有的超参数可能并非同等重要。随机搜索从超参数空间中随机选择参数组合，参数按 n_iter 给定的迭代次数进行选择。随机搜索已经被实践证明比网格搜索得到的结果更好，但随机搜索的问题是它不能保证给出最佳的参数组合。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114180715729.png" srcset="/img/loading.gif" lazyload alt="image-20211114180715729" /><figcaption aria-hidden="true">image-20211114180715729</figcaption>
+</figure>
+<h4 id="贝叶斯优化">3.3.2.3 贝叶斯优化</h4>
+<p>贝叶斯优化属于一类被称为<strong><em>sequential model-based optimization</em>(SMBO)</strong>的优化算法。这些算法使用先前对损失 f 的观测，来确定下一个(最佳)点来取样 f。该算法大致可以概括如下：</p>
+<ol type="1">
 <li><strong>使用先前计算过的点 X1: n，计算损失 f 的后验期望值。</strong></li>
 <li><strong>在一个新的点 Xnew取样损失 f ，它最大化了 f 的期望的某些效用函数。该函数指定 f 域的哪些区域是最适合采样的。</strong></li>
 </ol>
 <p>重复这些步骤，直到达到某种收敛准则。</p>
-<h5 id="3-3-2-3-1-高斯过程"><a href="#3-3-2-3-1-高斯过程" class="headerlink" title="3.3.2.3.1 高斯过程"></a>3.3.2.3.1 高斯过程</h5><p>在贝叶斯调参过程中，假设一组超参数组合是X=x1,x2,…,xn(xn表示某一个超参数的值)，而这组超参数与最后我们需要优化的损失函数存在一个函数关系，最终的评估结果为Y，通过什么样的X可以取得最优的Y，我们假设是f(X)， Y=F(X)</p>
+<h5 id="高斯过程">3.3.2.3.1 高斯过程</h5>
+<p>在贝叶斯调参过程中，假设一组超参数组合是X=x1,x2,...,xn(xn表示某一个超参数的值)，而这组超参数与最后我们需要优化的损失函数存在一个函数关系，最终的评估结果为Y，通过什么样的X可以取得最优的Y，我们假设是f(X)， Y=F(X)</p>
 <p>而目前机器学习其实是一个黑盒子(black box),即我们只知道input和output，所以上面的函数f(x)很难确定。所以我们需要将注意力转移到一个我们可以解决的函数上去。</p>
 <p>于是可以假设这个寻找最优化参数的过程是一个高斯过程。高斯过程有个特点，就是当随机遍历一定的数据点并拿到结果之后，可以大致绘制出整个数据的分布曲线。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/998084-20180726204924171-1721363009.png" srcset="/img/loading.gif" lazyload alt="img"></p>
-<h5 id="3-3-2-3-2-贝叶斯优化理论"><a href="#3-3-2-3-2-贝叶斯优化理论" class="headerlink" title="3.3.2.3.2 贝叶斯优化理论"></a>3.3.2.3.2 贝叶斯优化理论</h5><p>还是这张图，把横轴看作是参数组合X，纵轴看作是这个参数的结果Y。可以通过已经构建的曲线，找到曲线上升的方向，从而在这个方向上继续探索，这样就可以大概率拿到更好的结果。在生活的轨迹上，如果找到一条明确通往幸福的路，可以继续向前探索，因为大概率可以成功，但也许也有会错过更好的机会，陷入局部最优解。请看上图中的五角星，如果我们处于它的位置，继续向上走会迎来一个高峰，但是如果后退，在下降一段时间之后可能会迎来更高的波峰，你该如何选择。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/998084-20180726204924171-1721363009.png" srcset="/img/loading.gif" lazyload alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<h5 id="贝叶斯优化理论">3.3.2.3.2 贝叶斯优化理论</h5>
+<p>还是这张图，把横轴看作是参数组合X，纵轴看作是这个参数的结果Y。可以通过已经构建的曲线，找到曲线上升的方向，从而在这个方向上继续探索，这样就可以大概率拿到更好的结果。在生活的轨迹上，如果找到一条明确通往幸福的路，可以继续向前探索，因为大概率可以成功，但也许也有会错过更好的机会，陷入局部最优解。请看上图中的五角星，如果我们处于它的位置，继续向上走会迎来一个高峰，但是如果后退，在下降一段时间之后可能会迎来更高的波峰，你该如何选择。</p>
 <p>于是，在参数的探索中要掌握一个平衡：</p>
 <p>开发：在明确的曲线上扬方向继续走，大概率获得更好的结果，但是容易陷入局部最优。</p>
 <p>探索：除了在曲线上扬的方向，在其它的区域也不忘寻找</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114102651780.png" srcset="/img/loading.gif" lazyload alt="image-20211114102651780"></p>
-<h2 id="3-4-结果分析"><a href="#3-4-结果分析" class="headerlink" title="3.4 结果分析"></a>3.4 结果分析</h2><h3 id="3-4-1-MAPE"><a href="#3-4-1-MAPE" class="headerlink" title="3.4.1 MAPE"></a>3.4.1 MAPE</h3><p><strong>平均绝对百分比误差（Mean Absolute Percentage Error）</strong></p>
-<script type="math/tex; mode=display">
-M A P E=\frac{100 \%}{n} \sum_{i=1}^{n}\left|\frac{\hat{y}_{i}-y_{i}}{y_{i}}\right|</script><p>范围[0,+∞)，MAPE 为0%表示完美模型，MAPE 大于 100 %则表示劣质模型。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114102651780.png" srcset="/img/loading.gif" lazyload alt="image-20211114102651780" /><figcaption aria-hidden="true">image-20211114102651780</figcaption>
+</figure>
+<h2 id="结果分析">3.4 结果分析</h2>
+<h3 id="mape">3.4.1 MAPE</h3>
+<p><strong>平均绝对百分比误差（Mean Absolute Percentage Error）</strong></p>
+<p><span class="math display">\[
+M A P E=\frac{100 \%}{n} \sum_{i=1}^{n}\left|\frac{\hat{y}_{i}-y_{i}}{y_{i}}\right|
+\]</span></p>
+<p>范围[0,+∞)，MAPE 为0%表示完美模型，MAPE 大于 100 %则表示劣质模型。</p>
 <p>注意：当真实值有数据等于0时，存在分母0除问题，该公式不可用！</p>
-<h3 id="3-4-2-调参前结果及分析"><a href="#3-4-2-调参前结果及分析" class="headerlink" title="3.4.2 调参前结果及分析"></a>3.4.2 调参前结果及分析</h3><h4 id="3-4-2-1-代码"><a href="#3-4-2-1-代码" class="headerlink" title="3.4.2.1 代码"></a>3.4.2.1 代码</h4><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">mlp &#x3D; MLPRegressor(hidden_layer_sizes&#x3D;(100), activation&#x3D;&#39;relu&#39;, solver&#x3D;&#39;adam&#39;, alpha&#x3D;0.0001, batch_size&#x3D;&#39;auto&#39;, learning_rate&#x3D;&#39;constant&#39;, learning_rate_init&#x3D;0.001, power_t&#x3D;0.5, max_iter&#x3D;200, shuffle&#x3D;True, random_state&#x3D;None, tol&#x3D;0.0001, verbose&#x3D;False, warm_start&#x3D;False, momentum&#x3D;0.9, nesterovs_momentum&#x3D;True, early_stopping&#x3D;False, validation_fraction&#x3D;0.1, beta_1&#x3D;0.9, beta_2&#x3D;0.999, epsilon&#x3D;1e-08, n_iter_no_change&#x3D;10, max_fun&#x3D;15000) #所有参数默认
+<h3 id="调参前结果及分析">3.4.2 调参前结果及分析</h3>
+<h4 id="代码">3.4.2.1 代码</h4>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">mlp &#x3D; MLPRegressor(hidden_layer_sizes&#x3D;(100), activation&#x3D;&#39;relu&#39;, solver&#x3D;&#39;adam&#39;, alpha&#x3D;0.0001, batch_size&#x3D;&#39;auto&#39;, learning_rate&#x3D;&#39;constant&#39;, learning_rate_init&#x3D;0.001, power_t&#x3D;0.5, max_iter&#x3D;200, shuffle&#x3D;True, random_state&#x3D;None, tol&#x3D;0.0001, verbose&#x3D;False, warm_start&#x3D;False, momentum&#x3D;0.9, nesterovs_momentum&#x3D;True, early_stopping&#x3D;False, validation_fraction&#x3D;0.1, beta_1&#x3D;0.9, beta_2&#x3D;0.999, epsilon&#x3D;1e-08, n_iter_no_change&#x3D;10, max_fun&#x3D;15000) #所有参数默认
 mlp.fit(X_std, Y)
 MAPE &#x3D; -1*cross_val_score(mlp, X_std, Y, cv&#x3D;rkf,scoring&#x3D;&#39;neg_mean_absolute_percentage_error&#39;).mean()
 print(&#39;MAPE:&#39;,MAPE)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div>
-<h4 id="3-4-2-2-结果及分析"><a href="#3-4-2-2-结果及分析" class="headerlink" title="3.4.2.2 结果及分析"></a>3.4.2.2 结果及分析</h4><p>首先我们使用<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neural_network"><code>sklearn.neural_network</code></a>.<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html?highlight=mlp#sklearn.neural_network.MLPRegressor">MLPRegressor</a>中的所有默认参数设置来训练模型，五次五折交叉验证的平均MAPE为：0.2036462204885882</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114171851292.png" srcset="/img/loading.gif" lazyload alt="image-20211114171851292"></p>
-<p>Fig.1  调参前残差图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114171902074.png" srcset="/img/loading.gif" lazyload alt="image-20211114171902074"></p>
-<p>Fig.2  调参前预测误差图</p>
-<p>残差是因变量未被自变量解释的部分，线性模型要求残差服从独立同分布，且分布类型为正态分布。通过一系列方法判断残差是否符合这一要求，可以达到检验模型是否符合相应假设的目的。从上图可以看出，我们的训练集和测试集的R^2^在0.75左右，说明我们的模型训练结果具有一定的可信度，但并不理想。下面我们进行调参，尝试提高准确率。</p>
-<h3 id="3-4-3-网格搜索调参"><a href="#3-4-3-网格搜索调参" class="headerlink" title="3.4.3 网格搜索调参"></a>3.4.3 网格搜索调参</h3><p>接下来我们手动调试模型，将各个超参数逐一修改并查看MAPE的变化结果，最终得出’<strong>hidden_layer_sizes</strong>‘，’<strong>activation</strong>‘，’<strong>solver</strong>‘，’<strong>alpha</strong>‘，’<strong>learning_rate</strong>‘</p>
+<h4 id="结果及分析">3.4.2.2 结果及分析</h4>
+<p>首先我们使用<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/classes.html#module-sklearn.neural_network"><code>sklearn.neural_network</code></a>.<a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPRegressor.html?highlight=mlp#sklearn.neural_network.MLPRegressor">MLPRegressor</a>中的所有默认参数设置来训练模型，五次五折交叉验证的平均MAPE为：0.2036462204885882</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114171851292.png" srcset="/img/loading.gif" lazyload alt="image-20211114171851292" /><figcaption aria-hidden="true">image-20211114171851292</figcaption>
+</figure>
+<p>Fig.1 调参前残差图</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114171902074.png" srcset="/img/loading.gif" lazyload alt="image-20211114171902074" /><figcaption aria-hidden="true">image-20211114171902074</figcaption>
+</figure>
+<p>Fig.2 调参前预测误差图</p>
+<p>残差是因变量未被自变量解释的部分，线性模型要求残差服从独立同分布，且分布类型为正态分布。通过一系列方法判断残差是否符合这一要求，可以达到检验模型是否符合相应假设的目的。从上图可以看出，我们的训练集和测试集的R<sup>2</sup>在0.75左右，说明我们的模型训练结果具有一定的可信度，但并不理想。下面我们进行调参，尝试提高准确率。</p>
+<h3 id="网格搜索调参">3.4.3 网格搜索调参</h3>
+<p>接下来我们手动调试模型，将各个超参数逐一修改并查看MAPE的变化结果，最终得出'<strong>hidden_layer_sizes</strong>'，'<strong>activation</strong>'，'<strong>solver</strong>'，'<strong>alpha</strong>'，'<strong>learning_rate</strong>'</p>
 <p>这五个对结果影响较大的参数。</p>
 <p>最后我们利用GridSearchCV结合一些“经验结论”来搜索出最优的超参数。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114222524771.png" srcset="/img/loading.gif" lazyload alt="image-20211114222524771"></p>
-<h4 id="3-4-3-1-代码"><a href="#3-4-3-1-代码" class="headerlink" title="3.4.3.1 代码"></a>3.4.3.1 代码</h4><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 超参数调优
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114222524771.png" srcset="/img/loading.gif" lazyload alt="image-20211114222524771" /><figcaption aria-hidden="true">image-20211114222524771</figcaption>
+</figure>
+<h4 id="代码-1">3.4.3.1 代码</h4>
+<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 超参数调优
 from sklearn.model_selection import GridSearchCV
 parameters &#x3D; &#123;&#39;hidden_layer_sizes&#39;: [(10,10,10,10,10),(20,20,20,20,20),(30,30,30,30,30),(40,40,40,40,40),(50,50,50,50,50),(60,60,60,60,60),(70,70,70,70,70),(80,80,80,80,80),(90,90,90,90,90),(100,100,100,100,100)],
                 &#39;activation&#39;: [&#39;identity&#39;, &#39;logistic&#39;,&#39;tanh&#39;, &#39;relu&#39;],
@@ -471,17 +594,24 @@ grid &#x3D; GridSearchCV(mlp, parameters, cv&#x3D;rkf, scoring&#x3D;&#39;neg_mea
 grid.fit(X_std, Y)
 print(&#39;最优参数：&#39;,grid.best_params_)
 print(&#39;最优模型得分：&#39;,grid.best_score_)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<h4 id="3-4-3-2-结果及分析"><a href="#3-4-3-2-结果及分析" class="headerlink" title="3.4.3.2 结果及分析"></a>3.4.3.2 结果及分析</h4><ul>
-<li><strong>最优参数： {‘activation’: ‘relu’, ‘alpha’: 1, ‘hidden_layer_sizes’: (100, 100, 100, 100, 100), ‘learning_rate’: ‘adaptive’, ‘solver’: ‘sgd’} </strong></li>
+<h4 id="结果及分析-1">3.4.3.2 结果及分析</h4>
+<ul>
+<li><strong>最优参数： {'activation': 'relu', 'alpha': 1, 'hidden_layer_sizes': (100, 100, 100, 100, 100), 'learning_rate': 'adaptive', 'solver': 'sgd'} </strong></li>
 <li><strong>最优模型得分： 0.10669120458358475</strong></li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114221915446.png" srcset="/img/loading.gif" lazyload alt="image-20211114221915446"></p>
-<p>Fig.3  调参后残差图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114221934910.png" srcset="/img/loading.gif" lazyload alt="image-20211114221934910"></p>
-<p>Fig.4  调参后预测误差图</p>
-<p>经过网格搜索最优参数后，我们的模型得到大幅度提升。从上可见，我们的训练和测试的R^2^均在0.98以上，说明模型对训练集的拟合效果和泛化能力都很强。</p>
-<h1 id="四、总结模型训练过程中的收获"><a href="#四、总结模型训练过程中的收获" class="headerlink" title="四、总结模型训练过程中的收获"></a>四、总结模型训练过程中的收获</h1><h2 id="4-1-神经网络的训练过程"><a href="#4-1-神经网络的训练过程" class="headerlink" title="4.1 神经网络的训练过程"></a>4.1 神经网络的训练过程</h2><p>简单的神经网络的训练过程包括以下几个步骤：</p>
-<ol>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114221915446.png" srcset="/img/loading.gif" lazyload alt="image-20211114221915446" /><figcaption aria-hidden="true">image-20211114221915446</figcaption>
+</figure>
+<p>Fig.3 调参后残差图</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211114221934910.png" srcset="/img/loading.gif" lazyload alt="image-20211114221934910" /><figcaption aria-hidden="true">image-20211114221934910</figcaption>
+</figure>
+<p>Fig.4 调参后预测误差图</p>
+<p>经过网格搜索最优参数后，我们的模型得到大幅度提升。从上可见，我们的训练和测试的R<sup>2</sup>均在0.98以上，说明模型对训练集的拟合效果和泛化能力都很强。</p>
+<h1 id="四总结模型训练过程中的收获">四、总结模型训练过程中的收获</h1>
+<h2 id="神经网络的训练过程">4.1 神经网络的训练过程</h2>
+<p>简单的神经网络的训练过程包括以下几个步骤：</p>
+<ol type="1">
 <li><strong>定义一个包含多个可学习参数（权重）的神经网络；</strong></li>
 <li><strong>对输入的数据集进行迭代计算；</strong></li>
 <li><strong>通过多层网络结构来处理输入数据；</strong></li>
@@ -489,199 +619,301 @@ print(&#39;最优模型得分：&#39;,grid.best_score_)<span aria-hidden="true" 
 <li><strong>反向传播梯度到神经网络的参数中；</strong></li>
 <li><strong>根据更新规则来更新网络中的权重值。</strong></li>
 </ol>
-<h2 id="4-2-确定超参数"><a href="#4-2-确定超参数" class="headerlink" title="4.2 确定超参数"></a>4.2 确定超参数</h2><p>其中，如何定义一个包含多个可学习参数的神经网络（即如何确定模型的超参数）是重点，会影响神经网络学习速度和最后结果。我们确定超参数的步骤如下：</p>
-<p>①我们根据经验结论手动调试模型，将各个超参数逐一修改并查看MAPE的变化结果，最终得出’<strong>hidden_layer_sizes</strong>‘，’<strong>activation</strong>‘，’<strong>solver</strong>‘，’<strong>alpha</strong>‘，</p>
-<p>‘<strong>learning_rate</strong>‘这五个对结果影响较大的参数。</p>
-<p>②搜集“经验总结”的资料后，我们用网格搜索法对下列超参数进行排列组合，得到10<strong>*</strong>4<strong>*</strong>3<strong>*</strong>7<strong>*</strong>3=2520种超参数的排列组合方式。</p>
+<h2 id="确定超参数">4.2 确定超参数</h2>
+<p>其中，如何定义一个包含多个可学习参数的神经网络（即如何确定模型的超参数）是重点，会影响神经网络学习速度和最后结果。我们确定超参数的步骤如下：</p>
+<p>①我们根据经验结论手动调试模型，将各个超参数逐一修改并查看MAPE的变化结果，最终得出'<strong>hidden_layer_sizes</strong>'，'<strong>activation</strong>'，'<strong>solver</strong>'，'<strong>alpha</strong>'，</p>
+<p>'<strong>learning_rate</strong>'这五个对结果影响较大的参数。</p>
+<p>②搜集“经验总结”的资料后，我们用网格搜索法对下列超参数进行排列组合，得到10*****4*****3*****7*****3=2520种超参数的排列组合方式。</p>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">parameters &#x3D; &#123;&#39;hidden_layer_sizes&#39;: [(10,10,10,10,10),(20,20,20,20,20),(30,30,30,30,30),(40,40,40,40,40),(50,50,50,50,50),(60,60,60,60,60),(70,70,70,70,70),(80,80,80,80,80),(90,90,90,90,90),(100,100,100,100,100)],
                 &#39;activation&#39;: [&#39;identity&#39;, &#39;logistic&#39;,&#39;tanh&#39;, &#39;relu&#39;],
                 &#39;solver&#39;: [&#39;adam&#39;,&#39;lbgfs&#39;,&#39;sgd&#39;],
                 &#39;alpha&#39;: [0.0001, 0.001, 0.01, 0.1, 1,10,100],
                 &#39;learning_rate&#39;: [&#39;constant&#39;, &#39;invscaling&#39;, &#39;adaptive&#39;]&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p>③使用五次五折将数据划分为25份，把上述2520种超参数的组合都跑一遍数据（计算神经网络中的最佳的参数用的是误差逆传播算法），每一个组合都会得到25个MAPE值，取平均；之后2520份MAPE中的最小值对应的超参数组合即为我们选定的最优超参数组合。</p>
-<h2 id="4-3-防止过拟合的方法"><a href="#4-3-防止过拟合的方法" class="headerlink" title="4.3 防止过拟合的方法"></a>4.3 防止过拟合的方法</h2><p>在机器学习模型（特别是深度学习模型）的训练过程中，模型是非常容易过拟合的。深度学习模型在不断的训练过程中训练误差会逐渐降低，但测试误差的走势则不一定。</p>
+<h2 id="防止过拟合的方法">4.3 防止过拟合的方法</h2>
+<p>在机器学习模型（特别是深度学习模型）的训练过程中，模型是非常容易过拟合的。深度学习模型在不断的训练过程中训练误差会逐渐降低，但测试误差的走势则不一定。</p>
 <p>①正则化方法。正则化方法包括L0正则、L1正则和L2正则，而正则一般是在目标函数之后加上对于的范数。但是在机器学习中一般使用L2正则。</p>
 <p>②数据增强（Data augmentation），增大数据的训练量；还有一个原因就是我们用于训练的数据量太小导致的，训练数据占总数据的比例过小。</p>
 <p>③重新清洗数据，导致过拟合的一个原因也有可能是数据不纯导致的，如果出现了过拟合就需要我们重新清洗数据。</p>
 <p>④提前终止法（Early stopping），对模型进行训练的过程即是对模型的参数进行学习更新的过程，这个参数学习的过程往往会用到一些迭代方法，如梯度下降（Gradient descent）学习算法。提前终止法便是一种迭代次数截断的方法来防止过拟合的方法，即在模型对训练数据集迭代收敛之前停止迭代来防止过拟合。</p>
 <p>⑤丢弃法（Dropout）。这个方法在神经网络里面很常用。丢弃法是ImageNet中提出的一种方法，通俗一点讲就是丢弃法在训练的时候让神经元以一定的概率不工作。</p>
 <p>以下内容出自<strong>复旦大学邱锡鹏教授著作</strong>《神经网络与深度学习》</p>
-<h1 id="一、描述所使用的神经网络模型-1"><a href="#一、描述所使用的神经网络模型-1" class="headerlink" title="一、描述所使用的神经网络模型"></a>一、描述所使用的神经网络模型</h1><h2 id="1-1-人脑神经网络"><a href="#1-1-人脑神经网络" class="headerlink" title="1.1 人脑神经网络"></a>1.1 人脑神经网络</h2><p>人类大脑是人体最复杂的器官，由神经元、神经胶质细胞、神经干细胞和血管组成．其中，神经元（Neuron），也叫神经细胞（NerveCell），是携带和传输信息的细胞，是人脑神经系统中最基本的单元．人脑神经系统是一个非常复杂的组织，包含近860亿个神经元，每个神经元有上千个突触和其他神经元相连接．这些神经元和它们之间的连接形成巨大的复杂网络，其中神经连接的总长度可达数千公里．我们人造的复杂网络，比如全球的计算机网络，和大脑神经网络相比要“简单”得多．</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119093130413.png" srcset="/img/loading.gif" lazyload alt="image-20211119093130413"></p>
-<h2 id="1-2-人工神经网络"><a href="#1-2-人工神经网络" class="headerlink" title="1.2 人工神经网络"></a>1.2 人工神经网络</h2><p>人工神经网络是为模拟人脑神经网络而设计的一种计算模型， 它从结构、实现机理和功能上模拟人脑神经网络． 人工神经网络与生物神经元类似， 由多个节点（ 人工神经元） 互相连接而成， 可以用来对数据之间的复杂关系进行建模． 不同节点之间的连接被赋予了不同的权重， 每个权重代表了一个节点对另一个节点的影响大小． 每个节点代表一种特定函数， 来自其他节点的信息经过其相应的权重综合计算， 输入到一个激活函数中并得到一个新的活性值（ 兴奋或抑制）．从系统观点看， 人工神经元网络是由大量神经元通过极其丰富和完善的连接而构成的自适应非线性动态系统．<br>虽然我们可以比较容易地构造一个人工神经网络， 但是如何让人工神经网络具有学习能力并不是一件容易的事情． 早期的神经网络模型并不具备学习能力． 首个可学习的人工神经网络是赫布网络， 采用一种基于赫布规则的无监督学习方法． 感知器是最早的具有机器学习思想的神经网络， 但其学习方法无法扩展到多层的神经网络上． 直到 1980 年左右， 反向传播算法才有效地解决了多层神 经网络的学习问题， 并成为最为流行的神经网络学习算法．</p>
+<h1 id="一描述所使用的神经网络模型-1">一、描述所使用的神经网络模型</h1>
+<h2 id="人脑神经网络">1.1 人脑神经网络</h2>
+<p>人类大脑是人体最复杂的器官，由神经元、神经胶质细胞、神经干细胞和血管组成．其中，神经元（Neuron），也叫神经细胞（NerveCell），是携带和传输信息的细胞，是人脑神经系统中最基本的单元．人脑神经系统是一个非常复杂的组织，包含近860亿个神经元，每个神经元有上千个突触和其他神经元相连接．这些神经元和它们之间的连接形成巨大的复杂网络，其中神经连接的总长度可达数千公里．我们人造的复杂网络，比如全球的计算机网络，和大脑神经网络相比要“简单”得多．</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119093130413.png" srcset="/img/loading.gif" lazyload alt="image-20211119093130413" /><figcaption aria-hidden="true">image-20211119093130413</figcaption>
+</figure>
+<h2 id="人工神经网络">1.2 人工神经网络</h2>
+<p>人工神经网络是为模拟人脑神经网络而设计的一种计算模型， 它从结构、实现机理和功能上模拟人脑神经网络． 人工神经网络与生物神经元类似， 由多个节点（ 人工神经元） 互相连接而成， 可以用来对数据之间的复杂关系进行建模． 不同节点之间的连接被赋予了不同的权重， 每个权重代表了一个节点对另一个节点的影响大小． 每个节点代表一种特定函数， 来自其他节点的信息经过其相应的权重综合计算， 输入到一个激活函数中并得到一个新的活性值（ 兴奋或抑制）．从系统观点看， 人工神经元网络是由大量神经元通过极其丰富和完善的连接而构成的自适应非线性动态系统． 虽然我们可以比较容易地构造一个人工神经网络， 但是如何让人工神经网络具有学习能力并不是一件容易的事情． 早期的神经网络模型并不具备学习能力． 首个可学习的人工神经网络是赫布网络， 采用一种基于赫布规则的无监督学习方法． 感知器是最早的具有机器学习思想的神经网络， 但其学习方法无法扩展到多层的神经网络上． 直到 1980 年左右， 反向传播算法才有效地解决了多层神 经网络的学习问题， 并成为最为流行的神经网络学习算法．</p>
 <p>人工神经网络诞生之初并不是用来解决机器学习问题． 由于人工神经网络可以用作一个通用的函数逼近器（ 一个两层的神经网络可以逼近任意的函数），因此我们可以将人工神经网络看作一个可学习的函数， 并将其应用到机器学习中． 理论上， 只要有足够的训练数据和神经元数量， 人工神经网络就可以学到很多复杂的函数． 我们可以把一个人工神经网络塑造复杂函数的能力称为网络容量（ Network Capacity）， 这与可以被储存在网络中的信息的复杂度以及数量相关．</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119094549829.png" srcset="/img/loading.gif" lazyload alt="image-20211119094549829"></p>
-<h2 id="1-3-前馈神经网络"><a href="#1-3-前馈神经网络" class="headerlink" title="1.3 前馈神经网络"></a>1.3 前馈神经网络</h2><p>在本次作业中， 我们主要采用误差反向传播来进行学习的神经网络， 即作为一种机器学习模型的神经网络．从机器学习的角度来看， 神经网络一般可以看作一个非线性模型， 其基本组成单元为具有非线性激活函数的神经元， 通过大量神经元之间的连接， 使得神经网络成为一种高度非线性的模型． 神经元之间的连接权重就是需要学习的参数， 可以在机器学习的框架下通过梯度下降方法来进行学习．</p>
-<h3 id="1-3-1-神经元"><a href="#1-3-1-神经元" class="headerlink" title="1.3.1 神经元"></a>1.3.1 神经元</h3><p>1943 年， 心理学家 McCulloch 和数学家 Pitts 根据生物神经元的结构， 提出了一种非常简单的神经元模型， MP神经元． 现代神经网络中的神经元和 MP 神经元的结构并无太多变化． 不同的是， MP 神经元中的激活函数𝑓 为0或1的阶跃函数， 而现代神经元中的激活函数通常要求是连续可导的函数．</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205516708.png" srcset="/img/loading.gif" lazyload alt="image-20211119205516708"></p>
-<p>净输入  <strong>z</strong>  在经过一个非线性函数  $f(\cdot) $ 后, 得到神经元的活性值 ( Activation ) <strong>a</strong> ,</p>
-<script type="math/tex; mode=display">
-a=f(z)</script><p>其中非线性函数  $f(\cdot) $ 称为激活函数 ( Activation Function ).</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119100021496.png" srcset="/img/loading.gif" lazyload alt="image-20211119100021496"></p>
-<h3 id="1-3-2-激活函数"><a href="#1-3-2-激活函数" class="headerlink" title="1.3.2 激活函数"></a>1.3.2 激活函数</h3><ol>
-<li>激活函数在神经元中非常重要的。为了增强网络的表示能力和学习能力，激活函数需要具备以下几点性质:<br>连续并可导(允许少数点上不可导)的非线性函数.可导的激活函数可以直接利用数值优化的方法来学习网络参数.</li>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119094549829.png" srcset="/img/loading.gif" lazyload alt="image-20211119094549829" /><figcaption aria-hidden="true">image-20211119094549829</figcaption>
+</figure>
+<h2 id="前馈神经网络">1.3 前馈神经网络</h2>
+<p>在本次作业中， 我们主要采用误差反向传播来进行学习的神经网络， 即作为一种机器学习模型的神经网络．从机器学习的角度来看， 神经网络一般可以看作一个非线性模型， 其基本组成单元为具有非线性激活函数的神经元， 通过大量神经元之间的连接， 使得神经网络成为一种高度非线性的模型． 神经元之间的连接权重就是需要学习的参数， 可以在机器学习的框架下通过梯度下降方法来进行学习．</p>
+<h3 id="神经元">1.3.1 神经元</h3>
+<p>1943 年， 心理学家 McCulloch 和数学家 Pitts 根据生物神经元的结构， 提出了一种非常简单的神经元模型， MP神经元． 现代神经网络中的神经元和 MP 神经元的结构并无太多变化． 不同的是， MP 神经元中的激活函数𝑓 为0或1的阶跃函数， 而现代神经元中的激活函数通常要求是连续可导的函数．</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205516708.png" srcset="/img/loading.gif" lazyload alt="image-20211119205516708" /><figcaption aria-hidden="true">image-20211119205516708</figcaption>
+</figure>
+<p>净输入 <strong>z</strong> 在经过一个非线性函数 $f() $ 后, 得到神经元的活性值 ( Activation ) <strong>a</strong> ,</p>
+<p><span class="math display">\[
+a=f(z)
+\]</span></p>
+<p>其中非线性函数 $f() $ 称为激活函数 ( Activation Function ).</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119100021496.png" srcset="/img/loading.gif" lazyload alt="image-20211119100021496" /><figcaption aria-hidden="true">image-20211119100021496</figcaption>
+</figure>
+<h3 id="激活函数-1">1.3.2 激活函数</h3>
+<ol type="1">
+<li>激活函数在神经元中非常重要的。为了增强网络的表示能力和学习能力，激活函数需要具备以下几点性质: 连续并可导(允许少数点上不可导)的非线性函数.可导的激活函数可以直接利用数值优化的方法来学习网络参数.</li>
 <li>激活函数及其导函数要尽可能的简单,有利于提高网络计算效率.</li>
 <li>激活函数的导函数的值域要在一个合适的区间内,不能太大也不能太小,否则会影响训练的效率和稳定性.</li>
 </ol>
 <p>下面介绍几种在神经网络中常用的激活函数.</p>
-<h4 id="1-3-2-1-Sigmoid型函数"><a href="#1-3-2-1-Sigmoid型函数" class="headerlink" title="1.3.2.1 Sigmoid型函数"></a>1.3.2.1 Sigmoid型函数</h4><p>Sigmoid型函数是指一类S型曲线函数,为两端饱和函数.常用的Sigmoid型函数有Logistic 函数和Tanh 函数.</p>
-<h5 id="1-3-2-1-1-Logistic"><a href="#1-3-2-1-1-Logistic" class="headerlink" title="1.3.2.1.1 Logistic"></a>1.3.2.1.1 Logistic</h5><p>Logistic 函数定义为</p>
-<script type="math/tex; mode=display">
-\sigma(x)=\frac{1}{1+\exp (-x)}</script><p>Logistic 函数可以看成是一个“挤压” 函数， 把一个实数域的输入“挤压” 到(0, 1)． 当输入值在0附近时， Sigmoid型函数近似为线性函数； 当输入值靠近两端时， 对输入进行抑制． 输入越小， 越接近于 0； 输入越大， 越接近于 1． 这样的特点也和生物神经元类似， 对一些输入会产生兴奋（ 输出为1）， 对另一些输入产生抑制（ 输出为0）． 和感知器使用的阶跃激活函数相比， Logistic函数是连续可导的，其数学性质更好．因为Logistic函数的性质， 使得装备了Logistic激活函数的神经元具有以下两点性质：</p>
-<ol>
+<h4 id="sigmoid型函数">1.3.2.1 Sigmoid型函数</h4>
+<p>Sigmoid型函数是指一类S型曲线函数,为两端饱和函数.常用的Sigmoid型函数有Logistic 函数和Tanh 函数.</p>
+<h5 id="logistic">1.3.2.1.1 Logistic</h5>
+<p>Logistic 函数定义为</p>
+<p><span class="math display">\[
+\sigma(x)=\frac{1}{1+\exp (-x)}
+\]</span></p>
+<p>Logistic 函数可以看成是一个“挤压” 函数， 把一个实数域的输入“挤压” 到(0, 1)． 当输入值在0附近时， Sigmoid型函数近似为线性函数； 当输入值靠近两端时， 对输入进行抑制． 输入越小， 越接近于 0； 输入越大， 越接近于 1． 这样的特点也和生物神经元类似， 对一些输入会产生兴奋（ 输出为1）， 对另一些输入产生抑制（ 输出为0）． 和感知器使用的阶跃激活函数相比， Logistic函数是连续可导的，其数学性质更好．因为Logistic函数的性质， 使得装备了Logistic激活函数的神经元具有以下两点性质：</p>
+<ol type="1">
 <li>其输出直接可以看作概率分布， 使得神经网络可以更好地和统计学习模型进行结合．</li>
 <li>其可以看作一个软性门（ Soft Gate）， 用来控制其他神经元输出信息的数量.</li>
 </ol>
-<h5 id="1-3-2-1-2-Tanh"><a href="#1-3-2-1-2-Tanh" class="headerlink" title="1.3.2.1.2 Tanh"></a>1.3.2.1.2 Tanh</h5><p>Tanh 函数也是一种 Sigmoid 型函数. 其定义为</p>
-<script type="math/tex; mode=display">
-\tanh (x)=\frac{\exp (x)-\exp (-x)}{\exp (x)+\exp (-x)}</script><p>Tanh 函数可以看作放大并平移的 Logistic 函数, 其值域是  (-1,1) .</p>
-<script type="math/tex; mode=display">
-\tanh (x)=2 \sigma(2 x)-1</script><p>下图给出了 Logistic 函数和 Tanh 函数的形状． Tanh 函数的输出是零中心化的（ Zero-Centered）， 而 Logistic 函数的输出恒大于 0． 非零中心化的输出会使得其后一层的神经元的输入发生偏置偏移（ Bias Shift）， 并进一步使得梯度下降的收敛速度变慢 .</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119100752525.png" srcset="/img/loading.gif" lazyload alt="image-20211119100752525"></p>
+<h5 id="tanh">1.3.2.1.2 Tanh</h5>
+<p>Tanh 函数也是一种 Sigmoid 型函数. 其定义为</p>
+<p><span class="math display">\[
+\tanh (x)=\frac{\exp (x)-\exp (-x)}{\exp (x)+\exp (-x)}
+\]</span></p>
+<p>Tanh 函数可以看作放大并平移的 Logistic 函数, 其值域是 (-1,1) .</p>
+<p><span class="math display">\[
+\tanh (x)=2 \sigma(2 x)-1
+\]</span></p>
+<p>下图给出了 Logistic 函数和 Tanh 函数的形状． Tanh 函数的输出是零中心化的（ Zero-Centered）， 而 Logistic 函数的输出恒大于 0． 非零中心化的输出会使得其后一层的神经元的输入发生偏置偏移（ Bias Shift）， 并进一步使得梯度下降的收敛速度变慢 .</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119100752525.png" srcset="/img/loading.gif" lazyload alt="image-20211119100752525" /><figcaption aria-hidden="true">image-20211119100752525</figcaption>
+</figure>
 <p>Logistic函数和Tanh函数都是Sigmoid型函数， 具有饱和性， 但是计算开销较大． 因为这两个函数都是在中间（ 0附近） 近似线性， 两端饱和． 因此， 这两个函数可以通过分段函数来近似．</p>
-<p>以 Logistic 函数 $ \sigma(x) $ 为例, 其导数为  $\sigma^{\prime}(x)=\sigma(x)(1-\sigma(x)) $. Logistic 函数 在 0 附近的一阶泰勒展开 ( Taylor expansion ) 为</p>
-<script type="math/tex; mode=display">
+<p>以 Logistic 函数 $ (x) $ 为例, 其导数为 $^{}(x)=(x)(1-(x)) $. Logistic 函数 在 0 附近的一阶泰勒展开 ( Taylor expansion ) 为</p>
+<p><span class="math display">\[
 \begin{aligned}
-g_{l}(x) & \approx \sigma(0)+x \times \sigma^{\prime}(0) \\
-&=0.25 x+0.5
-\end{aligned}</script><p>这样 Logistic 函数可以用分段函数 hard-logistic  (x)  来近似.</p>
-<script type="math/tex; mode=display">
+g_{l}(x) &amp; \approx \sigma(0)+x \times \sigma^{\prime}(0) \\
+&amp;=0.25 x+0.5
+\end{aligned}
+\]</span></p>
+<p>这样 Logistic 函数可以用分段函数 hard-logistic (x) 来近似.</p>
+<p><span class="math display">\[
 \begin{aligned}
-\operatorname{hard}-\operatorname{logistic}(x) &=\left\{\begin{array}{ll}
-1 & g_{l}(x) \geq 1 \\
-g_{l} & 0<g_{l}(x)<1 \\
-0 & g_{l}(x) \leq 0
+\operatorname{hard}-\operatorname{logistic}(x) &amp;=\left\{\begin{array}{ll}
+1 &amp; g_{l}(x) \geq 1 \\
+g_{l} &amp; 0&lt;g_{l}(x)&lt;1 \\
+0 &amp; g_{l}(x) \leq 0
 \end{array}\right.\\
-&=\max \left(\min \left(g_{l}(x), 1\right), 0\right) \\
-&=\max (\min (0.25 x+0.5,1), 0)
-\end{aligned}</script><p>同样, Tanh 函数在 0 附近的一阶泰勒展开为</p>
-<script type="math/tex; mode=display">
+&amp;=\max \left(\min \left(g_{l}(x), 1\right), 0\right) \\
+&amp;=\max (\min (0.25 x+0.5,1), 0)
+\end{aligned}
+\]</span></p>
+<p>同样, Tanh 函数在 0 附近的一阶泰勒展开为</p>
+<p><span class="math display">\[
 \begin{aligned}
-g_{t}(x) & \approx \tanh (0)+x \times \tanh ^{\prime}(0) \\
-&=x
-\end{aligned}</script><p>这样  $\operatorname{Tanh} $ 函数也可以用分段函数$  \operatorname{hard}-\tanh (x)  $来近似.</p>
-<script type="math/tex; mode=display">
+g_{t}(x) &amp; \approx \tanh (0)+x \times \tanh ^{\prime}(0) \\
+&amp;=x
+\end{aligned}
+\]</span></p>
+<p>这样 $ $ 函数也可以用分段函数$ -(x) $来近似.</p>
+<p><span class="math display">\[
 \begin{aligned}
-\operatorname{hard}-\tanh (x) &=\max \left(\min \left(g_{t}(x), 1\right),-1\right) \\
-&=\max (\min (x, 1),-1)
-\end{aligned}</script><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119101318245.png" srcset="/img/loading.gif" lazyload alt="image-20211119101318245"></p>
-<h4 id="1-3-2-2-ReLU函数"><a href="#1-3-2-2-ReLU函数" class="headerlink" title="1.3.2.2 ReLU函数"></a>1.3.2.2 ReLU函数</h4><p>ReLU（ Rectified Linear Unit， 修正线性单元） [Nair et al., 2010]， 也叫Rectifier函数[Glorot et al., 2011]， 是目前深度神经网络中经常使用的激活函数．ReLU实际上是一个斜坡（ ramp） 函数， 定义为</p>
-<script type="math/tex; mode=display">
+\operatorname{hard}-\tanh (x) &amp;=\max \left(\min \left(g_{t}(x), 1\right),-1\right) \\
+&amp;=\max (\min (x, 1),-1)
+\end{aligned}
+\]</span></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119101318245.png" srcset="/img/loading.gif" lazyload alt="image-20211119101318245" /><figcaption aria-hidden="true">image-20211119101318245</figcaption>
+</figure>
+<h4 id="relu函数">1.3.2.2 ReLU函数</h4>
+<p>ReLU（ Rectified Linear Unit， 修正线性单元） [Nair et al., 2010]， 也叫Rectifier函数[Glorot et al., 2011]， 是目前深度神经网络中经常使用的激活函数．ReLU实际上是一个斜坡（ ramp） 函数， 定义为</p>
+<p><span class="math display">\[
 \begin{aligned}
-\operatorname{ReLU}(x) &=\left\{\begin{array}{ll}
-x & x \geq 0 \\
-0 & x<0
+\operatorname{ReLU}(x) &amp;=\left\{\begin{array}{ll}
+x &amp; x \geq 0 \\
+0 &amp; x&lt;0
 \end{array}\right.\\
-&=\max (0, x)
-\end{aligned}</script><p><strong>优点</strong> 采用 ReLU 的神经元只需要进行加、 乘和比较的操作， 计算上更加高效．ReLU 函数也被认为具有生物学合理性（ Biological Plausibility）， 比如单侧抑制、宽兴奋边界（ 即兴奋程度可以非常高）． 在生物神经网络中， 同时处于兴奋状态的神经元非常稀疏． 人脑中在同一时刻大概只有 1% ∼ 4% 的神经元处于活跃状态． Sigmoid 型激活函数会导致一个非稀疏的神经网络， 而 ReLU 却具有很好的稀疏性， 大约50%的神经元会处于激活状态．<br>在优化方面， 相比于Sigmoid型函数的两端饱和， ReLU函数为左饱和函数，且在 𝑥 &gt; 0 时导数为 1， 在一定程度上缓解了神经网络的梯度消失问题， 加速梯度下降的收敛速度．</p>
+&amp;=\max (0, x)
+\end{aligned}
+\]</span></p>
+<p><strong>优点</strong> 采用 ReLU 的神经元只需要进行加、 乘和比较的操作， 计算上更加高效．ReLU 函数也被认为具有生物学合理性（ Biological Plausibility）， 比如单侧抑制、宽兴奋边界（ 即兴奋程度可以非常高）． 在生物神经网络中， 同时处于兴奋状态的神经元非常稀疏． 人脑中在同一时刻大概只有 1% ∼ 4% 的神经元处于活跃状态． Sigmoid 型激活函数会导致一个非稀疏的神经网络， 而 ReLU 却具有很好的稀疏性， 大约50%的神经元会处于激活状态． 在优化方面， 相比于Sigmoid型函数的两端饱和， ReLU函数为左饱和函数，且在 𝑥 &gt; 0 时导数为 1， 在一定程度上缓解了神经网络的梯度消失问题， 加速梯度下降的收敛速度．</p>
 <p><strong>缺点</strong> ReLU 函数的输出是非零中心化的， 给后一层的神经网络引入偏置偏移，会影响梯度下降的效率．此外， ReLU 神经元在训练时比较容易“死亡”． 在训练时， 如果参数在一次不恰当的更新后， 第一个隐藏层中的某个 ReLU 神经元在所有的训练数据上都不能被激活， 那么这个神经元自身参数的梯度永远都会是0， 在以后的训练过程中永远不能被激活． 这种现象称为死亡 ReLU 问题（ Dying ReLU Problem ),并且也有可能会发生在其他隐藏层.</p>
 <p>在实际使用中,为了避免上述情况,有几种 ReLU的变种也会被广泛使用.</p>
-<h5 id="1-3-2-2-1-带泄露的ReLU"><a href="#1-3-2-2-1-带泄露的ReLU" class="headerlink" title="1.3.2.2.1 带泄露的ReLU"></a>1.3.2.2.1 带泄露的ReLU</h5><p>带泄露的ReLU（ Leaky ReLU） 在输入 𝑥 &lt; 0时， 保持一个很小的梯度𝛾． 这样当神经元非激活时也能有一个非零的梯度可以更新参数， 避免永远不能被激活[Maas et al., 2013]． 带泄露的ReLU的定义如下：</p>
-<script type="math/tex; mode=display">
+<h5 id="带泄露的relu">1.3.2.2.1 带泄露的ReLU</h5>
+<p>带泄露的ReLU（ Leaky ReLU） 在输入 𝑥 &lt; 0时， 保持一个很小的梯度𝛾． 这样当神经元非激活时也能有一个非零的梯度可以更新参数， 避免永远不能被激活[Maas et al., 2013]． 带泄露的ReLU的定义如下：</p>
+<p><span class="math display">\[
 \begin{aligned}
-\operatorname{LeakyReLU}(x) &=\left\{\begin{array}{ll}
-x & \text { if } x>0 \\
-\gamma x & \text { if } x \leq 0
+\operatorname{LeakyReLU}(x) &amp;=\left\{\begin{array}{ll}
+x &amp; \text { if } x&gt;0 \\
+\gamma x &amp; \text { if } x \leq 0
 \end{array}\right.\\
-&=\max (0, x)+\gamma \min (0, x)
-\end{aligned}</script><p>其中 𝛾是一个很小的常数， 比如0.01． 当𝛾 &lt; 1时， 带泄露的ReLU也可以写为</p>
-<script type="math/tex; mode=display">
-\operatorname{LeakyReLU}(x)=\max (x, \gamma x)</script><p>相当于是一个比较简单的maxout单元 .</p>
-<h5 id="1-3-2-2-2-带参数的ReLU"><a href="#1-3-2-2-2-带参数的ReLU" class="headerlink" title="1.3.2.2.2 带参数的ReLU"></a>1.3.2.2.2 带参数的ReLU</h5><p>带参数的 ReLU（ Parametric ReLU， PReLU） 引入一个可学习的参数， 不同神经元可以有不同的参数． 对于第 𝑖 个神经元， 其 PReLU 的定义为</p>
-<script type="math/tex; mode=display">
+&amp;=\max (0, x)+\gamma \min (0, x)
+\end{aligned}
+\]</span></p>
+<p>其中 𝛾是一个很小的常数， 比如0.01． 当𝛾 &lt; 1时， 带泄露的ReLU也可以写为</p>
+<p><span class="math display">\[
+\operatorname{LeakyReLU}(x)=\max (x, \gamma x)
+\]</span></p>
+<p>相当于是一个比较简单的maxout单元 .</p>
+<h5 id="带参数的relu">1.3.2.2.2 带参数的ReLU</h5>
+<p>带参数的 ReLU（ Parametric ReLU， PReLU） 引入一个可学习的参数， 不同神经元可以有不同的参数． 对于第 𝑖 个神经元， 其 PReLU 的定义为</p>
+<p><span class="math display">\[
 \begin{aligned}
-\operatorname{PReLU}_{i}(x) &=\left\{\begin{array}{ll}
-x & \text { if } x>0 \\
-\gamma_{i} x & \text { if } x \leq 0
+\operatorname{PReLU}_{i}(x) &amp;=\left\{\begin{array}{ll}
+x &amp; \text { if } x&gt;0 \\
+\gamma_{i} x &amp; \text { if } x \leq 0
 \end{array}\right.\\
-&=\max (0, x)+\gamma_{i} \min (0, x)
-\end{aligned}</script><p>其中 𝛾𝑖 为 𝑥 ≤ 0 时函数的斜率． 因此， PReLU 是非饱和函数． 如果 𝛾𝑖 = 0， 那么PReLU就退化为ReLU． 如果𝛾𝑖 为一个很小的常数， 则PReLU可以看作带泄露的ReLU． PReLU 可以允许不同神经元具有不同的参数， 也可以一组神经元共享一个参数．</p>
-<h5 id="1-3-2-2-3-ELU函数"><a href="#1-3-2-2-3-ELU函数" class="headerlink" title="1.3.2.2.3 ELU函数"></a>1.3.2.2.3 ELU函数</h5><p>ELU（ Exponential Linear Unit， 指数线性单元）是一个近似的零中心化的非线性函数， 其定义为</p>
-<script type="math/tex; mode=display">
+&amp;=\max (0, x)+\gamma_{i} \min (0, x)
+\end{aligned}
+\]</span></p>
+<p>其中 𝛾𝑖 为 𝑥 ≤ 0 时函数的斜率． 因此， PReLU 是非饱和函数． 如果 𝛾𝑖 = 0， 那么PReLU就退化为ReLU． 如果𝛾𝑖 为一个很小的常数， 则PReLU可以看作带泄露的ReLU． PReLU 可以允许不同神经元具有不同的参数， 也可以一组神经元共享一个参数．</p>
+<h5 id="elu函数">1.3.2.2.3 ELU函数</h5>
+<p>ELU（ Exponential Linear Unit， 指数线性单元）是一个近似的零中心化的非线性函数， 其定义为</p>
+<p><span class="math display">\[
 \begin{aligned}
-\operatorname{ELU}(x) &=\left\{\begin{array}{ll}
-x & \text { if } x>0 \\
-\gamma(\exp (x)-1) & \text { if } x \leq 0
+\operatorname{ELU}(x) &amp;=\left\{\begin{array}{ll}
+x &amp; \text { if } x&gt;0 \\
+\gamma(\exp (x)-1) &amp; \text { if } x \leq 0
 \end{array}\right.\\
-&=\max (0, x)+\min (0, \gamma(\exp (x)-1))
-\end{aligned}</script><p>其中 𝛾 ≥ 0是一个超参数， 决定𝑥 ≤ 0时的饱和曲线， 并调整输出均值在0附近．</p>
-<h5 id="1-3-2-2-4-Softplus函数"><a href="#1-3-2-2-4-Softplus函数" class="headerlink" title="1.3.2.2.4 Softplus函数"></a>1.3.2.2.4 Softplus函数</h5><p>Softplus 函数 可以看作 Rectifier 函数的平滑版本， 其定义为</p>
-<script type="math/tex; mode=display">
-\operatorname{Softplus}(x)=\log (1+\exp (x))</script><p>Softplus函数其导数刚好是Logistic函数． Softplus函数虽然也具有单侧抑制、宽兴奋边界的特性， 却没有稀疏激活性 .</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119103024771.png" srcset="/img/loading.gif" lazyload alt="image-20211119103024771"></p>
-<h3 id="1-3-3-多层前馈神经网络模型"><a href="#1-3-3-多层前馈神经网络模型" class="headerlink" title="1.3.3 多层前馈神经网络模型"></a>1.3.3 多层前馈神经网络模型</h3><p>给定一组神经元， 我们可以将神经元作为节点来构建一个网络． 不同的神经网络模型有着不同网络连接的拓扑结构． 一种比较直接的拓扑结构是前馈网络． 前馈神经网络（ Feedforward Neural Network， FNN） 是最早发明的简单人工神经网络． 前馈神经网络也经常称为多层感知器（ Multi-Layer Perceptron MLP）．但多层感知器的叫法并不是十分合理， 因为前馈神经网络其实是由多层的 Logistic 回归模型（ 连续的非线性函数） 组成， 而不是由多层的感知器（ 不连续的非线性函数） 组成 .</p>
+&amp;=\max (0, x)+\min (0, \gamma(\exp (x)-1))
+\end{aligned}
+\]</span></p>
+<p>其中 𝛾 ≥ 0是一个超参数， 决定𝑥 ≤ 0时的饱和曲线， 并调整输出均值在0附近．</p>
+<h5 id="softplus函数">1.3.2.2.4 Softplus函数</h5>
+<p>Softplus 函数 可以看作 Rectifier 函数的平滑版本， 其定义为</p>
+<p><span class="math display">\[
+\operatorname{Softplus}(x)=\log (1+\exp (x))
+\]</span></p>
+<p>Softplus函数其导数刚好是Logistic函数． Softplus函数虽然也具有单侧抑制、宽兴奋边界的特性， 却没有稀疏激活性 .</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119103024771.png" srcset="/img/loading.gif" lazyload alt="image-20211119103024771" /><figcaption aria-hidden="true">image-20211119103024771</figcaption>
+</figure>
+<h3 id="多层前馈神经网络模型">1.3.3 多层前馈神经网络模型</h3>
+<p>给定一组神经元， 我们可以将神经元作为节点来构建一个网络． 不同的神经网络模型有着不同网络连接的拓扑结构． 一种比较直接的拓扑结构是前馈网络． 前馈神经网络（ Feedforward Neural Network， FNN） 是最早发明的简单人工神经网络． 前馈神经网络也经常称为多层感知器（ Multi-Layer Perceptron MLP）．但多层感知器的叫法并不是十分合理， 因为前馈神经网络其实是由多层的 Logistic 回归模型（ 连续的非线性函数） 组成， 而不是由多层的感知器（ 不连续的非线性函数） 组成 .</p>
 <p>前馈神经网络中， 各神经元分别属于不同的层． 每一层的神经元可以接收前一层神经元的信号， 并产生信号输出到下一层． 第0层称为输入层， 最后一层称为输出层， 其他中间层称为隐藏层． 整个网络中无反馈， 信号从输入层向输出层单向传播， 可用一个有向无环图表示 .</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119103824459.png" srcset="/img/loading.gif" lazyload alt="image-20211119103824459"></p>
-<p>对于本次作业中的多分类问题 $ y \in{1, \cdots, C} $, 使用 Softmax 回归分类器, 相当于网络 最后一层设置  C  个神经元, 其激活函数为 Softmax 函数. 网络最后一层 (第  L  层) 的输出可以作为每个类的条件概率, 即</p>
-<script type="math/tex; mode=display">
-\hat{\boldsymbol{y}}=\operatorname{softmax}\left(\boldsymbol{z}^{(L)}\right)</script><p>其中  $\boldsymbol{z}^{(L)} \in \mathbb{R}^{C}  $为第  L  层神经元的净输入;  $\hat{\boldsymbol{y}} \in \mathbb{R}^{C}  $为第  L  层神经元的活性值, 每 一维分别表示不同类别标签的预测条件概率.</p>
-<p>故采用交叉熵损失函数, 对于样本 $ (\boldsymbol{x}, y) $, 其损失函数为</p>
-<script type="math/tex; mode=display">
-\mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})=-\boldsymbol{y}^{\top} \log \hat{\boldsymbol{y}},</script><p>其中  $\boldsymbol{y} \in{0,1}^{C}  $为标签  y  对应的 one-hot 向量表示.<br><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205657015.png" srcset="/img/loading.gif" lazyload alt="image-20211119205657015"></p>
-<script type="math/tex; mode=display">
-\|\boldsymbol{W}\|_{F}^{2}=\sum_{l=1}^{L} \sum_{i=1}^{M_{l}} \sum_{j=1}^{M_{l-1}}\left(w_{i j}^{(l)}\right)^{2}</script><p>有了学习准则和训练样本, 网络参数可以通过梯度下降法来进行学习. 在梯度下降方法的每次迭代中,第 l 层的参数  $\boldsymbol{W}^{(l)} $ 和  $\boldsymbol{b}^{(l)}  $参数更新方式为</p>
-<script type="math/tex; mode=display">
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119103824459.png" srcset="/img/loading.gif" lazyload alt="image-20211119103824459" /><figcaption aria-hidden="true">image-20211119103824459</figcaption>
+</figure>
+<p>对于本次作业中的多分类问题 $ y {1, , C} $, 使用 Softmax 回归分类器, 相当于网络 最后一层设置 C 个神经元, 其激活函数为 Softmax 函数. 网络最后一层 (第 L 层) 的输出可以作为每个类的条件概率, 即</p>
+<p><span class="math display">\[
+\hat{\boldsymbol{y}}=\operatorname{softmax}\left(\boldsymbol{z}^{(L)}\right)
+\]</span></p>
+<p>其中 $^{(L)} ^{C} $为第 L 层神经元的净输入; $ ^{C} $为第 L 层神经元的活性值, 每 一维分别表示不同类别标签的预测条件概率.</p>
+<p>故采用交叉熵损失函数, 对于样本 $ (, y) $, 其损失函数为</p>
+<p><span class="math display">\[
+\mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})=-\boldsymbol{y}^{\top} \log \hat{\boldsymbol{y}},
+\]</span></p>
+<p>其中 $ {0,1}^{C} $为标签 y 对应的 one-hot 向量表示. <img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205657015.png" srcset="/img/loading.gif" lazyload alt="image-20211119205657015" /></p>
+<p><span class="math display">\[
+\|\boldsymbol{W}\|_{F}^{2}=\sum_{l=1}^{L} \sum_{i=1}^{M_{l}} \sum_{j=1}^{M_{l-1}}\left(w_{i j}^{(l)}\right)^{2}
+\]</span></p>
+<p>有了学习准则和训练样本, 网络参数可以通过梯度下降法来进行学习. 在梯度下降方法的每次迭代中,第 l 层的参数 $^{(l)} $ 和 $^{(l)} $参数更新方式为</p>
+<p><span class="math display">\[
 \begin{aligned}
-\boldsymbol{W}^{(l)} & \leftarrow \boldsymbol{W}^{(l)}-\alpha \frac{\partial \mathcal{R}(\boldsymbol{W}, \boldsymbol{b})}{\partial \boldsymbol{W}^{(l)}} \\
-&=\boldsymbol{W}^{(l)}-\alpha\left(\frac{1}{N} \sum_{n=1}^{N}\left(\frac{\partial \mathcal{L}\left(\boldsymbol{y}^{(n)}, \hat{\boldsymbol{y}}^{(n)}\right)}{\partial \boldsymbol{W}^{(l)}}\right)+\lambda \boldsymbol{W}^{(l)}\right) \\
-\boldsymbol{b}^{(l)} & \leftarrow \boldsymbol{b}^{(l)}-\alpha \frac{\partial \mathcal{R}(\boldsymbol{W}, \boldsymbol{b})}{\partial \boldsymbol{b}^{(l)}} \\
-&=\boldsymbol{b}^{(l)}-\alpha\left(\frac{1}{N} \sum_{n=1}^{N} \frac{\partial \mathcal{L}\left(\boldsymbol{y}^{(n)}, \hat{\boldsymbol{y}}^{(n)}\right)}{\partial \boldsymbol{b}^{(l)}}\right)
-\end{aligned}</script><p>其中  $\alpha $ 为学习率.</p>
+\boldsymbol{W}^{(l)} &amp; \leftarrow \boldsymbol{W}^{(l)}-\alpha \frac{\partial \mathcal{R}(\boldsymbol{W}, \boldsymbol{b})}{\partial \boldsymbol{W}^{(l)}} \\
+&amp;=\boldsymbol{W}^{(l)}-\alpha\left(\frac{1}{N} \sum_{n=1}^{N}\left(\frac{\partial \mathcal{L}\left(\boldsymbol{y}^{(n)}, \hat{\boldsymbol{y}}^{(n)}\right)}{\partial \boldsymbol{W}^{(l)}}\right)+\lambda \boldsymbol{W}^{(l)}\right) \\
+\boldsymbol{b}^{(l)} &amp; \leftarrow \boldsymbol{b}^{(l)}-\alpha \frac{\partial \mathcal{R}(\boldsymbol{W}, \boldsymbol{b})}{\partial \boldsymbol{b}^{(l)}} \\
+&amp;=\boldsymbol{b}^{(l)}-\alpha\left(\frac{1}{N} \sum_{n=1}^{N} \frac{\partial \mathcal{L}\left(\boldsymbol{y}^{(n)}, \hat{\boldsymbol{y}}^{(n)}\right)}{\partial \boldsymbol{b}^{(l)}}\right)
+\end{aligned}
+\]</span></p>
+<p>其中 $$ 为学习率.</p>
 <p>梯度下降法需要计算损失函数对参数的偏导数, 如果通过链式法则逐一对每个参数进行求偏导比较低效. 在神经网络的训练中经常使用<strong>反向传播算法</strong>来高效地计算梯度.</p>
-<h1 id="二、描述训练模型所使用的算法-1"><a href="#二、描述训练模型所使用的算法-1" class="headerlink" title="二、描述训练模型所使用的算法"></a>二、描述训练模型所使用的算法</h1><p>假设采用随机梯度下降进行神经网络参数学习, 给定一个样本$  (\boldsymbol{x}, \boldsymbol{y})$ , 将其输入到神经网络模型中, 得到网络输出为  $\hat{\boldsymbol{y}} $. 假设损失函数为$  \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}}) $, 要进行参数学习就需要计算损失函数关于每个参数的导数.</p>
-<p>不失一般性, 对第  l  层中的参数$  \boldsymbol{W}^{(l)}  $和 $ \boldsymbol{b}^{(l)}  $计算偏导数. 因为$  \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{W}^{(l)}}  $的计算 涉及向量对矩阵的微分, 十分繁琐, 因此我们先计算$  \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})  $关于参数矩阵中每个元素的偏导数  $\frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial w_{i j}^{(l)}} $. 根据链式法则,</p>
-<script type="math/tex; mode=display">
+<h1 id="二描述训练模型所使用的算法-1">二、描述训练模型所使用的算法</h1>
+<p>假设采用随机梯度下降进行神经网络参数学习, 给定一个样本$ (, )$ , 将其输入到神经网络模型中, 得到网络输出为 $ <span class="math inline">\(. 假设损失函数为\)</span> (, ) $, 要进行参数学习就需要计算损失函数关于每个参数的导数.</p>
+<p>不失一般性, 对第 l 层中的参数$ ^{(l)} $和 $ ^{(l)} <span class="math inline">\(计算偏导数. 因为\)</span>  <span class="math inline">\(的计算 涉及向量对矩阵的微分, 十分繁琐, 因此我们先计算\)</span> (, ) $关于参数矩阵中每个元素的偏导数 $ $. 根据链式法则,</p>
+<p><span class="math display">\[
 \begin{array}{l}
 \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial w_{i j}^{(l)}}=\frac{\partial \boldsymbol{z}^{(l)}}{\partial w_{i j}^{(l)}} \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{z}^{(l)}} \\
 \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{b}^{(l)}}=\frac{\partial \boldsymbol{z}^{(l)}}{\partial \boldsymbol{b}^{(l)}} \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{z}^{(l)}}
-\end{array}</script><p>以上两个公式中的第二项都是目标函数关于第  l  层的神经元  $\boldsymbol{z}^{(l)}  $的偏导数,称为误差项, 可以一次计算得到. 这样我们只需要计算三个偏导数, 分别为  $\frac{\partial \boldsymbol{z}^{(l)}}{\partial w_{i j}^{(l)}}, \frac{\partial \boldsymbol{z}^{(l)}}{\partial \boldsymbol{b}^{(l)}}  和  \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{z}^{(l)}} .$</p>
-<h2 id="2-1-偏导数计算"><a href="#2-1-偏导数计算" class="headerlink" title="2.1 偏导数计算"></a>2.1 偏导数计算</h2><p>下面分别来计算这三个偏导数：</p>
-<p>(1) 计算偏导数  $\frac{\partial z^{(l)}}{\partial w_{i j}^{(l)}}  $因  $z^{(l)}=\boldsymbol{W}^{(l)} \boldsymbol{a}^{(l-1)}+\boldsymbol{b}^{(l)} ,$ 偏导数</p>
-<script type="math/tex; mode=display">
+\end{array}
+\]</span></p>
+<p>以上两个公式中的第二项都是目标函数关于第 l 层的神经元 $^{(l)} $的偏导数,称为误差项, 可以一次计算得到. 这样我们只需要计算三个偏导数, 分别为 <span class="math inline">\(\frac{\partial \boldsymbol{z}^{(l)}}{\partial w_{i j}^{(l)}}, \frac{\partial \boldsymbol{z}^{(l)}}{\partial \boldsymbol{b}^{(l)}} 和 \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{z}^{(l)}} .\)</span></p>
+<h2 id="偏导数计算">2.1 偏导数计算</h2>
+<p>下面分别来计算这三个偏导数：</p>
+<ol type="1">
+<li>计算偏导数 $ $因 <span class="math inline">\(z^{(l)}=\boldsymbol{W}^{(l)} \boldsymbol{a}^{(l-1)}+\boldsymbol{b}^{(l)} ,\)</span> 偏导数</li>
+</ol>
+<p><span class="math display">\[
 \begin{aligned}
-\frac{\partial z^{(l)}}{\partial w_{i j}^{(l)}} &=[\frac{\partial z_{1}^{(l)}}{\partial w_{i j}^{(l)}}, \cdots, 
+\frac{\partial z^{(l)}}{\partial w_{i j}^{(l)}} &amp;=[\frac{\partial z_{1}^{(l)}}{\partial w_{i j}^{(l)}}, \cdots, 
 \frac{\partial z_{i}^{(l)}}{\partial w_{i j}^{(l)}}\cdots, 
 \frac{\partial z_{M_{l}}^{(l)}}{\partial w_{i j}^{(l)}}]\\
-&=[0, \cdots, {\frac{\partial\left(\boldsymbol{w}_{i:}^{(l)} \boldsymbol{a}^{(l-1)}+b_{i}^{(l)}\right)}{\partial w_{i j}^{(l)}}}, \cdots, 0] \\
-&=\left[0, \cdots, a_{j}^{(l-1)}, \cdots, 0\right] \\
-& \triangleq \mathbb{l}_{i}\left(a_{j}^{(l-1)}\right) \quad \in \mathbb{R}^{1 \times M_{l}}
-\end{aligned}</script><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205757205.png" srcset="/img/loading.gif" lazyload alt="image-20211119205757205"></p>
-<h2 id="2-2-误差项"><a href="#2-2-误差项" class="headerlink" title="2.2 误差项"></a>2.2 误差项</h2><p>误差项  $\delta^{(l)}  $也间接反映了不同神经元对网络能力的贡献程度, 从而比较好地解决 了贡献度分配问题 ( Credit Assignment Problem,CAP ).<br>根据 $ \boldsymbol{z}^{(l+1)}=\boldsymbol{W}^{(l+1)} \boldsymbol{a}^{(l)}+\boldsymbol{b}^{(l+1)} $, 有</p>
-<script type="math/tex; mode=display">
-\frac{\partial \boldsymbol{z}^{(l+1)}}{\partial \boldsymbol{\alpha}^{(l)}}=\left(\boldsymbol{W}^{(l+1)}\right)^{\top} \quad \in \mathbb{R}^{M_{l} \times M_{l+1}}</script><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205825727.png" srcset="/img/loading.gif" lazyload alt="image-20211119205825727"></p>
-<script type="math/tex; mode=display">
+&amp;=[0, \cdots, {\frac{\partial\left(\boldsymbol{w}_{i:}^{(l)} \boldsymbol{a}^{(l-1)}+b_{i}^{(l)}\right)}{\partial w_{i j}^{(l)}}}, \cdots, 0] \\
+&amp;=\left[0, \cdots, a_{j}^{(l-1)}, \cdots, 0\right] \\
+&amp; \triangleq \mathbb{l}_{i}\left(a_{j}^{(l-1)}\right) \quad \in \mathbb{R}^{1 \times M_{l}}
+\end{aligned}
+\]</span></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205757205.png" srcset="/img/loading.gif" lazyload alt="image-20211119205757205" /><figcaption aria-hidden="true">image-20211119205757205</figcaption>
+</figure>
+<h2 id="误差项">2.2 误差项</h2>
+<p>误差项 $^{(l)} $也间接反映了不同神经元对网络能力的贡献程度, 从而比较好地解决 了贡献度分配问题 ( Credit Assignment Problem,CAP ). 根据 $ <sup>{(l+1)}=</sup>{(l+1)} <sup>{(l)}+</sup>{(l+1)} $, 有</p>
+<p><span class="math display">\[
+\frac{\partial \boldsymbol{z}^{(l+1)}}{\partial \boldsymbol{\alpha}^{(l)}}=\left(\boldsymbol{W}^{(l+1)}\right)^{\top} \quad \in \mathbb{R}^{M_{l} \times M_{l+1}}
+\]</span></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205825727.png" srcset="/img/loading.gif" lazyload alt="image-20211119205825727" /><figcaption aria-hidden="true">image-20211119205825727</figcaption>
+</figure>
+<p><span class="math display">\[
 \begin{aligned}
-\frac{\partial \boldsymbol{\alpha}^{(l)}}{\partial \boldsymbol{z}^{(l)}} &=\frac{\partial f_{l}\left(\boldsymbol{z}^{(l)}\right)}{\partial \boldsymbol{z}^{(l)}} \\
-&=\operatorname{diag}\left(f_{l}^{\prime}\left(\boldsymbol{z}^{(l)}\right)\right) \quad \in \mathbb{R}^{M_{l} \times M_{l}}
-\end{aligned}</script><p>因此,根据链式法则,第  l  层的误差项为</p>
-<script type="math/tex; mode=display">
+\frac{\partial \boldsymbol{\alpha}^{(l)}}{\partial \boldsymbol{z}^{(l)}} &amp;=\frac{\partial f_{l}\left(\boldsymbol{z}^{(l)}\right)}{\partial \boldsymbol{z}^{(l)}} \\
+&amp;=\operatorname{diag}\left(f_{l}^{\prime}\left(\boldsymbol{z}^{(l)}\right)\right) \quad \in \mathbb{R}^{M_{l} \times M_{l}}
+\end{aligned}
+\]</span></p>
+<p>因此,根据链式法则,第 l 层的误差项为</p>
+<p><span class="math display">\[
 \begin{aligned}
-\delta^{(l)} & \triangleq \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{z}^{(l)}} \\
-&=\frac{\partial \boldsymbol{a}^{(l)}}{\partial \boldsymbol{z}^{(l)}}  \cdot \frac{\partial \boldsymbol{z}^{(l+1)}}{\partial \boldsymbol{a}^{(l)}} \cdot \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{z}^{(l+1)}} \\
-&={\operatorname{diag}\left(f_{l}^{\prime}\left(\boldsymbol{z}^{(l)}\right)\right)} \cdot\left(\boldsymbol{W}^{(l+1)}\right)^{\top}  \cdot{\delta^{(l+1)}} \\
-&=f_{l}^{\prime}\left(\boldsymbol{z}^{(l)}\right) \odot\left(\left(\boldsymbol{W}^{(l+1)}\right)^{\top} \delta^{(l+1)}\right) \quad \in \mathbb{R}^{M_{l}},
-\end{aligned}</script><p>其中 $ \odot  $是向量的 Hadamard 积运算符, 表示每个元素相乘.<br>从上面的公式可以看出,第  l  层的误差项可以通过第  l+1  层的误差项计算得到, 这就是误差的反向传播 ( BackPropagation, BP ). 反向传播算法的含义是: 第  l  层的一个神经元的误差项 ( 或敏感性 ) 是所有与该神经元相连的第  l+1  层 的神经元的误差项的权重和. 然后, 再乘上该神经元激活函数的梯度.<br>在计算出上面三个偏导数之后,</p>
-<script type="math/tex; mode=display">
+\delta^{(l)} &amp; \triangleq \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{z}^{(l)}} \\
+&amp;=\frac{\partial \boldsymbol{a}^{(l)}}{\partial \boldsymbol{z}^{(l)}}  \cdot \frac{\partial \boldsymbol{z}^{(l+1)}}{\partial \boldsymbol{a}^{(l)}} \cdot \frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{z}^{(l+1)}} \\
+&amp;={\operatorname{diag}\left(f_{l}^{\prime}\left(\boldsymbol{z}^{(l)}\right)\right)} \cdot\left(\boldsymbol{W}^{(l+1)}\right)^{\top}  \cdot{\delta^{(l+1)}} \\
+&amp;=f_{l}^{\prime}\left(\boldsymbol{z}^{(l)}\right) \odot\left(\left(\boldsymbol{W}^{(l+1)}\right)^{\top} \delta^{(l+1)}\right) \quad \in \mathbb{R}^{M_{l}},
+\end{aligned}
+\]</span></p>
+<p>其中 $ $是向量的 Hadamard 积运算符, 表示每个元素相乘. 从上面的公式可以看出,第 l 层的误差项可以通过第 l+1 层的误差项计算得到, 这就是误差的反向传播 ( BackPropagation, BP ). 反向传播算法的含义是: 第 l 层的一个神经元的误差项 ( 或敏感性 ) 是所有与该神经元相连的第 l+1 层 的神经元的误差项的权重和. 然后, 再乘上该神经元激活函数的梯度. 在计算出上面三个偏导数之后,</p>
+<p><span class="math display">\[
 \begin{aligned}
-\frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial w_{i j}^{(l)}} &={l}_{i}\left(a_{j}^{(l-1)}\right) \delta^{(l)} \\
-&=\left[0, \cdots, a_{j}^{(l-1)}, \cdots, 0\right]\left[\delta_{1}^{(l)}, \cdots, \delta_{i}^{(l)}, \cdots, \delta_{M_{l}}^{(l)}\right]^{\top} \\
-&=\delta_{i}^{(l)} a_{j}^{(l-1)}
-\end{aligned}</script><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205855415.png" srcset="/img/loading.gif" lazyload alt="image-20211119205855415"></p>
-<script type="math/tex; mode=display">
-\left[\frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{W}^{(l)}}\right]_{i j}=\left[\delta^{(l)}\left(\boldsymbol{a}^{(l-1)}\right)^{\top}\right]_{i j}</script><p>因此, $ \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})  $关于第  l  层权重 $ \boldsymbol{W}^{(l)}  $的梯度为</p>
-<script type="math/tex; mode=display">
-\frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{W}^{(l)}}=\delta^{(l)}\left(\boldsymbol{a}^{(l-1)}\right)^{\top} \quad \in \mathbb{R}^{M_{l} \times M_{l-1}}</script><p>同理,  $\mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})  $关于第  l  层偏置 $ \boldsymbol{b}^{(l)}  $的梯度为</p>
-<script type="math/tex; mode=display">
-\frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{b}^{(l)}}=\delta^{(l)} \quad \in \mathbb{R}^{M_{l}}</script><h2 id="2-3-实现步骤与伪代码"><a href="#2-3-实现步骤与伪代码" class="headerlink" title="2.3 实现步骤与伪代码"></a>2.3 实现步骤与伪代码</h2><p>在计算出每一层的误差项之后, 我们就可以得到每一层参数的梯度. 因此, 使用误差反向传播算法的前馈神经网络训练过程可以分为以下三步:</p>
-<ol>
-<li>前馈计算每一层的净输入  $\boldsymbol{z}^{(l)}  $和激活值 $ \boldsymbol{a}^{(l)} $, 直到最后一层;</li>
-<li>反向传播计算每一层的误差项  $\delta^{(l)}$ ;</li>
+\frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial w_{i j}^{(l)}} &amp;={l}_{i}\left(a_{j}^{(l-1)}\right) \delta^{(l)} \\
+&amp;=\left[0, \cdots, a_{j}^{(l-1)}, \cdots, 0\right]\left[\delta_{1}^{(l)}, \cdots, \delta_{i}^{(l)}, \cdots, \delta_{M_{l}}^{(l)}\right]^{\top} \\
+&amp;=\delta_{i}^{(l)} a_{j}^{(l-1)}
+\end{aligned}
+\]</span></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119205855415.png" srcset="/img/loading.gif" lazyload alt="image-20211119205855415" /><figcaption aria-hidden="true">image-20211119205855415</figcaption>
+</figure>
+<p><span class="math display">\[
+\left[\frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{W}^{(l)}}\right]_{i j}=\left[\delta^{(l)}\left(\boldsymbol{a}^{(l-1)}\right)^{\top}\right]_{i j}
+\]</span></p>
+<p>因此, $ (, ) $关于第 l 层权重 $ ^{(l)} $的梯度为</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{W}^{(l)}}=\delta^{(l)}\left(\boldsymbol{a}^{(l-1)}\right)^{\top} \quad \in \mathbb{R}^{M_{l} \times M_{l-1}}
+\]</span></p>
+<p>同理, $(, ) $关于第 l 层偏置 $ ^{(l)} $的梯度为</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}(\boldsymbol{y}, \hat{\boldsymbol{y}})}{\partial \boldsymbol{b}^{(l)}}=\delta^{(l)} \quad \in \mathbb{R}^{M_{l}}
+\]</span></p>
+<h2 id="实现步骤与伪代码">2.3 实现步骤与伪代码</h2>
+<p>在计算出每一层的误差项之后, 我们就可以得到每一层参数的梯度. 因此, 使用误差反向传播算法的前馈神经网络训练过程可以分为以下三步:</p>
+<ol type="1">
+<li>前馈计算每一层的净输入 $^{(l)} $和激活值 $ ^{(l)} $, 直到最后一层;</li>
+<li>反向传播计算每一层的误差项 <span class="math inline">\(\delta^{(l)}\)</span> ;</li>
 <li>计算每一层参数的偏导数, 并更新参数.</li>
 </ol>
 <p>使用反向传播算法的随机梯度下降训练过程：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119113727799.png" srcset="/img/loading.gif" lazyload alt="image-20211119113727799"></p>
-<h1 id="三、描述模型超参数确定的过程，分析模型训练结果-1"><a href="#三、描述模型超参数确定的过程，分析模型训练结果-1" class="headerlink" title="三、描述模型超参数确定的过程，分析模型训练结果"></a>三、描述模型超参数确定的过程，分析模型训练结果</h1><p>在神经网络中， 除了可学习的参数之外， 还存在很多超参数． 这些超参数对网络性能的影响也很大． 不同的机器学习任务往往需要不同的超参数． 常见的超参数有以下三类：</p>
-<ol>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119113727799.png" srcset="/img/loading.gif" lazyload alt="image-20211119113727799" /><figcaption aria-hidden="true">image-20211119113727799</figcaption>
+</figure>
+<h1 id="三描述模型超参数确定的过程分析模型训练结果-1">三、描述模型超参数确定的过程，分析模型训练结果</h1>
+<p>在神经网络中， 除了可学习的参数之外， 还存在很多超参数． 这些超参数对网络性能的影响也很大． 不同的机器学习任务往往需要不同的超参数． 常见的超参数有以下三类：</p>
+<ol type="1">
 <li>网络结构,包括神经元之间的连接关系、层数、每层的神经元数量、激活函数的类型等.</li>
 <li>优化参数,包括优化方法、学习率、小批量的样本数量等.</li>
 <li>正则化系数.</li>
@@ -692,13 +924,21 @@ x & \text { if } x>0 \\
 <li>评估一组超参数配置（ Configuration）的时间代价非常高， 从而导致一些优化方法（ 比如演化算法（ Evolution Algorithm）） 在超参数优化中难以应用</li>
 </ul>
 <p>对于超参数的配置， 比较简单的方法有网格搜索、随机搜索、贝叶斯优化、动态资源分配和神经架构搜索 ，这次我们介绍最后两种。</p>
-<h2 id="3-1-动态资源分配"><a href="#3-1-动态资源分配" class="headerlink" title="3.1 动态资源分配"></a>3.1 动态资源分配</h2><p>在超参数优化中， 每组超参数配置的评估代价比较高． 如果我们可以在较早的阶段就估计出一组配置的效果会比较差， 那么我们就可以中止这组配置的评估， 将更多的资源留给其他配置．这个问题可以归结为多臂赌博机问题的一个泛化问题： <strong>最优臂问题（ Best-Arm Problem）</strong>， 即在给定有限的机会次数下， 如何玩这些赌博机并找到收益最大的臂． 和多臂赌博机问题类似， 最优臂问题也是在利用和探索之间找到最佳的平衡．</p>
+<h2 id="动态资源分配">3.1 动态资源分配</h2>
+<p>在超参数优化中， 每组超参数配置的评估代价比较高． 如果我们可以在较早的阶段就估计出一组配置的效果会比较差， 那么我们就可以中止这组配置的评估， 将更多的资源留给其他配置．这个问题可以归结为多臂赌博机问题的一个泛化问题： <strong>最优臂问题（ Best-Arm Problem）</strong>， 即在给定有限的机会次数下， 如何玩这些赌博机并找到收益最大的臂． 和多臂赌博机问题类似， 最优臂问题也是在利用和探索之间找到最佳的平衡．</p>
 <p>由于目前神经网络的优化方法一般都采取随机梯度下降， 因此我们可以通过一组超参数的学习曲线来预估这组超参数配置是否有希望得到比较好的结果． 如果一组超参数配置的学习曲线不收敛或者收敛比较差， 我们可以应用<strong>早期停止（ Early-Stopping）</strong> 策略来中止当前的训练．</p>
 <p>动态资源分配的关键是将有限的资源分配给更有可能带来收益的超参数组合． 一种有效方法是<strong>逐次减半（ Successive Halving）</strong> 方法， 将超参数优化看作一种非随机的最优臂问题． 假设要尝试 𝑁 组超参数配置， 总共可利用的资源预算（ 摇臂的次数） 为𝐵， 我们可以通过𝑇 = ⌈log2(𝑁)⌉ - 1轮逐次减半的方法来选取最优的配置．</p>
-<h3 id="3-1-1-实现步骤与伪代码"><a href="#3-1-1-实现步骤与伪代码" class="headerlink" title="3.1.1 实现步骤与伪代码"></a>3.1.1 实现步骤与伪代码</h3><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119165313867.png" srcset="/img/loading.gif" lazyload alt="image-20211119165313867"></p>
+<h3 id="实现步骤与伪代码-1">3.1.1 实现步骤与伪代码</h3>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119165313867.png" srcset="/img/loading.gif" lazyload alt="image-20211119165313867" /><figcaption aria-hidden="true">image-20211119165313867</figcaption>
+</figure>
 <p>在逐次减半方法中， 尝试的超参数配置数量 𝑁 十分关键． 如果𝑁 越大， 得到最佳配置的机会也越大， 但每组配置分到的资源就越少， 这样早期的评估结果可能不准确． 反之， 如果 𝑁 越小， 每组超参数配置的评估会越准确， 但有可能无法得到最优的配置． 因此， 如何设置 𝑁 是平衡“利用-探索” 的一个关键因素． 一种改进的方法是<strong>HyperBand方法</strong>， 通过尝试不同的𝑁 来选取最优参数．</p>
-<h2 id="3-2-神经架构搜索"><a href="#3-2-神经架构搜索" class="headerlink" title="3.2 神经架构搜索"></a>3.2 神经架构搜索</h2><p>上面介绍的超参数优化方法都是在固定（ 或变化比较小） 的超参数空间 𝒳中进行最优配置搜索， 而最重要的神经网络架构一般还是需要由有经验的专家来进行设计 . 神经架构搜索（ Neural Architecture Search， NAS） 是一个新的比较有前景的研究方向， 通过神经网络来自动实现网络架构的设计． 一个神经网络的架构可以用一个变长的字符串来描述． 利用元学习的思想， 神经架构搜索利用一个控制器来生成另一个子网络的架构描述． 控制器可以由一个循环神经网络来实现． 控制器的训练可以通过强化学习来完成， 其奖励信号为生成的子网络在开发集上的准确率  .</p>
-<h2 id="3-3-结果分析"><a href="#3-3-结果分析" class="headerlink" title="3.3 结果分析"></a>3.3 结果分析</h2><p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119191016077.png" srcset="/img/loading.gif" lazyload alt="image-20211119191016077"></p>
+<h2 id="神经架构搜索">3.2 神经架构搜索</h2>
+<p>上面介绍的超参数优化方法都是在固定（ 或变化比较小） 的超参数空间 𝒳中进行最优配置搜索， 而最重要的神经网络架构一般还是需要由有经验的专家来进行设计 . 神经架构搜索（ Neural Architecture Search， NAS） 是一个新的比较有前景的研究方向， 通过神经网络来自动实现网络架构的设计． 一个神经网络的架构可以用一个变长的字符串来描述． 利用元学习的思想， 神经架构搜索利用一个控制器来生成另一个子网络的架构描述． 控制器可以由一个循环神经网络来实现． 控制器的训练可以通过强化学习来完成， 其奖励信号为生成的子网络在开发集上的准确率 .</p>
+<h2 id="结果分析-1">3.3 结果分析</h2>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119191016077.png" srcset="/img/loading.gif" lazyload alt="image-20211119191016077" /><figcaption aria-hidden="true">image-20211119191016077</figcaption>
+</figure>
 <p>在两次报告中我们一共介绍了5种超参数调优方式，也都尝试过应用到实验中，但并没有获得很大的提升。且结合数据量较小，网络结构较简单的实际，我们依旧选择了根据一些“经验结论”来进行网格搜索。</p>
 <p>默认参数下，五次五折交叉验证结果：</p>
 <p>Accuracy: 0.95</p>
@@ -714,11 +954,17 @@ ACC <span class="token operator">=</span> cross_val_score<span class="token punc
 <p>网格搜索最优参数的结果为：</p>
 <p>Accuracy: 0.96125</p>
 <p>混淆矩阵如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119193317068.png" srcset="/img/loading.gif" lazyload alt="image-20211119193317068"></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119193317068.png" srcset="/img/loading.gif" lazyload alt="image-20211119193317068" /><figcaption aria-hidden="true">image-20211119193317068</figcaption>
+</figure>
 <p>ROC曲线如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119193347579.png" srcset="/img/loading.gif" lazyload alt="image-20211119193347579"></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119193347579.png" srcset="/img/loading.gif" lazyload alt="image-20211119193347579" /><figcaption aria-hidden="true">image-20211119193347579</figcaption>
+</figure>
 <p>评价指标（精确率，召回率和F1值）：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119193422505.png" srcset="/img/loading.gif" lazyload alt="image-20211119193422505"></p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119193422505.png" srcset="/img/loading.gif" lazyload alt="image-20211119193422505" /><figcaption aria-hidden="true">image-20211119193422505</figcaption>
+</figure>
 <p>从上面可以看出，我们的模型分类结果完全正确，甚至有可能出现了过拟合。为了避免这种情况，我们继续修改参数，发现即使不设置任何超参数也可以达到这样的准确率，也从另一方面证明了神经网络拟合能力的强悍。</p>
 <p>网格搜索代码如下：</p>
 <div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 超参数调优</span>
@@ -734,18 +980,28 @@ grid <span class="token operator">=</span> GridSearchCV<span class="token punctu
 grid<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>X_std<span class="token punctuation">,</span> Y<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'最优参数：'</span><span class="token punctuation">,</span>grid<span class="token punctuation">.</span>best_params_<span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'最优模型得分：'</span><span class="token punctuation">,</span>grid<span class="token punctuation">.</span>best_score_<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<h1 id="四、总结模型训练过程中的收获-1"><a href="#四、总结模型训练过程中的收获-1" class="headerlink" title="四、总结模型训练过程中的收获"></a>四、总结模型训练过程中的收获</h1><h2 id="4-1-优化与正则化"><a href="#4-1-优化与正则化" class="headerlink" title="4.1 优化与正则化"></a>4.1 优化与正则化</h2><p>神经网络的优化和正则化是既对立又统一的关系． 一方面我们希望优化算法能找到一个全局最优解（ 或较好的局部最优解）， 另一方面我们又不希望模型优化到最优解， 这可能陷入过拟合． 优化和正则化的统一目标是期望风险最小化．</p>
-<h3 id="4-1-1-优化"><a href="#4-1-1-优化" class="headerlink" title="4.1.1 优化"></a>4.1.1 优化</h3><p>在优化方面， 训练神经网络时的主要难点是非凸优化以及梯度消失问题． 在深度学习技术发展的初期， 我们通常需要利用预训练和逐层训练等比较低效的<br>方法来辅助优化．随着深度学习技术的发展， 我们目前通常可以高效地、 端到端地训练一个深度神经网络． 这些提高训练效率的方法通常分为以下 3 个方面：</p>
-<ol>
+<h1 id="四总结模型训练过程中的收获-1">四、总结模型训练过程中的收获</h1>
+<h2 id="优化与正则化">4.1 优化与正则化</h2>
+<p>神经网络的优化和正则化是既对立又统一的关系． 一方面我们希望优化算法能找到一个全局最优解（ 或较好的局部最优解）， 另一方面我们又不希望模型优化到最优解， 这可能陷入过拟合． 优化和正则化的统一目标是期望风险最小化．</p>
+<h3 id="优化">4.1.1 优化</h3>
+<p>在优化方面， 训练神经网络时的主要难点是非凸优化以及梯度消失问题． 在深度学习技术发展的初期， 我们通常需要利用预训练和逐层训练等比较低效的 方法来辅助优化．随着深度学习技术的发展， 我们目前通常可以高效地、 端到端地训练一个深度神经网络． 这些提高训练效率的方法通常分为以下 3 个方面：</p>
+<ol type="1">
 <li>修改网络模型来得到更好的优化地形， 比如使用逐层归一化、 残差连接以及ReLU激活函数等；</li>
 <li>使用更有效的优化算法， 比如动态学习率以及梯度估计修正等；</li>
 <li>使用更好的参数初始化方法</li>
 </ol>
-<h3 id="4-1-2-泛化"><a href="#4-1-2-泛化" class="headerlink" title="4.1.2 泛化"></a>4.1.2 泛化</h3><p>在泛化方面， 传统的机器学习中有一些很好的理论可以帮助我们在模型的表示能力、复杂度和泛化能力之间找到比较好的平衡， 但是这些理论无法解释深度神经网络在实际应用中的泛化能力表现． 根据通用近似定理，神经网络的表示能力十分强大． 从直觉上， 一个过度参数化的神经网络很容易产生过拟合现象， 因为它的容量足够记住所有训练数据． 但是实验表明， 神经网络在训练过程中依然优先记住训练数据中的一般模式（ Pattern）， 即具有高泛化能力的模式 ． 但目前， 神经网络的泛化能力还没有很好的理论支持． 在传统机器学习模型上比较有效的ℓ1 或ℓ2 正则化在深度神经网络中作用也比较有限， 而一些经验的做法（ 比如小的批量大小、大的学习率、提前停止、丢弃法、数据增强） 会更有效  。</p>
-<h2 id="4-2-与回归的差异"><a href="#4-2-与回归的差异" class="headerlink" title="4.2 与回归的差异"></a>4.2 与回归的差异</h2><p>和回归问题不同， 分类问题中的目标标签 𝑦 是离散的类别标签， 因此分类问题中的决策函数需要输出离散值或是标签的后验概率． 线性分类模型一般是一个广义线性函数， 即一个或多个线性判别函数加上一个非线性激活函数． 所谓“线性”是指决策边界由一个或多个超平面组成．</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119171348116.png" srcset="/img/loading.gif" lazyload alt="image-20211119171348116"></p>
-<h2 id="4-3-对深度学习框架的初步了解"><a href="#4-3-对深度学习框架的初步了解" class="headerlink" title="4.3 对深度学习框架的初步了解"></a>4.3 对深度学习框架的初步了解</h2><p>在深度学习中， 一般通过误差反向传播算法来进行参数学习． 采用手工方式来计算梯度再写代码实现的方式会非常低效， 并且容易出错． 此外， 深度学习模型需要的计算机资源比较多， 一般需要在 CPU 和 GPU 之间不断进行切换， 开发难度也比较大． 因此， 一些支持自动梯度计算、无缝CPU和GPU切换等功能的深度学习框架就应运而生．比较有代表性的框架包括： Theano、Caffe、TensorFlow、Pytorch、飞桨（ PaddlePaddle）、Chainer和MXNet等。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119185714226.png" srcset="/img/loading.gif" lazyload alt="image-20211119185714226"></p>
+<h3 id="泛化">4.1.2 泛化</h3>
+<p>在泛化方面， 传统的机器学习中有一些很好的理论可以帮助我们在模型的表示能力、复杂度和泛化能力之间找到比较好的平衡， 但是这些理论无法解释深度神经网络在实际应用中的泛化能力表现． 根据通用近似定理，神经网络的表示能力十分强大． 从直觉上， 一个过度参数化的神经网络很容易产生过拟合现象， 因为它的容量足够记住所有训练数据． 但是实验表明， 神经网络在训练过程中依然优先记住训练数据中的一般模式（ Pattern）， 即具有高泛化能力的模式 ． 但目前， 神经网络的泛化能力还没有很好的理论支持． 在传统机器学习模型上比较有效的ℓ1 或ℓ2 正则化在深度神经网络中作用也比较有限， 而一些经验的做法（ 比如小的批量大小、大的学习率、提前停止、丢弃法、数据增强） 会更有效 。</p>
+<h2 id="与回归的差异">4.2 与回归的差异</h2>
+<p>和回归问题不同， 分类问题中的目标标签 𝑦 是离散的类别标签， 因此分类问题中的决策函数需要输出离散值或是标签的后验概率． 线性分类模型一般是一个广义线性函数， 即一个或多个线性判别函数加上一个非线性激活函数． 所谓“线性”是指决策边界由一个或多个超平面组成．</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119171348116.png" srcset="/img/loading.gif" lazyload alt="image-20211119171348116" /><figcaption aria-hidden="true">image-20211119171348116</figcaption>
+</figure>
+<h2 id="对深度学习框架的初步了解">4.3 对深度学习框架的初步了解</h2>
+<p>在深度学习中， 一般通过误差反向传播算法来进行参数学习． 采用手工方式来计算梯度再写代码实现的方式会非常低效， 并且容易出错． 此外， 深度学习模型需要的计算机资源比较多， 一般需要在 CPU 和 GPU 之间不断进行切换， 开发难度也比较大． 因此， 一些支持自动梯度计算、无缝CPU和GPU切换等功能的深度学习框架就应运而生．比较有代表性的框架包括： Theano、Caffe、TensorFlow、Pytorch、飞桨（ PaddlePaddle）、Chainer和MXNet等。</p>
+<figure>
+<img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211119185714226.png" srcset="/img/loading.gif" lazyload alt="image-20211119185714226" /><figcaption aria-hidden="true">image-20211119185714226</figcaption>
+</figure>
 <p>因此本次作业我们没有局限在scikit-learn中，我们了解并学习了TensorFlow，pytorch等框架的使用，搭建了简易的神经网络对本次作业的数据进行分析。虽然最终得到的效果不及sklearn，但是在体验的过程加深了对神经网络的理解。</p>
 
             </div>
@@ -1002,6 +1258,44 @@ grid<span class="token punctuation">.</span>fit<span class="token punctuation">(
 
 
   
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://www.bootcdn.cn/mathjax/3.2.0/tex-svg.js" ></script>
 
   
 
