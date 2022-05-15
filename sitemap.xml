@@ -330,6 +330,13 @@
   </url>
   
   <url>
+    <loc>http://enderfga.cn/tags/%E5%86%99%E4%BD%9C/</loc>
+    <lastmod>2022-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://enderfga.cn/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2022-05-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -338,13 +345,6 @@
   
   <url>
     <loc>http://enderfga.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2022-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://enderfga.cn/tags/%E5%86%99%E4%BD%9C/</loc>
     <lastmod>2022-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
