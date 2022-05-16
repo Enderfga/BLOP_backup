@@ -220,7 +220,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.1k 字
+      3.2k 字
     </span>
   
 
@@ -229,7 +229,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      26 分钟
+      27 分钟
     </span>
   
 
@@ -269,28 +269,48 @@
             <div class="markdown-body">
               <p>One-Hot Encoding学习记录</p>
 <span id="more"></span>
-<h1 id="一、One-Hot-Encoding"><a href="#一、One-Hot-Encoding" class="headerlink" title="一、One-Hot Encoding"></a>一、One-Hot Encoding</h1><p>One-Hot 编码，又称为一位有效编码，主要是采用位状态寄存器来对个状态进行编码，每个状态都由他独立的寄存器位，并且在任意时候只有一位有效。<br>在实际的机器学习的应用任务中，特征有时候并不总是连续值，有可能是一些分类值，如性别可分为“ male ”和“ female ”。在机器学习任务中，对于这样的特征，</p>
-<p>One-hot在数位电路中被用来表示一种特殊的位元组合，该字节里，仅容许单一位元为1，其他位元都必须为0。之所以称为one-hot就是因为只能有一个1（hot）。若情况相反，只有一个0，其余为1，则称为one-cold。在机器学习里，也有one-hot向量（英语：one-hot vector）的概念。在一任意维度的向量中，仅有一个维度的值是1，其余为0。譬如向量 ${\displaystyle [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0]}{\displaystyle [0 0 0 0 0 1 0 0 0 0 0 0 0 0 0]}$，即为15维空间中的一组one-hot向量。将类别性资料转换成one-hot向量的过程则称one-hot编码（英语：one-hot encoding）。在统计学中，虚拟变数代表了类似的概念。</p>
-<p>One-hot目前并无公认或被广泛使用的中文译名。目前可见的one-hot encoding译名有独热编码以及一位有效编码。</p>
+<h1 id="一one-hot-encoding">一、One-Hot Encoding</h1>
+<p>One-Hot
+编码，又称为一位有效编码，主要是采用位状态寄存器来对个状态进行编码，每个状态都由他独立的寄存器位，并且在任意时候只有一位有效。
+在实际的机器学习的应用任务中，特征有时候并不总是连续值，有可能是一些分类值，如性别可分为“
+male ”和“ female ”。在机器学习任务中，对于这样的特征，</p>
+<p>One-hot在数位电路中被用来表示一种特殊的位元组合，该字节里，仅容许单一位元为1，其他位元都必须为0。之所以称为one-hot就是因为只能有一个1（hot）。若情况相反，只有一个0，其余为1，则称为one-cold。在机器学习里，也有one-hot向量（英语：one-hot
+vector）的概念。在一任意维度的向量中，仅有一个维度的值是1，其余为0。譬如向量
+<span class="math inline">\({\displaystyle [0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 0\
+0\ 0\ 0\ 0\ 0\ 0]}{\displaystyle [0\ 0\ 0\ 0\ 0\ 1\ 0\ 0\ 0\ 0\ 0\ 0\ 0\
+0\
+0]}\)</span>，即为15维空间中的一组one-hot向量。将类别性资料转换成one-hot向量的过程则称one-hot编码（英语：one-hot
+encoding）。在统计学中，虚拟变数代表了类似的概念。</p>
+<p>One-hot目前并无公认或被广泛使用的中文译名。目前可见的one-hot
+encoding译名有独热编码以及一位有效编码。</p>
 <p>通常我们需要对其进行特征数字化，如下面的例子，这些特征值并不是连续的，而是离散的，无序的。</p>
 <p>有如下三个特征属性：</p>
 <ul>
-<li>性别：[“male”，”female”]</li>
-<li>地区：[“Europe”，”US”，”Asia”]</li>
-<li>浏览器：[“Firefox”，”Chrome”，”Safari”，”Internet Explorer”]</li>
+<li>性别：["male"，"female"]</li>
+<li>地区：["Europe"，"US"，"Asia"]</li>
+<li>浏览器：["Firefox"，"Chrome"，"Safari"，"Internet Explorer"]</li>
 </ul>
-<p>对于某一个样本，如[“male”，”US”，”Internet Explorer”]，我们需要将这个分类值的特征数字化，最直接的方法，我们可以采用序列化的方式：[0,1,3]。但是这样的特征处理并不能直接放入机器学习算法中。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20190514150006715.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
-<h1 id="二、One-Hot-Encoding的处理方法"><a href="#二、One-Hot-Encoding的处理方法" class="headerlink" title="二、One-Hot Encoding的处理方法"></a>二、One-Hot Encoding的处理方法</h1><p>One-Hot 编码是分类变量作为二进制向量的表示。</p>
-<ol>
+<p>对于某一个样本，如["male"，"US"，"Internet
+Explorer"]，我们需要将这个分类值的特征数字化，最直接的方法，我们可以采用序列化的方式：[0,1,3]。但是这样的特征处理并不能直接放入机器学习算法中。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20190514150006715.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="二one-hot-encoding的处理方法">二、One-Hot
+Encoding的处理方法</h1>
+<p>One-Hot 编码是分类变量作为二进制向量的表示。</p>
+<ol type="1">
 <li>将分类值映射到整数值。</li>
 <li>每个整数值被表示为二进制向量，除了整数的索引之外，它都是零值，它被标记为1。</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195029323.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195041636.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p>对于上述的问题，性别的属性是二维的，同理，地区是三维的，浏览器则是四维的，这样，我们可以采用One-Hot编码的方式对上述的样本“[“male”，”US”，”Internet Explorer”]”编码，“male”则对应着[1，0]，同理“US”对应着[0，1，0]，“Internet Explorer”对应着[0，0，0，1]。</p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195029323.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195041636.png" srcset="/img/loading.gif" lazyload /></p>
+<p>对于上述的问题，性别的属性是二维的，同理，地区是三维的，浏览器则是四维的，这样，我们可以采用One-Hot编码的方式对上述的样本“["male"，"US"，"Internet
+Explorer"]”编码，“male”则对应着[1，0]，同理“US”对应着[0，1，0]，“Internet
+Explorer”对应着[0，0，0，1]。</p>
 <p>则完整的特征数字化的结果为：[1,0,0,1,0,0,0,0,1]。这样导致的一个结果就是数据会变得非常的稀疏。</p>
-<h1 id="三、Python代码举例"><a href="#三、Python代码举例" class="headerlink" title="三、Python代码举例"></a>三、Python代码举例</h1><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn <span class="token keyword">import</span> preprocessing
+<h1 id="三python代码举例">三、Python代码举例</h1>
+<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> sklearn <span class="token keyword">import</span> preprocessing
  
 enc <span class="token operator">=</span> preprocessing<span class="token punctuation">.</span>OneHotEncoder<span class="token punctuation">(</span><span class="token punctuation">)</span>
 enc<span class="token punctuation">.</span>fit<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -298,17 +318,28 @@ enc<span class="token punctuation">.</span>fit<span class="token punctuation">(<
 array <span class="token operator">=</span> enc<span class="token punctuation">.</span>transform<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>toarray<span class="token punctuation">(</span><span class="token punctuation">)</span>
  
 <span class="token keyword">print</span><span class="token punctuation">(</span>array<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<p>结果：[[ 1.  0.  0.  1.  0.  0.  0.  0.  1.]]</p>
-<h1 id="四、优缺点分析"><a href="#四、优缺点分析" class="headerlink" title="四、优缺点分析"></a>四、优缺点分析</h1><p><strong>优点：</strong></p>
-<p>(1) 解决了分类器不好处理离散数据的问题。</p>
-<div class="code-wrapper"><pre class="language-none"><code class="language-none">a. 欧式空间。在回归，分类，聚类等机器学习算法中，特征之间 距离计算 或 相似度计算 是非常重要的，而我们常用的距离或相似度的计算都是在欧式空间的相似度计算，计算余弦相似性，基于的就是欧式空间。
-
-b. one-hot 编码。使用 one-hot 编码，将离散特征的取值扩展到了欧式空间，离散特征的某个取值就对应欧式空间的某个点。将离散型特征使用 one-hot 编码，确实会让 特征之间的距离计算更加合理。
-</code></pre></div><p>(2) 在一定程度上也起到了扩充特征的作用。</p>
+<p>结果：[[ 1. 0. 0. 1. 0. 0. 0. 0. 1.]]</p>
+<h1 id="四优缺点分析">四、优缺点分析</h1>
+<p><strong>优点：</strong></p>
+<ol type="1">
+<li><p>解决了分类器不好处理离散数据的问题。</p>
+<ol type="a">
+<li><p>欧式空间。在回归，分类，聚类等机器学习算法中，特征之间 距离计算
+或 相似度计算
+是非常重要的，而我们常用的距离或相似度的计算都是在欧式空间的相似度计算，计算余弦相似性，基于的就是欧式空间。</p></li>
+<li><p>one-hot 编码。使用 one-hot
+编码，将离散特征的取值扩展到了欧式空间，离散特征的某个取值就对应欧式空间的某个点。将离散型特征使用
+one-hot 编码，确实会让 特征之间的距离计算更加合理。</p></li>
+</ol></li>
+<li><p>在一定程度上也起到了扩充特征的作用。</p></li>
+</ol>
 <p><strong>缺点：</strong></p>
-<p>(1) 它是一个词袋模型，不考虑词与词之间的<strong>顺序</strong>（文本中词的顺序信息也是很重要的）；</p>
-<p>(2) 它<strong>假设词与词相互独立</strong>（在大多数情况下，词与词是相互影响的）；</p>
-<p>(3) 它得到的特征是<strong>离散稀疏</strong>的 （这个问题最严重）。</p>
+<ol type="1">
+<li><p>它是一个词袋模型，不考虑词与词之间的<strong>顺序</strong>（文本中词的顺序信息也是很重要的）；</p></li>
+<li><p>它<strong>假设词与词相互独立</strong>（在大多数情况下，词与词是相互影响的）；</p></li>
+<li><p>它得到的特征是<strong>离散稀疏</strong>的
+（这个问题最严重）。</p></li>
+</ol>
 <p><strong>与其他编码的差异：</strong></p>
 <ul>
 <li>决定状态机目前状态的时间成本低，因为读取一个正反器的时间成本固定。</li>
@@ -318,18 +349,42 @@ b. one-hot 编码。使用 one-hot 编码，将离散特征的取值扩展到了
 <li>可以有效率地使用FPGA的大量正反器。</li>
 <li>相较于其他编码，使用one-hot来实现状态机通常可以达到更高的时脉频率。</li>
 <li>比起其他编码，需要更多的正反器，使得其在PAL装置上不切实际。</li>
-<li>会有很多非法状态存在[7]。这是由于${\displaystyle N}$个正反器构成的计数器总共有${\displaystyle 2^{N}}$个状态（每个正反器可以是0或1，所以总共${\displaystyle 2^{N}}$种可能状态），但是合法状态却只有${\displaystyle N}$个（即同一时间只允许一个正反器是1,其他必须为0），所以总共会有${\displaystyle 2^{N}-N}$个可能的非法状态。</li>
+<li>会有很多非法状态存在[7]。这是由于<span
+class="math inline">\({\displaystyle
+N}\)</span>个正反器构成的计数器总共有<span
+class="math inline">\({\displaystyle
+2^{N}}\)</span>个状态（每个正反器可以是0或1，所以总共<span
+class="math inline">\({\displaystyle
+2^{N}}\)</span>种可能状态），但是合法状态却只有<span
+class="math inline">\({\displaystyle
+N}\)</span>个（即同一时间只允许一个正反器是1,其他必须为0），所以总共会有<span
+class="math inline">\({\displaystyle
+2^{N}-N}\)</span>个可能的非法状态。</li>
 </ul>
-<h1 id="五、应用"><a href="#五、应用" class="headerlink" title="五、应用"></a>五、应用</h1><p><strong>自然语言处理</strong><br>在自然语言处理中，若有个字典或字库里有${\displaystyle N}$个单字，则每个单字可以被一个${\displaystyle N}$维的one-hot向量代表。譬如若字库里仅有apple（苹果），banana（香蕉），以及pineapple（凤梨）这三个单字，则他们各自的one-hot向量可以为：</p>
-<script type="math/tex; mode=display">
-{\displaystyle {\begin{array}{ll}apple&=[1\ 0\ 0]\\banana&=[0\ 1\ 0]\\pineapple&=[0\ 0\ 1]\end{array}}}</script><p>由于电脑无法理解非数字类的数据，One-hot编码可以将类别性数据转换成统一的数字格式，方便机器学习的算法进行处理及计算。而转换成固定维度的向量则方便机器学习算法进行线性代数上的计算。另外由于一个one-hot向量中，绝大部分的数字都是0，所以若使用稀疏矩阵的数据结构，则可以节省电脑内存的使用量。</p>
-<p><strong>有限状态机</strong><br>One-hot编码常常被用来表示一个有限状态机的状态。如果使用二进制或格雷码来代表状态，则需要用到解码器才能得知该码代表的状态。使用one-hot来代表状态的话，则不需要解码器，因为若第${\displaystyle n}$个位元为1，就代表机器目前在第${\displaystyle n}$个状态。</p>
+<h1 id="五应用">五、应用</h1>
+<p><strong>自然语言处理</strong>
+在自然语言处理中，若有个字典或字库里有<span
+class="math inline">\({\displaystyle
+N}\)</span>个单字，则每个单字可以被一个<span
+class="math inline">\({\displaystyle
+N}\)</span>维的one-hot向量代表。譬如若字库里仅有apple（苹果），banana（香蕉），以及pineapple（凤梨）这三个单字，则他们各自的one-hot向量可以为：</p>
+<p><span class="math display">\[
+{\displaystyle {\begin{array}{ll}apple&amp;=[1\ 0\ 0]\\banana&amp;=[0\
+1\ 0]\\pineapple&amp;=[0\ 0\ 1]\end{array}}}
+\]</span></p>
+<p>由于电脑无法理解非数字类的数据，One-hot编码可以将类别性数据转换成统一的数字格式，方便机器学习的算法进行处理及计算。而转换成固定维度的向量则方便机器学习算法进行线性代数上的计算。另外由于一个one-hot向量中，绝大部分的数字都是0，所以若使用稀疏矩阵的数据结构，则可以节省电脑内存的使用量。</p>
+<p><strong>有限状态机</strong>
+One-hot编码常常被用来表示一个有限状态机的状态。如果使用二进制或格雷码来代表状态，则需要用到解码器才能得知该码代表的状态。使用one-hot来代表状态的话，则不需要解码器，因为若第<span
+class="math inline">\({\displaystyle
+n}\)</span>个位元为1，就代表机器目前在第<span
+class="math inline">\({\displaystyle n}\)</span>个状态。</p>
 <p>一个有限状态机的例子是由15个状态构成的环状计数器。使用one-hot编码来实现此状态机的话，可以将15个正反器串联在一起，每个正反器的Q输出接到下一个正反器的D输入，而第一个正反器的D输入则是接到第15个的Q输出，形成一个环状。第一个正反器代表机器的第一个状态，第二个正反器代表第二个状态，依此类推。当机器被归零重设时，第一个正反器的值为1，其余为0。当一个时脉边缘抵达正反器时，会将1推进到下一个正反器。依照这种方式，1可一步步推进到第15个正反器，亦即第15个状态，再之后则重新回到第一个状态。</p>
 <p>位址解码器可以将二进制或格雷码转换成one-shot表示形式。而优先编码器则是作用相反。</p>
-<h1 id="六、资料来源"><a href="#六、资料来源" class="headerlink" title="六、资料来源"></a>六、资料来源</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/One-hot">https://zh.wikipedia.org/wiki/One-hot</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/google19890102/article/details/44039761">https://blog.csdn.net/google19890102/article/details/44039761</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_15192373/article/details/89552498">https://blog.csdn.net/qq_15192373/article/details/89552498</a></li>
+<h1 id="六资料来源">六、资料来源</h1>
+<ul>
+<li>https://zh.wikipedia.org/wiki/One-hot</li>
+<li>https://blog.csdn.net/google19890102/article/details/44039761</li>
+<li>https://blog.csdn.net/qq_15192373/article/details/89552498</li>
 </ul>
 
             </div>
@@ -672,5 +727,22 @@ b. one-hot 编码。使用 one-hot 编码，将离散特征的取值扩展到了
 <script  src="/js/boot.js" ></script>
 
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
+</script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://cdn.jsdelivr.net/gh/imuncle/live2d/model/hijiki/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
