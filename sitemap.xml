@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://enderfga.cn/2022/05/15/robot5/</loc>
+    
+    <lastmod>2022-05-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://enderfga.cn/2022/05/16/net4/</loc>
     
     <lastmod>2022-05-16</lastmod>
@@ -309,6 +318,13 @@
   </url>
   
   <url>
+    <loc>http://enderfga.cn/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/</loc>
+    <lastmod>2022-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://enderfga.cn/tags/%E7%BB%88%E7%AB%AF/</loc>
     <lastmod>2022-05-16</lastmod>
     <changefreq>weekly</changefreq>
@@ -317,13 +333,6 @@
   
   <url>
     <loc>http://enderfga.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2022-05-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://enderfga.cn/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/</loc>
     <lastmod>2022-05-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
