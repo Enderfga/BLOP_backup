@@ -16,16 +16,16 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="智能机器人技术作业记录">
+    <meta name="description" content="有东西被加密了, 请输入密码查看.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="智能机器人技术——机器人运动学奇异分析与性能评价">
 <meta property="og:url" content="http://enderfga.cn/2022/05/15/robot5/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="智能机器人技术作业记录">
+<meta property="og:description" content="有东西被加密了, 请输入密码查看.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220515125458389.png">
 <meta property="article:published_time" content="2022-05-15T06:05:29.000Z">
-<meta property="article:modified_time" content="2022-05-16T02:13:00.509Z">
+<meta property="article:modified_time" content="2022-05-16T05:22:05.228Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="机器人">
 <meta name="twitter:card" content="summary_large_image">
@@ -262,258 +262,27 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年5月16日 上午
+                  本文最后更新于：2022年5月16日 下午
                 
               </p>
             
             <div class="markdown-body">
-              <p>智能机器人技术作业记录</p>
-<span id="more"></span>
-<h1
-id="智能机器人技术机器人运动学奇异分析与性能评价">智能机器人技术——机器人运动学奇异分析与性能评价</h1>
-<p>一、给定平面2R机械臂状态参数，</p>
-<p>状态描述：</p>
-<ul>
-<li>关节状态: <span class="math inline">\(\quad\left[\theta_{1},
-\theta_{2}\right]^{\mathrm{T}}\)</span></li>
-<li>末端位置: <span class="math inline">\(\quad\left[x_{e},
-y_{e}\right]^{\mathrm{T}}\)</span></li>
-</ul>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220508155155580.png" srcset="/img/loading.gif" lazyload /></p>
-<ol type="1">
-<li><p>计算逆运动学，求解关节角的表达式（已知末端位置<span
-class="math inline">\(\quad\left[x_{e},
-y_{e}\right]^{\mathrm{T}}\)</span>，求关节角<span
-class="math inline">\(\quad\left[\theta_{1},
-\theta_{2}\right]^{\mathrm{T}}\)</span>）</p>
-<p>根据几何关系, 可推导出机械臂末端位置与机械臂关节变量的关系:</p>
-<p><span class="math display">\[
-\begin{array}{l}
-p_{\mathrm{ex}}=l_{1} c_{1}+l_{2} c_{12} \\
-p_{\mathrm{ey}}=l_{1} s_{1}+l_{2} s_{12}
-\end{array}
-\]</span></p>
-<p>其中,</p>
-<p><span class="math display">\[
-\left\{\begin{array}{l}
-s_{1}=\sin \theta_{1}, c_{1}=\cos \theta_{1} \\
-s_{12}=\sin \left(\theta_{1}+\theta_{2}\right), c_{12}=\cos
-\left(\theta_{1}+\theta_{2}\right)
-\end{array}\right.
-\]</span></p>
-<p>其向量形式为：</p>
-<p><span class="math display">\[
-p_{\mathrm{e}}=\left[\begin{array}{l}
-p_{\mathrm{ex}} \\
-p_{\mathrm{e} y}
-\end{array}\right]=\left[\begin{array}{l}
-l_{1} c_{1}+l_{2} c_{12} \\
-l_{1} s_{1}+l_{2} s_{12}
-\end{array}\right]=\left[\begin{array}{l}
-l_{1} \cos \theta_{1}+l_{2} \cos \left(\theta_{1}+\theta_{2}\right) \\
-l_{1} \sin \theta_{1}+l_{2} \sin \left(\theta_{1}+\theta_{2}\right)
-\end{array}\right]
-\]</span></p>
-<p>将式子两边的平方相加, 有</p>
-<p><span class="math display">\[
-p_{\mathrm{e}}^{2}=l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2}\left(c_{1}
-c_{12}+s_{1} s_{12}\right)
-\]</span></p>
-<p><span
-class="math inline">\(p_{\mathrm{e}}^{2}=p_{\mathrm{ex}}^{2}+p_{\mathrm{ey}}^{2}\)</span>
-为基坐标系原点到末端坐标系原点的距离。</p>
-<p>根据三角函数的性质, 有</p>
-<p><span class="math display">\[
-c_{1} c_{12}+s_{1} s_{12}=c_{2}
-\]</span></p>
-<p>故可化简为</p>
-<p><span class="math display">\[
-p_{\mathrm{e}}^{2}=l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}
-\]</span></p>
-<p>因此，</p>
-<p><span class="math display">\[
-\left\{\begin{array}{l}
-p_{\mathrm{e}}^{2} \leqslant l_{1}^{2}+l_{2}^{2}+2 l_{1}
-l_{2}=\left(l_{1}+l_{2}\right)^{2} \\
-p_{\mathrm{e}}^{2} \geqslant l_{1}^{2}+l_{2}^{2}-2 l_{1}
-l_{2}=\left(l_{1}-l_{2}\right)^{2}
-\end{array}\right.\\
-\left|l_{1}-l_{2}\right| \leqslant p_{e} \leqslant l_{1}+l_{2}
-\]</span></p>
-<p>上式即表示了该 <span class="math inline">\(2 \mathrm{R}\)</span>
-机械臂的工作空间范围, 其最小边沿和最大边沿分别对应于 <span
-class="math inline">\(\theta_{2}=\pi\)</span> 和 <span
-class="math inline">\(\theta_{2}=0\)</span> 的情况。</p>
-<p>进一步有，</p>
-<p><span class="math display">\[
-\left|\frac{p_{\mathrm{e}}^{2}-l_{1}^{2}-l_{2}^{2}}{2 l_{1}
-l_{2}}\right| \leqslant 1
-\]</span></p>
-<p>解得：</p>
-<p><span class="math display">\[
-\theta_{2}=\pm \arccos \frac{p_{\mathrm{e}}^{2}-l_{1}^{2}-l_{2}^{2}}{2
-l_{1} l_{2}}=\pm \arccos
-\frac{x_{\mathrm{e}}^{2}+y_{\mathrm{e}}^{2}-l_{1}^{2}-l_{2}^{2}}{2 l_{1}
-l_{2}}
-\]</span></p>
-<p>关节角 <span class="math inline">\(\theta_{2}\)</span> 解出后,
-将其代入方程组中, 可进一步解出关节角 <span
-class="math inline">\(\theta_{1}\)</span> 。首先根据三角函数的性质:</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;c_{12}=c_{1} c_{2}-s_{1} s_{2} \\
-&amp;s_{12}=s_{1} c_{2}+c_{1} s_{2}
-\end{aligned}
-\]</span></p>
-<p>有，</p>
-<p><span class="math display">\[
-\left\{\begin{array}{l}
-\left(l_{1}+l_{2} c_{2}\right) c_{1}-l_{2} s_{2} s_{1}=p_{\mathrm{ex}}
-\\
-l_{2} s_{2} c_{1}+\left(l_{1}+l_{2} c_{2}\right) s_{1}=p_{\mathrm{e} y}
-\end{array}\right.
-\]</span></p>
-<p>可写成如下形式:</p>
-<p><span class="math display">\[
-\left[\begin{array}{cc}
-l_{1}+l_{2} c_{2} &amp; -l_{2} s_{2} \\
-l_{2} s_{2} &amp; l_{1}+l_{2} c_{2}
-\end{array}\right]\left[\begin{array}{l}
-c_{1} \\
-s_{1}
-\end{array}\right]=\left[\begin{array}{l}
-p_{e x} \\
-p_{\mathrm{ey}}
-\end{array}\right]
-\]</span></p>
-<p>方程组的系数矩阵 <span class="math inline">\(\boldsymbol{A}\)</span>
-及其行列式分别为</p>
-<p><span class="math display">\[
-\boldsymbol{A}=\left[\begin{array}{cc}
-l_{1}+l_{2} c_{2} &amp; -l_{2} s_{2} \\
-l_{2} s_{2} &amp; l_{1}+l_{2} c_{2}
-\end{array}\right],
-\operatorname{det}(\boldsymbol{A})=l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2}
-c_{2}
-\]</span></p>
-<p>若 <span class="math inline">\(\operatorname{det}(\boldsymbol{A})
-\neq 0\)</span>, 则矩阵 <span
-class="math inline">\(\boldsymbol{A}\)</span> 满秩, 方程组有解, 即:</p>
-<p><span class="math display">\[
-\left[\begin{array}{l}
-c_{1} \\
-s_{1}
-\end{array}\right]=\left[\begin{array}{cc}
-l_{1}+l_{2} c_{2} &amp; -l_{2} s_{2} \\
-l_{2} s_{2} &amp; l_{1}+l_{2} c_{2}
-\end{array}\right]^{-1}\left[\begin{array}{l}
-p_{\mathrm{ex}} \\
-p_{\mathrm{ey}}
-\end{array}\right]=\frac{1}{l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2}
-c_{2}}\left[\begin{array}{c}
-\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ex}}+l_{2} s_{2}
-p_{\mathrm{ey}} \\
--l_{2} s_{2} p_{\mathrm{ex}}+\left(l_{1}+l_{2} c_{2}\right)
-p_{\mathrm{ey}}
-\end{array}\right]
-\]</span></p>
-<p><span class="math inline">\(\theta_{1}\)</span> 可根据解出的 <span
-class="math inline">\(s_{1}\)</span> 和 <span
-class="math inline">\(c_{1}\)</span> 求出, 即:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\theta_{1} &amp;=\arctan 2\left(s_{1}, c_{1}\right)=\arctan
-2\left(\frac{-l_{2} s_{2} p_{\mathrm{ex}}+\left(l_{1}+l_{2} c_{2}\right)
-p_{\mathrm{ey}}}{l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}},
-\frac{\left(l_{1}+l_{2} c_{2}\right) p_{\mathrm{ex}}+l_{2} s_{2}
-p_{\mathrm{ey}}}{l_{1}^{2}+l_{2}^{2}+2 l_{1} l_{2} c_{2}}\right) \\
-&amp;=\arctan 2\left(-l_{2} s_{2} p_{\mathrm{ex}}+\left(l_{1}+l_{2}
-c_{2}\right) p_{\mathrm{ey}},\left(l_{1}+l_{2} c_{2}\right)
-p_{\mathrm{ex}}+l_{2} s_{2} p_{\mathrm{ey}}\right)
-\end{aligned}
-\]</span></p>
-<p>根据基本不等式及三级函数的性质, 令 <span
-class="math inline">\(\operatorname{det}(\boldsymbol{A})=0\)</span>,
-则必有 <span class="math inline">\(l_{1}=l_{2}\)</span> 且 <span
-class="math inline">\(\theta_{2}=\pi\)</span>, 即:</p>
-<p><span class="math display">\[
-\operatorname{det}(\boldsymbol{A})=0 \Rightarrow\left\{\begin{array} { l
-}
-{ l _ { 1 } ^ { 2 } + l _ { 2 } ^ { 2 } + 2 l _ { 1 } l _ { 2 } c _ { 2
-} = 0 } \\
-{ l _ { 1 } ^ { 2 } + l _ { 2 } ^ { 2 } \geqslant 2 l _ { 1 } l _ { 2 }
-} \\
-{ | c _ { 2 } | \leqslant 1 }
-\end{array} \Rightarrow \left\{\begin{array}{l}
-l_{1}=l_{2} \\
-\theta_{2}=\pi
-\end{array}\right.\right.
-\]</span></p>
-<p>综上所述, 结果可以求出两组解, 对应于机器人的两种臂型, 分别称为高臂
-(肘) 和低臂 (肘), 平面 <span class="math inline">\(2 \mathrm{R}\)</span>
-机械臂逆运动学多解情况分析下图所示。也就是说, 对于前述的 <span
-class="math inline">\(2 \mathrm{R}\)</span> 机械臂,
-当给定末端点的一个位置 <span
-class="math inline">\(\boldsymbol{p}_{\mathrm{e}}\)</span> 时,
-有两组关节角与之对应, 即位置级逆运动学有多解。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220515125458389.png" srcset="/img/loading.gif" lazyload /></p></li>
-<li><p>计算雅克比矩阵</p></li>
-</ol>
-<p>根据机械臂末端位置与机械臂关节变量的关系求导得：</p>
-<p><span class="math display">\[
-\left\{\begin{array}{l}
-\dot{p}_{\mathrm{ex}}=-l_{1} s_{1} \dot{\theta}_{1}-l_{2}
-s_{12}\left(\dot{\theta}_{1}+\dot{\theta}_{2}\right)=-\left(l_{1}
-s_{1}+l_{2} s_{12}\right) \dot{\theta}_{1}-l_{2} s_{12} \dot{\theta}_{2}
-\\
-\dot{p}_{\mathrm{cy}}=l_{1} c_{1} \dot{\theta}_{1}+l_{2}
-c_{12}\left(\dot{\theta}_{1}+\dot{\theta}_{2}\right)=\left(l_{1}
-c_{1}+l_{2} c_{12}\right) \dot{\theta}_{1}+l_{2} c_{12} \dot{\theta}_{2}
-\\
-\end{array}\right.
-\]</span></p>
-<p>即:</p>
-<p><span class="math display">\[
-\left[\begin{array}{l}
-\dot{p}_{\mathrm{ex}} \\
-\dot{p}_{\mathrm{ey}}
-\end{array}\right]=\left[\begin{array}{cc}
--l_{1} s_{1}-l_{2} s_{12} &amp; -l_{2} s_{12} \\
-l_{1} c_{1}+l_{2} c_{12} &amp; l_{2} c_{12}
-\end{array}\right]\left[\begin{array}{l}
-\dot{\theta}_{1} \\
-\dot{\theta}_{2}
-\end{array}\right]
-\]</span></p>
-<p>其矩阵形式为：</p>
-<p><span class="math display">\[
-\dot{\boldsymbol{p}}_{\mathrm{e}}=\boldsymbol{J}_{v}(\boldsymbol{\Theta})
-\dot{\boldsymbol{\Theta}}
-\]</span></p>
-<p>此时, <span class="math inline">\(\boldsymbol{J}_{v}\)</span> 为
-<span class="math inline">\(2 \times 2\)</span> 的方阵:</p>
-<p><span class="math display">\[
-\boldsymbol{J}_{v}=\left[\begin{array}{cc}
--l_{1} s_{1}-l_{2} s_{12} &amp; -l_{2} s_{12} \\
-l_{1} c_{1}+l_{2} c_{12} &amp; l_{2} c_{12}
-\end{array}\right]
-\]</span></p>
-<p>二、给点D-H坐标系，填写D-H参数表。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220515131813671.png" srcset="/img/loading.gif" lazyload /></p>
-<p><span class="math display">\[
-\begin{array}{ccccc}
-\hline  \text { 连杆i } &amp; \theta_{i} &amp; \alpha_{i} &amp; a_{i}
-&amp; d_{i} \\
-\hline1 &amp; 0 &amp; -90^{\circ} &amp; 0 &amp; d_{1} \\
-2 &amp; 0 &amp; 0 &amp; a_{2} &amp; 0 \\
-  3 &amp; 0 &amp; 0 &amp; a_{3} &amp; 0\\
-  \hline
-\end{array}
-\]</span></p>
-
+              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="136bf4f58652e99c5238e365a7f453833b3ac956b523a0fa5bc52d41c6fb2884">786545e84501692c1080963bf451b3f69dd705f39c926779085b2f273176cdcdf451af237adf33265bd3eab4ed758400d31cfb6b400d50ebf0b1f9d7a9d05bd4ab5bd56d613d64a2a924038ffc1d9ffc2c4402136d556e2ed91b8bacc8c2cac9f218e91060bd4ee1744f4f2da80d044d0c0ccf3b45585357c66e88a8f9d31b49a1781532b2c770a33cec2065875bc35406dadc364c8fc7ef71aa25273208208dab1cbcd03fd44c92a1bf713775010608069398d2bb693110f5a72442bc02dfea0e0251264693c76aba60777ef839094909fad119c52c40e70911d4d6642e40fd1b7b2e65a70f8ea3b14f8ba82e30432e9265d93d3490ea447b79c986d6cedb075b2255ce72900a5ed588225080110f47660ebafe919f95d6ddae74faf71116d09e58d94fc7200aceaf7db12b0d3ac2b61bd9c4f72374a6a55258d8cc51034cd0c025a250b9214a3e9d800e56e89f68de780c2c6ccbc8a0137e3818aedcfed595d0771e7677f323d26e9fd74993a5c8fe990f952fe692e5b9b584f6c3a3dccb4c993826e14524e836d9f936ffee778dc1a09f2ed854549cc5defb6a5d3246c0752219595ae1a2716c900498c502321d33f1d64a4efff1a7e68a2abbef7e72261170f90089133f5c9aa99708ffb042e9ed252ae02b1ad712373192df5fc1fc90de9f4784dc9af8d46da8cb52860e147af44c18601804008f4b59304ca1ac18b3391fd5d3e9dc14de259dfe355c3b6faba314e366372c9a990dc0d72a445e6dfd1ce7566904545c7617298b7cc8ab0792205ae6e5db441761a6cda0712621d046387f1458d5afd6f490c6b4c3d5166545ed061486fb10b610470dc89da016abf2664397a8a6eadf710165070c8db2f0781803207cec54a7a36296a0dafcdd2a35f6dbd761b094353326b6669644920612e99fb926178bb93ae35835d14083abf0aa3c1bfaaac7b03ec4e453cf5709dc7e362f66efc527a031a290f073741b64b6179ef675685734d7d2a95cb7ea6db881ce717bcdc50b661068342e82d2797d53d7b9d797a5196b16433d197873573d7a75a982b07022b570a4dae57f7bd696e87b867374b7ef94d6fb6b87f29886d5d9ad4f37e4cb7c9d63ed38c6f030e0fd2f92dd49c2f2bcd23246402cb46c40c884327acbcb199277d93f7c9c5407d739f6bc993f72977ae8416d9acb8eba13e48a5aff95541bea30965daa0ab22c3207653572f07df3fa84624b0be0a2147cbbaaf45eeb82a7f52d615a1a936d82d12689f6b01f2f2dc4cfd1f7ae18c6ea073b31b26334907d3574f4d82da0bb2ee577e5c773bad81177fb9b753b400eae0985dc4a61387475ec1f1d87f78effa8f39a04f311164f912a7a2c0896fbe9f81cac01a0a7a69773a801dfbe1d50150517d85c13b5b42adccfad930e91b416666199b7809a10d3825b9c0e96ff99b5078a1d0dc11a878a32d9ba8c6422ea1196180da2726509ba2ff7bd61ec3233b2c912d9040703203f60922a354389b9a5dc454d664d34b3fca6d7e2b53d3922414cfed76ad38b556a0c0eee63f18013e38b10e9c754ae27debffea361212f4cd6923098a327bb01666a96d599ce049490a28d357183e8b362c813a5f17a885d951c3b1ec01c0e85680e2cd97b5ca1c9290cf88cdc0cb86784ec5b4afd23163268a13101fe646cb937ba678766f1a22502cb870deb9fae21cd5322b16345fbb429b1f19422330a17cbfd76bc2f4b00d190b32bec30f45defac2a26e790492a64fdd1de3970accbe3df05cf84aef74b3c97cc05ae74f3c68815e78192f7b512ccb0b3676f897b2d71e4c377654d3adb37a4f4e86a6f7699b5e52eccbedae17a0f82240f2ddba11559c09ca0f458b684bcff37d16a01de41b6d575819d14aeb56fa38dddc8574d6d0e22d330414b8f3e6575e5ec046b4d89221157ca8785f7e1dae0e45a1484b9759344a41338d9a4ecb057b431bfda0df200945beb57f9c2879ffd8eae9a9eec3f911f757ac870ed8dbc450389c22eabf9cd6c5101839d8a06203741068672a69ded28d2989f14bb17f602efaebc3258fa93107041bb68fa5ac443d1c1269f19da2d3c1a10433b2d2c82483c83073d5367bd2cbcf3100c2ca99bd459025a319fe23bc99439328d3c29bcbc774bfb75952944eeca20ebc970fdbcdcd78fda10e68f7e8182b27e44ce1d025f01b20d9d6f2fe7ed839d0be7694f4b91ed19cbddb8ccd30cb756e42a786d330224a2c69f0b627a280246aadd467907649b3154e83ec942987142dc34858467be81ead1570d71bae39e4e16995bc10d7daef2d993f520ab8d8b5ff54e3da12ca78e737cae32b47a5bb74b9878a1af721c27a3696e439f6b0f1fcf1f19020895629e3c00f1e1797407b18c74e36efc8006291a948f48d7e705a766e5be69fc27fff9a4e5829fccdc5db99f89bf115ebd536399d4b008fe418adacaa618039a2ea12217e1e35ef62a270b1238747d3e484edf25f071709bffbbd3f9c91fda12ba95ff937a5b5c63f2e160fb0512efbe59cf027cdead5e6d6138ff6edb086d969846afe9048f3533313bdbc7c1487dac5a9cc85f27f724af859121baafe0db55da15d880e622483223ffb177de08d08fa07dc37173ff78de17260af4509afac36217420b38ae7363d74abdd7c55a876fc32b76f3d98fc04c0f9260ad3c9fd417e2db8d8c37c609f1c8266368a7a49667c6bf733352aa5e75e5fb08860a7e84d878418a0b654313368d8a06772bf5f8e841a9a0e63dd587a819c9a00f72be7bcdb335786bbcc0385ca30e93efde0dc171171f729743d5cf07c5b6f287c1b85f723f07305cfc587c7f872be7fc45d46b156cfd7af4e8e9a1f8be7b5b17c16b77e555b7312235ad76a9f2d23edee1665fb471c1b8be1332a293cc6f25b24d7e144fbdcbd39752d459ffdeac7e4f07947965404874085eaf9e0c20e66d0fcaebcac031ae53b986df4f9f85263024d515c526be58cbff578f808655314ecf1a54282dd91ae0e2743802dbe31bb1585a6798a2c13775e1018e35feefe4cd6d4bc6096f37bcb87b801c659c1c625476d6c3848ba366e47a6d39b0d51f52a74828ffc47d4c9c884b4aef28245de708a65aa4e580990e7e9e8e83fe2b7af91ac4be2d1bc3842e8dd7d352a5cb84f89b53293fcb3bc5d502186e9d9743ff579cee8b814f085595aac3bcc2ae0ed54782ae9aa0962648f4fe472837d5083765cad3c3dce325b1450c77fcee5767230471c81c9855069e415aab9151236955c8431f860a1750088b9a2eb6d4a831d92da6444d3f2da10c26d60e8d3b9c99fa935ec54c4023a8a5526254408eec32f06e75ee4a507d5d5a8db2f5c4cd1a90290abc0bc8ad8f2493dbd1e594afd5044606ebd3ff3059ee3e866b8dbe7865b295b14a475c963d5818e639d09478118f45d3ec746bd9c018aa81a51b798f545f5262863cc35404ec431e4f63e9c0ddaa54a00a6f43c5a6e5e9bea8ac2bfe006cef912e1436dd21f62fd65e651275af98f99c7a9cbbd61075ec60c351e16e575b979a5078aa78224e47254ca23e700975affd7e7aef1e1f0b1b6fc5f42385c52f75994f89f717914980ab0476945773f97a808f0a0fbd898886e2937cad133daa9e1d32dddf4ebd309da301eb62baf7053bcce502f3564e9b6e22937013ec8d3eb1c5e532111c2f2ebfe45cef4e5215f86e8abe02ecd9afe2ec90e0d5677660c3ba085a8dc16e339cbb0e4051afea056caa265dc836af1cd2fe7ce07e4534da60e8833a9e2797365fc77c5ae30fda43afb0de956f258e0eb75097137f3f13c1c2396a4f849c20603ce497a9b2731412ba1553a0d750232530d0e1215e7315a46f5b072e64d743fb1e01b043b11a82e4c389fa722adb52b3114b55c2f1ab8ee230f89098434f0efece0686cf4988624d341a30f4605b56a59714b6fc6f9e1036359bc48c226524d68061f446523938638a38e32b682e9aad9f1837de50d5324d71d1b74c7729d7643e5b24085055347706b491dd94c3a80e457ce92d52478f788afd7afd6a59f045df80b287198d9a15d96772b3c6027dc5b03bb4cf9e6efd8413fa395d17076fc95c2684ecd180098a72cd0cb122da681bc7a1d6959b16a22bb68211d13bfb26a5ffb31ca733cc36c61d332771c82ecd4d3c61116ad3b598bf8f4a77cbd420c832d22f54a75690ed094dc6fce2b429c8471ca20da68d35ffad1ec29edc0e4173607efef80df0e18090de0f0a50d9358da75d9bd92efc8a2a3a5d0a88d21a59fb8006d2cef967a2eb6644feb410a187532703aad3d666caf73a78687e1db96dc13b8002763c94015007b7658e6e9d398937f21c25493eab89bb891a87308eda77c9b796f6f5767b52739c75c4561931d74a38cf5dbef83aca44dbedac511272f3a3b143ef4a854613313d244ac532f9a1c29d49960883a0bfb1d47f7c5cad0764006a0eb44ef6e00c493b8c9e3eb5a620d18e8e437aaa9c068e6b7509a56be3d79343a828b213c384ba617070bff6157b1145b35529051bcccb3cebad8221642045b298701ff87c21687e4b0d6b30b44ab3384ba97fbd1f928da021f00b094b989603e22db94dd4c5ce575c67f8a5d9a46b4f0a8071316b58ef8e07aeb6796d104b5fbd7c5771b9fc25c11cb9040dca93a852318fbb7ce73673efca11608431741b0ee05d276b41d6165b5e0cd6d4135cb7cc8e7b63a4edd4230dde55b8f0e09309dfaa64fc9867af9a630e7a033182c358a275b18f234d3a4292ecba8d245c90ce9c1e0426a4b1b302ebdffc0779f1583d911d8e1200ce60acaafcecad798c109ea850bdc9829985f764c11914398a8a198a30131e7ee7808f21cd29b8f5c220a93fef57a4f86d6bf08ebce92575cb7c47670daf31e6e9eddb4daa3a2ed676d96b33b6d077dcd2de28a7860cb7f1523de02c69079924e11e7962ee744e3f458a409d93d8d987f69214997c0994875190dc08d26c92334c00907beeba02669421698b4e748d0426a418a48b96644b88e1abf9288e9c9b9beeae052e006b86d7d31b64cbd58c915de0a5c22fd228be858f0996d580347120bcf298f8800c4d8e9ba00881be39ab17c9fbc0ab6957f45749a324fa1a48ac1e78c1c93874e393b8d2ec1a11bc98d26d30d1d07648b0aaeb5ed60394d3f2a336df78ef1c1f6139b911b81d2c998602667452d266b4f725f92b0ec21bdc021cd567979c13ddcfd08682dd1403edb8b7af631c8b8090a5fb274eff2e43bc62d898630dec2428d74bef004320b1899ab85430e92b717288d9107eb8122fba9d6eeef0499bc86daae360be4f01c8045166836fa567773742a3b67470731660614f86d1c6ae083bc0a11c8308eeadd789c45fc4c1ee30337b2e4a758be866c9b75bb63545e0564d6a05aae80971e9fd791bb5cce7399af609778afdd63e26083a3d8a358956f4ee6ce9764cc1fa94c5d6abdbf00bc0946bd56138c049c4f39f1fe21d6ff84ea5bf3348bdf4de1b7aa101e96ea59517e19dd71821b2bb30b2b926fa4373bfac1171b0f76152cfb92d660d836df91597c7daaca6f91aaa61f69aa0af13fd918365b4431aa1d94673ca829cca2a7bd4a713018c1385a031d32b4789e6a57e96573c1f788d9dec07820bbe30c859eae3f36ed9179290fcc4505a894c6490017f8b93d6e240a5ac2431a77dfb08af309a3d18315b688b5064edf9897bfc9a5104ac5d65d6e4d60d018ff78addf5689d8555007db4409ad697aca89620fe9ecc97f1b3a051962dea275fb7dc3a6a70d1dd2b54b1106578dac051210cc91b0eb541b4bd299dce96bc31ec6e9d198295cc3fff35aab95f0598cd88e8c88aee348d20473b61a1f452e769021f08129c5cbcc4365e0e3acb5edf82ae576c8403b488a52d1111036bed62bed56a62f3e54499161f642d5063156ede892fa59f82d8fc0781d1f930b8b07f157898eb5588cec5e8899d02c47476826c31019d71d20c8250467ec04ae4d21cc282afdec3dfdce6e64e8d8fedeb1d7f77e3a4f72230b141e54077e87da7512bf96da5c510465989f0d3e9d5ca30a2ef33e4fb5ac9ffb8884c5fd8ee7ba386fc48e320db5b2a404ebb19e396e8c3a86d43a256c2ec3598eb6fc2482b81ba29d5be761c36e4b49a9cb047355f9051ab7de4f7743266a84cb10eb70ef0af992d382d83f1a91253dd121fd6865591ea030fa1137b8581dce10262566bb4dc52482262285ba6e620f1b6582333365a363c64ede586e1baed5bbfbcd15b27ef3d450ba0a7f1e6d6d607d92b052eb5a6e8c07a31c83bcbbbd1cea370621d39757685ec93f606784ab0a6eabc50cb4cf2f5d9148a26b1bee4a4c90abebdc5811fa9874bbcf58a40d584f474fd68633ca745bc031b2f7913bf6c27015fd505339c10e8c9f69533d587cee97fdca741b209a380a99f45a3fc3465f7ebfc5cb5a78b9dbb070e94698207b14d01050f391484497a0b3e625ac81e115c0cfa372cf88281e3931652cacc9d614f3c8bdc24fc352325c8810ff42a02a6b06f4aed2c7d6db37254a177899cec1827547da17435a1cb56557365680b87108cb80784795f9899ce0edf0f515ee9eff9effe37d0dbf01a30a2d7055c33088bca870a61f20e0628f8d9ba58959292b377c59867f7841654350bc377979bcc04022516a505f602db11f703b19aca4810714d526cb8dfec3fe6b2e88d9315579eb636d2107f2e08a6f0d9e30aa448f8bc85e90aca71194f67b00e9be1d1264a54f37245354cc70d5acc0a18cd079815e67bd9c9fd0eedfbb5d13610fcdd70ce60838ca5afdb7b55c57308d43ebb6f1d0f052f0e0c3d2c884c79b1685dc05f910116d0036c4bcb67dfa8fff885425cafbc0f24ceebfd22ea69398a0b6ee33d8223864d8bcddf605bf8653e007665950c1d37bdc5dbc9ca92bc60343d1620d7b38249e5306bd1909a03f5d215eea8566248477a467dd872b1bbe1bae85e44d0abbbd98d0bbc44d6135b54c0961a9c4b968c4fbda311e6324323e3e41d980a5528c3daaa479330ba3b13bfd82977d634b1b2afb4413aa6b5477bffeb6f11a80103440ee91a743f211488b685a67b2d828bb7f05e426f3c20c5df00deb3b72027830da1f62163fa837be32c80e195edfa9f704ba485276376d467d503a8ea02b71de3fb7b868910eaed815ca0ad1761964539d18b03ff46400ea5ed6669f3aa0f2f651cbdebde6ad65e3ffd660439b9e8533afaece675e8eb5d37cc1f479fa72a0fa1bff28f8c589790db68e782c88982ac8dfa147b9c069341be2ac38bc88f413515e6e7d7912b9f51495ad8c91ce16d49f68019a5a6a38ee28ae803a12ccfa9ff71f30415c4cc7e43d425490c0a8889afe0f60bd196a1adbf55b00553ca77d24df54f6bac02f5258295f9d21ee32e5352f94ad0b3d47f3067059250518d6f064f2c1bd8caa09f254986932a93556c65fd28bc55ac2d7f021b7ecfd90bd2d5edc3b14e4b8a24759eb2a0b4496465538ed59e49eda51da6248664dcb7f0a5797a65a5e6bbb347f74f7e4175a5cf98d2edab3f454fa5f4b512e86b7498c111e6bbb1684a0a680eb39eb9bd357dd1223c30e45c18951dda90f759c712708e3901914bcf0976e55ee402d52d9c728b412632f1043bef9a78204661b69ca257b88020c90e1453c21ee3d8030be147f5a80e0999ec61c526ef9c0c72d6ed83d990b5460fbd3908d63753733b3dee7d65afd0cf1e52f2d98608bce0b7ef6bcd7fcdb6dc0cdfb17c01410f06f454be3528477eeadc938caacd41d32ddddedfa674cff3a1d85da8d7402da86743a333d3cbb5f826bae06ae18cfbf68d6a9f8d84b22e75cd336be9b995df6ba591de542d14a6ca1025613af6508c6323f545d08ab571ae31cde8555ead5717e64bdae52fbfb718f3dd1bb919ef699e45bea74ed17302985793a52d3f097b46751f7c418a172802ec85eb037b3dab179773829088b62174216a5cc08ae7efe1719f70d1097ed0cfddbfb958378447de87c2d49de2a14c150643feb7f1fb181f6afec18f6d1ae7eed40bf0d0539dac498c592810e5e4c11ffcd16de679014c2473fe4920c469023c63fdaa0b00b10b4eac9a82d23e14171e44ec880074c32f63a5e8df59503e9c35bf5d8e82d397bc992ac63c89e661173acd563a2a04b6e46bc44bdaa356498efb96a6e3688d96cc516b7ec2c6eef1fa2d51e043f8935da4d90fa81ce42f7455abf1d82c40c9aad1306565ae58b56a36c60e97a374482f31b4f9c3d93f67a10c9b6ff0652fa42fab9829644f812e67be549acc239c64e29826bb5980af22bb58a0259ebf004fc165e106d33b7cfb95a731d1c7e15d5b504ed2f39c55e3e1287335b3d2d72a2e615d9944cce508cfc73ca55a141dddc43a62995724075abbe0ef08a0eeaf89767fb0e7a857be1950d0ebc2120ad05814dd8d167950c1591dce22f498dc45061d1ac073ed111a2e7076fc9defe3a4f47b4f35dc2642e1e72b5fe7df0b5c9db49b9f52262fb826c7a3765c12a51bba8e363a967cddfbe4a7eada8b80a8f18440e347f46f316a1a6a2792aa6f2b1dca6fcca004230e602b245d4dc78570d9770c2b738edd92b7361a03decad629537005bd771c6ed6b9402a86a959fa014d0d990ad77388b02b605a034531d95f7c01917f700d4b9aaccd87b6894223ea3aea7092b610905033efbc0544fef21c777919d2bb5593b7f2133ee8c8826959bd3e319a4db90d6e56b27b8ecbc87c270af721988ff82b95522c0014a4b61b0c3423d460107e72d25688b7535f39e2251c5ac1c2a6445f1449d99c34af817038c7f0cbeb511f85e36deb82d010cf81697f27b12f0a452d4e211ab6646eeede5e16a023445726a82bd6674824a170c6bd4c36e46ddb8695b2b23e91143f381a6b68a94f6a8291f7be566c6c6e4fece60112ef76daf8fc5c1a92cba82710da4424062a763eb75bfa441817d7f67961656f3c336d8d7dfffbee7336614ded67b8d50d1ddf48fffd0bf32b07f22042c952e42b00a1b94db8d0e1b7bb4edc0df95cb399b8addeea10b5368572868de3345136f7c120491250d8a0891fc24f0a94f18b845866987e6523d8516d1be7d532d846713fb3977939e6e99d3a639b2f8a5e96bae363913d736368eea51ae83c4c62e3127bf452b18914f307bf4b5a93af188c590624f8cfe9580dc7e9ffe6a3bda5cf3de546551d8a724d59e7384d4119daf973fb6fecb4386ca91edc95281c2665d80182c807ffaea6267e2bee21bbc3fff0a1688cb3f3fa57d64c9fc478ab007477b831f8193ae7460371b04cb392e483f14f5a6106c443ebfe67759d2db067c549d07677b408bf47a60cc4a98c60ec628b8fbd66691d7fee683814f2b53b3b3ea0f301c94ed188635ca4b9d322749ae35320ff626cb3b504767eb0f670725fb30655581f919002374f04fe61ce6f174574713ad779633439f09fd5a7f9dadeb6936615ac8d7c5e546f386ebc2b2d8e27f7b144d34ade3b19a8bfbdf08ff69ea4ac0dd0c693759d2e9d25c5bb33296bc07b643db24b5c2bccc9ad0f634b87fa653e0e23cc49a2243bb9b4eedbe36eb939567f5e8547a8b451ad36cb60346908dd3f759e6e233b09d023df90c27dbdcb459df2911e8179cb882372854432a4e543e200c8ad1a5e95b8b5895374907f22272813c2e6fffc8eb5a9d2abf3e7a442b6c8f2316ddcf2d3d03ebc2a5ed00248f3cb5514876f348b590b892fb8b78f331a2a1855886029d156cc9ba672c6af037be3558e33d3d1e4a55aa46a6a90a7830415adcf1cba6eec50cfffaafd8c19af18ec90c7ca7d78a07cef9f0b21b4fc8a72ab88e8cc95e901bf6b2d05bf0ce362683a840c1fc79c641b9fdfc034a07998c572e5ac09f200c7f8a666b6fdc72da4d0ceaecf9eb7f3641bad4dd9f2ba1ef08d4f79460400ff45f7e5272760b8bf8321d9a131d298210b683aae55f54de1440348d31673bcc3eb5280cdde5cdf6c40ac5da40432f2a65f11f12d792bf9126ee41f59330251357082fd056e62518b7a2fe60cf2f8bedbd4253a4a6cac0f4900e43cfa53aae974dd304952922943cb8eb2d67d0ae69fb2ad8eb270d1f081d3fb55cf346b5291fb32d074e8543b0a4c3afe4fb1bec0de8ad3dc8c2153afca4cc58238952e467526ca61224efc097de00ef8cbc2bc13f5277c994e82f488eb6d465642f75fa5cf623a600b23aa1eddc3d63121d8c969bed460b003c85b34c6fbe52b09e0856f4f49627910d716b37ffeb00ed36afb3ad990735863b07f24bdaf3571fcde3494d7785a10a3620614e9b47fe8a4a63f5678d209a13ba08ef7168586b0bbf9a0a296259efab177513d3d72dceea0882d2a66e4f5edc414d77c4bb7173230163fb6c13303ced764314c6714b7284f59b307d1ef3122f4e9385d124a82f7b62791e62a690bcdb751ee340a7a21a172f9fc7583569b7925abf60b70a0d7b100e4f03df52535233a19deb6ed65c5904587f7957e99a69e63c54ea72684439fa4edadf57f7db4b5ea4068f3970c2baf768a9e07960c4967234131bad65933c17ff517e456876e4d5bba5bcd37252afee68b920e0770b583727b46231e40a4973112c73870daeb799e691d93353b85dfddf179e1fa8857341dc332ef85c773451ef83ee70a7f1a3dfe455fad227ec0153a2b52ca0ed6ffa0421acd0bb0d3a8d97a68a620bbc96ae6747891876be8d5b559e40251fa06e823e1729a8f0d84a7adee18c998566a873a1a549d9030493e79810a21d396ffbdf6063c5be8402c618c7eecd687de7d80b8a6b7f2ef5eb2859a1bb8a9000af0a581e79e4252b5b4b822c060e9b049213be0187776ea872206ef3363ef174f1f160fe6c95f14c1466603d620c37268c151d185307d4c08fa91843e1c29980c8301e4dc6a363c2ee550df32477f13e4150f3f859c4a2e18d950113e7ced811c7b7ffa7ae0ff23aa3b5d48de2b176d35f0bc8817098a6ce73b99c014d125081479e61c83f890555998a9d3763666ad1ffbdd2d66398fe216c33334c0fb35b1a2f45eb7c2ca10ce3eefc3ec0b0985ca3b0da903ee6a279101276830d198838d327db58953cb11488b7440c1d8f3e981d52f2af8c40ae44b0bd7c1ab96824a6c87639c10b978871c1126a39856a24d1c75d07de1a853820f64c2c4a5bb9ca44a8654498eee116b29c881121888e24e92034438c7d9ba42e88a01a4ef5e995360782157130c78972c140bc228486b9a0b2e3140aa4d8219a6b1afbe2dfa071655e0183f5f8acc023db9e6f0aaca9404bd65fbe0a86de82cb466cfd091eab6cf5fd569017b1c95a974eae3013c10ea92d8329ac173535e371d4fd86138fdd7d5d2f0331e0bfb1238d8d7b1cb4cc685845eaffed1f983ac30a423604b1b4e74bbc5c85a4f0d29a3a2a3dee47ddd868bbc2e1699e5fb831e79ec388a9d02a3c13bf64ab091ef758e1ce14139fec82c1be7905188db8ff4340085ccfbbdef95ccbf1d0d64d90fb785050f8d129fec634ec72e00a91991c09f102943779bfc5803bab6bb8c21556d164e05374aed98cd47585f2414b20ff8104efe873639384bd0c46b429b4ba45381fae89b6668b885481342cfbbd346db5a437a508bfb3476785dd1ec009d7055f415b36cb02dbe5ec730a5ca8f634f334ec6f008781a4c1b2901de79061e3661b187787e334e752548ccece5fdcd930751357ba75c3979972ac7532df3709d661c88c8b7df3af683421ffec140e924de7989bc64eacfb8eb32c9ea7c96369b2d2979bffa606837995cfae23086fc95b3098c1ab6fba7a6abe2d7ca89d75bcce642f04cfea96e85f0ff8491b9d3775f8d62b31c533827033c4eb2606d87685ae0fc438b33dfb8380fe2c716cef8d95013d55bcd20b012b4549641b9bbd889cd8f194459278cd58a6801a75c57cb6514c73595007a78d68db2d7858a510b19ee3201fddcdc0f6591e9edd4c10fb24d470da77d0b305d6567f520e28a0b21d5cac9f23ec0003a8dfcd48bbbc8161dfdc56589c72219792321e2fbed85318b704e87e9859f5ab3ef24e9c34908de2ce3e52dfda7997a6a673e7e7ae067bfaf6293bf91ac7522b84615a8c1f0f563afc3aedb54b8093d43d9cad6862ca5df082433ca30605c734153acd2509184347c5d02707aed2357922f64e03e8fc2e9823ed21fd646cd69c313e442c0902650dcc28a1b4d01d0fd0d86e24354f0c3a39b29405f6369702964c9d7825d4bc38ab7347eff25eaaabd43b98bdcf8f5410fd06f9d3d85c3b9dd6ffa6e80f1f4a06312f9fb93096f9d380672fb01349fcd20bd1d85f5c7fd41c6c467b2601f1c62f755a055a831310284ed35a3dcb1c338aba914b1f9abbe83fb7a9a0b1b34f165abfd64c7eb3e4fef982cb5dbab0777f4f8c18d4761f58c4ecaf30555af50225f362d0fc9b345706ed7931504e397d3084e6abf9469d4525daa111d7b503c20919a2cccfd00423df0687259f519aee9b02cc7abc7d43620e7bca3601256aad2108c833a7e060a4df171deb28da402c8b8f3a0c5f7bc06c09c7a161ed96f3da9c9c2842e7890bafd93ac847511a6c6b52afee0a8a6c7e284a2e4fe1ed93c7c11c5a04bd3fbfd134393cf9fe672b868c0c2174353aa61de140dbad123b85362d9fbfddb54135287f92171a69a38a502c7302ef86b080d610ace447c8e332f88648cbdd17bb691bc399712bcf3af8cf14528e49ddb053761555e25e2518078809774d3d06703263d157520cacb513c6dbe406c13c0687c56e003259d27bd3e51b892a78253d6ae30c25ff36abb18d6206d1583ca170f2d166644a6fc189d7f75496b33bbec35b85d697a7946bbbfacc9454cec8faaca470d67a2d31317e84bdba9ebc78707ddcc377b38973a5c70ea1c2cb00731cd157a0e9ae82bc792873b5d84af2723a9e63b9c7fdb119847c362d3603a22c0e10c7ba42c8894a4af943ef443a466c9f8952d071775b97064e19c96e9ec7f77599f6e1587f37aff72c166b9e8b314c4212071eb938c2217f5ed7cf329a624e83b333e5b2bae4a917bbdf1a4aed4d5f1cb775718a7d06dc1537cd59fcea73b38ae759a71565c9ab328c08623110284b9396e0328c506ab4a1140551c13b6f891cf5df2f5207c28e710f188a2532a702a94e608ef6cdb9685ca5b117412947a7471a7a0ed3f2e0b43090f200204a222cc67310b4220e0bf2f11f2f573b5106d762758e1b6cefb37e7e60b10fdc63740a261d1eeab0ce820e9e78b3fa4efcd9e59257e4237d66530d7542353a63b3570f87c165e26d4905471aea29c7046ad400ecdf5eb14f742bd9948bbbcf7126ff3561a06594d2c94ebfbaae4240f595bd498ab5757f34339048a6b9ecdc6cf35999ca71a2bc8589aea7c233602234df58cafaa254bbd156b6f0d4e0ff8fd6bffb1f9c904b64165681996c3a230eb3e3719b9099ea1900ac009305b4cb85319b5e2d049d7cd6544b43fb96986711106b42d568df7fb52599621fe0c6fafecb1d664cd66d3a57f7c2e690a5196bf908bd6f63159a8c25b04463ee15bd78927878bb6583841f1bc2799c1573513143f0ecb03406c23f95f5824596b214b89898e30d673111cd51b8a77d609db476f3d9396f7a7049e9c522a0d7ec9cbb2acc63095005ca85cc8b64efe875cff770223f128d504259ab6c2425bfe6735688f5d9373ae9f9ee0bdb5d5b8a938de0ca13f73ceefdbf66dfcf05d6bbc57dd90752c3880fac0b322380f37c9e659426803e1dcd2dddf9990b2f959e6a274027ad6982ed03b2326fc060067733846f3026e2e531fd77a293d842d862a6b8261ed41de6b224461930335a486f86275ae37de844c8b8e1c5195fb6e7c1cdb20daa223a95730ffacfba36f949ef9596984cb134916c601a74f35e446c01cd45b83ff7bc15b1fca9c3abada36e418613d35a59e45223716c94d9ed557b3846bed48221b376f0b6a8179ba1c9f5ac754d27683d12421fd530d38e0d63b879a319b70802a888cc9a896095f548393f1caf32d825a8ca0ce50ad471f3698ecdff14df734e391232cff9fcf927022f45cac695c02eb6a5b0ec834ee8fe8cb8aac947c427c2297e69aecae0b19c794217e79b03378884d1162f059f2c1506b37deee22bf3e98bf2d5996bd</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">您好, 这里需要密码.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
             </div>
             <hr>
             <div>
