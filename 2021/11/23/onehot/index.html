@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20190514150006715.jpg">
 <meta property="article:published_time" content="2021-11-23T11:41:34.000Z">
-<meta property="article:modified_time" content="2022-04-21T05:30:56.887Z">
+<meta property="article:modified_time" content="2022-05-16T02:13:00.514Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -262,7 +262,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年4月21日 下午
+                  本文最后更新于：2022年5月16日 上午
                 
               </p>
             
@@ -292,12 +292,8 @@ encoding译名有独热编码以及一位有效编码。</p>
 </ul>
 <p>对于某一个样本，如["male"，"US"，"Internet
 Explorer"]，我们需要将这个分类值的特征数字化，最直接的方法，我们可以采用序列化的方式：[0,1,3]。但是这样的特征处理并不能直接放入机器学习算法中。</p>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20190514150006715.jpg" srcset="/img/loading.gif" lazyload
-alt="img" />
-<figcaption aria-hidden="true">img</figcaption>
-</figure>
+<p><img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20190514150006715.jpg" srcset="/img/loading.gif" lazyload /></p>
 <h1 id="二one-hot-encoding的处理方法">二、One-Hot
 Encoding的处理方法</h1>
 <p>One-Hot 编码是分类变量作为二进制向量的表示。</p>
@@ -305,18 +301,10 @@ Encoding的处理方法</h1>
 <li>将分类值映射到整数值。</li>
 <li>每个整数值被表示为二进制向量，除了整数的索引之外，它都是零值，它被标记为1。</li>
 </ol>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195029323.png" srcset="/img/loading.gif" lazyload
-alt="image-20211123195029323" />
-<figcaption aria-hidden="true">image-20211123195029323</figcaption>
-</figure>
-<figure>
-<img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195041636.png" srcset="/img/loading.gif" lazyload
-alt="image-20211123195041636" />
-<figcaption aria-hidden="true">image-20211123195041636</figcaption>
-</figure>
+<p><img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195029323.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211123195041636.png" srcset="/img/loading.gif" lazyload /></p>
 <p>对于上述的问题，性别的属性是二维的，同理，地区是三维的，浏览器则是四维的，这样，我们可以采用One-Hot编码的方式对上述的样本“["male"，"US"，"Internet
 Explorer"]”编码，“male”则对应着[1，0]，同理“US”对应着[0，1，0]，“Internet
 Explorer”对应着[0，0，0，1]。</p>
