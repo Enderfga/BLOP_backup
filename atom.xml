@@ -6,7 +6,7 @@
   <link href="http://enderfga.cn/atom.xml" rel="self"/>
   
   <link href="http://enderfga.cn/"/>
-  <updated>2022-05-16T05:26:18.491Z</updated>
+  <updated>2022-05-17T00:03:21.165Z</updated>
   <id>http://enderfga.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>可靠数据传输原理</title>
+    <link href="http://enderfga.cn/2022/05/17/net5/"/>
+    <id>http://enderfga.cn/2022/05/17/net5/</id>
+    <published>2022-05-16T23:52:24.000Z</published>
+    <updated>2022-05-17T00:03:21.165Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>第三章运输层之可靠数据传输原理</p><p><imgsrc="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20220517080217.png" /></p><span id="more"></span><embed src="./ARQ.pdf" width="100%" height="750" type="application/pdf">]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;第三章运输层之可靠数据传输原理&lt;/p&gt;
+&lt;p&gt;&lt;img
+src=&quot;https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20220517080217.png&quot; /&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="计算机网络" scheme="http://enderfga.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>2R机械臂五次多项式轨迹规划</title>
@@ -380,25 +401,6 @@ src=&quot;https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-202204280
     
     
     <category term="机器人" scheme="http://enderfga.cn/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库原理 Exercises 1</title>
-    <link href="http://enderfga.cn/2022/03/17/data1/"/>
-    <id>http://enderfga.cn/2022/03/17/data1/</id>
-    <published>2022-03-17T15:46:56.000Z</published>
-    <updated>2022-05-16T02:13:00.531Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Database System Concepts Exercises of Chapter 2</p><span id="more"></span><p><imgsrc="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/photo-1613068687893-5e85b4638b56" /></p><h1 id="database-system-concepts-exercises-of-chapter-2">Database SystemConcepts Exercises of Chapter 2</h1><p><strong>Exercise 2.1</strong> Consider the relational database ofFigure 2.14,</p><p>Employee( person_name, street, city) Works (person_name,company_name, salary) Company(company_name, city) <strong>Figure2.14</strong></p><p>What are the appropriate primary keys?</p><p><strong>My answer:</strong></p><p><span class="math inline">\(employee (\underline{person-name},street, city)\)</span></p><p>$works (, company-name, salary) $</p><p><span class="math inline">\(company (\underline{company-name},city)\)</span></p><p><strong>Exercise</strong> <strong>2.7</strong> Consider therelational database of Figure 2.14. Given an expression in therelational algebra to express each of the following queries:</p><p>a.Find the names of all employees who live in city “Miami”</p><p>b.Find the names of all employees whose salary is greater than$100,000.</p><p>c.Find the names of all employees who live in “Miami” and whosesalary is greater than $100,000.</p><p><strong>My answer:</strong></p><p><imgsrc="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220318132151932.png" /></p><p><strong>Exercise</strong> <strong>2.9</strong> Consider the bankdatabase of Figure 2.15.</p><p>branch(branch_name, branch_city, assets) customer(customer_name,customer_street, customer_city) loan(loan_number, branch_name, amount)borrower(customer_name, loan_number) account(account_number,loan_number) depositor(customer_name, account_number) <strong>Figure2.15</strong></p><ol type="a"><li><p>What are the appropriate primary keys?</p></li><li><p>Given your choice of primary keys, identify appropriate foreignkeys. Assume that branch names and customer names uniquely identifybranches and customers, but loans and accounts can be associated withmore than one customer.</p></li></ol><p><strong>My answer:</strong></p><p>The primary keys are marked with an <spanclass="math inline">\(\underline{underline}\)</span>, and the foreignkeys are marked with a <spanclass="math inline">\(\overline{overline}\)</span>.</p><p><span class="math inline">\(branch(\underline{branch-name},branch-city, assets)\)</span></p><p><span class="math inline">\(customer(\underline{customer-name},customer-street, customer-city)\)</span></p><p><span class="math inline">\(loan(\underline{loan-number},\overline{branch-name}, amount)\)</span></p><p><spanclass="math inline">\(borrower(\overline{\underline{customer-name}},\overline{loan-number})\)</span></p><p><span class="math inline">\(account(\underline{account-number},loan-number)\)</span></p><p><spanclass="math inline">\(depositor(\overline{\underline{customer-name}},\overline{account-number})\)</span></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Database System Concepts Exercises of Chapter 2&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="数据库" scheme="http://enderfga.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
   </entry>
   
