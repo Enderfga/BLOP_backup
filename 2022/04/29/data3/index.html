@@ -269,8 +269,15 @@
             <div class="markdown-body">
               <p>Database System Concepts Exercises of Chapter 5&amp;6</p>
 <span id="more"></span>
-<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220429003143556.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h1 id="Database-System-Concepts-Exercises-of-Chapter-5-amp-6"><a href="#Database-System-Concepts-Exercises-of-Chapter-5-amp-6" class="headerlink" title="Database System Concepts Exercises of Chapter 5&amp;6"></a>Database System Concepts Exercises of Chapter 5&amp;6</h1><p><strong>Exercise 5.8</strong> Consider the bank database of Figure <strong>5.25</strong>. Write an sQL trigger to carryout the following action: On <strong>delete</strong> of an account, for each owner of theaccount, check if the owner has any remaining accounts, and if she doesnot, delete her from the <em>depositor</em> relation.</p>
+<p><img
+src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220429003143556.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="database-system-concepts-exercises-of-chapter-56">Database
+System Concepts Exercises of Chapter 5&amp;6</h1>
+<p><strong>Exercise 5.8</strong> Consider the bank database of Figure
+<strong>5.25</strong>. Write an sQL trigger to carryout the following
+action: On <strong>delete</strong> of an account, for each owner of
+theaccount, check if the owner has any remaining accounts, and if she
+doesnot, delete her from the <em>depositor</em> relation.</p>
 <p>branch(branch_name, branch_city, assets)</p>
 <p>customer ( customer_name, customer_street, customer_city )</p>
 <p>loan( loan_number, branch_name, amount)</p>
@@ -287,9 +294,18 @@ referencing old <span class="token keyword">row</span> <span class="token keywor
    <span class="token punctuation">(</span> <span class="token keyword">select</span> customer_name <span class="token keyword">from</span> depositor 
     <span class="token keyword">where</span> account_number <span class="token operator">&lt;></span> orow<span class="token punctuation">.</span>account_number <span class="token punctuation">)</span> 
 <span class="token keyword">end</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<p><strong>Exercise</strong> <strong>5.15</strong> Consider an employee database with two relations<br>employee ($\underline{employee_name}$, street, city)<br>works ($\underline{employee_name}$, company_name, salary)<br>where the primary keys are underlined. Write a query to find companies whose employees earn a higher salary, on average, than the average salary at “First Bank Corporation”.<br>a. Using SQL functions as appropriate.<br>b. Without using SQL functions.</p>
+<p><strong>Exercise</strong> <strong>5.15</strong> Consider an employee
+database with two relations employee (<span
+class="math inline">\(\underline{employee\_name}\)</span>, street, city)
+works (<span class="math inline">\(\underline{employee\_name}\)</span>,
+company_name, salary) where the primary keys are underlined. Write a
+query to find companies whose employees earn a higher salary, on
+average, than the average salary at "First Bank Corporation". a. Using
+SQL functions as appropriate. b. Without using SQL functions.</p>
 <p><strong>My answer:</strong></p>
-<p>a)</p>
+<ol type="a">
+<li></li>
+</ol>
 <div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">create</span> <span class="token keyword">function</span> avg_salary<span class="token punctuation">(</span>cname <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">return</span> <span class="token keyword">integer</span>
      <span class="token keyword">declare</span> result <span class="token keyword">integer</span><span class="token punctuation">;</span>
@@ -301,17 +317,27 @@ referencing old <span class="token keyword">row</span> <span class="token keywor
 <span class="token keyword">select</span> company_name
 <span class="token keyword">from</span> works
 <span class="token keyword">where</span> avg_salary<span class="token punctuation">(</span>company_name<span class="token punctuation">)</span> <span class="token operator">></span> avg_salary<span class="token punctuation">(</span>“<span class="token keyword">First</span> Bank Corporation”<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<p>b)</p>
+<ol start="2" type="a">
+<li></li>
+</ol>
 <div class="code-wrapper"><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql"><span class="token keyword">select</span> company_name
 <span class="token keyword">from</span> works
 <span class="token keyword">group</span> <span class="token keyword">by</span> company_name
 <span class="token keyword">having</span> <span class="token function">avg</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token function">avg</span><span class="token punctuation">(</span>salary<span class="token punctuation">)</span>
 								<span class="token keyword">from</span> works
 <span class="token keyword">where</span> company_name<span class="token operator">=</span>”<span class="token keyword">First</span> Bank Corporation”<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<hr>
-<p><strong>Exercise 6.1</strong> Write the following queries in relational algebra, using the university schema.<br> <strong>a</strong>. Find the titles of courses in the Comp. Sci. department that have 3 credits.<br> <strong>b</strong>. Find the IDs of all students who were taught by an instructor named Einstein; make sure there are no duplicates in the result.<br> <strong>c</strong>. Find the highest salary of any instructor.<br> <strong>d</strong>. Find all instructors earning the highest salary (there may be more than one with the same salary).</p>
+<hr />
+<p><strong>Exercise 6.1</strong> Write the following queries in
+relational algebra, using the university schema. <strong>a</strong>.
+Find the titles of courses in the Comp. Sci. department that have 3
+credits. <strong>b</strong>. Find the IDs of all students who were
+taught by an instructor named Einstein; make sure there are no
+duplicates in the result. <strong>c</strong>. Find the highest salary of
+any instructor. <strong>d</strong>. Find all instructors earning the
+highest salary (there may be more than one with the same salary).</p>
 <p><strong>My answer:</strong></p>
-<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220429003507835.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220429003507835.png" srcset="/img/loading.gif" lazyload /></p>
 
             </div>
             <hr>
