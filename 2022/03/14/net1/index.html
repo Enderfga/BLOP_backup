@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="Enderfga&#39;Blog">
 <meta property="og:description" content="第一章计算机网络和因特网小结">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220314222941459.png">
+<meta property="og:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220314222941459.png">
 <meta property="article:published_time" content="2022-03-14T14:40:45.000Z">
-<meta property="article:modified_time" content="2022-05-16T02:13:00.515Z">
+<meta property="article:modified_time" content="2022-05-28T16:35:37.075Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="计算机网络">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220314222941459.png">
+<meta name="twitter:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220314222941459.png">
   
   
   <title>计算机网络和因特网 - Enderfga&#39;Blog</title>
@@ -262,19 +262,16 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年5月16日 上午
+                  本文最后更新于：2022年5月29日 凌晨
                 
               </p>
             
             <div class="markdown-body">
               <p>第一章计算机网络和因特网小结</p>
 <span id="more"></span>
-<h2
-id="简述面向连接和无连接两种服务的特点">1.<strong>简述面向连接和无连接两种服务的特点。</strong></h2>
-<p>面向连接服务：质量可靠，确保从发送方发出的数据最终按顺序完整地交付给接收方。</p>
+<h2 id="1-简述面向连接和无连接两种服务的特点。"><a href="#1-简述面向连接和无连接两种服务的特点。" class="headerlink" title="1.简述面向连接和无连接两种服务的特点。"></a>1.<strong>简述面向连接和无连接两种服务的特点。</strong></h2><p>面向连接服务：质量可靠，确保从发送方发出的数据最终按顺序完整地交付给接收方。</p>
 <p>无连接服务：质量不可靠，不能对最终交付作任何保证。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220313164646441.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220313164646441.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>面向连接服务</strong>(connection-oriented)</p>
 <p>面向连接服务具有<strong>可靠的数据传送，流控制，拥塞控制</strong>三个特性。</p>
 <p>特点：</p>
@@ -282,55 +279,39 @@ src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220313164646
 <p>2、数据传输过程中，各分组不需要携带目的地址。</p>
 <p>面向连接数据传输的收发数据顺序不变，因此传输的可靠性好，但协议复杂，通信效率不高。</p>
 <p><strong>无连接服务</strong>(connectionless)</p>
-<p>两个实体之间的通信<strong>不需要先建立好连接</strong>。是一种不可靠的服务。这种服务常被描述为“尽最大努力交付”(best
-effort delivery)或“尽力而为”。</p>
+<p>两个实体之间的通信<strong>不需要先建立好连接</strong>。是一种不可靠的服务。这种服务常被描述为“尽最大努力交付”(best effort delivery)或“尽力而为”。</p>
 <p>特点：</p>
 <p>1、数据传输过程中，每个分组都携带完整的目的地址，各分组在系统中是独立传送的。因此，无连接中的数据传输过程不需要经过3个过程；</p>
 <p>2、由于无连接发送的不同的分组，可能经历不同路径到目的主机，所以先发送的不一定先到，因此无连接的数据分组传输过程中，目的主机接收的数据分组可能出现乱序、重复与丢失的现象。</p>
 <p>无连接的可靠性不是很好，但因其省去许多保征机制，因此通信协议相对简单，通信效率较高。</p>
-<h2
-id="什么是多路复用常分为哪两种类型">2.<strong>什么是多路复用？常分为哪两种类型。</strong></h2>
-<p>多路复用是指在一条传输链路上同时建立多条连接，分别传输数据。</p>
+<h2 id="2-什么是多路复用？常分为哪两种类型。"><a href="#2-什么是多路复用？常分为哪两种类型。" class="headerlink" title="2.什么是多路复用？常分为哪两种类型。"></a>2.<strong>什么是多路复用？常分为哪两种类型。</strong></h2><p>多路复用是指在一条传输链路上同时建立多条连接，分别传输数据。</p>
 <p>常分为以下两种类型：</p>
-<p><strong>频分多路复用FDM(frequency-division
-multiplexing)</strong>：链路的频谱由跨越链路创建的连接所共享，按频率划分若干频段，每个频段专用于一个连接。</p>
-<p><strong>时分多路复用TDM (time-division multiplexing)</strong>
-：时间划分为固定区间的帧，每帧再划分为固定数量的时隙，每一个时隙专用于一个连接，用于传输数据。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220314223649714.png" srcset="/img/loading.gif" lazyload /></p>
-<h2
-id="简述电路交换和分组交换特点及工作过程">3.<strong>简述电路交换和分组交换特点及工作过程。</strong></h2>
-<p><strong>特点：</strong></p>
-<ol type="1">
-<li><strong>电路交换 (circuit switching)</strong>
-预留端到端资源：端系统之间通信路径上所需要的资源
-(缓存，链路带宽)，建立连接； 发送方以恒定速率向接收方传送数据。
-如，电话网络。</li>
-<li><strong>分组交换(packet switching)</strong> 不需要资源预留；
-按需使用资源，可能要排队等待，同时有其它分组发送。 如，因特网。</li>
+<p><strong>频分多路复用FDM(frequency-division multiplexing)</strong>：链路的频谱由跨越链路创建的连接所共享，按频率划分若干频段，每个频段专用于一个连接。</p>
+<p><strong>时分多路复用TDM (time-division multiplexing)</strong> ：时间划分为固定区间的帧，每帧再划分为固定数量的时隙，每一个时隙专用于一个连接，用于传输数据。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220314223649714.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="3-简述电路交换和分组交换特点及工作过程。"><a href="#3-简述电路交换和分组交换特点及工作过程。" class="headerlink" title="3.简述电路交换和分组交换特点及工作过程。"></a>3.<strong>简述电路交换和分组交换特点及工作过程。</strong></h2><p><strong>特点：</strong></p>
+<ol>
+<li><strong>电路交换 (circuit switching)</strong><br>预留端到端资源：端系统之间通信路径上所需要的资源 (缓存，链路带宽)，建立连接；<br>发送方以恒定速率向接收方传送数据。<br>如，电话网络。</li>
+<li><strong>分组交换(packet switching)</strong><br>不需要资源预留；<br>按需使用资源，可能要排队等待，同时有其它分组发送。<br>如，因特网。</li>
 </ol>
 <p><strong>工作过程：</strong></p>
-<ol type="1">
+<ol>
 <li><p>电路交换：</p>
 <p>在两台主机A、B之间创建一条专用的端到端连接，分别占用每条链路中的一条电路；</p>
-<p>该连接获得链路带宽的1/n，进行通信。</p></li>
+<p>该连接获得链路带宽的1/n，进行通信。</p>
+</li>
 <li><p>分组交换：</p>
 <p>源端将报文划分为较小的数据块（分组packet）；</p>
 <p>每个分组通过一系列链路和分组交换机传送，直到目的端</p>
-<p>目的端恢复原报文。</p></li>
+<p>目的端恢复原报文。</p>
+</li>
 </ol>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220314220812885.png" srcset="/img/loading.gif" lazyload /></p>
-<h2
-id="什么是协议分层的服务模型">4.<strong>什么是协议？分层的服务模型？</strong></h2>
-<p><strong>协议</strong>：控制网络中信息的发送和接收。定义了通信实体之间交换报文的格式和次序，以及在报文传输和/或接收或其他事件所采取的动作。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220314223735346.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220314220812885.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="4-什么是协议？分层的服务模型？"><a href="#4-什么是协议？分层的服务模型？" class="headerlink" title="4.什么是协议？分层的服务模型？"></a>4.<strong>什么是协议？分层的服务模型？</strong></h2><p><strong>协议</strong>：控制网络中信息的发送和接收。定义了通信实体之间交换报文的格式和次序，以及在报文传输和/或接收或其他事件所采取的动作。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220314223735346.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>分层的服务模型</strong>：上层调用下层的服务，下层为上层提供服务。</p>
 <p>通过第n层本身执行某些动作，或再使用其相邻下层（第n-1层）的服务，来完成向其上层（第n+1层）提供的服务。</p>
-<h2
-id="简述分层的特点和分层后数据的传递过程">5.<strong>简述分层的特点和分层后数据的传递过程。</strong></h2>
-<p><strong>分层特点：</strong></p>
+<h2 id="5-简述分层的特点和分层后数据的传递过程。"><a href="#5-简述分层的特点和分层后数据的传递过程。" class="headerlink" title="5.简述分层的特点和分层后数据的传递过程。"></a>5.<strong>简述分层的特点和分层后数据的传递过程。</strong></h2><p><strong>分层特点：</strong></p>
 <ul>
 <li>每层功能独立；</li>
 <li>每两个相邻层之间有一逻辑接口，可交换信息；</li>
@@ -339,21 +320,15 @@ id="简述分层的特点和分层后数据的传递过程">5.<strong>简述分�
 <p><strong>分层后数据的传递过程</strong>：主机（端系统）间数据传送实际上并不是在对等层间直接进行，而是通过相邻层间的传递合作完成。</p>
 <p>发送方：将用户数据由高层向低层逐层传递，每经过一层，加上该层的控制信息，直到最低层（物理层），然后直接通过物理媒体传输到目的方。（逐层封装）</p>
 <p>接收方：将收到的数据由低层向高层逐层传递，每经过一层，去掉该层的控制信息，直到最高层，恢复为用户数据。（逐层解封）</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220314222653398.png" srcset="/img/loading.gif" lazyload /></p>
-<h2
-id="因特网分层模型及各层功能">6.<strong>因特网分层模型及各层功能。</strong></h2>
-<p>因特网的协议栈由5个层次组成：物理层、链路层、网络层、运输层和应用层。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20220314222941459.png" srcset="/img/loading.gif" lazyload /></p>
-<ol type="1">
-<li>应用层：提供各种网络应用。传输应用报文。 FTP、 SMTP、 HTTP</li>
-<li>运输层：在应用程序的客户机和服务器之间提供传输应用层报文服务。传输报文段。
-TCP、 UDP</li>
-<li>网络层：主机和主机之间传输网络层分组（数据报）。 IP协议、
-选路协议</li>
-<li>链路层： 在邻近单元之间传输数据（帧 ）。 PPP、以太网</li>
-<li>物理层：在节点之间传输比特流。 传输媒体</li>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220314222653398.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="6-因特网分层模型及各层功能。"><a href="#6-因特网分层模型及各层功能。" class="headerlink" title="6.因特网分层模型及各层功能。"></a>6.<strong>因特网分层模型及各层功能。</strong></h2><p>因特网的协议栈由5个层次组成：物理层、链路层、网络层、运输层和应用层。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220314222941459.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<ol>
+<li>应用层：提供各种网络应用。传输应用报文。<br>FTP、 SMTP、 HTTP</li>
+<li>运输层：在应用程序的客户机和服务器之间提供传输应用层报文服务。传输报文段。<br>TCP、 UDP</li>
+<li>网络层：主机和主机之间传输网络层分组（数据报）。<br>IP协议、 选路协议</li>
+<li>链路层： 在邻近单元之间传输数据（帧 ）。<br>PPP、以太网</li>
+<li>物理层：在节点之间传输比特流。<br>传输媒体</li>
 </ol>
 
             </div>
@@ -459,7 +434,7 @@ TCP、 UDP</li>
 
   <div class="col-lg-7 mx-auto nopadding-x-md">
     <div class="container custom post-custom mx-auto">
-      <img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 

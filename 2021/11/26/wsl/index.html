@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="Enderfga&#39;Blog">
 <meta property="og:description" content="wsl2，vscode，windows terminal，zsh，docker····">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126111436728.png">
+<meta property="og:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111436728.png">
 <meta property="article:published_time" content="2021-11-26T02:45:27.000Z">
-<meta property="article:modified_time" content="2022-05-16T02:13:00.509Z">
+<meta property="article:modified_time" content="2022-05-28T16:35:37.059Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126111436728.png">
+<meta name="twitter:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111436728.png">
   
   
   <title>wsl安装与开发环境搭建 - Enderfga&#39;Blog</title>
@@ -262,135 +262,76 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年5月16日 上午
+                  本文最后更新于：2022年5月29日 凌晨
                 
               </p>
             
             <div class="markdown-body">
               <p>wsl2，vscode，windows terminal，zsh，docker····</p>
 <span id="more"></span>
-<h1 id="windows-subsystem-for-linux">Windows Subsystem for Linux</h1>
-<p>首先贴一个<a
-target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install">官方文档</a></p>
-<h2 id="什么是适用于-linux-的-windows-子系统">什么是适用于 Linux 的
-Windows 子系统</h2>
-<p>适用于 Linux 的 Windows 子系统可让开发人员按原样运行 GNU/Linux 环境 -
-包括大多数命令行工具、实用工具和应用程序 -
-且不会产生传统虚拟机或双启动设置开销。</p>
+<h1 id="Windows-Subsystem-for-Linux"><a href="#Windows-Subsystem-for-Linux" class="headerlink" title="Windows Subsystem for Linux"></a>Windows Subsystem for Linux</h1><p>首先贴一个<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/install">官方文档</a></p>
+<h2 id="什么是适用于-Linux-的-Windows-子系统"><a href="#什么是适用于-Linux-的-Windows-子系统" class="headerlink" title="什么是适用于 Linux 的 Windows 子系统"></a>什么是适用于 Linux 的 Windows 子系统</h2><p>适用于 Linux 的 Windows 子系统可让开发人员按原样运行 GNU/Linux 环境 - 包括大多数命令行工具、实用工具和应用程序 - 且不会产生传统虚拟机或双启动设置开销。</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://aka.ms/wslstore">在 Microsoft Store</a>
-中选择你偏好的 GNU/Linux 分发版。</li>
-<li>运行常用的命令行软件工具（例如
-<code>grep</code>、<code>sed</code>、<code>awk</code>）或其他 ELF-64
-二进制文件。</li>
-<li>运行 Bash shell 脚本和 GNU/Linux 命令行应用程序，包括：
-<ul>
+<li><a target="_blank" rel="noopener" href="https://aka.ms/wslstore">在 Microsoft Store</a> 中选择你偏好的 GNU/Linux 分发版。</li>
+<li>运行常用的命令行软件工具（例如 <code>grep</code>、<code>sed</code>、<code>awk</code>）或其他 ELF-64 二进制文件。</li>
+<li>运行 Bash shell 脚本和 GNU/Linux 命令行应用程序，包括：<ul>
 <li>工具：vim、emacs、tmux</li>
-<li>语言：<a
-target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/nodejs/setup-on-wsl2">NodeJS</a>、Javascript、<a
-target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/python/web-frameworks">Python</a>、Ruby、C/
-C++、C# 与 F#、Rust、Go 等。</li>
-<li>服务：SSHD、<a
-target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-database">MySQL</a>、Apache、lighttpd、<a
-target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-database">MongoDB</a>、<a
-target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-database">PostgreSQL</a>。</li>
-</ul></li>
+<li>语言：<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/nodejs/setup-on-wsl2">NodeJS</a>、Javascript、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/python/web-frameworks">Python</a>、Ruby、C/ C++、C# 与 F#、Rust、Go 等。</li>
+<li>服务：SSHD、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-database">MySQL</a>、Apache、lighttpd、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-database">MongoDB</a>、<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/tutorials/wsl-database">PostgreSQL</a>。</li>
+</ul>
+</li>
 <li>使用自己的 GNU/Linux 分发包管理器安装其他软件。</li>
 <li>使用类似于 Unix 的命令行 shell 调用 Windows 应用程序。</li>
 <li>在 Windows 上调用 GNU/Linux 应用程序。</li>
 </ul>
-<h2 id="什么是-wsl-2">什么是 WSL 2？</h2>
-<p>WSL 2 是适用于 Linux 的 Windows
-子系统体系结构的一个新版本，它支持适用于 Linux 的 Windows 子系统在
-Windows 上运行 ELF64 Linux 二进制文件。 它的主要目标是
-<strong>提高文件系统性能</strong>，以及添加
-<strong>完全的系统调用兼容性</strong>。</p>
-<p>这一新的体系结构改变了这些 Linux 二进制文件与Windows
-和计算机硬件进行交互的方式，但仍然提供与 WSL
-1（当前广泛可用的版本）中相同的用户体验。</p>
-<p>单个 Linux 分发版可以在 WSL 1 或 WSL 2 体系结构中运行。
-每个分发版可随时升级或降级，并且你可以并行运行 WSL 1 和 WSL 2 分发版。
-WSL 2 使用全新的体系结构，该体系结构受益于运行<strong>真正</strong>的
-Linux 内核。</p>
-<h2 id="wsl-2安装">WSL 2安装</h2>
-<p>需要CPU开启VT（Virtualization
-Technology），这一步根据CPU不同操作方式不同就不细说了。</p>
-<p>需要先启用“适用于 Linux 的 Windows 子系统”可选功能，然后才能在
-Windows 上安装 Linux 分发。</p>
+<h2 id="什么是-WSL-2？"><a href="#什么是-WSL-2？" class="headerlink" title="什么是 WSL 2？"></a>什么是 WSL 2？</h2><p>WSL 2 是适用于 Linux 的 Windows 子系统体系结构的一个新版本，它支持适用于 Linux 的 Windows 子系统在 Windows 上运行 ELF64 Linux 二进制文件。 它的主要目标是 <strong>提高文件系统性能</strong>，以及添加 <strong>完全的系统调用兼容性</strong>。</p>
+<p>这一新的体系结构改变了这些 Linux 二进制文件与Windows 和计算机硬件进行交互的方式，但仍然提供与 WSL 1（当前广泛可用的版本）中相同的用户体验。</p>
+<p>单个 Linux 分发版可以在 WSL 1 或 WSL 2 体系结构中运行。 每个分发版可随时升级或降级，并且你可以并行运行 WSL 1 和 WSL 2 分发版。 WSL 2 使用全新的体系结构，该体系结构受益于运行<strong>真正</strong>的 Linux 内核。</p>
+<h2 id="WSL-2安装"><a href="#WSL-2安装" class="headerlink" title="WSL 2安装"></a>WSL 2安装</h2><p>需要CPU开启VT（Virtualization Technology），这一步根据CPU不同操作方式不同就不细说了。</p>
+<p>需要先启用“适用于 Linux 的 Windows 子系统”可选功能，然后才能在 Windows 上安装 Linux 分发。</p>
 <p>以管理员身份打开 PowerShell 并运行：</p>
 <div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span><span class="token function">enable-feature</span> <span class="token operator">/</span>featurename:Microsoft<span class="token operator">-</span>Windows<span class="token operator">-</span>Subsystem<span class="token operator">-</span>Linux <span class="token operator">/</span>all <span class="token operator">/</span>norestart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>若要更新到 WSL 2，需要运行 Windows 10。</p>
 <ul>
-<li>对于 x64 系统：<strong>版本 1903</strong> 或更高版本，采用
-<strong>内部版本 18362</strong> 或更高版本。</li>
-<li>对于 ARM64 系统：<strong>版本 2004</strong> 或更高版本，采用
-<strong>内部版本 19041</strong> 或更高版本。</li>
-<li>低于 18362 的版本不支持 WSL 2。 使用 <a
-target="_blank" rel="noopener" href="https://www.microsoft.com/software-download/windows10">Windows
-Update 助手</a>更新 Windows 版本。</li>
+<li>对于 x64 系统：<strong>版本 1903</strong> 或更高版本，采用 <strong>内部版本 18362</strong> 或更高版本。</li>
+<li>对于 ARM64 系统：<strong>版本 2004</strong> 或更高版本，采用 <strong>内部版本 19041</strong> 或更高版本。</li>
+<li>低于 18362 的版本不支持 WSL 2。 使用 <a target="_blank" rel="noopener" href="https://www.microsoft.com/software-download/windows10">Windows Update 助手</a>更新 Windows 版本。</li>
 </ul>
-<p>若要检查 Windows 版本及内部版本号，选择 Windows 徽标键 +
-R，然后键入“winver”，选择“确定”。 更新到“设置”菜单中的<a
-href="ms-settings:windowsupdate">最新 Windows 版本</a>。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126110320999.png" srcset="/img/loading.gif" lazyload /></p>
-<p>安装 WSL 2 之前，必须启用“虚拟机平台”可选功能。 计算机需要<a
-target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed">虚拟化功能</a>才能使用此功能。</p>
+<p>若要检查 Windows 版本及内部版本号，选择 Windows 徽标键 + R，然后键入“winver”，选择“确定”。 更新到“设置”菜单中的<a href="ms-settings:windowsupdate">最新 Windows 版本</a>。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126110320999.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>安装 WSL 2 之前，必须启用“虚拟机平台”可选功能。 计算机需要<a target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed">虚拟化功能</a>才能使用此功能。</p>
 <p>以管理员身份打开 PowerShell 并运行：</p>
 <div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span><span class="token function">enable-feature</span> <span class="token operator">/</span>featurename:VirtualMachinePlatform <span class="token operator">/</span>all <span class="token operator">/</span>norestart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126110900611.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126110900611.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>重新启动</strong> 计算机，以完成 WSL 安装并更新到 WSL 2。</p>
-<p>重启之后<a
-target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">下载安装</a>
-Linux 内核更新包并将 WSL 2 设置为默认版本。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126111436728.png" srcset="/img/loading.gif" lazyload /></p>
+<p>重启之后<a target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">下载安装</a> Linux 内核更新包并将 WSL 2 设置为默认版本。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111436728.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">wsl <span class="token operator">--</span><span class="token function">set-default</span><span class="token operator">-</span>version 2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126111557676.png" srcset="/img/loading.gif" lazyload /></p>
-<p>最后，打开 <a target="_blank" rel="noopener" href="https://aka.ms/wslstore">Microsoft
-Store</a>，并选择你偏好的 Linux 分发版。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111557676.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>最后，打开 <a target="_blank" rel="noopener" href="https://aka.ms/wslstore">Microsoft Store</a>，并选择你偏好的 Linux 分发版。</p>
 <p>单击以下链接会打开每个分发版的 Microsoft Store 页面：</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9N9TNGVNDL3Q">Ubuntu
-18.04 LTS</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9n6svws3rx71">Ubuntu
-20.04 LTS</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9NJFZK00FGKV">openSUSE
-Leap 15.1</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9MZ3D1TRP8T1">SUSE
-Linux Enterprise Server 12 SP5</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9PN498VPMF3Z">SUSE
-Linux Enterprise Server 15 SP1</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9PKR34TNCV07">Kali
-Linux</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9MSVKQC78PK6">Debian
-GNU/Linux</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9n6gdm4k2hnc">Fedora
-Remix for WSL</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9NV1GV1PXZ6P">Pengwin</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9N8LP0X93VCP">Pengwin
-Enterprise</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9p804crf0395">Alpine
-WSL</a></li>
-<li><a
-target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9msmjqd017x7">Raft（免费试用版）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9N9TNGVNDL3Q">Ubuntu 18.04 LTS</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9n6svws3rx71">Ubuntu 20.04 LTS</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9NJFZK00FGKV">openSUSE Leap 15.1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9MZ3D1TRP8T1">SUSE Linux Enterprise Server 12 SP5</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9PN498VPMF3Z">SUSE Linux Enterprise Server 15 SP1</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9PKR34TNCV07">Kali Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9MSVKQC78PK6">Debian GNU/Linux</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9n6gdm4k2hnc">Fedora Remix for WSL</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9NV1GV1PXZ6P">Pengwin</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9N8LP0X93VCP">Pengwin Enterprise</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9p804crf0395">Alpine WSL</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9msmjqd017x7">Raft（免费试用版）</a></li>
 </ul>
-<p>首次启动新安装的 Linux
-分发版时，将打开一个控制台窗口，系统会要求你等待一分钟或两分钟，以便文件解压缩并存储到电脑上。
-未来的所有启动时间应不到一秒。</p>
+<p>首次启动新安装的 Linux 分发版时，将打开一个控制台窗口，系统会要求你等待一分钟或两分钟，以便文件解压缩并存储到电脑上。 未来的所有启动时间应不到一秒。</p>
 <p>然后，需要为新的 Linux 分发版创建用户帐户和密码。</p>
 <p>另外，以上内容貌似（？）可以使用以下一行命令解决</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl --install -d Ubuntu-20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126142919333.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126142919333.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>另外我发现用户名不能用大写，并且密码是不会显示出来的。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126143140954.png" srcset="/img/loading.gif" lazyload /></p>
-<h2 id="换源">换源</h2>
-<p>如果遇到下载速度较慢，或者下载失败等问题，我们还可以把官方源换成国内源。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126143140954.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>如果遇到下载速度较慢，或者下载失败等问题，我们还可以把官方源换成国内源。</p>
 <p><strong>备份list文件</strong></p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /etc/apt/
 <span class="token function">sudo</span> <span class="token function">cp</span> sources.list sources.list.bak<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
@@ -411,36 +352,24 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted univer
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p>我们先通过按<strong>ggdG</strong>这几个字母将里面的内容全部删除，</p>
 <div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">通过按下gg后发现光标移动到文件首行了。其中，gg为跳转到文件首行；dG为删除光标所在行以及其下所有行的内容。d为删除，G为跳转到文件末尾行。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p>按鼠标右键会进行粘贴，然后输入 :wq! 进行退出与保存。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126135607014.png" srcset="/img/loading.gif" lazyload /></p>
+<p>按鼠标右键会进行粘贴，然后输入    :wq!    进行退出与保存。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126135607014.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>最后复制这两条命令进行更新镜像源列表。</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
 <span class="token function">sudo</span> <span class="token function">apt-get</span> upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
-<h1 id="windows-terminalvscode">Windows terminal+vscode</h1>
-<p><a
-target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&amp;activetab=pivot:overviewtab">Windows
-Terminal</a>
-https://docs.microsoft.com/en-us/windows/terminal/get-started</p>
-<p>VS Code https://code.visualstudio.com</p>
+<h1 id="Windows-terminal-vscode"><a href="#Windows-terminal-vscode" class="headerlink" title="Windows terminal+vscode"></a>Windows terminal+vscode</h1><p><a target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&amp;activetab=pivot:overviewtab">Windows Terminal</a> <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows/terminal/get-started">https://docs.microsoft.com/en-us/windows/terminal/get-started</a></p>
+<p>VS Code <a target="_blank" rel="noopener" href="https://code.visualstudio.com">https://code.visualstudio.com</a></p>
 <p>这两样软件可以大幅提高效率（还很装逼很好看）</p>
-<p>windows
-terminal各项设置可以实现许多使用功能，比如我设置了默认启动Ubuntu，添加了git
-bash，透明亚克力效果等（本次不介绍，感兴趣自行研究）</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126112846563.png" srcset="/img/loading.gif" lazyload /></p>
+<p>windows terminal各项设置可以实现许多使用功能，比如我设置了默认启动Ubuntu，添加了git bash，透明亚克力效果等（本次不介绍，感兴趣自行研究）</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126112846563.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>可以在工作区文件夹内右键然后在windows终端打开</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126112958904.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126112958904.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>也可以直接打开window终端，cd到对应文件夹，然后输入</p>
 <div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">code <span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126113402308.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126113507900.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126113402308.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126113507900.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>至此就可以实现在windows环境下编程，在linux环境下测试。</p>
-<h1 id="docker">Docker</h1>
-<p>使用以下脚本可以实现自动安装。</p>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p>使用以下脚本可以实现自动安装。</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># install docker</span>
 <span class="token function">curl</span> -fsSL get.docker.com -o get-docker.sh
 <span class="token function">sh</span> get-docker.sh
@@ -456,50 +385,39 @@ src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126113507
 <span class="token function">sudo</span> <span class="token function">service</span> docker restart
 
 <span class="token function">rm</span> -rf get-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126133921891.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126133921891.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>可以直接复制到txt中，然后修改文件类型跟文件名为install-docker.sh（后缀是sh，名字任意）</p>
 <p>例如我在桌面放置了该脚本，右键打开终端之后输入以下命令即可完成安装。</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> install-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126140126640.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126140126640.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>接下来输入：</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">service</span> docker start
 docker version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 <p>就可以启动服务，查看版本，证明我们已经安装成功。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126140532065.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126140532065.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>如果不希望每次都特地启动docker的服务可以使用以下命令设置自启动：</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>关于docker的使用就大家自己研究啦。</p>
-<h1 id="on-my-zsh">On-my-zsh</h1>
-<p>一个美观且功能强大的终端</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126145704636.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="On-my-zsh"><a href="#On-my-zsh" class="headerlink" title="On-my-zsh"></a>On-my-zsh</h1><p>一个美观且功能强大的终端</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126145704636.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>用windows terminal启动Ubuntu，输入以下命令安装：</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y <span class="token function">zsh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p>oh-my-zsh中整理了常用的zsh<a
-target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins">扩展</a>和<a
-target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">主题</a>,所以先安装oh-my-zsh</p>
+<p>oh-my-zsh中整理了常用的zsh<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins">扩展</a>和<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">主题</a>,所以先安装oh-my-zsh</p>
 <p>使用curl安装 :</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>使用wget安装：</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">wget</span> https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p>虽然我列出了上面两条命令，但最好还是看看<a
-target="_blank" rel="noopener" href="https://ohmyz.sh/#install">官网</a>的安装页面，确保命令的最新版本。</p>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126150308574.png" srcset="/img/loading.gif" lazyload /></p>
+<p>虽然我列出了上面两条命令，但最好还是看看<a target="_blank" rel="noopener" href="https://ohmyz.sh/#install">官网</a>的安装页面，确保命令的最新版本。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126150308574.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>接下来输入：</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span>
 code .zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
 <p>就可以cd到根目录文件夹，用vscode的可视化界面编辑配置文件，添加需要的扩展与主题了。</p>
 <p>扩展与主题根据个人需求添加，本文不再赘述。</p>
-<h1 id="python开发">Python开发</h1>
-<p>花里胡哨那么多东西了，讲一点实战（假的）。</p>
+<h1 id="Python开发"><a href="#Python开发" class="headerlink" title="Python开发"></a>Python开发</h1><p>花里胡哨那么多东西了，讲一点实战（假的）。</p>
 <p>默认Ubuntu已经安装了python，我们只需要安装pip，就可以进行一些简单的编程。</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126151809809.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126151809809.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>当然我们不能局限于简单的编程，我们需要<strong>创建虚拟环境</strong>，确保各个环境互相隔离，互不影响。</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-venv<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>创建虚拟环境：</p>
@@ -508,10 +426,8 @@ src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126151809
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> env/bin/activate
 
 deactivate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
-<p><img
-src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/image-20211126181729703.png" srcset="/img/loading.gif" lazyload /></p>
-<p>接下来就可以尽情地pip
-install了，在工作环境下新建文件夹，再用vscode打开，即可开始编程。</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126181729703.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>接下来就可以尽情地pip install了，在工作环境下新建文件夹，再用vscode打开，即可开始编程。</p>
 
             </div>
             <hr>
@@ -616,7 +532,7 @@ install了，在工作环境下新建文件夹，再用vscode打开，即可开�
 
   <div class="col-lg-7 mx-auto nopadding-x-md">
     <div class="container custom post-custom mx-auto">
-      <img src="https://cdn.jsdelivr.net/gh/Enderfga/image1@master/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
