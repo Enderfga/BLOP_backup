@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111436728.png">
 <meta property="article:published_time" content="2021-11-26T02:45:27.000Z">
-<meta property="article:modified_time" content="2022-05-30T05:31:19.572Z">
+<meta property="article:modified_time" content="2022-05-30T05:42:29.212Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.4k 字
+      6.6k 字
     </span>
   
 
@@ -229,7 +229,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      54 分钟
+      55 分钟
     </span>
   
 
@@ -561,6 +561,8 @@ id="安装ros系统记得版本对应例如我的ubuntu18.04-对应melodic">安�
 </ol>
 <p>使用鱼香ros大佬的一键安装脚本</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">wget</span> http://fishros.com/install -O fishros <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">.</span> fishros<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<p>上面那行是官方的，我运行不了，我根据内容用下面这种方式可以运行</p>
+<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">wget</span> http://fishros.com/install -O fishros.sh <span class="token operator">&amp;&amp;</span> <span class="token function">sh</span> fishros.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
 <p>如果上面那个打开失败，可以用下面这种方式</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> -p /tmp/fishinstall/tools
 <span class="token function">wget</span> http://fishros.com/install/install1s/install.py -O /tmp/fishinstall/install.py <span class="token operator"><span class="token file-descriptor important">2</span>>></span>/dev/null 
@@ -576,6 +578,10 @@ id="安装ros系统记得版本对应例如我的ubuntu18.04-对应melodic">安�
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
 <p>自己对照着<a
 target="_blank" rel="noopener" href="https://wiki.ros.org/melodic/Installation/Ubuntu#Installation.2BAC8-Ubuntu.2BAC8-Sources.Configure_your_Ubuntu_repositories">官方文档</a>的顺序安装</p>
+<p><img
+src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220530134026598.png" srcset="/img/loading.gif" lazyload /></p>
+<p>我使用的顺序是5（换源）→1（ROS）→3（rosdep）→4（环境配置）</p>
+<p>出现了一些小bug都是因为zsh</p>
 <p>如果你跟我一样用的zsh 补上一个</p>
 <div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">"source /opt/ros/melodic/setup.zsh"</span> <span class="token operator">>></span> ~/.zshrc
 <span class="token builtin class-name">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
