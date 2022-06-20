@@ -6,7 +6,7 @@
   <link href="http://enderfga.cn/atom.xml" rel="self"/>
   
   <link href="http://enderfga.cn/"/>
-  <updated>2022-05-30T07:16:24.561Z</updated>
+  <updated>2022-06-20T00:50:53.606Z</updated>
   <id>http://enderfga.cn/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>cifar10-horse生成任务</title>
+    <link href="http://enderfga.cn/2022/06/20/horse/"/>
+    <id>http://enderfga.cn/2022/06/20/horse/</id>
+    <published>2022-06-20T00:46:42.000Z</published>
+    <updated>2022-06-20T00:50:53.606Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 align="center">Horse Generation</h1><h4 align="center">Comprehensive experiment of artificial intelligence</h4><h3 id="requirements">Requirements</h3><ol type="1"><li>64x,python3.8/3.9.</li><li>CUDA toolkit 11.1.</li><li>GCC 7.</li><li>sh setup.sh/pip install -r requirements.txt</li></ol><h3 id="文件目录">文件目录</h3><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">├─Intro<span class="token punctuation">.</span>pptx  <span class="token comment">#介绍与展示的PowerPoint</span>├─tf_aae                      <span class="token comment">#AAE的tensorflow实现</span>├─VAE                         <span class="token comment">#VAE的pytorch实现</span>├─GAN<span class="token punctuation">.</span>ipynb                   <span class="token comment">#所有GAN的pytorch实现与运行结果</span>├─requirements<span class="token punctuation">.</span>txt  <span class="token comment">#本次任务运行环境中的包</span>├─setup<span class="token punctuation">.</span>sh  <span class="token comment">#配置环境的安装脚本</span>│├─result                      <span class="token comment">#存放用于展示的结果</span>├─apps│    └─interpolate_sample<span class="token punctuation">.</span>py  <span class="token comment">#用于生成视频</span>│├─fake_horse                  <span class="token comment">#一千张生成所得马的图片</span>├─mmgen                       <span class="token comment">#一个基于 PyTorch 和MMCV的强有力的生成模型工具箱</span>│  ├─apis│  ├─core│  ├─datasets│  ├─models│  ├─ops│  └─utils├─configs                     <span class="token comment">#运行stylegan3的配置文件</span>│  ├─styleganv3│  │    └─stylegan3<span class="token punctuation">.</span>py│  ││  └─_base_│      ├─ default_runtime<span class="token punctuation">.</span>py      <span class="token comment">#训练配置</span>│      ││      ├─datasets│      │    └─horse<span class="token punctuation">.</span>py                <span class="token comment">#数据处理</span>│      ││      └─models│          └─stylegan│                └─stylegan3_base<span class="token punctuation">.</span>py  <span class="token comment">#模型搭建</span>│└─tools    ├─ dist_train<span class="token punctuation">.</span>sh   <span class="token comment">#训练模型的脚本</span>    ├─ train<span class="token punctuation">.</span>py  <span class="token comment">#训练模型的代码</span>    │    └─utils          └─inception_stat<span class="token punctuation">.</span>py         <span class="token comment">#生成用于计算fid的inception模型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div><h3 id="结果展示">结果展示</h3><h4 id="部分fake马">部分fake马</h4><p><img align="center" src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/625.png"/></p><h4 id="生成训练可视化">生成训练可视化</h4><p><img align="center" src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/GAN_generate_animation.gif"/></p><h4 id="动态结果展示">动态结果展示</h4><p><img align="center" src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/lerp.gif"/></p><h3 id="fid一览">FID一览</h3><p><imgsrc="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220618194023873.png" /></p><h3 id="代码说明">代码说明</h3><ol type="1"><li><p>VAE/</p></li><li><p>tf_aae/</p></li><li><p>GAN.ipynb</p><p>前两者为文件夹，存放了模型，配置，数据集，辅助函数等相关py文件，主体为main.py;</p><p>后者为ipynb文件，记录了所有GAN模型的运行结果，并用于计算FID分数。</p><p>上述代码均可以通过修改数据路径来训练或测试。</p><embed src="./horse.pdf" width="100%" height="750" type="application/pdf"></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="深度学习" scheme="http://enderfga.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>呼吸运动伪影的图像质量评估</title>
+    <link href="http://enderfga.cn/2022/06/20/cmr/"/>
+    <id>http://enderfga.cn/2022/06/20/cmr/</id>
+    <published>2022-06-20T00:42:42.000Z</published>
+    <updated>2022-06-20T00:46:22.854Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>基于深度学习分类网络的病变诊断之呼吸运动伪影的图像质量评估</strong></p><span id="more"></span><p><imgsrc="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220620084604845.png" /></p><embed src="./cmr.pdf" width="100%" height="750" type="application/pdf">]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;&lt;strong&gt;基于深度学习分类网络的病变诊断之呼吸运动伪影的图像质量评估&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="深度学习" scheme="http://enderfga.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>深度学习在遥感图像分类中的应用</title>
@@ -365,44 +406,6 @@ src=&quot;https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-202
     
     
     <category term="机器人" scheme="http://enderfga.cn/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于强化学习的无人机自主导航</title>
-    <link href="http://enderfga.cn/2022/03/28/UAV/"/>
-    <id>http://enderfga.cn/2022/03/28/UAV/</id>
-    <published>2022-03-28T15:54:39.786Z</published>
-    <updated>2022-05-28T16:35:37.059Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>无人系统导论课程设计报告</p><span id="more"></span><embed src="./UAV.pdf" width="100%" height="750" type="application/pdf">]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;无人系统导论课程设计报告&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="无人系统" scheme="http://enderfga.cn/tags/%E6%97%A0%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Visual Synthesis Pre-training for NUWA</title>
-    <link href="http://enderfga.cn/2022/03/28/NUWA/"/>
-    <id>http://enderfga.cn/2022/03/28/NUWA/</id>
-    <published>2022-03-28T15:54:39.753Z</published>
-    <updated>2022-05-28T16:35:37.071Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>基于深度生成模型的多模态视觉合成</p><span id="more"></span><embed src="./NUWA.pdf" width="100%" height="750" type="application/pdf">]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;基于深度生成模型的多模态视觉合成&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="人工智能" scheme="http://enderfga.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
