@@ -16,16 +16,16 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Horse Generation   Comprehensive experiment of artificial intelligence  Requirements  64x,python3.8&#x2F;3.9. CUDA toolkit 11.1. GCC 7. sh setup.sh&#x2F;pip install -r requirements.txt  文件目录 ├─In">
+    <meta name="description" content="有东西被加密了, 请输入密码查看.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="cifar10-horse生成任务">
 <meta property="og:url" content="http://enderfga.cn/2022/06/20/horse/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="Horse Generation   Comprehensive experiment of artificial intelligence  Requirements  64x,python3.8&#x2F;3.9. CUDA toolkit 11.1. GCC 7. sh setup.sh&#x2F;pip install -r requirements.txt  文件目录 ├─In">
+<meta property="og:description" content="有东西被加密了, 请输入密码查看.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/625.png">
 <meta property="article:published_time" content="2022-06-20T00:46:42.000Z">
-<meta property="article:modified_time" content="2022-06-20T00:50:53.606Z">
+<meta property="article:modified_time" content="2022-06-20T00:56:21.930Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary_large_image">
@@ -220,7 +220,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      900 字
+      936 字
     </span>
   
 
@@ -267,86 +267,22 @@
               </p>
             
             <div class="markdown-body">
-              <h1 align="center">
-Horse Generation
-</h1>
-<h4 align="center">
-Comprehensive experiment of artificial intelligence
-</h4>
-<h3 id="requirements">Requirements</h3>
-<ol type="1">
-<li>64x,python3.8/3.9.</li>
-<li>CUDA toolkit 11.1.</li>
-<li>GCC 7.</li>
-<li>sh setup.sh/pip install -r requirements.txt</li>
-</ol>
-<h3 id="文件目录">文件目录</h3>
-<div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python">├─Intro<span class="token punctuation">.</span>pptx				  <span class="token comment">#介绍与展示的PowerPoint</span>
-├─tf_aae                      <span class="token comment">#AAE的tensorflow实现</span>
-├─VAE                         <span class="token comment">#VAE的pytorch实现</span>
-├─GAN<span class="token punctuation">.</span>ipynb                   <span class="token comment">#所有GAN的pytorch实现与运行结果</span>
-├─requirements<span class="token punctuation">.</span>txt			  <span class="token comment">#本次任务运行环境中的包</span>
-├─setup<span class="token punctuation">.</span>sh					  <span class="token comment">#配置环境的安装脚本</span>
-│
-├─result                      <span class="token comment">#存放用于展示的结果</span>
-├─apps
-│    └─interpolate_sample<span class="token punctuation">.</span>py  <span class="token comment">#用于生成视频</span>
-│
-├─fake_horse                  <span class="token comment">#一千张生成所得马的图片</span>
-├─mmgen                       <span class="token comment">#一个基于 PyTorch 和MMCV的强有力的生成模型工具箱</span>
-│  ├─apis
-│  ├─core
-│  ├─datasets
-│  ├─models
-│  ├─ops
-│  └─utils
-├─configs                     <span class="token comment">#运行stylegan3的配置文件</span>
-│  ├─styleganv3
-│  │    └─stylegan3<span class="token punctuation">.</span>py
-│  │
-│  └─_base_
-│      ├─ default_runtime<span class="token punctuation">.</span>py	      <span class="token comment">#训练配置</span>
-│      │
-│      ├─datasets
-│      │    └─horse<span class="token punctuation">.</span>py                <span class="token comment">#数据处理</span>
-│      │
-│      └─models
-│          └─stylegan
-│                └─stylegan3_base<span class="token punctuation">.</span>py  <span class="token comment">#模型搭建</span>
-│
-└─tools
-    ├─ dist_train<span class="token punctuation">.</span>sh 				  <span class="token comment">#训练模型的脚本</span>
-    ├─ train<span class="token punctuation">.</span>py						  <span class="token comment">#训练模型的代码</span>
-    │
-    └─utils
-          └─inception_stat<span class="token punctuation">.</span>py         <span class="token comment">#生成用于计算fid的inception模型</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
-<h3 id="结果展示">结果展示</h3>
-<h4 id="部分fake马">部分fake马</h4>
-<p>
-<img align="center" src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/625.png" srcset="/img/loading.gif" lazyload/>
-</p>
-<h4 id="生成训练可视化">生成训练可视化</h4>
-<p>
-<img align="center" src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/GAN_generate_animation.gif" srcset="/img/loading.gif" lazyload/>
-</p>
-<h4 id="动态结果展示">动态结果展示</h4>
-<p>
-<img align="center" src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/lerp.gif" srcset="/img/loading.gif" lazyload/>
-</p>
-<h3 id="fid一览">FID一览</h3>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220618194023873.png" srcset="/img/loading.gif" lazyload /></p>
-<h3 id="代码说明">代码说明</h3>
-<ol type="1">
-<li><p>VAE/</p></li>
-<li><p>tf_aae/</p></li>
-<li><p>GAN.ipynb</p>
-<p>前两者为文件夹，存放了模型，配置，数据集，辅助函数等相关py文件，主体为main.py;</p>
-<p>后者为ipynb文件，记录了所有GAN模型的运行结果，并用于计算FID分数。</p>
-<p>上述代码均可以通过修改数据路径来训练或测试。</p>
-<embed src="./horse.pdf" width="100%" height="750" type="application/pdf"></li>
-</ol>
-
+              <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码看着不太对, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="2ca15bd529f7874e0555429c274ec96a52140fd20b689a72d63bd753600d6c29">786545e84501692c1080963bf451b3f69dd705f39c926779085b2f273176cdcdf451af237adf33265bd3eab4ed758400d31cfb6b400d50ebf0b1f9d7a9d05bd4ab5bd56d613d64a2a924038ffc1d9ffc2c4402136d556e2ed91b8bacc8c2cac9f218e91060bd4ee1744f4f2da80d044d0c0ccf3b45585357c66e88a8f9d31b49a1781532b2c770a33cec2065875bc35406dadc364c8fc7ef71aa25273208208dab1cbcd03fd44c92a1bf713775010608069398d2bb693110f5a72442bc02dfea0e0251264693c76aba60777ef83909494b7a2026de11d8723f3cff51a0d66eed8204673b60e46bd5551df6bbf1eb5ce0b816f50019449a222cfa2edd57c2a27c45b03948edf6cf9eb36bc7be0e16647b3b93a3979b31e88c8a9ea0297fc72dfd43457865c80873a30122c8e74727a983f91b90782ac144eaa89f63ffbacf9fe91bfc1056461cbf460af8c00b66f29d33d8d97ddd96c21273f072642f5d73773ea03ac314ecd2bd8244d615e2a318d40afe53e0e30dd31659227809a03695758b2cecae661dc1052a42174058112b78e6d57c68799dac29500c808adb80905ca990d9a7eaacd050b72d2b026c77e774e5a7f38286fa50a5258f8662bc041d78bab4160ba52a6d99a1836bd2311cddcfca0e1c57abc8d78fb99143ddda596210822f403f216c3999213ad3409333eceaf3b3a2472e4cbdd4e386707471084b5c8c53f1c07d266490fc16ecb1e3b92c40f9807b016b42287b8c4ce04ab6948a3a6442be8ecb2bbbbe64814b6f26e799dd89e15007c4cd39f947e89d3f5097af2a49de0162dc3fd6317e9bf5de1eae202e1b500c908fc126ea4a790965308ec9705078563e5926bee73c6cd7420bf33776e464cb00a9b28c79d03ab97b7ff759df2ddab6ca14ab307a02a2cedb35195a1cb9e46c487a25fad2d88a2ae2c26a310df1a3fffe27425f0a515b20885df27fe7f51621c101386fb8630ee614605d704d3bc1e670676d3f7dfcb2ab8b7354351ba17e81ea2ba22172c34001b7fa428eeae1c1577f61c96b9332b581db7be3ac1bf6c2d8e9f119db6e75ab29b28cfc481659c9ef52d0b97481d4c007a65e267ee732d840da4ccbf0393a72bf7a489acf626cd9aebd555fdb34d4d600c795ba321b14b86f068a4ae040e956ddf73317cab3743fd5920d8001f28b335225fadbf553e2906bab76af1551133d3f5bbdc5fc77f1453a5a6bd29b90940cd74202c27ed85675934ca92674e7bbcfc017f6cb07a18a185e561b913c23b9322a915de917378d1b2b221efbe5b20a2bdf6cba0f6fb0b31036be002af5ea748c1aea36f70135fe1f577eea8da61cd7cdc8601ded093f6a2157a489975a1ce4f47443b439ef92aba7e6a3d125f0b52b66cce59fa812fdd808c2a9475a6e42af70bf279e9efde257cfdb1189416038b7941a84576af480c799ba4386804dd4bc1a35e872cb198d53b7b1228b0c07c640a87e80adafc70064b4f8fc092b0eff8963d31647486da05dfe0cccb516750a59a6df3e4a9504b50dc79ccd5cc668e97d9684a58a3f56bdd32bdcf90a95a35dfb0080f86fe7554c5c78c24e7f193df53dcd69e73f276859ed6478eae142fda6b2c4d3e92e92ab9c0d68124cc0d4e05c1087002a65880234433325cd2ceff6832ef2c50c9d8e313f1f6e3534541d0e8dc9b9c902bd008427f490c2462e204c5d5c2856341e2cf35607510f546cc71d6ea8b2fc08df2f4dcc430a08ca26f6a80009811c697b3137ff4b500f43741dd460ba7b7b7d28e4db09f3362f8c55edef5cf279074b193f137abf21300934b7d92c798f3fd975cb6addc79865bb74c1dea2a6d780a5e8ead57e5fc95fc47cf30482307a64b857b4fe465ae9518d59e744d7127cf082f20fe1c5c0f19b957cd05af34ecb314d4db8591c49ec57235e01cc84f72839ee6f374b623ddcea237b5b387bd758f02d0c834ece10040d93094652d777df3d2fd3f03944f16b8faf8ad9a780de3e23342ba3d110d0510772f2f509289a9863d069f04c714eabac0b1ed640444c2004fb5cdb11fa05cbd5c18d5cb64598026ac95b663074a190e50bde2a511fa831bceec4d5b53cbff412cf16d564438ff5c073ba1843fec8bc23a31bce823f8d7176e6a366f7aafe8ef71e6c13a176cda9d0d97ed251d1fbdaaae55af13f848e68f526cbe3923e8560ab8dc5eae95e8e616fd46f3da85997fa4eb19a9eed03b296fbea5c90c0b4d0b532dcc5f17eba07322c36c414efefbab7c18495907334368b776983c2a30aaff05c409f4de242cc6fdc1cfaf5ee3ed3cfd7db2604046e24c29d84e8a5485d15a3d2c9677adc1737a78bf319674960cf27e18e546c1a36355042a71898d0ad5f330a8ff88b3c8bd404bf00f73c130947da788048d51309aec1eae5837637fdfcd2d6bdb877e5bbe34a9d836a63b7e7edd14fc71c27f61484da767b28dbaa58f21ff6a9c52932a710be693ef0b50635eaac7c9a9736a7aba64d5bb7137e3929c2e7f11f7cb0682cd75034311acf24d75f1b5f42180717786716d8f7d146c0ec619b641a3463e0a44cb3354fe76dd3e0f2270e0f4e6f8333fa68b32611142151d3c494821ed920d8c76769e5f04135a8d72691285eeb41dfe26af0d01af5bb9ff2872b5c154c227396a5f82c564d08afafaf9c57c53f5f4f27505e3f3176e055561f854bb0078f2fdf256ce2c101ff4de3fddffef8413cd6fae30c9937f195bad339985d0e21d8d3eaf7c276a700ebea2fb0d1de9cc4eb367540847da35ee33a51e6434f7a1c238b5974105959831409d841c54a699915d214005995b30528b299be610b985d0498eab1b293fca33b2415c019f064d44f8319384b94cfc08c5425bc379a44f38cba7a970dacc296e1faf5a991a5756761cc5a0dcd4115f54f23f84eeb20e797759a344979874451075c1781d78930a4bc2ba8178d91a288ca298a84bb809e1259223b481bf6dc025610068379ee3c8061699da5b1d6034210a0c7d331344a862a1eff99e07391dae21a8f38daffe927e46c3c9005a7b47ab22697d87ca62e19ebafc16e99b7e0edcb9b52ddec56b13b91aeba939bc82e52736d039a1d8ca16965411d96600b85a01afb3ff570f499ab189b737f58585dbe7aed9b38a16af88d2280c013ff43800cc91f218b3708f06876734e460baa28e28d72756b6de912d726b2ca10a8a182d089b3bdf104d338321a564cada0ef6e5019a681e702b52dab91fe76fac8917e3ca2e128209f2794f58b3ef3554337b14a917c1383881cacd2d727eda8a48172a36fef7da4283a121ccd9731c8c18ea71474f831c434f860a55277c02106a83bd12f9d394a844a5b7719719ae0d6ac7395a096bfda4d4c0b7a4cb5101b5f6af42330a476e07a3f96e7f98a61a09aa28cc7b24f811296cbfba65a2259d0296bb5bdebeb0d3165561b4b808336af24406155b0b419136833dce80027d154adb0b742998e8eb34cc1af5cd12c8eb8a1bfdb9b290593f4710ab251cac58e9f56b02fe66af86a4d1f90e7ed09e7acc4a53760b5034e7c4478427000283225f58e527c27abb2101a15e678b124e7d1012ac07dc9c2776afc1b6989037677e1f342e4b77c8dbbc0f6c74b40176cda400a6b10628afc38f63a7090e1f4455109a20210fd7b0600c843782d30655d0723da0d7f8ffc9369e9a4b66e776874d76c053518024f4ef1ae64b33265538fc11140a64762f406e212756a0ebba779a6c8a1b14f92d34dad3eb9249d3660b6c6d878da500fe8da26dd53c792e7d48573d62693fb72dd062360ff7bc64d7c2e2c46d0d257b93770978cb8d18024a0c706958612312d5104e4ad334422a835220a213ef017886b4a67b28594c97b781ca33c7f3045c1e8f7c250321ea8c44072ce4fcfe3a22669dca858d5e9964e622afe21176c673efdcfbcea79467d55f89fd18a18ba912d8ab577421355b6d3afbb34d149fdd6d2a9316c8920278f4190f5c138a12a544cf8e9912ded3c8b3f4f9c7e4c9ca01829a1c136074bae7ccb0da39dbf8b634d0d01f569e3bc810f50f509c9cf9115617ebd8cf2d996fe10ac633668a0f9e93c9cd88f6127d0e33ac72296802e4b7d4ffe1d0b68e278a76fa2a664adb434caa72f4f500037d3622d85cc20fb401c4e05ed1ef9ebcc6785312bf8abd42ce1e443b2274aa01dde59b5c2cbfca17ddc5c92f0ca3447d2a55a059bb8d765dd2be24fa5f6eebb8a26a9fe23d098a01abc67a12726b53365f9365bc282a0d298d370c5840f56a23720e4b2fffd9dd2253fc929cc5af611f62993ac6d48848b9f9c0d5534aed3a9d685533489d5fcee471dc5f51f2e8f809e58025c7c34e08891e345b36a59f603203478b891bc8ad6af7f5c2537c19860120ad5ed58306aa5e4ea5b0566b5ad0fdca77a5bc9700ff7b431f9d47ffd9263bcaa470fcb0ba0ce597391685e2a7d2e0312f9526bc357fce02e4ea409ca79449d2f5bef48786d6424bc05668b3856660b4ae8e9a3ff6d9503cf4aedc65db16a87cd790c5cd4f979c2f1d7a57d3d9cc67e2e8c8ccda185b71d3a618ebcc6f73294bca06008078e9bd9be4a74667e3c59a4ff6b8f8783496457d2e85eb056c7aaa6d841cc13eebf5394121fc0677e84419ab4864d20c92007603fdf099a272097e2fd1902b9429d24ac3570542ab78dbaa81606391ada7be1007d6be7d0b0191535abe47ff976295882ac3ea5177f12e2498aedd14909d7f241983aeb856de6a260cc840b2c3709b127f3890154ad270003b0eaa7da8c2e7b590688a183c968133ea9502c0a685b4e9e6bb6c208779a7b78d7323a051b89eeada6be2fcd13a43ad3ac80527522d9169f844640eb3bce92b8afd1791410a7e4e2708197693dcfe620a220cd1087ba1449425a561cfccacfbb296cc61ec96f228e106453e8d99e663a46afb3a321df417dffc12ec9967349bee3a630e5a2f03915c4ea4dce368c3545852c419110db847b9dd445ebc7e9754f454aeab8f47773e64f77a764bc2b34e4bcae4ee7b7817bb194063780def5661d08a49157705f4e2f206efe955c1dce232cde8ba8b3bbfa799e3a94918462144c355053340bde0d26456834af1db837dc7dbb0ce75e5198a5948fb4a00587a2b8f92c47cda20134713bcae148e09ccfec8416c36bf44d29c56b227e9b30eb2916f6619e0d4cd7c73c4af6909940c7c5863e052eaf6bafed5f6abf86bbfc05a961cd0cb0191e00bc88b0c1cbad75200ee5b25696b5301a664dd69e505eb7a9226eeb64d5c13401987921eaa9c43adc61ba19c0b4dfac72f0302e00ec7982da354a98d0925a4d910afb17a9775a89a842534991e11bd83db820e8b94151c5e8d7f8983407bf5cb23f3ea6ca1f0ad37960344dbb7046b313e7e9cc3bda00d41de267cbe3b2db7f24670cd46e193dfdc20f8a89b12b1877bf8b12fa57df7bb044149c76ee78ae660efe89338384086551d767f322ee1bffa7779c4a3083177b2c2975af2b3ba0b04c809b6e2d178d59bb65f8a18d1f67b1cbc801b11709e9332e743153bc0e702c7cf32664be8861f8c151e529e45a8189fb1811b8b4824f0e5bd244868a902ed739922da8bbfc6f056a74db2a693ac58328fe4d386588c94a8ef20a6739ee0535841a4ddaba447fb515f76bfe05e29f572a7dfdcab7626437e3bc23b955cd384112ab653421566118d06705952c2aaece2cb57e65be2b1d613635127cc58626581d5c67b541ca4b4d37005014a454d47cfa1de47a6328c548ee258081b2c5aad5228bd3122aef32184af4a3e466f8e13e077c93b7a5d53577b18d60137e2adc8b285282d45a860f0f220518501a4cebfb19adcbca330a2a05d7f7848a657deabe525ba83256462fdcf764cef66989b1438e7974badb2148a99745414f53a93bfba5f71013575703e1635b91a2d7265e401fb7afcb37caba2d22b1fcae221bb1214220cfde91740ba1686e9ae2fb3eda7e689e2f5221aa29603673ca257d77820cb790d344757846d4576afdbf21beb219045d9f280eeee2542e097231b5b2e4f66905ab65bee54a3d264873f07c129f5637bf06f66d91c01fbe28479fe0ae1ddf15db46659eb9d107427baa50fa6200d3ed25a181a4b6273d5796855f6ed01273f228576622f693003d8bff9bb90becdd16768bd7935fa269a45945d6ed2ffa85fc5ac171267245e2850990db5f25f8e42c098d950bd78936ac109e8a5987a995c3cc004943b41d4309bd3672f2f8e1c360afd794b1e5b1f4e9d0b5e597e80c3936c3ac6be9239b706c5431341c07282760e3c869cf728611c4f536f6693c0b0e36730955065266658e50dc92bfba0a73baceb048e6f5c26d141978bf23e15682cd28e93e1895c09d88c4aa9f5cad649f8de748de5f4f73bfc2a5cb7ccbd72b92b2ee08934ee7fcbf5a6ac6fdb8a2e3ba5295dbd949feabb1e3840133598f13288249476349e0c2dec55d16959b2a5909c2198bcf11bd30dcce0465e15a4dd85b19d6ffc9b29e8fdb489efb06caeef189f2bdb4def9a6dfeb957d293d6f3c2cd02404a0ad08edbb0e4d334ff06437cab176bd8f0e138b611389cde7b9976cf2d5ea0a76a3e1c30574ff470fdfcde6eeeecc0fb2f4edcbaf5e33a507a0b9a6b865599b445870667a043cf811ddcaf554636519bdeef791658ff305a6284e339853a3e6ba201ca5a2a875dda1718f508540017969d6b532429a596db29ef1bee428bcfa6ae7a22405dcd5457e17bdaad282ad578d5b602f58568d7f62cc3f60d1b8589cf40a09985e5922b6370f721139a8eee18b93cf8b4c9637210230fad5cb38c3276aa6596962207be4cbaac2ffec11a0f8f0075aae5c49eacc749933c518f19fa97fec4cfd1990cf0b5444081e475e177207db0af2eb036d016e6635afad76dabf458b5dd882af366ee3d9539b2fa62192d2176611d57e8566f10303bb7bb74fc350a9b3da8dcc0796eca91bac72b03e6941555ac3545430db1f8693ccf9e4cd83c2914b41e255eebf180e7644c398f3e3d02db9d87f7d2319b1213719dacca5609e5c5192ff32a44c2cbef0913171a6590cae93cb012e554f1d25c9e1c89f1eea80d0e6b2d03cd0057c127839792113c47b27e61a9dfb9d8ad4c0aedd31aa625e520fb4f2bcf3a49487</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-xray">
+      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">您好, 这里需要密码.</span>
+      </label>
+      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
+        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
+      </svg>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
             </div>
             <hr>
             <div>
