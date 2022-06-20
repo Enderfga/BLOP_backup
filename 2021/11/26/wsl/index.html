@@ -32,38 +32,27 @@
 <meta name="twitter:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111436728.png">
   
   
+  
   <title>wsl安装与开发环境搭建 - Enderfga&#39;Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
+
   <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
   <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  
-    
-    
-      
-      
-        
-          
-        
-        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/themes/prism.min.css" />
-      
-      
-        <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" />
-      
-    
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" />
 
-  
-    <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-  
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
@@ -72,22 +61,73 @@
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-<!-- 自定义样式保持在最底部 -->
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
 
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"enderfga.cn","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":"oG62pOOQWEHEoerO","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"8yKzDhPjGo7c9GbBxy5UimY5-gzGzoHsz","app_key":"2ghy7HB3wrWXUD1VLNd92jeC","server_url":"https://8ykzdhpj.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"enderfga.cn","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"oG62pOOQWEHEoerO","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"8yKzDhPjGo7c9GbBxy5UimY5-gzGzoHsz","app_key":"2ghy7HB3wrWXUD1VLNd92jeC","server_url":"https://8ykzdhpj.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?oG62pOOQWEHEoerO";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Enderfga'Blog" type="application/atom+xml">
 </head>
 
 
 <body>
-  <header style="height: 70vh;">
-    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
       <strong>Enderfga</strong>
@@ -181,6 +221,7 @@
               &nbsp;<i class="iconfont icon-search"></i>&nbsp;
             </a>
           </li>
+          
         
         
           <li class="nav-item" id="color-toggle-btn">
@@ -193,57 +234,71 @@
   </div>
 </nav>
 
-    <div class="banner" id="banner" parallax=true
-         style="background: url('https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/default.png') no-repeat center center;
-           background-size: cover;">
-      <div class="full-bg-img">
-        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-          <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="wsl安装与开发环境搭建">
-              
-            </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-11-26 10:45" pubdate>
-        2021年11月26日 上午
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      6.6k 字
-    </span>
   
 
-  
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      55 分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
-          </div>
-
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="wsl安装与开发环境搭建"></span>
           
         </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-26 10:45" pubdate>
+          2021年11月26日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          6.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          55 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
       </div>
+
+      
     </div>
+  </div>
+</div>
+
+</div>
+
   </header>
 
   <main>
@@ -252,22 +307,31 @@
 
 <div class="container-fluid nopadding-x">
   <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
     <div class="col-lg-8 nopadding-x-md">
       <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
+        <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">wsl安装与开发环境搭建</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：2022年5月30日 下午
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2022年5月30日 下午
+                  
                 
               </p>
             
-            <div class="markdown-body">
-              <p>wsl2，vscode，windows terminal，zsh，docker····</p>
+            
+              <div class="markdown-body">
+                
+                <p>wsl2，vscode，windows terminal，zsh，docker····</p>
 <span id="more"></span>
 <h1 id="windows-subsystem-for-linux">Windows Subsystem for Linux</h1>
 <p>首先贴一个<a
@@ -318,7 +382,7 @@ Technology），这一步根据CPU不同操作方式不同就不细说了。</p>
 <p>需要先启用“适用于 Linux 的 Windows 子系统”可选功能，然后才能在
 Windows 上安装 Linux 分发。</p>
 <p>以管理员身份打开 PowerShell 并运行：</p>
-<div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span><span class="token function">enable-feature</span> <span class="token operator">/</span>featurename:Microsoft<span class="token operator">-</span>Windows<span class="token operator">-</span>Subsystem<span class="token operator">-</span>Linux <span class="token operator">/</span>all <span class="token operator">/</span>norestart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span><span class="token function">enable-feature</span> <span class="token operator">/</span>featurename:Microsoft-Windows-Subsystem-Linux <span class="token operator">/</span>all <span class="token operator">/</span>norestart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>若要更新到 WSL 2，需要运行 Windows 10。</p>
 <ul>
 <li>对于 x64 系统：<strong>版本 1903</strong> 或更高版本，采用
@@ -337,7 +401,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126
 <p>安装 WSL 2 之前，必须启用“虚拟机平台”可选功能。 计算机需要<a
 target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed">虚拟化功能</a>才能使用此功能。</p>
 <p>以管理员身份打开 PowerShell 并运行：</p>
-<div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span><span class="token function">enable-feature</span> <span class="token operator">/</span>featurename:VirtualMachinePlatform <span class="token operator">/</span>all <span class="token operator">/</span>norestart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span><span class="token function">enable-feature</span> <span class="token operator">/</span>featurename:VirtualMachinePlatform <span class="token operator">/</span>all <span class="token operator">/</span>norestart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126110900611.png" srcset="/img/loading.gif" lazyload /></p>
 <p><strong>重新启动</strong> 计算机，以完成 WSL 安装并更新到 WSL 2。</p>
@@ -346,7 +410,7 @@ target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.n
 Linux 内核更新包并将 WSL 2 设置为默认版本。</p>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111436728.png" srcset="/img/loading.gif" lazyload /></p>
-<div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">wsl <span class="token operator">--</span><span class="token function">set-default</span><span class="token operator">-</span>version 2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">wsl <span class="token operator">--</span><span class="token function">set-default</span><span class="token operator">-</span>version 2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111557676.png" srcset="/img/loading.gif" lazyload /></p>
 <p>最后，打开 <a target="_blank" rel="noopener" href="https://aka.ms/wslstore">Microsoft
@@ -383,7 +447,7 @@ target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9msmjq
 未来的所有启动时间应不到一秒。</p>
 <p>然后，需要为新的 Linux 分发版创建用户帐户和密码。</p>
 <p>另外，以上内容貌似（？）可以使用以下一行命令解决</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl --install -d Ubuntu-20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl --install -d Ubuntu-20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126142919333.png" srcset="/img/loading.gif" lazyload /></p>
 <p>另外我发现用户名不能用大写，并且密码是不会显示出来的。</p>
@@ -392,14 +456,14 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126
 <h2 id="换源">换源</h2>
 <p>如果遇到下载速度较慢，或者下载失败等问题，我们还可以把官方源换成国内源。</p>
 <p><strong>备份list文件</strong></p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /etc/apt/
-<span class="token function">sudo</span> <span class="token function">cp</span> sources.list sources.list.bak<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /etc/apt/
+<span class="token function">sudo</span> <span class="token function">cp</span> sources.list sources.list.bak<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>备份了，如果下面的哪一步出错了好恢复。</p>
 <p><strong>修改list文件</strong></p>
 <p>管理员权限，使用 vim 进行修改：</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">vim</span> sources.list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">vim</span> sources.list<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>把想要更换的源复制在剪切板，这里以阿里源为例：</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
 deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
@@ -408,21 +472,21 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiv
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse
 deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse
-deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>我们先通过按<strong>ggdG</strong>这几个字母将里面的内容全部删除，</p>
-<div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">通过按下gg后发现光标移动到文件首行了。其中，gg为跳转到文件首行；dG为删除光标所在行以及其下所有行的内容。d为删除，G为跳转到文件末尾行。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">通过按下gg后发现光标移动到文件首行了。其中，gg为跳转到文件首行；dG为删除光标所在行以及其下所有行的内容。d为删除，G为跳转到文件末尾行。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>按鼠标右键会进行粘贴，然后输入 :wq! 进行退出与保存。</p>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126135607014.png" srcset="/img/loading.gif" lazyload /></p>
 <p>最后复制这两条命令进行更新镜像源列表。</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
-<span class="token function">sudo</span> <span class="token function">apt-get</span> upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <h2 id="wsl-迁移">WSL 迁移</h2>
 <p>开发用久了c盘爆满，所以建议大家安装好之后立即进行迁移</p>
 <ol type="1">
 <li>查看Ubuntu 版本号</li>
 </ol>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <ol start="2" type="1">
 <li><p>在D盘新建一个文件夹，我的路径是D:</p></li>
 <li><p>一步一步执行以下命令行。其中，Ubuntu-18.04是我的Ubuntu版本，大家可以根据wsl-l的版本号自行修改</p></li>
@@ -430,9 +494,9 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126
 <p>Step1: 导出</p>
 <p>Step2: 注销原来的</p>
 <p>Step3: 导入</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl --export Ubuntu-18.04 d://wslubuntu//ubuntu-18.04.tar
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl --export Ubuntu-18.04 d://wslubuntu//ubuntu-18.04.tar
 wsl --unregister Ubuntu-18.04
-wsl --import Ubuntu-18.04 d://wslubuntu d://wslubuntu//ubuntu-18.04.tar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+wsl --import Ubuntu-18.04 d://wslubuntu d://wslubuntu//ubuntu-18.04.tar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>不过在系统设置里有更简洁的移动方法，这两种我都试过且都失败/成功过，一次不行就再来一遍</p>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220530133102447.png" srcset="/img/loading.gif" lazyload /></p>
@@ -452,7 +516,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126112958904.png" srcset="/img/loading.gif" lazyload /></p>
 <p>也可以直接打开window终端，cd到对应文件夹，然后输入</p>
-<div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">code <span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">code <span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126113402308.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img
@@ -460,73 +524,73 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126
 <p>至此就可以实现在windows环境下编程，在linux环境下测试。</p>
 <h1 id="docker">Docker</h1>
 <p>使用以下脚本可以实现自动安装。</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># install docker</span>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># install docker</span>
 <span class="token function">curl</span> -fsSL get.docker.com -o get-docker.sh
 <span class="token function">sh</span> get-docker.sh
 
-<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token variable"><span class="token variable">$(</span>getent group docker<span class="token variable">)</span></span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token variable"><span class="token variable">$(</span>getent group <span class="token function">docker</span><span class="token variable">)</span></span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">then</span> 
-    <span class="token function">sudo</span> <span class="token function">groupadd</span> docker<span class="token punctuation">;</span>
+    <span class="token function">sudo</span> <span class="token function">groupadd</span> <span class="token function">docker</span><span class="token punctuation">;</span>
 <span class="token keyword">else</span>
     <span class="token builtin class-name">echo</span> <span class="token string">"docker user group already exists"</span>
 <span class="token keyword">fi</span>
 
-<span class="token function">sudo</span> gpasswd -a <span class="token environment constant">$USER</span> docker
-<span class="token function">sudo</span> <span class="token function">service</span> docker restart
+<span class="token function">sudo</span> gpasswd -a <span class="token environment constant">$USER</span> <span class="token function">docker</span>
+<span class="token function">sudo</span> <span class="token function">service</span> <span class="token function">docker</span> restart
 
-<span class="token function">rm</span> -rf get-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token function">rm</span> -rf get-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126133921891.png" srcset="/img/loading.gif" lazyload /></p>
 <p>可以直接复制到txt中，然后修改文件类型跟文件名为install-docker.sh（后缀是sh，名字任意）</p>
 <p>例如我在桌面放置了该脚本，右键打开终端之后输入以下命令即可完成安装。</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> install-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> install-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126140126640.png" srcset="/img/loading.gif" lazyload /></p>
 <p>接下来输入：</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">service</span> docker start
-docker version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">service</span> <span class="token function">docker</span> start
+<span class="token function">docker</span> version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>就可以启动服务，查看版本，证明我们已经安装成功。</p>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126140532065.png" srcset="/img/loading.gif" lazyload /></p>
 <p>如果不希望每次都特地启动docker的服务可以使用以下命令设置自启动：</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>关于docker的使用就大家自己研究啦。</p>
 <h1 id="on-my-zsh">On-my-zsh</h1>
 <p>一个美观且功能强大的终端</p>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126145704636.png" srcset="/img/loading.gif" lazyload /></p>
 <p>用windows terminal启动Ubuntu，输入以下命令安装：</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y <span class="token function">zsh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y <span class="token function">zsh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>oh-my-zsh中整理了常用的zsh<a
 target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins">扩展</a>和<a
 target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">主题</a>,所以先安装oh-my-zsh</p>
 <p>使用curl安装 :</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>使用wget安装：</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">wget</span> https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">wget</span> https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>虽然我列出了上面两条命令，但最好还是看看<a
 target="_blank" rel="noopener" href="https://ohmyz.sh/#install">官网</a>的安装页面，确保命令的最新版本。</p>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126150308574.png" srcset="/img/loading.gif" lazyload /></p>
 <p>接下来输入：</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span>
-code .zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span>
+code .zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>就可以cd到根目录文件夹，用vscode的可视化界面编辑配置文件，添加需要的扩展与主题了。</p>
 <p>扩展与主题根据个人需求添加，本文不再赘述。</p>
 <h1 id="python开发">Python开发</h1>
 <p>花里胡哨那么多东西了，讲一点实战（假的）。</p>
 <p>默认Ubuntu已经安装了python，我们只需要安装pip，就可以进行一些简单的编程。</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126151809809.png" srcset="/img/loading.gif" lazyload /></p>
 <p>当然我们不能局限于简单的编程，我们需要<strong>创建虚拟环境</strong>，确保各个环境互相隔离，互不影响。</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-venv<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-venv<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>创建虚拟环境：</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> python3 -m venv <span class="token function">env</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> python3 -m venv <span class="token function">env</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>激活与退出：</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> env/bin/activate
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> env/bin/activate
 
-deactivate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div>
+deactivate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><img
 src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126181729703.png" srcset="/img/loading.gif" lazyload /></p>
 <p>接下来就可以尽情地pip
@@ -535,24 +599,24 @@ install了，在工作环境下新建文件夹，再用vscode打开，即可开�
 <ol type="1">
 <li>安装中文语言包</li>
 </ol>
-<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> language-pack-zh-hans<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> language-pack-zh-hans<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <ol start="2" type="1">
 <li>运行 <code>dpkg-reconfigure locales</code></li>
 </ol>
-<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> dpkg-reconfigure locales<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> dpkg-reconfigure locales<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <ol start="3" type="1">
 <li>选择<strong>en_US.UTF-8</strong>和 <strong>zh_CN.UTF-8</strong> ,
 选择<strong>zh_CN.UTF-8</strong>为默认语言</li>
 <li>安装字体管理工具<strong>fontconfig</strong></li>
 </ol>
-<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> fontconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> fontconfig<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>5.安装Windows字体</p>
 <p>复制windows的字体到 <code>/usr/share/fonts/</code>下</p>
-<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">cp</span> -r /mnt/c/Windows/Fonts /usr/share/fonts/windows<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">cp</span> -r /mnt/c/Windows/Fonts /usr/share/fonts/windows<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <ol start="6" type="1">
 <li>刷新字体缓存</li>
 </ol>
-<div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">fc-cache -f -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">fc-cache -f -v<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <ol start="7" type="1">
 <li><p>退出重进wsl</p>
 <h1
@@ -560,11 +624,11 @@ id="安装ros系统记得版本对应例如我的ubuntu18.04-对应melodic">安�
 对应melodic）</h1></li>
 </ol>
 <p>使用鱼香ros大佬的一键安装脚本</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">wget</span> http://fishros.com/install -O fishros <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">.</span> fishros<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">wget</span> http://fishros.com/install -O fishros <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">.</span> fishros<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>上面那行是官方的，我运行不了，我根据内容用下面这种方式可以运行</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">wget</span> http://fishros.com/install -O fishros.sh <span class="token operator">&amp;&amp;</span> <span class="token function">sh</span> fishros.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">wget</span> http://fishros.com/install -O fishros.sh <span class="token operator">&amp;&amp;</span> <span class="token function">sh</span> fishros.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>如果上面那个打开失败，可以用下面这种方式</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> -p /tmp/fishinstall/tools
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">mkdir</span> -p /tmp/fishinstall/tools
 <span class="token function">wget</span> http://fishros.com/install/install1s/install.py -O /tmp/fishinstall/install.py <span class="token operator"><span class="token file-descriptor important">2</span>>></span>/dev/null 
 <span class="token builtin class-name">source</span> /etc/profile
 <span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> python3-distro python3-yaml -y
@@ -575,7 +639,7 @@ id="安装ros系统记得版本对应例如我的ubuntu18.04-对应melodic">安�
 <span class="token function">sudo</span> <span class="token function">rm</span> -rf /tmp/fishinstall/
 <span class="token function">sudo</span> <span class="token function">rm</span> fishros
 <span class="token builtin class-name">.</span> ~/.bashrc
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>自己对照着<a
 target="_blank" rel="noopener" href="https://wiki.ros.org/melodic/Installation/Ubuntu#Installation.2BAC8-Ubuntu.2BAC8-Sources.Configure_your_Ubuntu_repositories">官方文档</a>的顺序安装</p>
 <p><img
@@ -583,8 +647,8 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220530
 <p>我使用的顺序是5（换源）→1（ROS）→3（rosdep）→4（环境配置）</p>
 <p>出现了一些小bug都是因为zsh</p>
 <p>如果你跟我一样用的zsh 补上一个</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">"source /opt/ros/melodic/setup.zsh"</span> <span class="token operator">>></span> ~/.zshrc
-<span class="token builtin class-name">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">echo</span> <span class="token string">"source /opt/ros/melodic/setup.zsh"</span> <span class="token operator">>></span> ~/.zshrc
+<span class="token builtin class-name">source</span> ~/.zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <h1 id="安装图形界面">安装图形界面</h1>
 <p>1.安装 <a
 target="_blank" rel="noopener" href="https://sourceforge.net/projects/vcxsrv/">VcXsrv</a></p>
@@ -597,10 +661,10 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220529
 <p>点击 “Save Configuration” 保存设置，会让你保存一个 “config.xlaunch”
 的配置文件快捷方式，下次运行这个快捷方式就不用重新设置了。点击完成会出现一个纯黑的窗口，把它挂在后台先不管。</p>
 <p>3.安装xfce4</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> -y xfce4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> -y xfce4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <ol start="4" type="1">
 <li><p>配置变量</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 首先需要查看Windows系统和WSL2通信使用的虚拟网卡地址</span>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 首先需要查看Windows系统和WSL2通信使用的虚拟网卡地址</span>
 $ <span class="token function">sudo</span> <span class="token function">vim</span> /etc/resolv.conf
 <span class="token comment"># nameserver后面的地址就是Windows系统虚拟网卡的地址,记一下</span>
 <span class="token comment"># 同时需要取消下面两行内容的注释,禁用自动重新生成配置文件,否则重启后这个地址会变</span>
@@ -613,9 +677,9 @@ $ <span class="token function">vim</span> ~/.bashrc <span class="token comment">
 <span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">DISPLAY</span></span><span class="token operator">=</span><span class="token number">192.168</span>.112.1:0 <span class="token comment">#改ip 端口不动</span>
  
 <span class="token variable">$source</span> ~/.bashrc
-<span class="token comment">#执行刚修改的初始化文件，使之立即生效</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div>
+<span class="token comment">#执行刚修改的初始化文件，使之立即生效</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>5.启动xfce4</p>
-<div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">startxfce4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></li>
+<figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">startxfce4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure></li>
 </ol>
 <figure>
 <img
@@ -624,33 +688,73 @@ alt="大功告成！" />
 <figcaption aria-hidden="true">大功告成！</figcaption>
 </figure>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
-                    
-                  </div>
                 
               </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">#操作系统</a>
+      
+    </div>
+  
+</div>
+
+
               
-                <p class="note note-warning">
-                  
-                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
-                  
-                </p>
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>wsl安装与开发环境搭建</div>
+      <div>http://enderfga.cn/2021/11/26/wsl/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Enderfga</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月26日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
               
-              
-                <div class="post-prevnext">
+                <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/12/31/2022/">
+                      <a href="/2021/12/31/2022/" title="2022’summary">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">2022’summary</span>
                         <span class="visible-mobile">上一篇</span>
@@ -660,7 +764,7 @@ alt="大功告成！" />
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/11/23/onehot/">
+                      <a href="/2021/11/23/onehot/" title="One-Hot Encoding 独热编码">
                         <span class="hidden-mobile">One-Hot Encoding 独热编码</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -672,12 +776,8 @@ alt="大功告成！" />
             </div>
 
             
-              <!-- Comments -->
-              <article class="comments" id="comments" lazyload>
-                
-                  
-                
-                
+  <article id="comments" lazyload>
+    
   <script type="text/javascript">
     Fluid.utils.loadComments('#comments', function() {
       var light = 'github-light';
@@ -705,26 +805,72 @@ alt="大功告成！" />
   <noscript>Please enable JavaScript to view the comments</noscript>
 
 
-              </article>
-            
+  </article>
+
+
           </article>
         </div>
       </div>
     </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
   <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div class="toc-body" id="toc-body"></div>
 </div>
 
-      </div>
-    
+
+
+  </aside>
+
+
+    </div>
   </div>
 </div>
 
-<!-- Custom -->
 
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+  <!-- Custom -->
   <div class="col-lg-7 mx-auto nopadding-x-md">
     <div class="container custom post-custom mx-auto">
       <img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
@@ -754,57 +900,59 @@ alt="大功告成！" />
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v"
-                 for="local-search-input">关键词</label>
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
         </div>
         <div class="list-group" id="local-search-result"></div>
       </div>
     </div>
   </div>
 </div>
+
     
 
     
   </main>
 
-  <footer class="text-center mt-5 py-3">
-  <div class="footer-content">
-     <p id="jinrishici-sentence">愿我如星君如月，夜夜流光相皎洁</p> <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener"><span> 粤ICP备2021112653号-1</span></a> <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> 
-  </div>
+  <footer>
+    <div class="footer-inner">
   
-  <div class="statistics">
-    
-    
-
-    
-      
-        <!-- LeanCloud 统计PV -->
-        <span id="leancloud-site-pv-container" style="display: none">
-            总访问量 
-            <span id="leancloud-site-pv"></span>
-             次
-          </span>
-      
-      
-        <!-- LeanCloud 统计UV -->
-        <span id="leancloud-site-uv-container" style="display: none">
-            总访客数 
-            <span id="leancloud-site-uv"></span>
-             人
-          </span>
-      
-
-    
-  </div>
-
-
+    <div class="footer-content">
+       <p id="jinrishici-sentence">愿我如星君如月，夜夜流光相皎洁</p> <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener"><span> 粤ICP备2021112653号-1</span></a> <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> 
+    </div>
+  
+  
+    <div class="statistics">
+  
   
 
   
-</footer>
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
 
+  
+</div>
 
-  <!-- SCRIPTS -->
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
   
   <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
   <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
@@ -823,10 +971,22 @@ alt="大功告成！" />
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
-<!-- Plugins -->
 
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
-  <script  src="/js/local-search.js" ></script>
 
 
 
@@ -836,150 +996,126 @@ alt="大功告成！" />
 
 
 
+
   
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script  src="https://lib.baomitu.com/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
     
-  
 
-
-
-  
-    <script  src="https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js" ></script>
-  
-  
-    <script  src="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  
-  
-    <script  src="https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js" ></script>
-  
-  
-    <script defer src="https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js" ></script>
-  
-
-
-
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js" ></script>
 
   <script defer src="/js/leancloud.js" ></script>
 
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var title = document.getElementById('subtitle').title;
-      
-        typing(title);
-      
-    })(window, document);
-  </script>
+  <script  src="/js/local-search.js" ></script>
 
 
 
 
 
-  
-
-  
-    <!-- MathJax -->
-    <script>
-      MathJax = {
-        tex: {
-          inlineMath: [['$', '$'], ['\\(', '\\)']]
-        },
-        loader: {
-          
-        },
-        options: {
-          renderActions: {
-            findScript: [10, doc => {
-              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                const display = !!node.type.match(/; *mode=display/);
-                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                const text = document.createTextNode('');
-                node.parentNode.replaceChild(text, node);
-                math.start = { node: text, delim: '', n: 0 };
-                math.end = { node: text, delim: '', n: 0 };
-                doc.math.push(math);
-              });
-            }, '', false],
-            insertedScript: [200, () => {
-              document.querySelectorAll('mjx-container').forEach(node => {
-                let target = node.parentNode;
-                if (target.nodeName.toLowerCase() === 'li') {
-                  target.parentNode.classList.add('has-jax');
-                }
-              });
-            }, '', false]
-          }
-        }
-      };
-    </script>
-
-    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/tex-svg.js" ></script>
-
-  
-
-
-
-
-
-  <script  src="https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js" ></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize({"theme":"default"});
-    }
-  </script>
-
-
-
-
-  
-    <!-- Baidu Analytics -->
-    <script defer>
-      var _hmt = _hmt || [];
-      (function () {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?oG62pOOQWEHEoerO";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-
-
-
-
-<!-- 主题的启动项 保持在最底部 -->
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
 <script  src="/js/boot.js" ></script>
 
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
-</script>
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://raw.githubusercontents.com/imuncle/live2d/master/model/hijiki/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
