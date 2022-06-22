@@ -332,12 +332,9 @@
               <div class="markdown-body">
                 
                 <p>一些常用的命令，每次忘了都得搜，记录一下</p>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220428094832340.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220428094832340.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <span id="more"></span>
-<h1 id="anacondapython">Anaconda&amp;python</h1>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220428093957780.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="Anaconda-amp-python"><a href="#Anaconda-amp-python" class="headerlink" title="Anaconda&amp;python"></a>Anaconda&amp;python</h1><p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220428093957780.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>pip安装（tensorflow-gpu为例）</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip  install tensorflow-gpu<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><strong>conda安装</strong></p>
@@ -348,7 +345,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220428
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install tensorflow-gpu&#x3D;&#x3D;1.10 -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><strong>指定目录安装</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pip install -t D:\ProgramData\Anaconda3\Lib\site-packages torch-1.0.1-cp36-cp36m-win_amd64.whl<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p><strong>卸载安装（pip3只需将conda换成pip）</strong></p>
+<p><strong>卸载安装（pip\pip3只需将conda换成pip\pip3）</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda  uninstall tensorflow-gpu<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><strong>创建虚拟环境（conda为例）</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda create -n py36 python&#x3D;3.6  #py36虚拟环境的名字  python&#x3D;3.6  python版本<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
@@ -378,121 +375,73 @@ deactivate<span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">ps</span> aux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><strong>根据进程号杀死进程</strong></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">kill</span> -9 进程号<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/200301122312741.jpg" srcset="/img/loading.gif" lazyload /></p>
-<h1 id="linux">linux</h1>
-<p>linux不像Windows 分了盘，它根目录下有如下常用文件夹:</p>
-<p><em>home</em> ---------- 用户的家</p>
-<p><em>root</em> ---------- 超级管理员root的家</p>
-<p><em>etc</em> ---------- 存放配置文件</p>
-<p><em>usr</em> ---------- 存放共享资源</p>
-<h2 id="cd命令">1、cd命令:</h2>
-<p><strong>①、进入某一个目录</strong> <code>cd 目录名</code></p>
-<p><strong>②、进入多级目录</strong> <code>cd 目录名/目录名</code></p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/200301122312741.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
+<h1 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h1><p>linux不像Windows 分了盘，它根目录下有如下常用文件夹:</p>
+<p><em>home</em>         —————        用户的家</p>
+<p><em>root</em>            —————        超级管理员root的家</p>
+<p><em>etc</em>              —————        存放配置文件</p>
+<p><em>usr</em>              —————        存放共享资源</p>
+<h2 id="1、cd命令"><a href="#1、cd命令" class="headerlink" title="1、cd命令:"></a>1、cd命令:</h2><p><strong>①、进入某一个目录</strong> <code>cd 目录名</code></p>
+<p><strong>②、进入多级目录</strong>  <code>cd 目录名/目录名</code></p>
 <p><strong>③、返回上一级目录</strong> <code>cd ..</code></p>
 <p><strong>④、返回根目录</strong> <code>cd /</code></p>
-<p><strong>⑤、返回根目录下的某一个目录</strong>
-<code>cd /目录名</code></p>
+<p><strong>⑤、返回根目录下的某一个目录</strong> <code>cd /目录名</code></p>
 <p><strong>⑥、回家</strong> <code>cd ~</code></p>
-<h2 id="创建删除目录">2、创建、删除目录:</h2>
-<p><strong>①、创建目录</strong> <code>mkdir 目录名</code></p>
+<h2 id="2、创建、删除目录"><a href="#2、创建、删除目录" class="headerlink" title="2、创建、删除目录:"></a>2、创建、删除目录:</h2><p><strong>①、创建目录</strong> <code>mkdir 目录名</code></p>
 <p><strong>②、创建多级目录</strong> <code>mkdir -p a/b/c</code></p>
-<p><strong>③、删除目录(只能删除空目录)</strong>
-<code>rmdir 目录名</code></p>
-<p><strong>④、删除目录(可删除非空目录，带询问)</strong>
-<code>rm -r</code></p>
-<p><strong>⑤、删除目录(不带询问，谨慎使用)</strong>
-<code>rm -rf</code></p>
-<h2 id="对文件的操作">3、对文件的操作:</h2>
-<p><strong>①、创建空白文件</strong> <code>touch 文件名</code></p>
+<p><strong>③、删除目录(只能删除空目录)</strong> <code>rmdir 目录名</code></p>
+<p><strong>④、删除目录(可删除非空目录，带询问)</strong> <code>rm -r</code></p>
+<p><strong>⑤、删除目录(不带询问，谨慎使用)</strong> <code>rm -rf</code></p>
+<h2 id="3、对文件的操作"><a href="#3、对文件的操作" class="headerlink" title="3、对文件的操作:"></a>3、对文件的操作:</h2><p><strong>①、创建空白文件</strong> <code>touch 文件名</code></p>
 <p><strong>②、复制文件</strong></p>
-<p><code>cp a.txt b.txt</code> <em>表示复制a文件并重命名为b。</em></p>
-<p><code>cp a.txt dir/b.txt</code>
-<em>表示把a复制到dir文件夹下并重命名为b。</em></p>
-<p><strong>③、移动文件</strong> <code>mv a.txt dir/b.txt</code>
-<em>把a.txt移动到dir目录下并重命名为b.txt。</em></p>
-<p><strong>④、重命名文件</strong> <code>mv a.txt b.txt</code>
-<em>把a.txt重命名为b.txt。</em></p>
+<p> <code>cp a.txt b.txt</code> <em>表示复制a文件并重命名为b。</em></p>
+<p><code>cp a.txt dir/b.txt</code> <em>表示把a复制到dir文件夹下并重命名为b。</em></p>
+<p><strong>③、移动文件</strong> <code>mv a.txt dir/b.txt</code> <em>把a.txt移动到dir目录下并重命名为b.txt。</em></p>
+<p><strong>④、重命名文件</strong> <code>mv a.txt b.txt</code> <em>把a.txt重命名为b.txt。</em></p>
 <p><strong>⑤、删除文件</strong></p>
 <p><code>rm 文件名</code> <em>带询问的删除</em></p>
 <p><code>rm -f 文件名</code> <em>不带询问的删除。</em></p>
 <p><strong>⑥、浏览文件</strong></p>
-<p><code>cat 文件名</code> <em>显示文件所有内容</em></p>
-<p><code>more 文件名</code>
-<em>分页显示，空格键下一页，回车键下一行。</em></p>
-<p><code>less 文件名</code>
-<em>分页显示，pgup上一页，pgdn下一页。</em></p>
+<p> <code>cat 文件名</code> <em>显示文件所有内容</em></p>
+<p><code>more 文件名</code> <em>分页显示，空格键下一页，回车键下一行。</em></p>
+<p><code>less 文件名</code> <em>分页显示，pgup上一页，pgdn下一页。</em></p>
 <p><code>tail -5 a.txt</code> <em>显示a.txt文件的最后5行。</em></p>
 <p><code>tail -f 文件名</code> <em>动态的查看。</em></p>
-<h2 id="查看目录下的文件">4、查看目录下的文件:</h2>
-<p><strong>①、查看所有文件和目录名称</strong> <code>ls</code></p>
-<p><strong>②、查看所有文件和目录名称(包括隐藏的)</strong>
-<code>ls -a</code></p>
-<p><strong>③、查看文件并显示详细信息(最常用)</strong>
-<code>ll</code></p>
-<p><strong>④、友好的显示</strong> <code>ll -h</code>
-<em>比如显示的文件大小是kb而不是字节。</em></p>
-<h2 id="tar打包命令">5、tar打包命令:</h2>
-<p><strong>①、将当前目录所有文件打包成haha.tar</strong>
-<code>tar -cvf haha.tar ./*</code></p>
-<p><strong>②、将当前目录下所有文件打包并压缩成haha.tar</strong>
-<code>tar -zcvf haha.tar.gz ./*</code></p>
-<p><strong>③、将haha.tar解压到当前目录</strong>
-<code>tar -xvf haha.tar</code></p>
-<p><strong>④、将haha.tar解压到b目录</strong>
-<code>tar -xvf haha.tar -C b</code> <em>注意C是大写的！</em></p>
-<h2 id="其他常用命令">6、其他常用命令:</h2>
-<p><strong>①、grep命令</strong></p>
-<p><code>grep category a.txt</code>
-<em>表示在a.txt中查找category字符串所在的行，前提是打开了a.txt文件。</em></p>
-<p><code>grep category a.txt -A2</code>
-<em>在a.txt中查找category字符串的前两行。</em></p>
-<p><code>grep category a.txt -B2</code>
-<em>在a.txt中查找category字符串的后两行。</em></p>
+<h2 id="4、查看目录下的文件"><a href="#4、查看目录下的文件" class="headerlink" title="4、查看目录下的文件:"></a>4、查看目录下的文件:</h2><p><strong>①、查看所有文件和目录名称</strong> <code>ls</code></p>
+<p><strong>②、查看所有文件和目录名称(包括隐藏的)</strong> <code>ls -a</code></p>
+<p><strong>③、查看文件并显示详细信息(最常用)</strong> <code>ll</code></p>
+<p><strong>④、友好的显示</strong> <code>ll -h</code> <em>比如显示的文件大小是kb而不是字节。</em></p>
+<h2 id="5、tar打包命令"><a href="#5、tar打包命令" class="headerlink" title="5、tar打包命令:"></a>5、tar打包命令:</h2><p><strong>①、将当前目录所有文件打包成haha.tar</strong> <code>tar -cvf haha.tar ./*</code></p>
+<p><strong>②、将当前目录下所有文件打包并压缩成haha.tar</strong> <code>tar -zcvf haha.tar.gz ./*</code></p>
+<p><strong>③、将haha.tar解压到当前目录</strong> <code>tar -xvf haha.tar</code></p>
+<p><strong>④、将haha.tar解压到b目录</strong> <code>tar -xvf haha.tar -C b</code> <em>注意C是大写的！</em></p>
+<h2 id="6、其他常用命令"><a href="#6、其他常用命令" class="headerlink" title="6、其他常用命令:"></a>6、其他常用命令:</h2><p><strong>①、grep命令</strong></p>
+<p><code>grep category a.txt</code> <em>表示在a.txt中查找category字符串所在的行，前提是打开了a.txt文件。</em></p>
+<p><code>grep category a.txt -A2</code> <em>在a.txt中查找category字符串的前两行。</em></p>
+<p><code>grep category a.txt -B2</code> <em>在a.txt中查找category字符串的后两行。</em></p>
 <p><strong>②、查看当前目录</strong> <code>pwd</code></p>
-<p><strong>③、wget下载命令</strong> <code>wget www.baidu.com</code>
-<em>下载百度首页</em></p>
-<h2 id="vivim编辑器">7、vi/vim编辑器:</h2>
-<p><strong>①、编辑器有三种模式，分别是:</strong>
-<strong>命令行模式:</strong>
-此模式无法编辑文件，<code>yy</code>复制行，<code>p</code>粘贴，<code>dd</code>删除行，按如下键都可以进入插入模式:</p>
-<p><code>i</code> 当前位置前插入;</p>
-<p><code>I</code> 当前行行首插入;</p>
-<p><code>a</code> 当前位置后插入;</p>
-<p><code>A</code> 当前行行尾插入;</p>
-<p><code>o</code> 当前行之后插入一行;</p>
-<p><code>O</code> 当前的之前插入一行</p>
-<p><strong>插入模式:</strong>此模式下可以对文件进行编辑。按
-<code>esc</code>退出插入模式，回到命令行模式。
-<strong>底行模式:</strong>命令行模式下按
-<code>:</code>，即可进入底行模式。底行模式有如下常用命令:</p>
-<p><code>q</code> 不保存退出;</p>
-<p><code>q！</code> 不保存强制退出;</p>
-<p><code>wq</code> 保存退出</p>
-<h2 id="管道">8、管道:</h2>
-<p><strong>管道:<code>|</code>，将一个命令的输出作为另一个命令的输入。例如:</strong>
-<strong>在 <code>ip addr</code>的输出结果中查找
-<code>192.168</code>字符串:</strong>
-<code>ip addr | grep 192.168</code></p>
-<h2 id="系统管理命令">9、系统管理命令:</h2>
-<p><strong>①、查看系统时间</strong> <code>date</code> 查看系统时间
-<code>date -s "2018-05-15 22:22:22"</code>将系统时间设置为引号里面的时间</p>
-<p><strong>②、查看磁盘信息</strong> <code>df</code> 查看磁盘信息
-<code>df -h</code> 友好地展示磁盘信息</p>
-<p><strong>③、清屏</strong> <code>clear</code>或者按
-<code>ctr L</code></p>
-<p><strong>④、进程</strong> <code>ps -ef</code>查看所有进程
-<code>ps -ef | grep ssh</code>查找ssh进程</p>
-<p><strong>⑤、杀掉进程</strong> <code>kill 9527</code>杀掉9527号进程
-<code>kill -9 9527</code> 强制杀掉9527号进程</p>
-<p><strong>⑥、查看网络端口</strong>
-<code>netstat -an | grep 3306</code>查看3306端口占用情况</p>
-<p><strong>⑦、ping命令</strong>
-<code>ping xx.xx.xxx</code>测试网络连通性</p>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/bg2015120901.png" srcset="/img/loading.gif" lazyload /></p>
-<h1 id="git">GIT</h1>
-<p>下面是常用 Git 命令清单。几个专用名词的译名如下。</p>
+<p><strong>③、wget下载命令</strong> <code>wget www.baidu.com</code> <em>下载百度首页</em></p>
+<h2 id="7、vi-vim编辑器"><a href="#7、vi-vim编辑器" class="headerlink" title="7、vi/vim编辑器:"></a>7、vi/vim编辑器:</h2><p><strong>①、编辑器有三种模式，分别是:</strong> <strong>命令行模式:</strong> 此模式无法编辑文件，<code>yy</code>复制行，<code>p</code>粘贴，<code>dd</code>删除行，按如下键都可以进入插入模式:</p>
+<p><code>i</code>       当前位置前插入;</p>
+<p><code>I</code>        当前行行首插入;</p>
+<p><code>a</code>       当前位置后插入;</p>
+<p><code>A</code>      当前行行尾插入;</p>
+<p><code>o</code>       当前行之后插入一行;</p>
+<p> <code>O</code>      当前的之前插入一行</p>
+<p><strong>插入模式:</strong>此模式下可以对文件进行编辑。按 <code>esc</code>退出插入模式，回到命令行模式。 <strong>底行模式:</strong>命令行模式下按 <code>:</code>，即可进入底行模式。底行模式有如下常用命令:</p>
+<p> <code>q</code>        不保存退出;</p>
+<p> <code>q！</code>    不保存强制退出;</p>
+<p><code>wq</code>     保存退出</p>
+<h2 id="8、管道"><a href="#8、管道" class="headerlink" title="8、管道:"></a>8、管道:</h2><p><strong>管道:<code>|</code>，将一个命令的输出作为另一个命令的输入。例如:</strong> <strong>在 <code>ip addr</code>的输出结果中查找 <code>192.168</code>字符串:</strong> <code>ip addr | grep 192.168</code></p>
+<h2 id="9、系统管理命令"><a href="#9、系统管理命令" class="headerlink" title="9、系统管理命令:"></a>9、系统管理命令:</h2><p><strong>①、查看系统时间</strong> <code>date</code>  查看系统时间 <code>date -s &quot;2018-05-15 22:22:22&quot;</code>将系统时间设置为引号里面的时间</p>
+<p><strong>②、查看磁盘信息</strong> <code>df</code> 查看磁盘信息 <code>df -h</code>  友好地展示磁盘信息</p>
+<p><strong>③、清屏</strong> <code>clear</code>或者按 <code>ctr L</code></p>
+<p><strong>④、进程</strong> <code>ps -ef</code>查看所有进程 <code>ps -ef | grep ssh</code>查找ssh进程</p>
+<p><strong>⑤、杀掉进程</strong> <code>kill 9527</code>杀掉9527号进程 <code>kill -9 9527</code> 强制杀掉9527号进程</p>
+<p><strong>⑥、查看网络端口</strong> <code>netstat -an | grep 3306</code>查看3306端口占用情况</p>
+<p><strong>⑦、ping命令</strong> <code>ping xx.xx.xxx</code>测试网络连通性</p>
+<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/bg2015120901.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h1 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h1><p>下面是常用 Git 命令清单。几个专用名词的译名如下。</p>
 <blockquote>
 <ul>
 <li>Workspace：工作区</li>
@@ -501,8 +450,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/bg2015120901.p
 <li>Remote：远程仓库</li>
 </ul>
 </blockquote>
-<h2 id="一新建代码库">一、新建代码库</h2>
-<blockquote>
+<h2 id="一、新建代码库"><a href="#一、新建代码库" class="headerlink" title="一、新建代码库"></a>一、新建代码库</h2><blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在当前目录新建一个Git代码库</span>
 $ <span class="token function">git</span> init
 
@@ -512,9 +460,7 @@ $ <span class="token function">git</span> init <span class="token punctuation">[
 <span class="token comment"># 下载一个项目和它的整个代码历史</span>
 $ <span class="token function">git</span> clone <span class="token punctuation">[</span>url<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
-<h2 id="二配置">二、配置</h2>
-<p>Git的设置文件为
-<code>.gitconfig</code>，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
+<h2 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h2><p>Git的设置文件为 <code>.gitconfig</code>，它可以在用户主目录下（全局配置），也可以在项目目录下（项目配置）。</p>
 <blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 显示当前的Git配置</span>
 $ <span class="token function">git</span> config --list
@@ -526,8 +472,7 @@ $ <span class="token function">git</span> config -e <span class="token punctuati
 $ <span class="token function">git</span> config <span class="token punctuation">[</span>--global<span class="token punctuation">]</span> user.name <span class="token string">"[name]"</span>
 $ <span class="token function">git</span> config <span class="token punctuation">[</span>--global<span class="token punctuation">]</span> user.email <span class="token string">"[email address]"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
-<h2 id="三增加删除文件">三、增加/删除文件</h2>
-<blockquote>
+<h2 id="三、增加-删除文件"><a href="#三、增加-删除文件" class="headerlink" title="三、增加/删除文件"></a>三、增加/删除文件</h2><blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 添加指定文件到暂存区</span>
 $ <span class="token function">git</span> <span class="token function">add</span> <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
 
@@ -550,8 +495,7 @@ $ <span class="token function">git</span> <span class="token function">rm</span>
 <span class="token comment"># 改名文件，并且将这个改名放入暂存区</span>
 $ <span class="token function">git</span> <span class="token function">mv</span> <span class="token punctuation">[</span>file-original<span class="token punctuation">]</span> <span class="token punctuation">[</span>file-renamed<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
-<h2 id="四代码提交">四、代码提交</h2>
-<blockquote>
+<h2 id="四、代码提交"><a href="#四、代码提交" class="headerlink" title="四、代码提交"></a>四、代码提交</h2><blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 提交暂存区到仓库区</span>
 $ <span class="token function">git</span> commit -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
 
@@ -571,8 +515,7 @@ $ <span class="token function">git</span> commit --amend -m <span class="token p
 <span class="token comment"># 重做上一次commit，并包括指定文件的新变化</span>
 $ <span class="token function">git</span> commit --amend <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
-<h2 id="五分支">五、分支</h2>
-<blockquote>
+<h2 id="五、分支"><a href="#五、分支" class="headerlink" title="五、分支"></a>五、分支</h2><blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 列出所有本地分支</span>
 $ <span class="token function">git</span> branch
 
@@ -616,8 +559,7 @@ $ <span class="token function">git</span> branch -d <span class="token punctuati
 $ <span class="token function">git</span> push origin --delete <span class="token punctuation">[</span>branch-name<span class="token punctuation">]</span>
 $ <span class="token function">git</span> branch -dr <span class="token punctuation">[</span>remote/branch<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
-<h2 id="六标签">六、标签</h2>
-<blockquote>
+<h2 id="六、标签"><a href="#六、标签" class="headerlink" title="六、标签"></a>六、标签</h2><blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 列出所有tag</span>
 $ <span class="token function">git</span> tag
 
@@ -645,8 +587,7 @@ $ <span class="token function">git</span> push <span class="token punctuation">[
 <span class="token comment"># 新建一个分支，指向某个tag</span>
 $ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>tag<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
-<h2 id="七查看信息">七、查看信息</h2>
-<blockquote>
+<h2 id="七、查看信息"><a href="#七、查看信息" class="headerlink" title="七、查看信息"></a>七、查看信息</h2><blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 显示有变更的文件</span>
 $ <span class="token function">git</span> status
 
@@ -708,8 +649,7 @@ $ <span class="token function">git</span> show <span class="token punctuation">[
 <span class="token comment"># 显示当前分支的最近几次提交</span>
 $ <span class="token function">git</span> reflog<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
-<h2 id="八远程同步">八、远程同步</h2>
-<blockquote>
+<h2 id="八、远程同步"><a href="#八、远程同步" class="headerlink" title="八、远程同步"></a>八、远程同步</h2><blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 下载远程仓库的所有变动</span>
 $ <span class="token function">git</span> fetch <span class="token punctuation">[</span>remote<span class="token punctuation">]</span>
 
@@ -734,8 +674,7 @@ $ <span class="token function">git</span> push <span class="token punctuation">[
 <span class="token comment"># 推送所有分支到远程仓库</span>
 $ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> --all<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
-<h2 id="九撤销">九、撤销</h2>
-<blockquote>
+<h2 id="九、撤销"><a href="#九、撤销" class="headerlink" title="九、撤销"></a>九、撤销</h2><blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 恢复暂存区的指定文件到工作区</span>
 $ <span class="token function">git</span> checkout <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
 
@@ -768,8 +707,7 @@ $ <span class="token function">git</span> revert <span class="token punctuation"
 $ <span class="token function">git</span> stash
 $ <span class="token function">git</span> stash pop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
-<h2 id="十其他">十、其他</h2>
-<blockquote>
+<h2 id="十、其他"><a href="#十、其他" class="headerlink" title="十、其他"></a>十、其他</h2><blockquote>
 <figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成一个可供发布的压缩包</span>
 $ <span class="token function">git</span> archive<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 </blockquote>
