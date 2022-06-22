@@ -16,24 +16,24 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Database System Concepts Exercises of Chapter 3">
+    <meta name="description" content="深度学习理论平时作业">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库原理 Exercises 2">
-<meta property="og:url" content="http://enderfga.cn/2022/03/23/data2/index.html">
+<meta property="og:title" content="深度可分离卷积简介">
+<meta property="og:url" content="http://enderfga.cn/2022/06/22/dsc/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="Database System Concepts Exercises of Chapter 3">
+<meta property="og:description" content="深度学习理论平时作业">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220323230708879.png">
-<meta property="article:published_time" content="2022-03-23T15:07:52.000Z">
-<meta property="article:modified_time" content="2022-05-28T16:35:26.404Z">
+<meta property="og:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220622170222739.png">
+<meta property="article:published_time" content="2022-06-22T09:00:41.000Z">
+<meta property="article:modified_time" content="2022-06-22T09:04:24.023Z">
 <meta property="article:author" content="Enderfga">
-<meta property="article:tag" content="数据库">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220323230708879.png">
+<meta name="twitter:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220622170222739.png">
   
   
   
-  <title>数据库原理 Exercises 2 - Enderfga&#39;Blog</title>
+  <title>深度可分离卷积简介 - Enderfga&#39;Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -243,7 +243,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数据库原理 Exercises 2"></span>
+            <span id="subtitle" data-typed-text="深度可分离卷积简介"></span>
           
         </div>
 
@@ -254,8 +254,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-23 23:07" pubdate>
-          2022年3月23日 晚上
+        <time datetime="2022-06-22 17:00" pubdate>
+          2022年6月22日 下午
         </time>
       </span>
     
@@ -267,7 +267,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3.9k 字
+          10 字
         
       </span>
     
@@ -279,7 +279,7 @@
         
         
           <!-- compatible with older versions-->
-          33 分钟
+          1 分钟
         
       </span>
     
@@ -317,13 +317,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">数据库原理 Exercises 2</h1>
+            <h1 style="display: none">深度可分离卷积简介</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年5月29日 凌晨
+                    本文最后更新于：2022年6月22日 下午
                   
                 
               </p>
@@ -331,187 +331,9 @@
             
               <div class="markdown-body">
                 
-                <p>Database System Concepts Exercises of Chapter 3</p>
+                <p>深度学习理论平时作业</p>
 <span id="more"></span>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220323230708879.png" srcset="/img/loading.gif" lazyload /></p>
-<h1 id="database-system-concepts-exercises-of-chapter-3">Database System
-Concepts Exercises of Chapter 3</h1>
-<p><strong>Exercises 3.9</strong> Consider the employee database of
-Figure <span class="math inline">\(3.20\)</span>, where the primary keys
-are underlined. Give an expression in SQL for each of the following
-queries.</p>
-<ol type="a">
-<li><p>Find the names and cities of residence of all employees who work
-for "First Bank Corporation".</p></li>
-<li><p>Find the names, street addresses, and cities of residence of all
-employees who work for "First Bank Corporation" and earn more than <span
-class="math inline">\(\$ 10,000\)</span>.</p></li>
-<li><p>Find all employees in the database who do not work for "First
-Bank Corporation".</p></li>
-<li><p>Find all employees in the database who earn more than each
-employee of "Small Bank Corporation".</p></li>
-<li><p>Assume that the companies may be located in several cities. Find
-all companies located in every city in which "Small Bank Corporation" is
-located.</p></li>
-<li><p>Find the company that has the most employees.</p></li>
-<li><p>Find those companies whose employees earn a higher salary, on
-average, than the average salary at "First Bank Corporation".</p></li>
-</ol>
-<p><span class="math display">\[
-employee (\underline{employee\_name}, street, city)\\
-works (\underline{employee\_name}, company\_name, salary)\\
-company (\underline{company\_name}, city)\\
-manages ( \underline{ employee\_name, } manager\_name )\\
-Figure~~3.20~~Employee~~database~~for~~Exercises~~3.9
-\]</span></p>
-<p><strong>My answer：</strong></p>
-<ol type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> e.employee_name, city <strong>from</strong>
-employee <strong>as</strong> e, works <strong>as</strong> w
-<strong>where</strong> w.company_name <span
-class="math inline">\(=\)</span> 'First Bank Corporation'
-<strong>and</strong> w.employee_name <span
-class="math inline">\(=\)</span> e.employee_name</p>
-<ol start="2" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> * <strong>from</strong> employee
-<strong>where</strong> employee_name <strong>in</strong>
-(<strong>select</strong> employee_name <strong>from</strong> works
-<strong>where</strong> company_name = 'First Bank Corporation'
-<strong>and</strong> salary <span
-class="math inline">\(&gt;10000\)</span> )</p>
-<ol start="3" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> employee_name <strong>from</strong> works
-<strong>where</strong> company_name <span
-class="math inline">\(\neq\)</span> 'First Bank Corporation'</p>
-<ol start="4" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> employee_name <strong>from</strong> works
-<strong>where</strong> salary <span class="math inline">\(&gt;\)</span>
-<strong>all</strong> (<strong>select</strong> salary
-<strong>from</strong> works <strong>where</strong> company_name <span
-class="math inline">\(=\)</span> 'Small Bank Corporation')</p>
-<ol start="5" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> S.company_name <strong>from</strong> company
-<strong>as</strong> <span class="math inline">\(S\)</span>
-<strong>where</strong> <strong>not exists</strong>
-((<strong>select</strong> city <strong>from</strong> company
-<strong>where</strong> company_name <span
-class="math inline">\(=\)</span> 'Small Bank Corporation')
-<strong>except</strong> (<strong>select</strong> city
-<strong>from</strong> company <strong>as</strong> <span
-class="math inline">\(T\)</span> <strong>where</strong> S.company_name
-<span class="math inline">\(=\)</span> T.company_name ) )</p>
-<ol start="6" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> company_name <strong>from</strong> works
-<strong>group by</strong> company_name <strong>having count</strong>
-(<strong>distinct</strong> employee_name) <span
-class="math inline">\(&gt;=\)</span> <strong>all</strong>
-(<strong>select</strong> <strong>count</strong>
-(<strong>distinct</strong> employee_name) <strong>from</strong> works
-<strong>group by</strong> company_name)</p>
-<ol start="7" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> company_name <strong>from</strong> works
-<strong>group by</strong> company_name <strong>having</strong>
-<strong>avg</strong> (salary) <span class="math inline">\(&gt;\)</span>
-(<strong>select</strong> <strong>avg</strong> (salary)
-<strong>from</strong> works <strong>where</strong> company_name <span
-class="math inline">\(=\)</span> 'First Bank Corporation')</p>
-<p><strong>Exercises 3.8</strong> Consider the bank database of Figure
-<span class="math inline">\(3.19\)</span>, where the primary keys are
-underlined. Construct the following SQL queries for this relational
-database.</p>
-<ol type="a">
-<li><p>Find all customers of the bank who have an account but not a
-loan.</p></li>
-<li><p>Find the names of all customers who live on the same street and
-in the same city as "Smith".</p></li>
-<li><p>Find the names of all branches with customers who have an account
-in the bank and who live in "Harrison".</p></li>
-</ol>
-<p><span class="math display">\[
-branch(\underline{branch\_name}, branch\_city, assets)\\
-customer (\underline{customer\_name}, customer\_street,
-customer\_city)\\ loan (\underline{loan\_numbe}r, branch\_name,
-amount)\\
-borrower (\underline{customer\_name}, \underline{loan\_number})\\
-account (\underline{account\_number}, branch\_name, balance)\\
-depositor (\underline{customer\_name}, \underline{account\_number})\\
-Figure~~3.19~~Banking~~database~~for~~Exercises~~3.8~~and~~3.15
-\]</span></p>
-<p><strong>My answer:</strong></p>
-<ol type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> customer_name <strong>from</strong> depositor
-<strong>except</strong> (<strong>select</strong> customer_name
-<strong>from</strong> borrower)</p>
-<ol start="2" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> F.customer_name <strong>from</strong>
-customer <strong>as</strong> <span class="math inline">\(F\)</span> join
-customer <strong>as</strong> <span class="math inline">\(S\)</span>
-using(customer_street, customer_city) <strong>where</strong>
-S.customer_name <span class="math inline">\(=\)</span> 'Smith'</p>
-<ol start="3" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> <strong>distinct</strong> branch_name
-<strong>from</strong> account <strong>natural join</strong> depositor
-<strong>natural join</strong> customer <strong>where</strong>
-customer_city = 'Harrison'</p>
-<p><strong>Exercises 3.15</strong> Consider the bank database of Figure
-3.19, where the primary keys are underlined. Construct the following SQL
-queries for this relational database. a. Find all customers who have an
-account at all the branches located in "Brooklyn". b. Find out the total
-sum of all loan amounts in the bank. c. Find the names of all branches
-that have assets greater than those of at least one branch located in
-"Brooklyn".</p>
-<p><strong>My answer:</strong></p>
-<ol type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> <strong>distinct</strong> S.customer_name</p>
-<p><strong>from</strong> depositor <strong>as</strong> S</p>
-<p><strong>where</strong> <strong>not exists(</strong></p>
-<p>(<strong>select</strong> branch_name</p>
-<p><strong>from</strong> branch</p>
-<p><strong>where</strong> branch_city = 'Brooklyn')</p>
-<p><strong>except</strong></p>
-<p>(<strong>select</strong> R.branch_name</p>
-<p><strong>from</strong> depositor <strong>as</strong> T, account
-<strong>as</strong> R</p>
-<p><strong>where</strong> T.account_number = R.account_number</p>
-<p><strong>and</strong> S.customer_name = T.customer_name))</p>
-<ol start="2" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> <strong>sum</strong>(amount)
-<strong>as</strong> sum_loan</p>
-<p><strong>from</strong> loan</p>
-<ol start="3" type="a">
-<li></li>
-</ol>
-<p><strong>select</strong> branch_name</p>
-<p><strong>from</strong> branch</p>
-<p><strong>where</strong> assets ＞<strong>some</strong></p>
-<p>(<strong>select</strong> assets</p>
-<p><strong>from</strong> branch</p>
-<p><strong>where</strong> branch_city = 'Brooklyn')</p>
+<embed src="./dsc.pdf" width="100%" height="750" type="application/pdf">
 
                 
               </div>
@@ -524,7 +346,7 @@ that have assets greater than those of at least one branch located in
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">#数据库</a>
+        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">#深度学习</a>
       
     </div>
   
@@ -536,8 +358,8 @@ that have assets greater than those of at least one branch located in
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>数据库原理 Exercises 2</div>
-      <div>http://enderfga.cn/2022/03/23/data2/</div>
+      <div>深度可分离卷积简介</div>
+      <div>http://enderfga.cn/2022/06/22/dsc/</div>
     </div>
     <div class="license-meta">
       
@@ -549,7 +371,7 @@ that have assets greater than those of at least one branch located in
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年3月23日</div>
+          <div>2022年6月22日</div>
         </div>
       
       
@@ -579,18 +401,12 @@ that have assets greater than those of at least one branch located in
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/24/robot3/" title="智能机器人技术——正向运动学">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">智能机器人技术——正向运动学</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/21/robot2/" title="智能机器人技术——刚体运动">
-                        <span class="hidden-mobile">智能机器人技术——刚体运动</span>
+                      <a href="/2022/06/20/horse/" title="cifar10-horse生成任务">
+                        <span class="hidden-mobile">cifar10-horse生成任务</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
