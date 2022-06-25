@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/gVyodA.jpg">
 <meta property="article:published_time" content="2022-03-29T16:34:07.000Z">
-<meta property="article:modified_time" content="2022-06-25T08:45:52.545Z">
+<meta property="article:modified_time" content="2022-06-25T11:44:46.791Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="机器人">
 <meta name="twitter:card" content="summary_large_image">
@@ -267,7 +267,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          6k 字
+          6.3k 字
         
       </span>
     
@@ -279,7 +279,7 @@
         
         
           <!-- compatible with older versions-->
-          51 分钟
+          53 分钟
         
       </span>
     
@@ -323,7 +323,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年6月25日 下午
+                    本文最后更新于：2022年6月25日 晚上
                   
                 
               </p>
@@ -387,9 +387,24 @@ M=\left[\begin{array}{cccc}
 \]</span></p>
 <p>故当<span class="math inline">\(\theta=\left(90^{\circ}, 90^{\circ},
 1\right)\)</span> 时的正向运动学<strong>PoE</strong>与空间雅克比 <span
-class="math inline">\(J_{s}\)</span>：</p>
-<p>$$ T=\</p>
-<p>J_{s}()=$$</p>
+class="math inline">\(J_{s}\)</span>： <span class="math display">\[
+T=\left[\begin{array}{cccc}
+0 &amp; 0 &amp; -1 &amp; -3 \\
+-1 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 2\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+\end{array}\right]
+\]</span></p>
+<p><span class="math display">\[
+J_{s}(\theta)=\left[\begin{array}{ccc}
+0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 \\
+1 &amp; 0 &amp; 0 \\
+0 &amp; -2 &amp; 0 \\
+0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1
+\end{array}\right]
+\]</span></p>
 <p>使用到的函数如下：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-matlab" data-language="matlab"><code class="language-matlab"><span class="token keyword">function</span> T <span class="token operator">=</span> <span class="token function">FKinSpace</span><span class="token punctuation">(</span>M<span class="token punctuation">,</span> Slist<span class="token punctuation">,</span> thetalist<span class="token punctuation">)</span>
 T <span class="token operator">=</span> M<span class="token punctuation">;</span>
