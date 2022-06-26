@@ -267,7 +267,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.3k 字
+          1.4k 字
         
       </span>
     
@@ -333,39 +333,81 @@
                 
                 <p>智能机器人技术作业记录</p>
 <span id="more"></span>
-<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220302214614790.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h1 id="智能机器人技术——位形空间"><a href="#智能机器人技术——位形空间" class="headerlink" title="智能机器人技术——位形空间"></a>智能机器人技术——位形空间</h1><p>一、选择/填空题（10 分）。</p>
-<ol>
-<li>机器人的自由度是 (<strong>D</strong>) ?<br>A. 机器人上点的数量<br>B. 机器人关节数量<br>C. 组成机器人的刚体的数量<br>D. 组成机器人的刚体的数量, 减去刚体间独立约束的数量</li>
-<li>二维平面刚体的自由度为 (<strong>3</strong>) ； 三维空间刚体的自由度为 (<strong>6</strong>) 。</li>
-<li>根据课堂上推算三维空间内刚体自由度的方法, 推算出四维空间中刚体的自由度 (<strong>10</strong>)、有关角度的自由度 (<strong>6</strong>)、有关平移位置的自由度 (<strong>4</strong>)。(如, 三维空间中分别为 $6,3,3$ )</li>
-<li>假设你的手臂（从肩膀到手掌）, 有 7 个自由度。你如同一位服务生一样水平端着餐盘, 防止洒出酒水。你的手臂此时有几个自由度：<strong>5</strong>， 这个任务空间的自由度是：<strong>4</strong>。</li>
+<p><img
+src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220302214614790.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="智能机器人技术位形空间">智能机器人技术——位形空间</h1>
+<p>一、选择/填空题（10 分）。</p>
+<ol type="1">
+<li>机器人的自由度是 (<strong>D</strong>) ? A. 机器人上点的数量 B.
+机器人关节数量 C. 组成机器人的刚体的数量 D. 组成机器人的刚体的数量,
+减去刚体间独立约束的数量</li>
+<li>二维平面刚体的自由度为 (<strong>3</strong>) ；
+三维空间刚体的自由度为 (<strong>6</strong>) 。</li>
+<li>根据课堂上推算三维空间内刚体自由度的方法,
+推算出四维空间中刚体的自由度 (<strong>10</strong>)、有关角度的自由度
+(<strong>6</strong>)、有关平移位置的自由度 (<strong>4</strong>)。(如,
+三维空间中分别为 <span class="math inline">\(6,3,3\)</span> )</li>
+<li>假设你的手臂（从肩膀到手掌）, 有 7
+个自由度。你如同一位服务生一样水平端着餐盘,
+防止洒出酒水。你的手臂此时有几个自由度：<strong>5</strong>，
+这个任务空间的自由度是：<strong>4</strong>。</li>
 </ol>
 <p>二、简答题, 请写出解题过程 (10 分)。</p>
-<ol>
-<li><p>考虑两个刚体之间的一个关节。每个刚体有 $\mathrm{m}$ 个自由度（二维空间刚体 $m=3$, 三维空间刚体 $m=6$ ), 并且没有任何约束。关节有 $f$ 个自由度（旋转关节 $\mathrm{f}=1$, 球形关节 $\mathrm{f}=3$ 等)。试问, 用这个关节关联两个刚体, 那么引入了多少个约束（一个刚体相对于另一个, 用字母表示）?</p>
-<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220302212205280.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><strong>解：$自由度f+平面约束c=平面自由度3，自由度f＋空间约束c=空间自由度6$</strong></p>
-<p><strong>故$\pmb{c=-f+m}$</strong></p>
-</li>
-<li><p>考虑一个机构包含了 3 个三维空间刚体 (记住, 包括地面, 所以 $\mathrm{N}=4$ ), 和 4 个关节: 1 个转动, 1 个平移, 一个万向, 一个球形。使用 Grubler 公式, 计算机构的自由度。</p>
-<p><strong>解：转动副$f_1=1$，移动副$f_2=1$，万向铰$f_3=2$，球形铰$f_4=3$</strong></p>
-<p><strong>又$\because N=4$，$J=4$，$m=6$</strong></p>
-<p><strong>$\therefore \pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(4-1-4\right)+\left(1+1+2+3\right)=1}$</strong></p>
-</li>
-<li>如下图的 SRS (球形-转动-球形) 机构, 正在抓取一个物体。试问, 当机构紧握物体时 (物体与机构中的机械臂最后一段没有相对运动时), 自由度是多少?</li>
+<ol type="1">
+<li><p>考虑两个刚体之间的一个关节。每个刚体有 <span
+class="math inline">\(\mathrm{m}\)</span> 个自由度（二维空间刚体 <span
+class="math inline">\(m=3\)</span>, 三维空间刚体 <span
+class="math inline">\(m=6\)</span> ), 并且没有任何约束。关节有 <span
+class="math inline">\(f\)</span> 个自由度（旋转关节 <span
+class="math inline">\(\mathrm{f}=1\)</span>, 球形关节 <span
+class="math inline">\(\mathrm{f}=3\)</span> 等)。试问,
+用这个关节关联两个刚体, 那么引入了多少个约束（一个刚体相对于另一个,
+用字母表示）?</p>
+<p><img
+src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220302212205280.png" srcset="/img/loading.gif" lazyload /></p>
+<p><strong>解：<span
+class="math inline">\(自由度f+平面约束c=平面自由度3，自由度f＋空间约束c=空间自由度6\)</span></strong></p>
+<p><strong>故<span
+class="math inline">\(\pmb{c=-f+m}\)</span></strong></p></li>
+<li><p>考虑一个机构包含了 3 个三维空间刚体 (记住, 包括地面, 所以 <span
+class="math inline">\(\mathrm{N}=4\)</span> ), 和 4 个关节: 1 个转动, 1
+个平移, 一个万向, 一个球形。使用 Grubler 公式, 计算机构的自由度。</p>
+<p><strong>解：转动副<span
+class="math inline">\(f_1=1\)</span>，移动副<span
+class="math inline">\(f_2=1\)</span>，万向铰<span
+class="math inline">\(f_3=2\)</span>，球形铰<span
+class="math inline">\(f_4=3\)</span></strong></p>
+<p><strong>又<span class="math inline">\(\because N=4\)</span>，<span
+class="math inline">\(J=4\)</span>，<span
+class="math inline">\(m=6\)</span></strong></p>
+<p><strong><span class="math inline">\(\therefore
+\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(4-1-4\right)+\left(1+1+2+3\right)=1}\)</span></strong></p></li>
+<li><p>如下图的 SRS (球形-转动-球形) 机构, 正在抓取一个物体。试问,
+当机构紧握物体时 (物体与机构中的机械臂最后一段没有相对运动时),
+自由度是多少?</p></li>
 </ol>
-<p><img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/2022_02_28_40f28045fe8caa2a438eg-1.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><strong>解：Spherical Joint即为球形铰$f=3$，共8个；Revolute Joint即为转动副$f=1$，共4个；</strong></p>
-<p><strong>又$\because N=14$，$J=16$，$m=6$</strong></p>
-<p>$\therefore \pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(14-1-16\right)+\left(3\times8+1\times4\right)=10}$</p>
-<ol>
-<li><p>同上题, 如果现在有 $n$ 条这样的机械臂 (题 3 中 $n=4$ ), 机构的自由度是?</p>
-<p><strong>同理：$\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(3n+2-1-4n\right)+\left(3\times2n+1\times n\right)=n+6}$</strong></p>
-</li>
-<li><p>同上题, 假设 $n$ 条机械臂的转动关节, 被替换成了万向关节, 机构的自由度是?</p>
-<p><strong>同理：$\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(3n+2-1-4n\right)+\left(3\times2n+2\times n\right)=2n+6}$</strong></p>
-</li>
+<p><img
+src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/2022_02_28_40f28045fe8caa2a438eg-1.jpg" srcset="/img/loading.gif" lazyload /></p>
+<p><strong>解：Spherical Joint即为球形铰<span
+class="math inline">\(f=3\)</span>，共8个；Revolute Joint即为转动副<span
+class="math inline">\(f=1\)</span>，共4个；</strong></p>
+<p><strong>又<span class="math inline">\(\because N=14\)</span>，<span
+class="math inline">\(J=16\)</span>，<span
+class="math inline">\(m=6\)</span></strong></p>
+<p><span class="math inline">\(\therefore
+\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(14-1-16\right)+\left(3\times8+1\times4\right)=10}\)</span></p>
+<ol start="4" type="1">
+<li><p>同上题, 如果现在有 <span class="math inline">\(n\)</span>
+条这样的机械臂 (题 3 中 <span class="math inline">\(n=4\)</span> ),
+机构的自由度是?</p>
+<p><strong>同理：<span
+class="math inline">\(\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(3n+2-1-4n\right)+\left(3\times2n+1\times
+n\right)=n+6}\)</span></strong></p></li>
+<li><p>同上题, 假设 <span class="math inline">\(n\)</span>
+条机械臂的转动关节, 被替换成了万向关节, 机构的自由度是?</p>
+<p><strong>同理：<span
+class="math inline">\(\pmb{dof=m(N-1-j)+\sum_{i=1}^Jf_i=6\times\left(3n+2-1-4n\right)+\left(3\times2n+2\times
+n\right)=2n+6}\)</span></strong></p></li>
 </ol>
 
                 
@@ -752,6 +794,9 @@
             tex    : {
               inlineMath: { '[+]': [['$', '$']] }
             },
+            loader : {
+              load: ['ui/lazy']
+            },
             options: {
               renderActions: {
                 insertedScript: [200, () => {
@@ -794,5 +839,22 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
+</script>
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://raw.githubusercontents.com/imuncle/live2d/master/model/hijiki/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>
