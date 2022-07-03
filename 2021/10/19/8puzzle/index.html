@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/favicon.png">
-  <link rel="icon" href="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="http://img.enderfga.cn/img/favicon.png">
+  <link rel="icon" href="http://img.enderfga.cn/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="Enderfga&#39;Blog">
 <meta property="og:description" content="人工智能导论作业记录。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204607.png">
+<meta property="og:image" content="http://img.enderfga.cn/img/20211020204607.png">
 <meta property="article:published_time" content="2021-10-19T13:50:21.000Z">
-<meta property="article:modified_time" content="2022-05-28T16:35:22.321Z">
+<meta property="article:modified_time" content="2022-07-03T03:01:20.200Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="人工智能">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204607.png">
+<meta name="twitter:image" content="http://img.enderfga.cn/img/20211020204607.png">
   
   
   
@@ -237,7 +237,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('http://img.enderfga.cn/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -323,7 +323,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年5月29日 凌晨
+                    本文最后更新于：2022年7月3日 上午
                   
                 
               </p>
@@ -335,8 +335,7 @@
 <span id="more"></span>
 <h2 id="一问题描述与分析">一、问题描述与分析</h2>
 <p>八数码问题就是在一个大小为3×3的九宫格上,放置8块编号为1-8的木块，九宫格中有一个空格，周围(上下左右)的木块可以和空格交换位置。对于问题，给定一个初始状态，目标状态是期望达到1-8顺序排列的序列，并且空格在右下角，问题的实质就是寻找一个合法的移动序列。</p>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204607.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204607.png" srcset="/img/loading.gif" lazyload /></p>
 <p>不是每一个给定的初始状态都存在解，在分析之前，引入线性代数中的几个概念：</p>
 <ul>
 <li><p>逆序数：在一个排列中，如果一对数字的前后位置与大小顺序相反，即前面的数大于后面的数，那么它们就称为一个逆序。一个排列中序的总数就称为这个排列的逆序数。</p></li>
@@ -356,11 +355,9 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204607
 <h2 id="二深度优先遍历搜索dfs">二、深度优先遍历搜索(DFS)</h2>
 <h3 id="算法介绍">2.1算法介绍</h3>
 <p><strong>深度优先搜索算法</strong>（英语：Depth-First-Search，DFS）是一种用于遍历或搜索树或图的算法。这个算法会尽可能深的搜索树的分支。当节点v的所在边都己被探寻过，搜索将回溯到发现节点v的那条边的起始节点。这一过程一直进行到已发现从源节点可达的所有节点为止。如果还存在未被发现的节点，则选择其中一个作为源节点并重复以上过程，整个进程反复进行直到所有节点都被访问为止，属于盲目搜索。以下图为例，DFS方法首先从根节点1开始，其最终得到的遍历顺序是“1-2-3-4-5-6-7-8-9-10-11-12”。（假定左分枝和右分枝中优先选择左分枝）</p>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204640.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204640.png" srcset="/img/loading.gif" lazyload /></p>
 <p>我们将其应用于八数码问题的解决。解八数码问题实际上就是找出从初始状态到达目标状态所经过的一系列中间过渡状态。前文提到DFS遍历的树是已经存在的，我们只需要按照规定的遍历方法就能完成遍历，而对于八数码问题，没有已经存在的路径供我们遍历，需要我们从初始状态向下延伸（也就是上下左右移动）才能构造出类似的树。</p>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204711.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204711.png" srcset="/img/loading.gif" lazyload /></p>
 <p>以上图为例。在使用DFS进行搜索时，每个状态都会按照一定的顺序进行上下左右移动（在上图中是下、左、右、上的顺序），一次移动后会产生一个新的状态，然后以新状态为起点继续按约定的顺序（例如先向下）移动。终止的条件是找到解或者达到深度界限。那么如果按照图中下、左、右、上的顺序搜索后的结果将会是最左边的一条路一直是优先向下移动，如果不能向下则依次会是左、右、上的一种。</p>
 <h3 id="实验代码">2.2实验代码</h3>
 <figure><div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;初始状态压入队列
@@ -405,8 +402,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204711
         &#125;
     &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <h3 id="实验结果">2.3实验结果</h3>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204805.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204805.png" srcset="/img/loading.gif" lazyload /></p>
 <p>如图所示，深度优先算法在解决八数码问题时有一个致命缺点，就是必须设置一个深度界限，否则，搜索会一直沿着纵深方向发展，会一直无法搜索到解路径。即使加了限制条件，搜索到了解路径，解路径也不一定是最优解路径。</p>
 <h3 id="实验总结">2.4实验总结</h3>
 <ul>
@@ -418,10 +414,8 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204805
 <p><strong>广度优先搜索算法</strong>（英语：Breadth-First-Search，缩写为BFS），又译作宽度优先搜索，或横向优先搜索，是一种图形搜索算法。简单的说，BFS是从根节点开始，沿着树的宽度遍历树的节点。如果所有节点均被访问，则算法中止。BFS是一种盲目搜索法，目的是系统地展开并检查图中的所有节点，以找寻结果。</p>
 <p>BFS会先访问根节点的所有邻居节点，然后再依次访问邻居节点的邻居节点，直到所有节点都访问完毕。在具体的实现中，使用open和closed两个表，open是一个队列，每次对open进行一次出队操作（并放入closed中），并将其邻居节点进行入队操作。直到队列为空时即完成了所有节点的遍历。closed表在遍历树时其实没有用，因为子节点只能从父节点到达。但在进行图的遍历时，一个节点可能会由多个节点到达，所以此时为了防止重复遍历应该每次都检查下一个节点是否已经在closed中了。
 依旧以下图为例，BFS方法首先从根节点1开始，其最终得到的遍历顺序是“1-2-7-8-3-6-9-12-4-5-10-11”。可以看出来BFS进行遍历时是一层一层的搜索的。</p>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204640.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204722.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204640.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204722.png" srcset="/img/loading.gif" lazyload /></p>
 <p>在应用BFS算法进行八数码问题搜索时需要open和closed两个表。首先将初始状态加入open队列，然后进行出队操作并放入closed中，对出队的状态进行扩展（所谓扩展也就是找出其上下左右移动后的状态），将扩展出的状态加入队列，然后继续循环出队-扩展-入队的操作，直到找到解为止。在上图这个例子中，红圈里的数字是遍历顺序。当找到解时一直往前找父节点即可找出求解的移动路线。</p>
 <h3 id="实验代码-1">3.2实验代码</h3>
 <figure><div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F;初始状态压入队列
@@ -465,8 +459,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204722
     &#x2F;&#x2F;清空close表
     close.clear();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <h3 id="实验结果-1">3.3实验结果</h3>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204754.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204754.png" srcset="/img/loading.gif" lazyload /></p>
 <p>如图所示，广度优先算法成功找到了深度为22的最优解，但是close表是DFS中深度46312产生的大小为47788的close表的两倍多，由于𝐵𝐹𝑆算法进行的是盲目的搜索，没有考虑代价，而且利用了空间换取时间的策略，故空间也相对会有更大的复杂度。</p>
 <h3 id="实验总结-1">3.4实验总结</h3>
 <ul>
@@ -540,8 +533,7 @@ f\left ( n \right )=g\left ( n \right )+h\left ( n \right )
     &#x2F;&#x2F;清空close表
     close.clear();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <h3 id="实验结果-2">4.3实验结果</h3>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204738.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204738.png" srcset="/img/loading.gif" lazyload /></p>
 <p>如图所示，A*搜索算法在解决八数码问题时取得了最优的结果，无论是时间复杂度还是空间复杂度都得到了极大的优化。但是𝐴∗算法作为一种预测算法，不能保证解为最优解。</p>
 <h3 id="实验总结-2">4.4实验总结</h3>
 <ul>
@@ -679,8 +671,7 @@ P=\frac{D}{N},P\in \left( 0,1\right]
 </tr>
 </tbody>
 </table>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204834.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204834.png" srcset="/img/loading.gif" lazyload /></p>
 <table>
 <thead>
 <tr class="header">
@@ -753,8 +744,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204834
 </tr>
 </tbody>
 </table>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204843.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204843.png" srcset="/img/loading.gif" lazyload /></p>
 <table>
 <thead>
 <tr class="header">
@@ -827,8 +817,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204843
 </tr>
 </tbody>
 </table>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204853.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204853.png" srcset="/img/loading.gif" lazyload /></p>
 <table>
 <thead>
 <tr class="header">
@@ -901,8 +890,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204853
 </tr>
 </tbody>
 </table>
-<p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20211020204901.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img src="http://img.enderfga.cn/img/20211020204901.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="研究结论">5.3研究结论</h3>
 <p>通过研究，可得结论如下：</p>
 <ol type="1">
@@ -1432,7 +1420,7 @@ int* randstatus(int* target) &#123;
   <!-- Custom -->
   <div class="col-lg-7 mx-auto nopadding-x-md">
     <div class="container custom post-custom mx-auto">
-      <img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="http://img.enderfga.cn/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 

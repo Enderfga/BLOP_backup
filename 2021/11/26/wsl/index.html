@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/favicon.png">
-  <link rel="icon" href="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="http://img.enderfga.cn/img/favicon.png">
+  <link rel="icon" href="http://img.enderfga.cn/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="Enderfga&#39;Blog">
 <meta property="og:description" content="wsl2，vscode，windows terminal，zsh，docker····">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111436728.png">
+<meta property="og:image" content="http://img.enderfga.cn/img/image-20211126111436728.png">
 <meta property="article:published_time" content="2021-11-26T02:45:27.000Z">
-<meta property="article:modified_time" content="2022-05-30T05:42:29.212Z">
+<meta property="article:modified_time" content="2022-07-03T03:01:20.174Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111436728.png">
+<meta name="twitter:image" content="http://img.enderfga.cn/img/image-20211126111436728.png">
   
   
   
@@ -237,7 +237,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('http://img.enderfga.cn/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -323,7 +323,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年5月30日 下午
+                    本文最后更新于：2022年7月3日 上午
                   
                 
               </p>
@@ -397,22 +397,22 @@ Update 助手</a>更新 Windows 版本。</li>
 R，然后键入“winver”，选择“确定”。 更新到“设置”菜单中的<a
 href="ms-settings:windowsupdate">最新 Windows 版本</a>。</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126110320999.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126110320999.png" srcset="/img/loading.gif" lazyload /></p>
 <p>安装 WSL 2 之前，必须启用“虚拟机平台”可选功能。 计算机需要<a
 target="_blank" rel="noopener" href="https://docs.microsoft.com/zh-cn/windows/wsl/troubleshooting#error-0x80370102-the-virtual-machine-could-not-be-started-because-a-required-feature-is-not-installed">虚拟化功能</a>才能使用此功能。</p>
 <p>以管理员身份打开 PowerShell 并运行：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">dism<span class="token punctuation">.</span>exe <span class="token operator">/</span>online <span class="token operator">/</span><span class="token function">enable-feature</span> <span class="token operator">/</span>featurename:VirtualMachinePlatform <span class="token operator">/</span>all <span class="token operator">/</span>norestart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126110900611.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126110900611.png" srcset="/img/loading.gif" lazyload /></p>
 <p><strong>重新启动</strong> 计算机，以完成 WSL 安装并更新到 WSL 2。</p>
 <p>重启之后<a
 target="_blank" rel="noopener" href="https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">下载安装</a>
 Linux 内核更新包并将 WSL 2 设置为默认版本。</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111436728.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126111436728.png" srcset="/img/loading.gif" lazyload /></p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">wsl <span class="token operator">--</span><span class="token function">set-default</span><span class="token operator">-</span>version 2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126111557676.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126111557676.png" srcset="/img/loading.gif" lazyload /></p>
 <p>最后，打开 <a target="_blank" rel="noopener" href="https://aka.ms/wslstore">Microsoft
 Store</a>，并选择你偏好的 Linux 分发版。</p>
 <p>单击以下链接会打开每个分发版的 Microsoft Store 页面：</p>
@@ -449,10 +449,10 @@ target="_blank" rel="noopener" href="https://www.microsoft.com/store/apps/9msmjq
 <p>另外，以上内容貌似（？）可以使用以下一行命令解决</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wsl --install -d Ubuntu-20.04<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126142919333.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126142919333.png" srcset="/img/loading.gif" lazyload /></p>
 <p>另外我发现用户名不能用大写，并且密码是不会显示出来的。</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126143140954.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126143140954.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="换源">换源</h2>
 <p>如果遇到下载速度较慢，或者下载失败等问题，我们还可以把官方源换成国内源。</p>
 <p><strong>备份list文件</strong></p>
@@ -477,7 +477,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted unive
 <figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">通过按下gg后发现光标移动到文件首行了。其中，gg为跳转到文件首行；dG为删除光标所在行以及其下所有行的内容。d为删除，G为跳转到文件末尾行。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>按鼠标右键会进行粘贴，然后输入 :wq! 进行退出与保存。</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126135607014.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126135607014.png" srcset="/img/loading.gif" lazyload /></p>
 <p>最后复制这两条命令进行更新镜像源列表。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
 <span class="token function">sudo</span> <span class="token function">apt-get</span> upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
@@ -499,7 +499,7 @@ wsl --unregister Ubuntu-18.04
 wsl --import Ubuntu-18.04 d://wslubuntu d://wslubuntu//ubuntu-18.04.tar<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <p>不过在系统设置里有更简洁的移动方法，这两种我都试过且都失败/成功过，一次不行就再来一遍</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220530133102447.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20220530133102447.png" srcset="/img/loading.gif" lazyload /></p>
 <h1 id="windows-terminalvscode">Windows terminal+vscode</h1>
 <p><a
 target="_blank" rel="noopener" href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701?rtc=1&amp;activetab=pivot:overviewtab">Windows
@@ -511,16 +511,16 @@ https://docs.microsoft.com/en-us/windows/terminal/get-started</p>
 terminal各项设置可以实现许多使用功能，比如我设置了默认启动Ubuntu，添加了git
 bash，透明亚克力效果等（本次不介绍，感兴趣自行研究）</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126112846563.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126112846563.png" srcset="/img/loading.gif" lazyload /></p>
 <p>可以在工作区文件夹内右键然后在windows终端打开</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126112958904.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126112958904.png" srcset="/img/loading.gif" lazyload /></p>
 <p>也可以直接打开window终端，cd到对应文件夹，然后输入</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">code <span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126113402308.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126113402308.png" srcset="/img/loading.gif" lazyload /></p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126113507900.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126113507900.png" srcset="/img/loading.gif" lazyload /></p>
 <p>至此就可以实现在windows环境下编程，在linux环境下测试。</p>
 <h1 id="docker">Docker</h1>
 <p>使用以下脚本可以实现自动安装。</p>
@@ -540,25 +540,25 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126
 
 <span class="token function">rm</span> -rf get-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126133921891.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126133921891.png" srcset="/img/loading.gif" lazyload /></p>
 <p>可以直接复制到txt中，然后修改文件类型跟文件名为install-docker.sh（后缀是sh，名字任意）</p>
 <p>例如我在桌面放置了该脚本，右键打开终端之后输入以下命令即可完成安装。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sh</span> install-docker.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126140126640.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126140126640.png" srcset="/img/loading.gif" lazyload /></p>
 <p>接下来输入：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">service</span> <span class="token function">docker</span> start
 <span class="token function">docker</span> version<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
 <p>就可以启动服务，查看版本，证明我们已经安装成功。</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126140532065.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126140532065.png" srcset="/img/loading.gif" lazyload /></p>
 <p>如果不希望每次都特地启动docker的服务可以使用以下命令设置自启动：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> <span class="token function">docker</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>关于docker的使用就大家自己研究啦。</p>
 <h1 id="on-my-zsh">On-my-zsh</h1>
 <p>一个美观且功能强大的终端</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126145704636.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126145704636.png" srcset="/img/loading.gif" lazyload /></p>
 <p>用windows terminal启动Ubuntu，输入以下命令安装：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> -y <span class="token function">zsh</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>oh-my-zsh中整理了常用的zsh<a
@@ -571,7 +571,7 @@ target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/The
 <p>虽然我列出了上面两条命令，但最好还是看看<a
 target="_blank" rel="noopener" href="https://ohmyz.sh/#install">官网</a>的安装页面，确保命令的最新版本。</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126150308574.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126150308574.png" srcset="/img/loading.gif" lazyload /></p>
 <p>接下来输入：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span>
 code .zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
@@ -582,7 +582,7 @@ code .zshrc<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>默认Ubuntu已经安装了python，我们只需要安装pip，就可以进行一些简单的编程。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-pip<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126151809809.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126151809809.png" srcset="/img/loading.gif" lazyload /></p>
 <p>当然我们不能局限于简单的编程，我们需要<strong>创建虚拟环境</strong>，确保各个环境互相隔离，互不影响。</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> python3-venv<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
 <p>创建虚拟环境：</p>
@@ -592,7 +592,7 @@ src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126
 
 deactivate<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20211126181729703.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20211126181729703.png" srcset="/img/loading.gif" lazyload /></p>
 <p>接下来就可以尽情地pip
 install了，在工作环境下新建文件夹，再用vscode打开，即可开始编程。</p>
 <h1 id="wsl-ubuntu安装中文语言">WSL-Ubuntu安装中文语言</h1>
@@ -643,7 +643,7 @@ id="安装ros系统记得版本对应例如我的ubuntu18.04-对应melodic">安�
 <p>自己对照着<a
 target="_blank" rel="noopener" href="https://wiki.ros.org/melodic/Installation/Ubuntu#Installation.2BAC8-Ubuntu.2BAC8-Sources.Configure_your_Ubuntu_repositories">官方文档</a>的顺序安装</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220530134026598.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20220530134026598.png" srcset="/img/loading.gif" lazyload /></p>
 <p>我使用的顺序是5（换源）→1（ROS）→3（rosdep）→4（环境配置）</p>
 <p>出现了一些小bug都是因为zsh</p>
 <p>如果你跟我一样用的zsh 补上一个</p>
@@ -657,7 +657,7 @@ number” 设置为 0
 ，然后其它选项默认，点击下一步，等出现这个界面，将Disable access
 control打上勾，之后点击下一页。</p>
 <p><img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220529115936249.png" srcset="/img/loading.gif" lazyload /></p>
+src="http://img.enderfga.cn/img/image-20220529115936249.png" srcset="/img/loading.gif" lazyload /></p>
 <p>点击 “Save Configuration” 保存设置，会让你保存一个 “config.xlaunch”
 的配置文件快捷方式，下次运行这个快捷方式就不用重新设置了。点击完成会出现一个纯黑的窗口，把它挂在后台先不管。</p>
 <p>3.安装xfce4</p>
@@ -682,8 +682,7 @@ $ <span class="token function">vim</span> ~/.bashrc <span class="token comment">
 <figure><div class="code-wrapper"><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">startxfce4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure></li>
 </ol>
 <figure>
-<img
-src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/image-20220529120240951.png" srcset="/img/loading.gif" lazyload
+<img src="http://img.enderfga.cn/img/image-20220529120240951.png" srcset="/img/loading.gif" lazyload
 alt="大功告成！" />
 <figcaption aria-hidden="true">大功告成！</figcaption>
 </figure>
@@ -873,7 +872,7 @@ alt="大功告成！" />
   <!-- Custom -->
   <div class="col-lg-7 mx-auto nopadding-x-md">
     <div class="container custom post-custom mx-auto">
-      <img src="https://blogimg.coding.net/p/img/d/image1/git/raw/master/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="http://img.enderfga.cn/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
