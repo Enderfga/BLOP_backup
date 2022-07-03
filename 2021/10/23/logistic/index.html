@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="http://img.enderfga.cn/img/favicon.png">
-  <link rel="icon" href="http://img.enderfga.cn/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.enderfga.cn/img/favicon.png">
+  <link rel="icon" href="https://img.enderfga.cn/img/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -23,13 +23,13 @@
 <meta property="og:site_name" content="Enderfga&#39;Blog">
 <meta property="og:description" content="机器学习第一次作业记录。小组成员：方桂安，刘玥，周敏。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://img.enderfga.cn/img/1990595-20200922165029694-1712738583.png">
+<meta property="og:image" content="https://img.enderfga.cn/img/1990595-20200922165029694-1712738583.png">
 <meta property="article:published_time" content="2021-10-23T15:19:18.000Z">
-<meta property="article:modified_time" content="2022-07-03T03:01:20.195Z">
+<meta property="article:modified_time" content="2022-07-03T03:08:13.375Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="机器学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://img.enderfga.cn/img/1990595-20200922165029694-1712738583.png">
+<meta name="twitter:image" content="https://img.enderfga.cn/img/1990595-20200922165029694-1712738583.png">
   
   
   
@@ -237,7 +237,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('http://img.enderfga.cn/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('https://img.enderfga.cn/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -341,7 +341,7 @@ D=\{(x_1,y_1),(x_2,y_2),\dots,(x_N,y_N)\},x_i\in
 \]</span></p>
 <h3 id="模型">1.2模型</h3>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023235517425.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023235517425.png" srcset="/img/loading.gif" lazyload /></p>
 <p>最初模型：</p>
 <p><span class="math display">\[
 f(x_i)=\omega^Tx_i+b,使得f(x_i)\simeq g(y_i)
@@ -356,13 +356,13 @@ f(x_i)=\omega^Tx_i+b,使得f(x_i)\simeq g(y_i)
 \]</span></p>
 <p>但由于阶跃函数不连续，不满足单调可微的条件。所以我们希望通过一个一定程度上近似阶跃函数的“替代函数”，并且希望它单调可微。由此，我们想到了逻辑斯蒂函数。</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023235558559.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023235558559.png" srcset="/img/loading.gif" lazyload /></p>
 <p>它的图像如下：</p>
 <p><img
-src="http://img.enderfga.cn/img/1990595-20200922165029694-1712738583.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/1990595-20200922165029694-1712738583.png" srcset="/img/loading.gif" lazyload /></p>
 <p>因为Logistic
 回归主要用于分类问题，以二分类为例，对于所给数据集假设存在这样的一条直线可以将数据完成线性可分。
-<img src="http://img.enderfga.cn/img/tW5koNMJrG193KEtuAH7cQ.png" srcset="/img/loading.gif" lazyload /></p>
+<img src="https://img.enderfga.cn/img/tW5koNMJrG193KEtuAH7cQ.png" srcset="/img/loading.gif" lazyload /></p>
 <p>当我们要找到分类概率 P(Y=1) 与输入向量 x
 的直接关系时，我们引入Sigmoid函数，然后通过比较概率值来判断类别。</p>
 <p>引入sigmoid函数具体实现如下：</p>
@@ -370,7 +370,7 @@ src="http://img.enderfga.cn/img/1990595-20200922165029694-1712738583.png" srcset
 class="math inline">\(\omega^Tx+b\)</span>取值是连续的，因此它不能拟合离散变量。可以考虑用它来拟合条件概率<span
 class="math inline">\(p(y=1|x)\)</span>，因为概率的取值也是连续的,我们将逻辑斯蒂函数的输出作为输入x能预测到y为1的概率，并利用对数几率函数，得到下面三个式子。通过此方法，我们将线性模型转换为概率模型。</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023235625407.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023235625407.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="策略">1.3策略</h3>
 <p>在策略上，我们采用极大似然法。即选择最优的w，b使得我们输入x得到的正确的y的概率最大，即下式：</p>
 <p><span class="math display">\[
@@ -378,10 +378,10 @@ src="http://img.enderfga.cn/img/image-20211023235625407.png" srcset="/img/loadin
 \]</span></p>
 <p>我们这里做一点变换：</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023235646944.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023235646944.png" srcset="/img/loading.gif" lazyload /></p>
 <p>因为上式是连乘的函数，我们通过对数似然函数将之转化为求和，即下式：</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023235715659.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023235715659.png" srcset="/img/loading.gif" lazyload /></p>
 <p>为了方便计算，我们做以下处理</p>
 <p><span class="math display">\[
 assume \ that\  \hat{\omega}=(\omega;b),\hat{x}=(x;1)
@@ -394,7 +394,7 @@ assume \ that\  \hat{\omega}=(\omega;b),\hat{x}=(x;1)
 <p>这是一个凸函数，可用经典的数值优化算法，如梯度下降法、牛顿法求解。</p>
 <p>最终，我们学得的逻辑斯蒂回归模型为</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023235742051.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023235742051.png" srcset="/img/loading.gif" lazyload /></p>
 <h2 id="二描述训练模型所使用的算法">二、描述训练模型所使用的算法</h2>
 <h3 id="梯度下降法">2.1梯度下降法</h3>
 <h4 id="问题分析">2.1.1问题分析</h4>
@@ -407,7 +407,7 @@ class="math inline">\(\hat{\omega}^{(0)}\)</span>，不断迭代，更新<span
 class="math inline">\(\hat{\omega}\)</span>的值，进行目标函数的极小化，直到收敛。由于负梯度方向是使得函数值下降最快的方向，在迭代的每一步，以负梯度方向更新<span
 class="math inline">\(\hat{\omega}\)</span>的值，从而达到减小函数值的目的。如下图形象化表示：</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023152139696.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023152139696.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="核心思想">2.1.2核心思想：</h4>
 <ol type="1">
 <li><span
@@ -468,10 +468,10 @@ class="math inline">\(\hat{\omega}^*=\hat{\omega}^{(k)}\)</span>，停止迭代�
 <p>优点：方法简单，易理解</p>
 <p>缺点：迭代次数多，下降速度慢，如下图，我们采用梯度下降法，迭代近50000次才收敛</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023152205584.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023152205584.png" srcset="/img/loading.gif" lazyload /></p>
 <p>且准确率如下，可以看出准确率不高。</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023152217061.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023152217061.png" srcset="/img/loading.gif" lazyload /></p>
 <h3 id="牛顿法">2.2牛顿法</h3>
 <h4 id="核心思想-1">2.2.1核心思想：</h4>
 <p><span
@@ -599,7 +599,7 @@ s^{T}}{s^{T} y}\right)+\frac{s s^{T}}{s^{T} y}
 \]</span></p>
 <h3 id="l-bfgs算法">2.4 L-BFGS算法</h3>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023235811630.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023235811630.png" srcset="/img/loading.gif" lazyload /></p>
 $$
 <span class="math display">\[\begin{array}{c}
 H_{k+1}=V_{k}^{T} H_{k} V_{k}+\rho_{k} s_{k} s_{k}^{T} \\
@@ -671,7 +671,7 @@ r_{i}=r_{i-1}+s_{i} \alpha_{i}-\beta_{i} \\
 \]</span></p>
 <p>Two-Loop算法解析---第一个循环：</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023235846434.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023235846434.png" srcset="/img/loading.gif" lazyload /></p>
 <p>重写公式：</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -687,7 +687,7 @@ V_{K-m}^{T}\right) H_{0}\left(V_{K-m} V_{K-m+1} \ldots V_{K-1}\right)
 \]</span></p>
 <p>Two-Loop算法解析---第二个循环：</p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023235910775.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023235910775.png" srcset="/img/loading.gif" lazyload /></p>
 <p>初始:</p>
 <p><span class="math display">\[
 r_{k-\mathrm{m}}=V_{k-\mathrm{m}} H_{0} V_{k-\mathrm{m}}
@@ -767,7 +767,7 @@ TPR=\frac{TP}{TP+FN}
 FPR=\frac{FP}{FP + TN}
 \]</span></p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023004557339.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023004557339.png" srcset="/img/loading.gif" lazyload /></p>
 <h4 id="画图流程">3.1.2画图流程</h4>
 <ol type="1">
 <li>给定m+个正例和m-个负例，根据学习器预测结果对样例进行排序</li>
@@ -803,7 +803,7 @@ AUC=\frac{1}{2} \sum_{j=1}^{N{}&#39;-1} \left ( x_{j+1}-x_{j}  \right )
 \left ( y_{j+1}+y_{j}  \right )
 \]</span></p>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023143342594.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023143342594.png" srcset="/img/loading.gif" lazyload /></p>
 <p>如图即为使用本次作业所提供数据绘制的ROC曲线。由于测试样例有限，所以仅能获得有限个（真正例率，假正例率）坐标对，无法产生光滑的ROC曲线；由此计算得到的AUC的值为0.9648，可以得知该模型的性能较优。</p>
 <p>完整代码如下：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">draw_roc</span><span class="token punctuation">(</span>confidence_scores<span class="token punctuation">,</span> data_labels<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -860,7 +860,7 @@ R}{\left(\beta^{2} \times P\right)+R}
 <li>β&lt;1：偏重查准率（商品推荐系统）</li>
 </ul>
 <p><img
-src="http://img.enderfga.cn/img/image-20211023150341520.png" srcset="/img/loading.gif" lazyload /></p>
+src="https://img.enderfga.cn/img/image-20211023150341520.png" srcset="/img/loading.gif" lazyload /></p>
 <p>如图即为使用本次作业所提供数据绘制的PR曲线。在现实任务中，PR曲线是非单调、不平滑的，在很多局部有上下波动；由此计算得到的AP的值为0.9751，可以得知该模型的性能较优。</p>
 <p>完整代码如下：</p>
 <figure><div class="code-wrapper"><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">draw_pr</span><span class="token punctuation">(</span>confidence_scores<span class="token punctuation">,</span> data_labels<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -1110,7 +1110,7 @@ id="锻炼了小组合作精神提高了小组合作能力">4.4锻炼了小组�
   <!-- Custom -->
   <div class="col-lg-7 mx-auto nopadding-x-md">
     <div class="container custom post-custom mx-auto">
-      <img src="http://img.enderfga.cn/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+      <img src="https://img.enderfga.cn/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
     </div>
   </div>
 
