@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://enderfga.cn/2022/09/24/github/</loc>
+    <lastmod>2022-09-25</lastmod>
+  </url>
+  <url>
     <loc>http://enderfga.cn/2022/05/28/suggest/</loc>
     <lastmod>2022-07-19</lastmod>
   </url>
@@ -53,19 +57,19 @@
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
-    <loc>http://enderfga.cn/2022/06/20/cmr/</loc>
-    <lastmod>2022-07-03</lastmod>
-  </url>
-  <url>
-    <loc>http://enderfga.cn/2022/03/17/data1/</loc>
-    <lastmod>2022-07-03</lastmod>
-  </url>
-  <url>
     <loc>http://enderfga.cn/2022/05/30/cifar/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
+    <loc>http://enderfga.cn/2022/06/20/cmr/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
     <loc>http://enderfga.cn/2022/04/28/code/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>http://enderfga.cn/2022/03/17/data1/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
@@ -89,19 +93,19 @@
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
-    <loc>http://enderfga.cn/2022/03/14/net1/</loc>
-    <lastmod>2022-07-03</lastmod>
-  </url>
-  <url>
-    <loc>http://enderfga.cn/2022/05/01/net3/</loc>
-    <lastmod>2022-07-03</lastmod>
-  </url>
-  <url>
     <loc>http://enderfga.cn/2022/04/19/net2/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
+    <loc>http://enderfga.cn/2022/03/14/net1/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
     <loc>http://enderfga.cn/2022/05/16/net4/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>http://enderfga.cn/2022/05/01/net3/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
@@ -161,11 +165,11 @@
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
-    <loc>http://enderfga.cn/2022/05/15/robot5/</loc>
+    <loc>http://enderfga.cn/2022/05/27/robot7/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
-    <loc>http://enderfga.cn/2022/05/27/robot7/</loc>
+    <loc>http://enderfga.cn/2022/05/15/robot5/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
