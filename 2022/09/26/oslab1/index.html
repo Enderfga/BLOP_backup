@@ -1,0 +1,1146 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://img.enderfga.cn/img/favicon.png">
+  <link rel="icon" href="https://img.enderfga.cn/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Enderfga">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="实验一 Linux的安装与使用 实验目的  掌握Linux环境下的命令操作，熟悉Linux操作系统的环境和使用，记录各种测试结果； 了解LINUX系统的安装过程，记录安装流程和界面； 搭建 ROS 环境，为后续实验做准备。  实验内容 任务描述 1）Linux系统的安装  调研、选择Linux版本 搜索、下载Linux安装所需文件 安装Linux  2）Linu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OS实验报告：Linux、ROS安装与使用">
+<meta property="og:url" content="http://enderfga.cn/2022/09/26/oslab1/index.html">
+<meta property="og:site_name" content="Enderfga&#39;Blog">
+<meta property="og:description" content="实验一 Linux的安装与使用 实验目的  掌握Linux环境下的命令操作，熟悉Linux操作系统的环境和使用，记录各种测试结果； 了解LINUX系统的安装过程，记录安装流程和界面； 搭建 ROS 环境，为后续实验做准备。  实验内容 任务描述 1）Linux系统的安装  调研、选择Linux版本 搜索、下载Linux安装所需文件 安装Linux  2）Linu">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.enderfga.cn/img/1515111-20200331185335567-987153696.png">
+<meta property="article:published_time" content="2022-09-26T02:09:55.000Z">
+<meta property="article:modified_time" content="2022-09-26T02:15:20.812Z">
+<meta property="article:author" content="Enderfga">
+<meta property="article:tag" content="操作系统">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.enderfga.cn/img/1515111-20200331185335567-987153696.png">
+  
+  
+  
+  <title>OS实验报告：Linux、ROS安装与使用 - Enderfga&#39;Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"enderfga.cn","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"oG62pOOQWEHEoerO","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"8yKzDhPjGo7c9GbBxy5UimY5-gzGzoHsz","app_key":"2ghy7HB3wrWXUD1VLNd92jeC","server_url":"https://8ykzdhpj.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+    <!-- Baidu Analytics -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?oG62pOOQWEHEoerO";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Enderfga'Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Enderfga</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener" href="https://pan.enderfga.workers.dev/">
+                <i class="iconfont icon-briefcase"></i>
+                网盘
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://img.enderfga.cn/img/back.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="OS实验报告：Linux、ROS安装与使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-09-26 10:09" pubdate>
+          2022年9月26日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          6.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          54 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">OS实验报告：Linux、ROS安装与使用</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2022年9月26日 上午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.001.jpeg" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="实验一-linux的安装与使用"><strong>实验一
+Linux的安装与使用</strong></h1>
+<h2 id="实验目的"><strong>实验目的</strong></h2>
+<ol type="1">
+<li><p>掌握Linux环境下的命令操作，熟悉Linux操作系统的环境和使用，记录各种测试结果；</p></li>
+<li><p>了解LINUX系统的安装过程，记录安装流程和界面；</p></li>
+<li><p>搭建 ROS 环境，为后续实验做准备。</p></li>
+</ol>
+<h2 id="实验内容"><strong>实验内容</strong></h2>
+<h3 id="任务描述"><strong>任务描述</strong></h3>
+<p>1）Linux系统的安装</p>
+<ol type="1">
+<li>调研、选择Linux版本</li>
+<li>搜索、下载Linux安装所需文件</li>
+<li>安装Linux</li>
+</ol>
+<p>2）Linux基本操作命令</p>
+<p>熟悉pwd、ls、mkdir、cd、cat、man、cp等命令的使用</p>
+<p>3）编写程序</p>
+<ol type="1">
+<li>编写能输出“Hello
+world!”问候语的C程序，并在终端中编译、执行。要求记录所使用的命令及结果。</li>
+<li>编写一个程序：显示信息“Time for
+Play!”，并能在后台运行一段时间（自定义）后，弹出信息提醒用户。要求记录所使用的命令及结果。（提示：使用sleep(s)函数）</li>
+</ol>
+<p>4）安装ROS</p>
+<ol type="1">
+<li>按照官方教程或者快捷脚本安装好对应版本的ROS；</li>
+<li>运行ROS代码例程。</li>
+</ol>
+<h3 id="实验说明"><strong>实验说明</strong></h3>
+<p>本次实验中我通过VMware和WSL2两种方式安装了Linux操作系统，磁盘管理、文件管理的命令熟悉和程序编写使用WSL2完成，ROS的安装与代码例程使用有可视化界面的VMware完成。</p>
+<h3 id="实验记录"><strong>实验记录</strong></h3>
+<h4 id="实施步骤"><strong>实施步骤</strong></h4>
+<h5 id="使用vmware安装">使用VMware安装：</h5>
+<ul>
+<li>以管理员身份运行Vmware Workstation</li>
+<li>载入并安装ubuntu-22.04.1-desktop-amd64.iso</li>
+</ul>
+<h5 id="使用wsl2安装">使用WSL2安装：</h5>
+<ul>
+<li>启用“适用于 Linux 的 Windows 子系统”可选功能</li>
+<li>启用“虚拟机平台”可选功能</li>
+<li>下载安装 Linux 内核更新包并将 WSL 2 设置为默认版本</li>
+<li>使用 Microsoft Store，选择并安装偏好的 Linux 分发版</li>
+</ul>
+<ol type="1">
+<li><p>在终端练习Linux的基本操作命令</p></li>
+<li><p>编写程序</p></li>
+<li><p>利用脚本安装ROS并运行代码例程</p></li>
+</ol>
+<h4 id="实验记录-1"><strong>实验记录</strong></h4>
+<figure><div class="code-wrapper"><pre class="language-none"><code class="language-none">  1) 安装Linux</code></pre></div></figure>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.002.jpeg" srcset="/img/loading.gif" lazyload /></p>
+<p>图1-VM安装过程</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.003.jpeg" srcset="/img/loading.gif" lazyload /></p>
+<p>图2-安装成功</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.004.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图3-WSL2安装过程</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.005.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图4-WSL2安装成功</p>
+<ol type="1">
+<li>熟悉操作命令</li>
+</ol>
+<p><strong>pwd命令：</strong></p>
+<p>英文全拼：print work directory，该命令用于显示工作目录，</p>
+<p>执行 pwd 指令可立刻得知您目前所在的工作目录的绝对路径名称。</p>
+<p><strong>ls命令：</strong></p>
+<p>英文全拼：list
+files，该命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
+<p>参数说明：</p>
+<ul>
+<li><strong>-a</strong> 显示所有文件及目录 (.
+开头的隐藏文件也会列出)</li>
+<li><strong>-l</strong>
+除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</li>
+<li><strong>-r</strong> 将文件以相反次序显示(原定依英文字母次序)</li>
+<li><strong>-t</strong> 将文件依建立时间之先后次序列出</li>
+<li><strong>-A</strong> 同 -a ，但不列出 "." (目前目录) 及 ".."
+(父目录)</li>
+<li><strong>-F</strong> 在列出的文件名称后加一符号；例如可执行档则加
+"*", 目录则加 "/"</li>
+<li><strong>-R</strong> 若目录下有文件，则以下之文件亦皆依序列出</li>
+</ul>
+<p><strong>mkdir命令：</strong></p>
+<p>英文全拼：make directory，该命令用于创建目录。</p>
+<p>参数说明：</p>
+<ul>
+<li><strong>-p</strong> 确保目录名称存在，不存在的就建一个。</li>
+</ul>
+<p><strong>cd命令：</strong></p>
+<p>英文全拼：change directory，该命令用于切换当前工作目录。</p>
+<p>其中 dirName
+表示法可为绝对路径或相对路径。若目录名称省略，则变换至使用者的 home 目录
+(也就是刚 login 时所在的目录)。</p>
+<p>另外，~ 也表示为 home 目录 的意思， . 则是表示目前所在的目录， ..
+则表示目前目录位置的上一层目录。</p>
+<p><strong>cat命令：</strong></p>
+<p>英文全拼：concatenate,该命令用于连接文件并打印到标准输出设备上。</p>
+<p>参数说明：</p>
+<ul>
+<li><strong>-n 或 --number</strong>：由 1
+开始对所有输出的行数编号。</li>
+<li><strong>-b 或 --number-nonblank</strong>：和 -n
+相似，只不过对于空白行不编号。</li>
+<li><strong>-s 或
+--squeeze-blank</strong>：当遇到有连续两行以上的空白行，就代换为一行的空白行。</li>
+<li><strong>-v 或 --show-nonprinting</strong>：使用 ^ 和 M- 符号，除了
+LFD 和 TAB 之外。</li>
+<li><strong>-E 或 --show-ends</strong> : 在每行结束处显示 $。</li>
+<li><strong>-T 或 --show-tabs</strong>: 将 TAB 字符显示为 ^I。</li>
+<li><strong>-A, --show-all</strong>：等价于 -vET。</li>
+<li><strong>-e：</strong>等价于"-vE"选项；</li>
+<li><strong>-t：</strong>等价于"-vT"选项；</li>
+</ul>
+<p><strong>cp命令：</strong></p>
+<p>英文全拼：copy file，该命令主要用于复制文件或目录。</p>
+<p>参数说明：</p>
+<ul>
+<li><strong>-a</strong>：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。</li>
+<li><strong>-d</strong>：复制时保留链接。这里所说的链接相当于 Windows
+系统中的快捷方式。</li>
+<li><strong>-f</strong>：覆盖已经存在的目标文件而不给出提示。</li>
+<li><strong>-i</strong>：与 -f
+选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答 y
+时目标文件将被覆盖。</li>
+<li><strong>-p</strong>：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。</li>
+<li><strong>-r</strong>：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。</li>
+<li><strong>-l</strong>：不复制文件，只是生成链接文件。</li>
+</ul>
+<ol type="1">
+<li>编写程序</li>
+</ol>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.006.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图5-vim 键盘图</p>
+<p>使用vi文书编辑器来编写要求的程序，代码如下：</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.007.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图6-编写程序一</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.008.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图7-编写程序二</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.009.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图8-安装gcc并编译</p>
+<ol type="1">
+<li>安装ROS</li>
+</ol>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图9-使用官方教程手动安装</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图10-使用一键安装脚本</p>
+<h2 id="实验结果"><strong>实验结果</strong></h2>
+<ol type="1">
+<li>命令熟悉</li>
+</ol>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图11-基本操作命令结果一</p>
+<p>如图所示，打开终端之后起始目录显示为“~”，即主目录，也就是当前登录用户的用户目录，故输入pwd的结果为/home/enderfga。</p>
+<p>ls
+-l会显示当前目录下文件的详细信息，图中是我编写的两个c文件以及编译产生的文件等，ls
+-al则会将以“.”开头的隐藏文件也展示出来。</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图12-基本操作命令结果二</p>
+<p>直接使用不带参数的命令cd会改变目录至当前的用户目录，即“~”；</p>
+<p>使用命令cd
+../..会到上一级目录的上一级目录中，在此处也就是根目录，即“/”。</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图13-文件操作命令结果</p>
+<p>值得注意的是，输入命令ls
+-l后屏幕显示的第一列内容wsl2的结果和VMware的结果并不一样。</p>
+<p>wsl2中显示的是文件大小，如果是文件，则表示该文件的大小，单位为字节；如果是目录，则表示该目录符所占的大小，并不表示该目录下所有文件的大小。</p>
+<p>VMware的结果如图所示：</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.011.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图14-ls -l命令解析</p>
+<p>图中还记录了两个我搜索到的其他文件操作命令，分别是</p>
+<p>“ls -l | grep "^-" | wc -l”：统计该目录下的文件个数；以及</p>
+<p>“find . -name 'f*' -exec rm {}
+;”：搜寻含有特定文件名的文件并删除。</p>
+<ol type="1">
+<li>程序编写</li>
+</ol>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图15-C程序输出结果</p>
+<p>根据题目要求，a.c编译的程序实现了输出“Hello
+world!”问候语；b.c编译的程序会在运行时显示“Time for
+Play!”，并能在后台运行，每10秒弹出信息提醒用户。</p>
+<ol type="1">
+<li>ROS测试与例程</li>
+</ol>
+<p>值得注意的是，本次实验中我安装的是ROS2，故PPT中的命令不能生效。查阅资料之后，我使用ROS2对应的命令成功实现了用键盘控制小乌龟运动。</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.012.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图16-ROS小乌龟测试</p>
+<p>以下是我在过去的学习中使用ROS1和rviz可视化的A*轨迹规划和Turtlebot2轨迹仿真，在此处记录。</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.013.png" srcset="/img/loading.gif" lazyload /><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.014.png" srcset="/img/loading.gif" lazyload /></p>
+<p>图17-轨迹规划与实机仿真</p>
+<h2 id="总结与讨论"><strong>总结与讨论</strong></h2>
+<p>1.在Linux中，如何设置前、后台命令和程序的执行？</p>
+<p>在终端中如果对命令不加处理，那么命令会在前台运行；如果打算把命令放到后台运行，这个时候只需要在命令末尾加上&amp;即可，此时终端返回的是[作业号]
+进程号。</p>
+<p>需要注意的是，如果程序在后台运行，那么它将无法接受用户的输入，但是其输出将显示在屏幕上（可能用户正在进行其他工作，突然冒出了错误输出），因此在后台执行的程序需是不需要人工干预的、输出被妥善处理（比如重定向）的程序。</p>
+<p>有的时候在程序开始运行之后，想要将程序放在后台执行，这时需要按Ctrl+Z快捷键暂停程序，然后使用bg
+%作业号命令将其放入后台执行，也可以使用fg
+%作业号将程序从后台移到前台。</p>
+<p>&amp;是指在后台运行，但当用户推出(挂起)的时候，命令自动也跟着退出。而nohup命令（no
+hang
+up）是不挂断的运行，故二者常常结合起来使用，这样就能使命令永久的在后台执行，例如：</p>
+<p>CUDA_VISIBLE_DEVICES=0,1 nohup python train.py &gt; nohup.log
+2&gt;&amp;1 &amp;</p>
+<p><code></code>即为使用2块GPU后台训练的常用python命令。</p>
+<p>2.你所使用的Linux系统的内核版本是多少？用什么命令查看内核版本？目前你所了解的各发行版本的情况如何？</p>
+<p>可以使用uname
+-a来查看内核版本，本次实验使用的WSL2和VMware分别输出的结果是：</p>
+<p>Linux Enderfga-PC 5.4.72-microsoft-standard-WSL2 #1 SMP Wed Oct 28
+23:40:43 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</p>
+<p>Linux enderfga-virtual-machine 5.15.0-47-generic #51-Ubuntu SMP Thu
+Aug 11 07:51:15 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux</p>
+<p>可以看出WSL2相较于虚拟机的差异还是挺大的，即使均为Ubuntu
+20.04在内核版本上也有不同。</p>
+<p><code></code>查阅资料得知，比较流行的发行版本有10个。Ubuntu，Linux
+Mint和PCLinuxOS是其中最易于使用的。想快速部署使用，就可以选择这几个。尤其对于新手，已经做到了和Windows类似的易用程度了；另一方面，Slackware
+Linux，Arch
+Linux和FreeBSD是更激进的发行版，更新比较频繁，所以需要有一定的基础；openSUSE，Fedora，Debian
+GNU/Linux和Mageia则是比较保守的发行版，稳定性是他们的特点，但是软件包都比较旧，很多桌面版本的新功能没法用；CentOS是一个企业级的发行版，适合那些喜欢稳定性，可靠性和软件长期支持的用户。</p>
+<p>在学习的过程中我使用过Ubuntu和Centos。</p>
+<p>3.你对Linux系统有什么认识？</p>
+<p><code></code>在我心目中，Linux是一种可以和Windows相媲美的操作系统。Linux一切皆文件、完全开源免费、支持多用户和多任务、同时还支持多种架构平台、可靠的安全性、良好的稳定性、具有强大的网络功能、多样图形界面等等都展现其巨大的魅力。通过Linux我更好地了解学习了计算机网络、操作系统等的相关知识，也实践了深度学习、智能机器人技术等应用。</p>
+<p><strong>五、CPU指令执行过程</strong></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.015.png" srcset="/img/loading.gif" lazyload /><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.016.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.017.png" srcset="/img/loading.gif" lazyload /></p>
+<ol type="1">
+<li>首先，我们有一个自动计数器。这个自动计数器会随着时钟主频不断地自增，来作为我们的
+PC 寄存器。</li>
+<li>在这个自动计数器的后面，我们连上一个译码器。译码器还要同时连着我们通过大量的
+D 触发器组成的内存。</li>
+<li>自动计数器会随着时钟主频不断自增，从译码器当中，找到对应的计数器所表示的内存地址，然后读取出里面的
+CPU 指令。</li>
+<li>读取出来的 CPU 指令会通过我们的 CPU 时钟的控制，写入到一个由 D
+触发器组成的寄存器，也就是指令寄存器当中。</li>
+<li>在指令寄存器后面，我们可以再跟一个译码器。这个译码器不再是用来寻址的了，而是把我们拿到的指令，解析成
+opcode 和对应的操作数。</li>
+<li>当我们拿到对应的 opcode 和操作数，对应的输出线路就要连接
+ALU，开始进行各种算术和逻辑运算。对应的计算结果，则会再写回到 D
+触发器组成的寄存器或者内存当中。</li>
+</ol>
+<p>模拟代码如下：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">&#x2F;&#x2F; 模拟CPU指令执行过程流水线
+#include &lt;iostream&gt;
+&#x2F;&#x2F;取指令（Instruction Fetch，IF）阶段
+&#x2F;&#x2F;译码（Instruction Decode，ID）阶段
+&#x2F;&#x2F;执行指令（Execute，EX）阶段
+&#x2F;&#x2F;访存取数（Memory，MEM）阶段
+&#x2F;&#x2F;结果写回（Writeback，WB）阶段
+&#x2F;&#x2F;指令流水线
+class InstructionPipeline
+&#123;
+public:
+	InstructionPipeline()&#123;&#125;
+	~InstructionPipeline()&#123;&#125;
+	void IF();
+	void ID();
+	void EX(int a, int b);
+	void MEM();
+	void WB();
+	&#x2F;&#x2F;Program Counter Register
+	int (*p) (int a, int b);
+	&#x2F;&#x2F;Instruction Register
+	int (*i) (int a, int b);
+	&#x2F;&#x2F;Register
+	int (*r) (int a, int b);
+	&#x2F;&#x2F;Memory
+	int m;
+	int t;
+	int c &#x3D; 0;
+&#125;;
+&#x2F;&#x2F;加法算数指令
+int add(int a, int b) &#123;
+	return a + b;
+&#125;
+&#x2F;&#x2F;IF阶段
+void InstructionPipeline::IF()
+&#123;
+	int (*t) (int a, int b);&#x2F;&#x2F;temp
+    &#x2F;&#x2F;从指令存储器中取指令
+	t &#x3D; p;
+	&#x2F;&#x2F;下一条指令地址，自动递增；
+	&#x2F;&#x2F;p++;
+    &#x2F;&#x2F;将指令存入指令寄存器
+	i &#x3D; p;
+&#125;
+&#x2F;&#x2F;ID阶段
+void InstructionPipeline::ID()
+&#123;
+	int (*t) (int a, int b);&#x2F;&#x2F;temp
+	&#x2F;&#x2F;从指令寄存器中取指令
+	t &#x3D; i;
+	&#x2F;&#x2F;译码指令
+	i &#x3D; add;
+	&#x2F;&#x2F;将译码结果存入译码寄存器
+	r &#x3D; i;
+&#125;
+&#x2F;&#x2F;EX阶段
+void InstructionPipeline::EX(int a,int b)
+&#123;
+	int (*t) (int a, int b);&#x2F;&#x2F;temp
+	&#x2F;&#x2F;从译码寄存器中取译码结果
+	t &#x3D; r;
+	&#x2F;&#x2F;执行指令
+	int result &#x3D; (*t)(a, b);
+	&#x2F;&#x2F;将执行结果存入执行寄存器
+	m &#x3D; result;
+&#125;
+&#x2F;&#x2F;MEM阶段
+void InstructionPipeline::MEM()
+&#123;
+	int temp &#x3D; 0;
+	&#x2F;&#x2F;访存取数
+	temp &#x3D; m;
+	&#x2F;&#x2F;将访存结果存入访存寄存器
+	t &#x3D; temp;
+&#125;
+&#x2F;&#x2F;WB阶段
+void InstructionPipeline::WB()
+&#123;
+	int temp &#x3D; 0;
+	&#x2F;&#x2F;从访存寄存器中取访存结果
+	temp &#x3D; t;
+	&#x2F;&#x2F;将结果写回
+	c &#x3D; temp;
+	std::cout &lt;&lt; &quot;result &#x3D; &quot; &lt;&lt; c &lt;&lt; std::endl;
+&#125;
+int main() &#123;
+	int a &#x3D; 1,b &#x3D; 1;
+	InstructionPipeline CPU;
+	std::cout &lt;&lt; &quot;取指...&quot; &lt;&lt; std::endl;
+	CPU.IF();
+	std::cout &lt;&lt; &quot;译码...&quot; &lt;&lt; std::endl;
+	CPU.ID();
+	std::cout &lt;&lt; &quot;执行...&quot; &lt;&lt; std::endl;
+	CPU.EX(a, b);
+	std::cout &lt;&lt; &quot;存结果...&quot; &lt;&lt; std::endl;
+	CPU.MEM();
+	CPU.WB();
+	std::cout &lt;&lt; &quot;下一条指令地址&quot; &lt;&lt; std::endl;
+	return 0;
+&#125;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>结果如下：</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.018.png" srcset="/img/loading.gif" lazyload /></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">#操作系统</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>OS实验报告：Linux、ROS安装与使用</div>
+      <div>http://enderfga.cn/2022/09/26/oslab1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Enderfga</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年9月26日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/09/24/github/" title="how to use github?">
+                        <span class="hidden-mobile">how to use github?</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#comments', function() {
+      var light = 'github-light';
+      var dark = 'github-dark';
+      var schema = document.documentElement.getAttribute('data-user-color-scheme');
+      if (schema === 'dark') {
+        schema = dark;
+      } else {
+        schema = light;
+      }
+      window.UtterancesThemeLight = light;
+      window.UtterancesThemeDark = dark;
+      var s = document.createElement('script');
+      s.setAttribute('src', 'https://utteranc.es/client.js');
+      s.setAttribute('repo', 'Enderfga/commit-utterances');
+      s.setAttribute('issue-term', 'title');
+      
+      s.setAttribute('label', 'utterances');
+      
+      s.setAttribute('theme', schema);
+      s.setAttribute('crossorigin', 'anonymous');
+      document.getElementById('comments').appendChild(s);
+    })
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+  <script>
+  Fluid.utils.createScript('https://lib.baomitu.com/mermaid/8.13.10/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+  });
+</script>
+
+
+
+
+
+  <!-- Custom -->
+  <div class="col-lg-7 mx-auto nopadding-x-md">
+    <div class="container custom post-custom mx-auto">
+      <img src="https://img.enderfga.cn/img/20220420162434.png" srcset="/img/loading.gif" lazyload class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <p id="jinrishici-sentence">愿我如星君如月，夜夜流光相皎洁</p> <a href="https://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener"><span> 粤ICP备2021112653号-1</span></a> <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.0/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script  src="https://lib.baomitu.com/prism/1.26.0/plugins/line-numbers/prism-line-numbers.min.js" ></script>
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+      </script>
+    
+
+  <script  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://raw.githubusercontents.com/imuncle/live2d/master/model/hijiki/hijiki.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
