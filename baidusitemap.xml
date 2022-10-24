@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://enderfga.cn/2022/10/24/medical/</loc>
+    <lastmod>2022-10-24</lastmod>
+  </url>
+  <url>
     <loc>http://enderfga.cn/2022/09/26/oslab1/</loc>
     <lastmod>2022-09-26</lastmod>
   </url>
@@ -85,15 +89,19 @@
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
-    <loc>http://enderfga.cn/2022/05/29/docker/</loc>
-    <lastmod>2022-07-03</lastmod>
-  </url>
-  <url>
     <loc>http://enderfga.cn/2022/05/30/dl/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
+    <loc>http://enderfga.cn/2022/05/29/docker/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
     <loc>http://enderfga.cn/2022/03/24/graph/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>http://enderfga.cn/2022/03/14/net1/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
@@ -102,10 +110,6 @@
   </url>
   <url>
     <loc>http://enderfga.cn/2022/05/01/net3/</loc>
-    <lastmod>2022-07-03</lastmod>
-  </url>
-  <url>
-    <loc>http://enderfga.cn/2022/03/14/net1/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
@@ -145,15 +149,15 @@
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
-    <loc>http://enderfga.cn/2022/03/24/robot3/</loc>
-    <lastmod>2022-07-03</lastmod>
-  </url>
-  <url>
     <loc>http://enderfga.cn/2022/03/21/robot2/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
     <loc>http://enderfga.cn/2022/03/30/robot4/</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>http://enderfga.cn/2022/03/24/robot3/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
   <url>
