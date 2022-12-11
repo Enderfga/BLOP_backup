@@ -6,7 +6,7 @@
   <link href="http://enderfga.cn/atom.xml" rel="self"/>
   
   <link href="http://enderfga.cn/"/>
-  <updated>2022-12-11T13:02:45.154Z</updated>
+  <updated>2022-12-11T13:26:45.695Z</updated>
   <id>http://enderfga.cn/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tiny SSD目标检测</title>
+    <link href="http://enderfga.cn/2022/12/11/ssd/"/>
+    <id>http://enderfga.cn/2022/12/11/ssd/</id>
+    <published>2022-12-11T13:23:46.000Z</published>
+    <updated>2022-12-11T13:26:45.695Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Github: https://github.com/Enderfga/TinySSD_sysu</p><span id="more"></span><h1id="tiny-ssd-a-tiny-single-shot-detection-deep-convolutional-neural-network-for-real-time-embedded-object-detection">TinySSD: A Tiny Single-shot Detection Deep Convolutional Neural Network forReal-time Embedded Object Detection</h1><p>This repo contains the code, data and trained models for the paper <ahref="https://arxiv.org/pdf/1802.06488.pdf">Tiny SSD: A Tiny Single-shotDetection Deep Convolutional Neural Network for Real-time EmbeddedObject Detection</a>.</p><h2 id="quick-links">Quick Links</h2><ul><li><a href="#Overview">Overview</a></li><li><a href="#Requirements">Requirements</a></li><li><a href="#How-to-Install">How to Install</a></li><li><a href="#Description-of-Codes">Description of Codes</a></li><li><a href="#Preprocessing">Preprocessing</a><ul><li><a href="#Preprocessed-Data">Preprocessed Data</a></li></ul></li><li><a href="#How-to-Run">How to Run</a><ul><li><a href="#Train">Train</a><ul><li><a href="#Finetuning-from-an-existing-checkpoint">Finetuning from anexisting checkpoint</a></li></ul></li><li><a href="#Evaluate">Evaluate</a></li></ul></li><li><a href="#Results-Outputs-Checkpoints">Results, Outputs,Checkpoints</a></li></ul><h2 id="overview">Overview</h2><p>Tiny SSD is a single-shot detection deep convolutional neural networkfor real-time embedded object detection. It brings together theefficieny of Fire microarchitecture introduced in<strong>SqueezeNet</strong> and object detection performance of<strong>SSD (Single Shot Object Detector)</strong>.</p><p><img src="https://img.enderfga.cn/img/ssd.svg" /></p><p><imgsrc="https://img.enderfga.cn/img/image-20221018133431973.png" /></p><h2 id="requirements">Requirements</h2><ul><li>numpy</li><li>pandas</li><li>matplotlib</li><li>opencv-python</li><li>torch</li><li>torchvision</li></ul><h2 id="how-to-install">How to Install</h2><p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">conda create -n env python=3.8 -y<br>conda activate env<br></code></pre></td></tr></table></figure> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip install -r requirements.txt<br></code></pre></td></tr></table></figure></p><h2 id="description-of-files">Description of Files</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs stylus">│──<span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.py</span>                 -&gt; Run models using different models<br>│──README.md<br>│──requirements.txt<br>│──test<span class="hljs-selector-class">.py</span>                 -&gt; Testing Model<br>│──train<span class="hljs-selector-class">.py</span>                -&gt; Training Model<br>│<br>├─data<br>│  │  dataloader<span class="hljs-selector-class">.py</span>         -&gt; dataloader and <span class="hljs-attribute">transform</span><br>│  │  __init__.py<br>│  │<br>│  └─detection<br>│      │  create_train<span class="hljs-selector-class">.py</span>   -&gt; data preprocessing<br>│      │<br>│      ├─<span class="hljs-attribute">background</span><br>│      ├─sysu_train<br>│      │  │  <span class="hljs-selector-tag">label</span>.csv<br>│      │  │<br>│      │  └─images<br>│      ├─target<br>│      │      <span class="hljs-number">0</span>.jpg<br>│      │      <span class="hljs-number">0</span>.png<br>│      │      <span class="hljs-number">1</span>.png<br>│      │<br>│      └─test<br>│              <span class="hljs-number">1</span>.jpg<br>│              <span class="hljs-number">2</span>.jpg<br>│<br>├─model<br>│  │  TinySSD<span class="hljs-selector-class">.py</span>             -&gt; Definition of the model<br>│  │  __init__.py<br>│  │<br>│  └─checkpoints             -&gt; Trained model weights<br>│     net_100.pkl<br>└─utils                      -&gt; utility functions<br>        anchor.py<br>        iou.py<br>        utils.py<br>        __init__.py<br></code></pre></td></tr></table></figure><h2 id="preprocessing">Preprocessing</h2><p>We use /data/detection/background to generate the target detectiondataset for our experiments.</p><p>Since the generated data is stored in the repository, there is noneed to run this step.</p><h3 id="preprocessed-data">Preprocessed Data</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd data/detection/<br>python create_train.py<br></code></pre></td></tr></table></figure><h2 id="how-to-run">How to Run</h2><h3 id="train">Train</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python main.py --mode=train --batch_size=256 --epochs=100<br></code></pre></td></tr></table></figure><p>The checkpoints will be saved in a subfolder of<code>./model/checkpoints/</code>.</p><h4 id="finetuning-from-an-existing-checkpoint">Finetuning from anexisting checkpoint</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python main.py --mode=train --batch_size=256 --epochs=100 --path=[model path]<br></code></pre></td></tr></table></figure><p>model path should be a subdirectory in the<code>./model/checkpoints/</code> directory, e.g.<code>--path=./model/checkpoints/net_100.pkl</code></p><h3 id="evaluate">Evaluate</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">python main.py --mode=test --threshold=<span class="hljs-number">0.3</span> --path=./model/checkpoints/net_100.pkl<br></code></pre></td></tr></table></figure><h2 id="results-outputs-checkpoints">Results, Outputs, Checkpoints</h2><p>the ./model/checkpoints/net_100.pkl：class err 1.54e-03, bbox mae1.90e-03</p><p>I used the following methods to improve performance：</p><ol type="1"><li><p>HD anti-white detection object to adapt to the test image</p><p><imgsrc="https://img.enderfga.cn/img/image-20221018160400682.png" /></p></li><li><p>Flip and rotate images, etc. to improve generalizationperformance</p><p><imgsrc="https://img.enderfga.cn/img/image-20221018155947834.png" /></p></li><li><p>soft_nms</p><p><imgsrc="https://img.enderfga.cn/img/42166d224f4a20a4d58841b70d795a2a730ed0e4.jpeg@f_auto" /></p></li><li><p>smooth_L1</p><p><imgsrc="https://img.enderfga.cn/img/image-20221018155842392.png" /></p></li><li><p>Focal Loss</p><p><img src="https://img.enderfga.cn/img/20221025160416.png" /></p></li></ol><p>If we have more classes, we can further improve the model in thefollowing aspects:</p><ol type="1"><li>When an object is much smaller compared with the image, the modelcould resize the input image bigger.</li><li>There are typically a vast number of negative anchor boxes. To makethe class distribution more balanced, we could downsample negativeanchor boxes.</li><li>In the loss function, assign different weight hyperparameters to theclass loss and the offset loss.</li><li>Use other methods to evaluate the object detection model, such asthose in the single shot multibox detection paper (Liu et al.,2016).</li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;Github: https://github.com/Enderfga/TinySSD_sysu&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="深度学习" scheme="http://enderfga.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>人脸检测mtcnn复现</title>
@@ -392,26 +411,6 @@ src=&quot;https://img.enderfga.cn/img/image-20220528213455416.png&quot; /&gt;&lt
     
     
     <category term="计算机网络" scheme="http://enderfga.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2R机械臂五次多项式轨迹规划</title>
-    <link href="http://enderfga.cn/2022/05/16/robot6/"/>
-    <id>http://enderfga.cn/2022/05/16/robot6/</id>
-    <published>2022-05-16T15:56:27.000Z</published>
-    <updated>2022-10-24T16:08:48.553Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><img src="https://img.enderfga.cn/img/20220516000042.png" /></p><p>智能机器人技术作业记录</p><span id="more"></span><embed src="./2R.pdf" width="100%" height="750" type="application/pdf">]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://img.enderfga.cn/img/20220516000042.png&quot; /&gt;&lt;/p&gt;
-&lt;p&gt;智能机器人技术作业记录&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="机器人" scheme="http://enderfga.cn/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/"/>
     
   </entry>
   
