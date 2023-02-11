@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.enderfga.cn/img/image-20230209142352394.png">
 <meta property="article:published_time" content="2023-02-11T15:42:41.000Z">
-<meta property="article:modified_time" content="2023-02-11T15:50:10.814Z">
+<meta property="article:modified_time" content="2023-02-11T15:51:26.196Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="计算机视觉">
 <meta name="twitter:card" content="summary_large_image">
@@ -390,6 +390,8 @@ Score Distillation Sampling ）</h4>
 \sigma, \epsilon)} \mid y, \sigma\right)-\epsilon\right) \frac{\partial
 V_\theta}{\partial \theta}\right]
 \\
+\]</span></p>
+<p><span class="math display">\[
 \nabla_\theta \mathcal{L}_{\mathrm{SDS}}(\phi, \mathbf{x}=g(\theta))
 \triangleq \mathbb{E}_{t,
 \epsilon}\left[w(t)\left(\hat{\epsilon}_\phi\left(\mathbf{z}_t ; y,
@@ -888,22 +890,5 @@ src="https://img.enderfga.cn/img/image-20230209152759865.png" srcset="/img/loadi
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
-</script>
 </body>
 </html>
