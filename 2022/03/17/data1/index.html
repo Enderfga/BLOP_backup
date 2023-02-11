@@ -332,66 +332,32 @@
                 
                 <p>Database System Concepts Exercises of Chapter 2</p>
 <span id="more"></span>
-<p><img
-src="https://img.enderfga.cn/img/photo-1613068687893-5e85b4638b56" srcset="/img/loading.gif" lazyload /></p>
-<h1 id="database-system-concepts-exercises-of-chapter-2">Database System
-Concepts Exercises of Chapter 2</h1>
-<p><strong>Exercise 2.1</strong> Consider the relational database of
-Figure 2.14,</p>
-<p>Employee( person_name, street, city) Works (person_name,
-company_name, salary) Company(company_name, city) <strong>Figure
-2.14</strong></p>
+<p><img src="https://img.enderfga.cn/img/photo-1613068687893-5e85b4638b56" srcset="/img/loading.gif" lazyload alt=""></p>
+<h1 id="Database-System-Concepts-Exercises-of-Chapter-2"><a href="#Database-System-Concepts-Exercises-of-Chapter-2" class="headerlink" title="Database System Concepts Exercises of Chapter 2"></a>Database System Concepts Exercises of Chapter 2</h1><p><strong>Exercise 2.1</strong> Consider the relational database of Figure 2.14,</p>
+<p>Employee( person_name, street, city)<br>Works (person_name, company_name, salary)<br>Company(company_name, city)<br><strong>Figure 2.14</strong></p>
 <p>What are the appropriate primary keys?</p>
 <p><strong>My answer:</strong></p>
-<p><span class="math inline">\(employee (\underline{person-name},
-street, city)\)</span></p>
-<p>$works (, company-name, salary) $</p>
-<p><span class="math inline">\(company (\underline{company-name},
-city)\)</span></p>
-<p><strong>Exercise</strong> <strong>2.7</strong> Consider the
-relational database of Figure 2.14. Given an expression in the
-relational algebra to express each of the following queries:</p>
+<p>$employee (\underline{person-name}, street, city)$</p>
+<p>$works (\underline{person-name}, company-name, salary) $</p>
+<p>$company (\underline{company-name}, city)$</p>
+<p><strong>Exercise</strong> <strong>2.7</strong> Consider the relational database of Figure 2.14. Given an expression in the relational algebra to express each of the following queries:</p>
 <p>a.Find the names of all employees who live in city “Miami”</p>
-<p>b.Find the names of all employees whose salary is greater than
-$100,000.</p>
-<p>c.Find the names of all employees who live in “Miami” and whose
-salary is greater than $100,000.</p>
+<p>b.Find the names of all employees whose salary is greater than $100,000.</p>
+<p>c.Find the names of all employees who live in “Miami” and whose salary is greater than $100,000.</p>
 <p><strong>My answer:</strong></p>
-<p><img
-src="https://img.enderfga.cn/img/image-20220318132151932.png" srcset="/img/loading.gif" lazyload /></p>
-<p><strong>Exercise</strong> <strong>2.9</strong> Consider the bank
-database of Figure 2.15.</p>
-<p>branch(branch_name, branch_city, assets) customer(customer_name,
-customer_street, customer_city) loan(loan_number, branch_name, amount)
-borrower(customer_name, loan_number) account(account_number,
-loan_number) depositor(customer_name, account_number) <strong>Figure
-2.15</strong></p>
-<ol type="a">
-<li><p>What are the appropriate primary keys?</p></li>
-<li><p>Given your choice of primary keys, identify appropriate foreign
-keys. Assume that branch names and customer names uniquely identify
-branches and customers, but loans and accounts can be associated with
-more than one customer.</p></li>
-</ol>
+<p><img src="https://img.enderfga.cn/img/image-20220318132151932.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><strong>Exercise</strong> <strong>2.9</strong> Consider the bank database of Figure 2.15.</p>
+<p>branch(branch_name, branch_city, assets)<br>customer(customer_name, customer_street, customer_city)<br>loan(loan_number, branch_name, amount)<br>borrower(customer_name, loan_number)<br>account(account_number, loan_number)<br>depositor(customer_name, account_number)<br><strong>Figure 2.15</strong></p>
+<p>a.  What are the appropriate primary keys?</p>
+<p>b. Given your choice of primary keys, identify appropriate foreign keys. Assume that branch names and customer names uniquely identify branches and customers, but loans and accounts can be associated with more than one customer.</p>
 <p><strong>My answer:</strong></p>
-<p>The primary keys are marked with an <span
-class="math inline">\(\underline{underline}\)</span>, and the foreign
-keys are marked with a <span
-class="math inline">\(\overline{overline}\)</span>.</p>
-<p><span class="math inline">\(branch(\underline{branch-name},
-branch-city, assets)\)</span></p>
-<p><span class="math inline">\(customer(\underline{customer-name},
-customer-street, customer-city)\)</span></p>
-<p><span class="math inline">\(loan(\underline{loan-number},
-\overline{branch-name}, amount)\)</span></p>
-<p><span
-class="math inline">\(borrower(\overline{\underline{customer-name}},
-\overline{loan-number})\)</span></p>
-<p><span class="math inline">\(account(\underline{account-number},
-loan-number)\)</span></p>
-<p><span
-class="math inline">\(depositor(\overline{\underline{customer-name}},
-\overline{account-number})\)</span></p>
+<p>The primary keys are marked with an $\underline{underline}$, and the foreign keys are marked with a $\overline{overline}$.</p>
+<p>$branch(\underline{branch-name}, branch-city, assets)$</p>
+<p>$customer(\underline{customer-name}, customer-street, customer-city)$</p>
+<p>$loan(\underline{loan-number}, \overline{branch-name}, amount)$</p>
+<p>$borrower(\overline{\underline{customer-name}}, \overline{loan-number})$</p>
+<p>$account(\underline{account-number}, loan-number)$</p>
+<p>$depositor(\overline{\underline{customer-name}}, \overline{account-number})$</p>
 
                 
               </div>
@@ -870,5 +836,22 @@ class="math inline">\(depositor(\overline{\underline{customer-name}},
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
+</script>
 </body>
 </html>

@@ -278,7 +278,7 @@
         
         
           <!-- compatible with older versions-->
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -332,52 +332,24 @@
                 
                 <p>随便记的笔记</p>
 <span id="more"></span>
-<h1 id="text-to-3d">Text-to-3D</h1>
-<h2
-id="nerf-representing-scenes-as-neural-radiance-fields-for-view-synthesis">NeRF:
-Representing Scenes as Neural Radiance Fields for View Synthesis</h2>
-<p><img
-src="https://img.enderfga.cn/img/ed4df06e919cae0e638015fa78d935eb_1_Figure_1.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="Text-to-3D"><a href="#Text-to-3D" class="headerlink" title="Text-to-3D"></a>Text-to-3D</h1><h2 id="NeRF-Representing-Scenes-as-Neural-Radiance-Fields-for-View-Synthesis"><a href="#NeRF-Representing-Scenes-as-Neural-Radiance-Fields-for-View-Synthesis" class="headerlink" title="NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis"></a>NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis</h2><p><img src="https://img.enderfga.cn/img/ed4df06e919cae0e638015fa78d935eb_1_Figure_1.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>输入为连续的5维坐标（xyz坐标，以及视野角度theta和phi）；输出是空间位置的体密度以及该位置的发射射线（这里射线是根据视角变化的）。</strong></p>
-<ol type="1">
-<li><strong>用 network 存体素信息: </strong>(x, y, z, , ) (, )</li>
-<li><strong>然后用体素渲染方程获得生成视角图片：光线采样+积分</strong>
-<span class="math display">\[
-C(\mathbf{r})=\int_{t_n}^{t_f} T(t) \sigma(\mathbf{r}(t))
-\mathbf{c}(\mathbf{r}(t), \mathbf{d}) d t, \text { where } T(t)=\exp
-\left(-\int_{t_n}^t \sigma(\mathbf{r}(s)) d s\right)
-\]</span></li>
+<ol>
+<li><strong>用 network 存体素信息: </strong>(x, y, z, \theta, \phi) \rightarrow(\mathbf{c}, \sigma)</li>
+<li><strong>然后用体素渲染方程获得生成视角图片：光线采样+积分</strong><script type="math/tex; mode=display">
+C(\mathbf{r})=\int_{t_n}^{t_f} T(t) \sigma(\mathbf{r}(t)) \mathbf{c}(\mathbf{r}(t), \mathbf{d}) d t, \text { where } T(t)=\exp \left(-\int_{t_n}^t \sigma(\mathbf{r}(s)) d s\right)</script></li>
 <li><strong>最后与原视角图片计算损失更新网络</strong></li>
 </ol>
-<h2 id="dreamfusion-text-to-3d-using-2d-diffusion">DreamFusion:
-Text-to-3D using 2D Diffusion</h2>
-<p><img
-src="https://img.enderfga.cn/img/image-20230202213651008.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="DreamFusion-Text-to-3D-using-2D-Diffusion"><a href="#DreamFusion-Text-to-3D-using-2D-Diffusion" class="headerlink" title="DreamFusion: Text-to-3D using 2D Diffusion"></a>DreamFusion: Text-to-3D using 2D Diffusion</h2><p><img src="https://img.enderfga.cn/img/image-20230202213651008.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>三维合成并不存在大规模的标注数据，也没有一个高效的模型架构对3D数据进行降噪</strong></p>
-<p><strong>使用NERF的格式，使用预训练的text to
-2d，加上他们提出的一个基于概率密度蒸馏的loss，证明了预训练图像扩散模型作为先验模型的有效性</strong></p>
-<h2 id="magic3d-high-resolution-text-to-3d-content-creation">Magic3D:
-High-Resolution Text-to-3D Content Creation</h2>
-<p><img
-src="https://img.enderfga.cn/img/f3fcff88aa23d692c243bda5b3dd5467_3_Figure_2_1114637308.png" srcset="/img/loading.gif" lazyload /></p>
-<p><strong>用一个两阶段的优化框架来提高速度和分辨率：利用低分辨率的扩散先验获得一个粗略的模型，并以稀疏的三维哈希网格结构加速。使用粗略表示作为初始化，进一步优化纹理三维网格模型，用高效的可微分渲染器与高分辨率的stable
-diffusion模型交互。</strong></p>
-<h2
-id="point-e-a-system-for-generating-3d-point-clouds-from-complex-prompts">Point-E:
-A System for Generating 3D Point Clouds from Complex Prompts</h2>
-<p><img
-src="https://img.enderfga.cn/img/v2-b0ca9d9f44550ec6ab34dfe21797ea7e_720w.webp" srcset="/img/loading.gif" lazyload /></p>
-<p><strong>不输出传统意义上的 3D 图像，它会生成点云，或空间中代表 3D
-形状的离散数据点集</strong></p>
-<p><strong>点云更容易合成，但它们无法捕获对象的细粒度形状或纹理，训练了一个额外的人工智能系统来将
-Point-E 的点云转换为网格</strong></p>
+<p><strong>使用NERF的格式，使用预训练的text to 2d，加上他们提出的一个基于概率密度蒸馏的loss，证明了预训练图像扩散模型作为先验模型的有效性</strong></p>
+<h2 id="Magic3D-High-Resolution-Text-to-3D-Content-Creation"><a href="#Magic3D-High-Resolution-Text-to-3D-Content-Creation" class="headerlink" title="Magic3D: High-Resolution Text-to-3D Content Creation"></a>Magic3D: High-Resolution Text-to-3D Content Creation</h2><p><img src="https://img.enderfga.cn/img/f3fcff88aa23d692c243bda5b3dd5467_3_Figure_2_1114637308.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><strong>用一个两阶段的优化框架来提高速度和分辨率：利用低分辨率的扩散先验获得一个粗略的模型，并以稀疏的三维哈希网格结构加速。使用粗略表示作为初始化，进一步优化纹理三维网格模型，用高效的可微分渲染器与高分辨率的stable diffusion模型交互。</strong></p>
+<h2 id="Point-E-A-System-for-Generating-3D-Point-Clouds-from-Complex-Prompts"><a href="#Point-E-A-System-for-Generating-3D-Point-Clouds-from-Complex-Prompts" class="headerlink" title="Point-E: A System for Generating 3D Point Clouds from Complex Prompts"></a>Point-E: A System for Generating 3D Point Clouds from Complex Prompts</h2><p><img src="https://img.enderfga.cn/img/v2-b0ca9d9f44550ec6ab34dfe21797ea7e_720w.webp" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><strong>不输出传统意义上的 3D 图像，它会生成点云，或空间中代表 3D 形状的离散数据点集</strong></p>
+<p><strong>点云更容易合成，但它们无法捕获对象的细粒度形状或纹理，训练了一个额外的人工智能系统来将 Point-E 的点云转换为网格</strong></p>
 <p><strong>算力和时间需求小 但质量差</strong></p>
-<h2
-id="dream3d-zero-shot-text-to-3d-synthesis-using-3d-shape-prior-and-text-to-image-diffusion-models">Dream3D:
-Zero-Shot Text-to-3D Synthesis Using 3D Shape Prior and Text-to-Image
-Diffusion Models</h2>
-<p><img
-src="https://img.enderfga.cn/img/image-20230202234404950.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="Dream3D-Zero-Shot-Text-to-3D-Synthesis-Using-3D-Shape-Prior-and-Text-to-Image-Diffusion-Models"><a href="#Dream3D-Zero-Shot-Text-to-3D-Synthesis-Using-3D-Shape-Prior-and-Text-to-Image-Diffusion-Models" class="headerlink" title="Dream3D: Zero-Shot Text-to-3D Synthesis Using 3D Shape Prior and Text-to-Image Diffusion Models"></a>Dream3D: Zero-Shot Text-to-3D Synthesis Using 3D Shape Prior and Text-to-Image Diffusion Models</h2><p><img src="https://img.enderfga.cn/img/image-20230202234404950.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p><strong>引入一个显式3D先验形状，来优化CLIP引导的3D优化任务。具体的讲，首先在文本到形状转换时，使用输入文本生成了一个质量的3D形状来作为先验知识。然后使用它来初始化神经辐射场，并使用完整prompt进行优化</strong></p>
 
                 
@@ -857,5 +829,22 @@ src="https://img.enderfga.cn/img/image-20230202234404950.png" srcset="/img/loadi
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
+</script>
 </body>
 </html>
