@@ -16,24 +16,24 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="智能机器人技术作业记录">
+    <meta name="description" content="论文阅读笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="智能机器人技术——正向运动学">
-<meta property="og:url" content="http://enderfga.cn/2022/03/24/robot3/index.html">
+<meta property="og:title" content="MAV3D:Text-To-4D Dynamic Scene Generation">
+<meta property="og:url" content="http://enderfga.cn/2023/02/11/mav/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="智能机器人技术作业记录">
+<meta property="og:description" content="论文阅读笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img.enderfga.cn/img/image-20220324223524468.png">
-<meta property="article:published_time" content="2022-03-24T14:33:47.000Z">
-<meta property="article:modified_time" content="2022-10-24T16:08:48.544Z">
+<meta property="og:image" content="https://img.enderfga.cn/img/image-20230209142352394.png">
+<meta property="article:published_time" content="2023-02-11T15:42:41.000Z">
+<meta property="article:modified_time" content="2023-02-11T15:45:41.760Z">
 <meta property="article:author" content="Enderfga">
-<meta property="article:tag" content="机器人">
+<meta property="article:tag" content="计算机视觉">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img.enderfga.cn/img/image-20220324223524468.png">
+<meta name="twitter:image" content="https://img.enderfga.cn/img/image-20230209142352394.png">
   
   
   
-  <title>智能机器人技术——正向运动学 - Enderfga&#39;Blog</title>
+  <title>MAV3D:Text-To-4D Dynamic Scene Generation - Enderfga&#39;Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -242,7 +242,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="智能机器人技术——正向运动学"></span>
+            <span id="subtitle" data-typed-text="MAV3D:Text-To-4D Dynamic Scene Generation"></span>
           
         </div>
 
@@ -253,8 +253,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-24 22:33" pubdate>
-          2022年3月24日 晚上
+        <time datetime="2023-02-11 23:42" pubdate>
+          2023年2月11日 晚上
         </time>
       </span>
     
@@ -266,7 +266,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          5.9k 字
+          1.4k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
           <!-- compatible with older versions-->
-          50 分钟
+          12 分钟
         
       </span>
     
@@ -316,13 +316,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">智能机器人技术——正向运动学</h1>
+            <h1 style="display: none">MAV3D:Text-To-4D Dynamic Scene Generation</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年10月25日 凌晨
+                    本文最后更新于：2023年2月11日 晚上
                   
                 
               </p>
@@ -330,262 +330,87 @@
             
               <div class="markdown-body">
                 
-                <p>智能机器人技术作业记录</p>
+                <p>论文阅读笔记</p>
 <span id="more"></span>
-<p><img
-src="https://img.enderfga.cn/img/image-20220324223524468.png" srcset="/img/loading.gif" lazyload /></p>
-<h1 id="智能机器人技术正向运动学">智能机器人技术——正向运动学</h1>
+<iframe src="https://player.bilibili.com/player.html?aid=479164157&amp;bvid=BV1aT411R77Z&amp;cid=1003655006&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+</iframe>
+<h1 id="mav3dtext-to-4d-dynamic-scene-generation">MAV3D:Text-To-4D
+Dynamic Scene Generation</h1>
+<ul>
+<li><p><strong>Meta AI</strong></p></li>
+<li><p><strong>2023.1.26</strong></p>
+<h2 id="demo">Demo</h2>
+<p><a
+target="_blank" rel="noopener" href="https://make-a-video3d.github.io/">https://make-a-video3d.github.io/</a></p></li>
+</ul>
+<h2 id="motivation">Motivation</h2>
 <ol type="1">
-<li>如下图所示有一处于初始位形的 PRRRRR 空间开链机器人,
-试确定末端初始位形 <span class="math inline">\(M\)</span> 、在 <span
-class="math inline">\(\{0\}\)</span> 系描述的螺旋轴 Si 、$ 在 ${b}
-系描述的螺旋轴 Bi （如讲义那样列表即可)。</li>
+<li><strong>需要一个有效的、端到端可学习的动态三维场景表征；</strong></li>
+<li><strong>需要一个有监督学习的数据源，因为目前并不存在大规模的（文本，4D）对的数据集可供学习；</strong></li>
+<li><strong>需要在空间和时间维度上扩展输出的分辨率，因为4D输出需要大量的内存和计算能力；</strong></li>
 </ol>
+<h2 id="proposal">Proposal</h2>
+<ol type="1">
+<li><strong>本文提出了MAV3D，利用了T2V模型和动态NeRFs，实现从自然语言描述生成动态三维时间表示；</strong></li>
+<li><strong>提出了一个从静态到动态的多阶段优化方案，逐步纳入静态、时间和超分辨率模型的梯度信息。</strong></li>
+</ol>
+<h2 id="related-work">Related Work</h2>
+<h3 id="dynamic-nerfs">dynamic NeRFs</h3>
+<p><strong>适用于动态场景的NeRF变体</strong></p>
+<h3 id="mav">MAV</h3>
+<p><strong>Make A
+Video，通过在未标记的视频上训练，拓展了文本到图像（T2I）模型。</strong></p>
+<h3 id="dreamfusion">DreamFusion</h3>
+<p><strong>以NeRF的形式从文本描述中学习3D表示，提出了一个基于概率密度蒸馏的loss（SDS）</strong></p>
+<h2 id="method">Method</h2>
 <p><img
-src="https://img.enderfga.cn/img/image-20220323164358687.png" srcset="/img/loading.gif" lazyload /></p>
-<p><strong>解得：</strong></p>
-<p>相对基坐标系的<span class="math inline">\(\mathrm{PoE}\)</span> :</p>
-<p><span class="math display">\[
-T(\theta)=e^{\left[\mathcal{S}_{1}\right] \theta_{1}} \cdots
-e^{\left[\mathcal{S}_{n-1}\right] \theta_{n-1}}
-e^{\left[\mathcal{S}_{n}\right] \theta_{n}} M
-\]</span></p>
-<p>相对末端坐标系的<span class="math inline">\(\mathrm{PoE}\)</span>
-:</p>
-<p><span class="math display">\[
-T(\theta)=M e^{\left[\mathcal{B}_{1}\right] \theta_{1}} \cdots
-e^{\left[\mathcal{B}_{n-1}\right] \theta_{n-1}}
-e^{\left[\mathcal{B}_{n}\right] \theta_{n}}
-\]</span></p>
-<p>末端初始位形 <span class="math inline">\(M\)</span>：</p>
-<p><span class="math display">\[
-\left[\begin{array}{cccc}
-1 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 1 &amp; 0 &amp; L_1+L_2+L_3+L_4 \\
-0 &amp; 0 &amp; 1 &amp; h \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{array}\right]
-\]</span></p>
-<p>在 <span class="math inline">\(\{0\}\)</span> 系描述的螺旋轴 $_{i}
-$：</p>
-<p><span class="math display">\[
-[\mathcal{S}]=\left[\begin{array}{cc}
-{[\omega]} &amp; v \\
-0 &amp; 0
-\end{array}\right] \in \operatorname{se}(3) \longrightarrow
-\mathcal{S}=\left[\begin{array}{c}
-\omega \\
-v
-\end{array}\right] \in \mathbb{R}^{6}
-\]</span></p>
-<p><span class="math display">\[
-\because v_i=-\omega_{i} \times q_i \\
-\begin{array}{|c||c|c|c|}
-\hline i &amp; \omega_{i} &amp; q_i &amp; v_{i} \\
-\hline
-\hline 1 &amp; (0,0,0) &amp; NULL &amp; (0, 1,0) \\
-\hline 2 &amp; (0,0,1) &amp; (0, L_1,0)&amp; (L_1, 0,0) \\
-\hline 3 &amp; (-1,0,0) &amp; (0, L_1,h)&amp; (0, -h,L_1) \\
-\hline 4 &amp; (-1,0,0) &amp; (0,L_1+L_2,h)&amp; (0, -h,L_1+L_2) \\
-\hline 5 &amp; (-1,0,0) &amp; (0,L_1+L_2+L_3,h)&amp; (0, -h,L_1+L_2+L_3)
-\\
-\hline 6 &amp; (0,1,0) &amp; (0,0,h) &amp; (-h, 0,1)\\
-\hline
-\end{array}
-\]</span></p>
-<p>在 <span class="math inline">\(\{b\}\)</span> 系描述的螺旋轴 <span
-class="math inline">\(\mathcal{B}_{i}\)</span>：</p>
-<p><span class="math display">\[
-[\mathcal{B}]=\left[\begin{array}{cc}
-{[\omega]} &amp; v \\
-0 &amp; 0
-\end{array}\right] \in \operatorname{se}(3) \longrightarrow
-\mathcal{B}=\left[\begin{array}{c}
-\omega \\
-v
-\end{array}\right] \in \mathbb{R}^{6}
-\]</span></p>
-<p><span class="math display">\[
-\because v_i=-\omega_{i} \times q_i \\
-\begin{array}{|c||c|c|c|}
-\hline i &amp; \omega_{i} &amp; q_i &amp; v_{i} \\
-\hline
-\hline 1 &amp; (0,0,0) &amp; NULL &amp; (0, 1,0) \\
-\hline 2 &amp; (0,0,1) &amp; (0, -L_2-L_3-L_4,0)&amp; (-L_2-L_3-L_4,
-0,0) \\
-\hline 3 &amp; (-1,0,0) &amp; (0, -L_2-L_3-L_4,0)&amp; (0,
-0,-L_2-L_3-L_4) \\
-\hline 4 &amp; (-1,0,0) &amp; (0,-L_3-L_4,0)&amp; (0, 0,-L_3-L_4) \\
-\hline 5 &amp; (-1,0,0) &amp; (0,-L_4,0)&amp; (0, 0,-L_4) \\
-\hline 6 &amp; (0,1,0) &amp; (0,0,0) &amp; (0, 0,0)\\
-\hline
-\end{array}
-\]</span></p>
-<ol start="2" type="1">
-<li>如下图所示有一处于初始位形的 RRRRPR 空间开链机器人,
-试确定末端初始位形 <span class="math inline">\(M\)</span> 、在 <span
-class="math inline">\(\{0\}\)</span> 系描述的螺旋轴 Si 、$ 在 ${b}
-系描述的螺旋轴 Bi （如讲义那样列表即可)。 <img
-src="https://img.enderfga.cn/img/image-20220323164443717.png" srcset="/img/loading.gif" lazyload /></li>
-</ol>
-<p><strong>解得：</strong></p>
-<p>相对基坐标系的<span class="math inline">\(\mathrm{PoE}\)</span> :</p>
-<p><span class="math display">\[
-T(\theta)=e^{\left[\mathcal{S}_{1}\right] \theta_{1}} \cdots
-e^{\left[\mathcal{S}_{n-1}\right] \theta_{n-1}}
-e^{\left[\mathcal{S}_{n}\right] \theta_{n}} M
-\]</span></p>
-<p>相对末端坐标系的<span class="math inline">\(\mathrm{PoE}\)</span>
-:</p>
-<p><span class="math display">\[
-T(\theta)=M e^{\left[\mathcal{B}_{1}\right] \theta_{1}} \cdots
-e^{\left[\mathcal{B}_{n-1}\right] \theta_{n-1}}
-e^{\left[\mathcal{B}_{n}\right] \theta_{n}}
-\]</span></p>
-<p>末端初始位形 <span class="math inline">\(M\)</span>：</p>
-<p><span class="math display">\[
-\left[\begin{array}{cccc}
-1 &amp; 0 &amp; 0 &amp; L_1 \\
-0 &amp; 1 &amp; 0 &amp; L_3+L_4 \\
-0 &amp; 0 &amp; 1 &amp; -L_5-L_6 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{array}\right]
-\]</span></p>
-<p>在 <span class="math inline">\(\{0\}\)</span> 系描述的螺旋轴 $_{i}
-$：</p>
-<p><span class="math display">\[
-[\mathcal{S}]=\left[\begin{array}{cc}
-{[\omega]} &amp; v \\
-0 &amp; 0
-\end{array}\right] \in \operatorname{se}(3) \longrightarrow
-\mathcal{S}=\left[\begin{array}{c}
-\omega \\
-v
-\end{array}\right] \in \mathbb{R}^{6}
-\]</span></p>
-<p><span class="math display">\[
-\because v_i=-\omega_{i} \times q_i \\
-\begin{array}{|c||c|c|c|}
-\hline i &amp; \omega_{i} &amp; q_i &amp; v_{i} \\
-\hline \hline 1 &amp; (1,0,0) &amp; (0, 0,0)&amp; (0, 0,0) \\
-\hline 2 &amp; (0,0,-1) &amp; (L_1,0,0)&amp; (0, L_1,0) \\
-\hline 3 &amp; (0,1,0) &amp; (L_1,0,L_2)&amp; (-L_2, 0,L_1) \\
-\hline 4 &amp; (1,0,0) &amp; (0,L_3,0)&amp; (0, 0,-L_3) \\
-\hline 5 &amp; (0,0,0) &amp; NULL &amp; (0, 1,0)\\
-\hline 6 &amp; (0,1,0) &amp; (L_1,0,-L_5) &amp; (L_5, 0,-L_1) \\
-\hline
-\end{array}
-\]</span></p>
-<p>在 <span class="math inline">\(\{b\}\)</span> 系描述的螺旋轴 <span
-class="math inline">\(\mathcal{B}_{i}\)</span>：</p>
-<p><span class="math display">\[
-[\mathcal{B}]=\left[\begin{array}{cc}
-{[\omega]} &amp; v \\
-0 &amp; 0
-\end{array}\right] \in \operatorname{se}(3) \longrightarrow
-\mathcal{B}=\left[\begin{array}{c}
-\omega \\
-v
-\end{array}\right] \in \mathbb{R}^{6}
-\]</span></p>
-<p><span class="math display">\[
-\because v_i=-\omega_{i} \times q_i \\
-\begin{array}{|c||c|c|c|}
-\hline i &amp; \omega_{i} &amp; q_i &amp; v_{i} \\
-\hline \hline 1 &amp; (1,0,0) &amp; (0, -L_3-L_4,L_5+L_6)&amp; (0,
-L_5+L_6,L_3+L_4) \\
-\hline 2 &amp; (0,0,-1) &amp; (0, -L_3-L_4,0)&amp; (L_3+L_4, 0,0) \\
-\hline 3 &amp; (0,1,0) &amp; (0,0,L_2+L_5+L_6)&amp; (-L_2-L_5-L_6, 0,0)
-\\
-\hline 4 &amp; (1,0,0) &amp; (0,-L_4,L_5+L_6)&amp; (0, L_5+L_6,L_4) \\
-\hline 5 &amp; (0,0,0) &amp; NULL &amp; (0, 1,0)\\
-\hline 6 &amp; (0,1,0) &amp; (0,0,L_6) &amp; (-L_6, 0,0) \\
-\hline
-\end{array}
-\]</span></p>
-<ol start="3" type="1">
-<li>如下图所示有一处于初始位形的 RRRPRR 空间开链机器人,
-试确定末端初始位形 <span class="math inline">\(M\)</span> 、在 <span
-class="math inline">\(\{0\}\)</span> 系描述的螺旋轴 Si 、$ 在 ${b}
-系描述的螺旋轴 Bi （如讲义那样列表即可)。</li>
-</ol>
+src="https://img.enderfga.cn/img/image-20230209142352394.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="d-scene-representation">4D Scene Representation</h3>
 <p><img
-src="https://img.enderfga.cn/img/image-20220323164454698.png" srcset="/img/loading.gif" lazyload /></p>
-<p><strong>解得：</strong></p>
-<p>相对基坐标系的<span class="math inline">\(\mathrm{PoE}\)</span> :</p>
+src="https://img.enderfga.cn/img/image-20230209141807225.png" srcset="/img/loading.gif" lazyload /></p>
 <p><span class="math display">\[
-T(\theta)=e^{\left[\mathcal{S}_{1}\right] \theta_{1}} \cdots
-e^{\left[\mathcal{S}_{n-1}\right] \theta_{n-1}}
-e^{\left[\mathcal{S}_{n}\right] \theta_{n}} M
-\]</span></p>
-<p>相对末端坐标系的<span class="math inline">\(\mathrm{PoE}\)</span>
-:</p>
-<p><span class="math display">\[
-T(\theta)=M e^{\left[\mathcal{B}_{1}\right] \theta_{1}} \cdots
-e^{\left[\mathcal{B}_{n-1}\right] \theta_{n-1}}
-e^{\left[\mathcal{B}_{n}\right] \theta_{n}}
-\]</span></p>
-<p>末端初始位形 <span class="math inline">\(M\)</span>：</p>
-<p><span class="math display">\[
-\left[\begin{array}{cccc}
--1 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; 1 &amp; 0 &amp; 4 \\
-0 &amp; 0 &amp; -1 &amp; 1 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{array}\right]
-\]</span></p>
-<p>在 <span class="math inline">\(\{0\}\)</span> 系描述的螺旋轴 $_{i}
-$：</p>
-<p><span class="math display">\[
-[\mathcal{S}]=\left[\begin{array}{cc}
-{[\omega]} &amp; v \\
-0 &amp; 0
-\end{array}\right] \in \operatorname{se}(3) \longrightarrow
-\mathcal{S}=\left[\begin{array}{c}
-\omega \\
-v
-\end{array}\right] \in \mathbb{R}^{6}
+\left(\tau, c_i\right)=f_\theta(x, y, z, t)
 \]</span></p>
 <p><span class="math display">\[
-\because v_i=-\omega_{i} \times q_i \\
-\begin{array}{|c||c|c|c|}
-\hline i &amp; \omega_{i} &amp; q_i &amp; v_{i} \\
-\hline \hline 1 &amp; (0,0,1) &amp; (0, 0,0)&amp; (0, 0,0) \\
-\hline 2 &amp; (1,0,0) &amp; (0,0,2)&amp; (0, 2,0) \\
-\hline 3 &amp; (1,0,0) &amp; (0,1,2)&amp; (0, 2,-1) \\
-\hline 4 &amp; (0,0,0) &amp; NULL &amp; (0, 1,0) \\
-\hline 5 &amp; (0, \frac{\sqrt{2}}{2} , \frac{\sqrt{2}}{2} ) &amp;
-(0,3,2) &amp; (\frac{\sqrt{2}}{2}, 0,0)\\
-\hline 6 &amp; (0,0,-1) &amp; (0,4,0)&amp; (-4, 0,0) \\
-\hline
-\end{array}
+\left[P_{x y}^{X Y R_1}+P_{z t}^{Z T R_1} ; P_{x z}^{X Z R_2}+P_{y t}^{Y
+T R_2} ; P_{y z}^{Y Z R_3}+P_{y z}^{X T R_3}\right]
 \]</span></p>
-<p>在 <span class="math inline">\(\{b\}\)</span> 系描述的螺旋轴 <span
-class="math inline">\(\mathcal{B}_{i}\)</span>：</p>
+<h3 id="dynamic-scene-optimization">Dynamic Scene Optimization</h3>
+<h4
+id="为了监督4d场景与文本提示p匹配引入sds-ttemporal-score-distillation-sampling">为了监督4D场景与文本提示p匹配，引入SDS-T（temporal
+Score Distillation Sampling ）</h4>
 <p><span class="math display">\[
-[\mathcal{B}]=\left[\begin{array}{cc}
-{[\omega]} &amp; v \\
-0 &amp; 0
-\end{array}\right] \in \operatorname{se}(3) \longrightarrow
-\mathcal{B}=\left[\begin{array}{c}
-\omega \\
-v
-\end{array}\right] \in \mathbb{R}^{6}
+\nabla_\theta \mathcal{L}_{S D S-T}=E_{\sigma,
+\epsilon}\left[w(\sigma)\left(\hat{\epsilon}\left(V_{(\bar{\theta},
+\sigma, \epsilon)} \mid y, \sigma\right)-\epsilon\right) \frac{\partial
+V_\theta}{\partial \theta}\right]
+\\
+\nabla_\theta \mathcal{L}_{\mathrm{SDS}}(\phi, \mathbf{x}=g(\theta))
+\triangleq \mathbb{E}_{t,
+\epsilon}\left[w(t)\left(\hat{\epsilon}_\phi\left(\mathbf{z}_t ; y,
+t\right)-\epsilon\right) \frac{\partial \mathbf{x}}{\partial
+\theta}\right]
 \]</span></p>
-<p><span class="math display">\[
-\because v_i=-\omega_{i} \times q_i \\
-\begin{array}{|c||c|c|c|}
-\hline i &amp; \omega_{i} &amp; q_i &amp; v_{i} \\
-\hline \hline 1 &amp; (0,0,-1) &amp; (0, -4,0)&amp; (4, 0,0) \\
-\hline 2 &amp; (-1,0,0) &amp; (0,-4,-1)&amp; (0, 1,-4) \\
-\hline 3 &amp; (-1,0,0) &amp; (0,-3,-1)&amp; (0, 1,-3) \\
-\hline 4 &amp; (0,0,0) &amp; NULL &amp; (0, 1,0) \\
-\hline 5 &amp; (0, \frac{\sqrt{2}}{2} , -\frac{\sqrt{2}}{2} ) &amp;
-(0,-1,-1) &amp; (\sqrt{2}, 0,0)\\
-\hline 6 &amp; (0,0,1) &amp; (0,0,0)&amp; (0, 0,0) \\
-\hline
-\end{array}
-\]</span></p>
+<h4 id="从静态到动态的场景优化">从静态到动态的场景优化</h4>
+<h4 id="动态相机">动态相机</h4>
+<h4 id="fps-采样">FPS 采样</h4>
+<h4 id="高斯退火">高斯退火</h4>
+<h4 id="全变分损失">全变分损失</h4>
+<h3 id="super-resolution-fine-tuning">Super-Resolution Fine-Tuning</h3>
+<p><img
+src="https://img.enderfga.cn/img/image-20230209152345831.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="experiment">Experiment</h2>
+<p><strong>Metrics</strong>：R-Precision and human preference</p>
+<p><img
+src="https://img.enderfga.cn/img/image-20230209152747908.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://img.enderfga.cn/img/image-20230209152759865.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li><strong>将动态NeRFs转换为实时应用的不连续网格序列的效率很低，如果能直接预测顶点的轨迹，就能得到改善。</strong></li>
+<li><strong>利用超分辨率信息提高了表示的质量，但对于更高细节的纹理还需要进一步改进。</strong></li>
+<li><strong>文本到四维动态场景生成的表示质量取决于T2V模型从不同视角生成视频的能力。</strong></li>
+</ul>
 
                 
               </div>
@@ -598,7 +423,7 @@ v
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%9C%BA%E5%99%A8%E4%BA%BA/">#机器人</a>
+        <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">#计算机视觉</a>
       
     </div>
   
@@ -610,8 +435,8 @@ v
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>智能机器人技术——正向运动学</div>
-      <div>http://enderfga.cn/2022/03/24/robot3/</div>
+      <div>MAV3D:Text-To-4D Dynamic Scene Generation</div>
+      <div>http://enderfga.cn/2023/02/11/mav/</div>
     </div>
     <div class="license-meta">
       
@@ -623,7 +448,7 @@ v
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年3月24日</div>
+          <div>2023年2月11日</div>
         </div>
       
       
@@ -655,18 +480,12 @@ v
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/03/24/graph/" title="机器&amp;深度学习代码速查表">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">机器&amp;深度学习代码速查表</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/03/23/data2/" title="数据库原理 Exercises 2">
-                        <span class="hidden-mobile">数据库原理 Exercises 2</span>
+                      <a href="/2023/02/09/3d/" title="Test to 3d随笔">
+                        <span class="hidden-mobile">Test to 3d随笔</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
