@@ -6,7 +6,7 @@
   <link href="http://enderfga.cn/atom.xml" rel="self"/>
   
   <link href="http://enderfga.cn/"/>
-  <updated>2023-02-11T15:51:26.196Z</updated>
+  <updated>2023-02-20T11:05:33.264Z</updated>
   <id>http://enderfga.cn/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>亚太数模论文</title>
+    <link href="http://enderfga.cn/2023/02/20/apmcm/"/>
+    <id>http://enderfga.cn/2023/02/20/apmcm/</id>
+    <published>2023-02-20T11:02:17.000Z</published>
+    <updated>2023-02-20T11:05:33.264Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这么烂的学术垃圾都能拿奖，这比赛确实没含金量</p><span id="more"></span><embed src="./apmcm.pdf" width="100%" height="750" type="application/pdf">]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;这么烂的学术垃圾都能拿奖，这比赛确实没含金量&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="数学建模" scheme="http://enderfga.cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>MAV3D:Text-To-4D Dynamic Scene Generation</title>
@@ -384,25 +403,6 @@
     
     
     <summary type="html">&lt;p&gt;深度学习理论平时作业&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="深度学习" scheme="http://enderfga.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>cifar10-horse生成任务</title>
-    <link href="http://enderfga.cn/2022/06/20/horse/"/>
-    <id>http://enderfga.cn/2022/06/20/horse/</id>
-    <published>2022-06-20T00:46:42.000Z</published>
-    <updated>2022-10-24T16:08:48.504Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>人工智能综合实验期末大作业horse生成（VAE,AAE,GAN...)</p><span id="more"></span><h1 align="center">Horse Generation</h1><h4 align="center">Comprehensive experiment of artificial intelligence</h4><h3 id="requirements">Requirements</h3><ol type="1"><li>64x,python3.8/3.9.</li><li>CUDA toolkit 11.1.</li><li>GCC 7.</li><li>sh setup.sh/pip install -r requirements.txt</li></ol><h3 id="文件目录">文件目录</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python">├─Intro.pptx  <span class="hljs-comment">#介绍与展示的PowerPoint</span><br>├─tf_aae                      <span class="hljs-comment">#AAE的tensorflow实现</span><br>├─VAE                         <span class="hljs-comment">#VAE的pytorch实现</span><br>├─GAN.ipynb                   <span class="hljs-comment">#所有GAN的pytorch实现与运行结果</span><br>├─requirements.txt  <span class="hljs-comment">#本次任务运行环境中的包</span><br>├─setup.sh  <span class="hljs-comment">#配置环境的安装脚本</span><br>│<br>├─result                      <span class="hljs-comment">#存放用于展示的结果</span><br>├─apps<br>│    └─interpolate_sample.py  <span class="hljs-comment">#用于生成视频</span><br>│<br>├─fake_horse                  <span class="hljs-comment">#一千张生成所得马的图片</span><br>├─mmgen                       <span class="hljs-comment">#一个基于 PyTorch 和MMCV的强有力的生成模型工具箱</span><br>│  ├─apis<br>│  ├─core<br>│  ├─datasets<br>│  ├─models<br>│  ├─ops<br>│  └─utils<br>├─configs                     <span class="hljs-comment">#运行stylegan3的配置文件</span><br>│  ├─styleganv3<br>│  │    └─stylegan3.py<br>│  │<br>│  └─_base_<br>│      ├─ default_runtime.py      <span class="hljs-comment">#训练配置</span><br>│      │<br>│      ├─datasets<br>│      │    └─horse.py                <span class="hljs-comment">#数据处理</span><br>│      │<br>│      └─models<br>│          └─stylegan<br>│                └─stylegan3_base.py  <span class="hljs-comment">#模型搭建</span><br>│<br>└─tools<br>    ├─ dist_train.sh   <span class="hljs-comment">#训练模型的脚本</span><br>    ├─ train.py  <span class="hljs-comment">#训练模型的代码</span><br>    │<br>    └─utils<br>          └─inception_stat.py         <span class="hljs-comment">#生成用于计算fid的inception模型</span><br></code></pre></td></tr></table></figure><h3 id="结果展示">结果展示</h3><h4 id="部分fake马">部分fake马</h4><p><img align="center" src="https://img.enderfga.cn/img/625.png"/></p><h4 id="生成训练可视化">生成训练可视化</h4><p><img align="center" src="https://img.enderfga.cn/img/GAN_generate_animation.gif"/></p><h4 id="动态结果展示">动态结果展示</h4><p><img align="center" src="https://img.enderfga.cn/img/lerp.gif"/></p><h3 id="fid一览">FID一览</h3><p><imgsrc="https://img.enderfga.cn/img/image-20220618194023873.png" /></p><h3 id="代码说明">代码说明</h3><ol type="1"><li><p>VAE/</p></li><li><p>tf_aae/</p></li><li><p>GAN.ipynb</p><p>前两者为文件夹，存放了模型，配置，数据集，辅助函数等相关py文件，主体为main.py;</p><p>后者为ipynb文件，记录了所有GAN模型的运行结果，并用于计算FID分数。</p><p>上述代码均可以通过修改数据路径来训练或测试。</p><embed src="./horse.pdf" width="100%" height="750" type="application/pdf"></li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;人工智能综合实验期末大作业horse生成（VAE,AAE,GAN...)&lt;/p&gt;</summary>
     
     
     
