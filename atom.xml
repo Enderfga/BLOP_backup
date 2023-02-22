@@ -6,7 +6,7 @@
   <link href="http://enderfga.cn/atom.xml" rel="self"/>
   
   <link href="http://enderfga.cn/"/>
-  <updated>2023-02-20T11:05:33.264Z</updated>
+  <updated>2023-02-22T13:47:57.315Z</updated>
   <id>http://enderfga.cn/</id>
   
   <author>
@@ -17,11 +17,30 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Outstanding Wordle</title>
+    <link href="http://enderfga.cn/2023/02/22/wordle/"/>
+    <id>http://enderfga.cn/2023/02/22/wordle/</id>
+    <published>2023-02-22T13:38:54.000Z</published>
+    <updated>2023-02-22T13:47:57.315Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>唯一一次认真参加数学建模，虽然曾经的我确实不喜欢这类赛事。假如拿到O/F奖了就考虑写写经验或者录个视频，捞了就当我没说。</p><span id="more"></span><embed src="./wordle.pdf" width="100%" height="750" type="application/pdf">]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;唯一一次认真参加数学建模，虽然曾经的我确实不喜欢这类赛事。假如拿到O/F奖了就考虑写写经验或者录个视频，捞了就当我没说。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="数学建模" scheme="http://enderfga.cn/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
     <title>亚太数模论文</title>
     <link href="http://enderfga.cn/2023/02/20/apmcm/"/>
     <id>http://enderfga.cn/2023/02/20/apmcm/</id>
     <published>2023-02-20T11:02:17.000Z</published>
-    <updated>2023-02-20T11:05:33.264Z</updated>
+    <updated>2023-02-20T11:05:59.145Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这么烂的学术垃圾都能拿奖，这比赛确实没含金量</p><span id="more"></span><embed src="./apmcm.pdf" width="100%" height="750" type="application/pdf">]]></content>
     
@@ -389,25 +408,6 @@
     
     
     <category term="自动驾驶" scheme="http://enderfga.cn/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>深度可分离卷积简介</title>
-    <link href="http://enderfga.cn/2022/06/22/dsc/"/>
-    <id>http://enderfga.cn/2022/06/22/dsc/</id>
-    <published>2022-06-22T09:00:41.000Z</published>
-    <updated>2022-10-24T16:08:48.497Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>深度学习理论平时作业</p><span id="more"></span><embed src="./dsc.pdf" width="100%" height="750" type="application/pdf">]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;深度学习理论平时作业&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="深度学习" scheme="http://enderfga.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
