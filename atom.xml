@@ -6,7 +6,7 @@
   <link href="http://enderfga.cn/atom.xml" rel="self"/>
   
   <link href="http://enderfga.cn/"/>
-  <updated>2023-02-22T13:47:57.315Z</updated>
+  <updated>2023-03-01T03:16:01.529Z</updated>
   <id>http://enderfga.cn/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Realfusion</title>
+    <link href="http://enderfga.cn/2023/03/01/Realfusion/"/>
+    <id>http://enderfga.cn/2023/03/01/Realfusion/</id>
+    <published>2023-03-01T03:14:27.000Z</published>
+    <updated>2023-03-01T03:16:01.529Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="realfusion">RealFusion：</h1><h3 id="reconstruction-of-any-object-from-a-single-image">360°Reconstruction of Any Object from a Single Image</h3><ul><li><p>Oxford University</p></li><li><p>2023.2.23</p><span id="more"></span><h2 id="demo">Demo</h2><p>https://lukemelas.github.io/realfusion/</p><figure><img src="https://img.enderfga.cn/img/splash-figure-v2.png"alt="Examples" /><figcaption aria-hidden="true">Examples</figcaption></figure></li></ul><h2 id="motivation-single-view-3d-reconstruction">Motivation:Single-View 3D Reconstruction</h2><ul><li>Reconstructing the 3D structure of an object from a single 2D viewis a fundamental challenge in computer vision.</li><li>In the case of a single view, the reconstruction problem is highlyill-posed. As a result, the task requires semantic understandingobtained by learning. Despite the difficulty of this task, humans areadept at using a range of monocular cues to infer the 3D structures ofobjects from single views.</li></ul><h2 id="background">Background</h2><h3 id="category-level-3d-reconstruction">Category-level 3DReconstruction</h3><ul><li>Most prior work tackles the problem of category-specific single-view3D reconstruction by training a category-level reconstructionmodel.</li><li>The work: Going beyond category-level 3D reconstruction<ul><li>This work aims to go beyond category-specific images to images ofarbitrary objects. This setting is highly challenging, but humansperform it effortlessly when they observe new objects.</li></ul></li></ul><h3 id="single-view-3d-reconstruction">Single-View 3DReconstruction</h3><ul><li>Arbitrary-object 3D reconstruction has been challenging because theproblem fundamentally requires the use of large-scale 3D priors overobject shapes, which have not been available.</li><li>With the recent rise of large-scale pretraining, this problem hasbecome tractable. Examples include:<ul><li>Contrastive: CLIP</li><li>Autoregressive: DALL-E / Parti</li><li>Diffusion Models: DALL-E 2 / Imagen / Stable Diffusion</li></ul></li><li>These pretrained models may be used as priors for a variety ofvision tasks, and we are particularly interested in 3D reconstruction.<ul><li>At a high level, you can think of these models as a tool foroptimizing the realism of an input image.</li></ul></li><li>In this way, they enable an elegant approach to 3D generation andreconstruction: using these large-scale pretrained models to enforcethat a differentiable scene looks realistic from random views.</li></ul><h2 id="proposal">Proposal</h2><ol type="1"><li><p>We propose <strong>RealFusion</strong>, a method that can extractfrom a single image of an object a 360◦ photographic 3D reconstructionwithout assumptions on the type of object imaged or 3D supervision ofany kind;</p></li><li><p>We do so by leveraging an existing 2D <strong>diffusion imagegenerator</strong> via a new single image variant of textualinversion;</p></li><li><p>We also introduce new regularizers and provide an efficientimplementation using <strong>InstantNGP</strong>;</p></li><li><p>We demonstrate <strong>state-of-the-art</strong> reconstructionresults on a number of in-the-wild images and images from existingdatasets when compared to alternative approaches.</p></li></ol><h2 id="related-work">Related Work</h2><ul><li>Image-based reconstruction of appearnce and geometry</li><li>Few-view reconstruction</li><li>Single-view reconstruction<br /></li><li>Extracting 3D models from 2D generators<br /></li><li>Diffusion Models</li></ul><h2 id="method">Method</h2><p><imgsrc="https://img.enderfga.cn/img/image-20230227112154724.png" /></p><ul><li>This approach forms the backbone of our method, RealFusion.</li></ul><ol start="0" type="1"><li>[Init] We are given a single image and a function <spanclass="math inline">\(\boldsymbol{p}_{\text {prior }}(\cdot)\)</span>which computes the likelihood of an input image <spanclass="math inline">\(\boldsymbol{I}\)</span>. We choose a camera viewand represent our scene with a differentiably-renderable representation<span class="math inline">\(\boldsymbol{x}\)</span>, for example aNeRF.</li><li>[Reconstruction] We render <spanclass="math inline">\(\boldsymbol{x}\)</span> from our given view andminimize the loss with respect to the real input image <spanclass="math inline">\(\mathbf{I}\)</span>.</li><li>[Prior] We render images <spanclass="math inline">\(\boldsymbol{I}_{\text {prior }}\)</span> of <spanclass="math inline">\(\boldsymbol{x}\)</span> from randomly-chosen viewson a hemisphere surrounding the origin, and we optimize <spanclass="math inline">\(\boldsymbol{p}_{\text {prior}}\left(\boldsymbol{I}_{\text {priol }}\right)\)</span> to enforce that<span class="math inline">\(\boldsymbol{x}\)</span> looks realistic fromall directions.</li></ol><ul><li>Prior work has explored this question in the domain of 3D generation<ul><li>Dreamfields: CLIP prior</li><li>DreamFusion: Diffusion model prior</li></ul></li><li>In our work, we adopt a diffusion model prior using StableDiffusion, a text-conditional latent diffusion model.</li><li>As currently stated, our set up combines a reconstruction objectivewith a latent diffusion-based prior objective, which is conditioned on amanual text prompt (e.g. "An image of a fish.")</li><li>However, we found that these results were lacking.</li><li>In particular, the 3D shapes that are generated look like the inputobject from the input view, but do not look like the input object fromother views.</li><li>To fix this, we need to modify the prior to place a high likelihoodon our input object, rather than a generic object with the samedescription.</li><li>We do so by performing textual inversion.<ul><li>We optimize a text embedding <spanclass="math inline">\(\mathbf{e}\)</span> in the text encoder of thediffusion model to match our input image.</li><li>Usually textual inversion is performed with multiple views of anobject, but we substitute these views with heavy imageaugmentations.</li></ul></li><li>We also add other pieces of regularization:<ol type="1"><li>A regularization on rendered normals</li><li>A coarse-to-fine training setup</li></ol></li><li>However, the key piece of the puzzle is the textual inversion.</li></ul><h2 id="experiment">Experiment</h2><p><imgsrc="https://img.enderfga.cn/img/image-20230227165614420.png" /></p><p><imgsrc="https://img.enderfga.cn/img/image-20230227165925713.png" /></p><p><imgsrc="https://img.enderfga.cn/img/image-20230227165956615.png" /></p><p><imgsrc="https://img.enderfga.cn/img/image-20230227170021757.png" /></p><p><imgsrc="https://img.enderfga.cn/img/image-20230227170047165.png" /></p><p><imgsrc="https://img.enderfga.cn/img/image-20230227170111552.png" /></p><h2 id="limitations">Limitations</h2><ul><li>Requires per-image optimization<ul><li>Both the textual inversion and the 3D optimization procedure must beperformed separately for each input image.</li><li>As a result, the process is relatively slow and difficult to applyto large datasets</li></ul></li><li>In some cases, reconstruction fails to produce a solid shape<ul><li>Perhaps this could be alleviated with better inductive biases orregularization terms</li></ul></li><li>In some cases, reconstruction produces two-headed objects<ul><li>This is known as the Janus Problem</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;realfusion&quot;&gt;RealFusion：&lt;/h1&gt;
+&lt;h3 id=&quot;reconstruction-of-any-object-from-a-single-image&quot;&gt;360°
+Reconstruction of Any Object from a Single Image&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Oxford University&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;2023.2.23&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="计算机视觉" scheme="http://enderfga.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Outstanding Wordle</title>
     <link href="http://enderfga.cn/2023/02/22/wordle/"/>
     <id>http://enderfga.cn/2023/02/22/wordle/</id>
     <published>2023-02-22T13:38:54.000Z</published>
-    <updated>2023-02-22T13:47:57.315Z</updated>
+    <updated>2023-02-22T13:49:05.366Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>唯一一次认真参加数学建模，虽然曾经的我确实不喜欢这类赛事。假如拿到O/F奖了就考虑写写经验或者录个视频，捞了就当我没说。</p><span id="more"></span><embed src="./wordle.pdf" width="100%" height="750" type="application/pdf">]]></content>
     
@@ -384,25 +408,6 @@
     
     
     <summary type="html">&lt;p&gt;用尽各种手段控制最终依旧屈服于调参&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="自动驾驶" scheme="http://enderfga.cn/tags/%E8%87%AA%E5%8A%A8%E9%A9%BE%E9%A9%B6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自动驾驶技术基础之规划与仿真</title>
-    <link href="http://enderfga.cn/2022/07/18/auto2/"/>
-    <id>http://enderfga.cn/2022/07/18/auto2/</id>
-    <published>2022-07-18T08:53:04.000Z</published>
-    <updated>2022-10-24T16:08:48.474Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>自动驾驶技术基础的规划与仿真作业</p><span id="more"></span><embed src="./report.pdf" width="100%" height="750" type="application/pdf">]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;自动驾驶技术基础的规划与仿真作业&lt;/p&gt;</summary>
     
     
     
