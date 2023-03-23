@@ -6,7 +6,7 @@
   <link href="http://enderfga.cn/atom.xml" rel="self"/>
   
   <link href="http://enderfga.cn/"/>
-  <updated>2023-03-01T03:19:08.223Z</updated>
+  <updated>2023-03-23T11:29:58.373Z</updated>
   <id>http://enderfga.cn/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>3D论文PPT摘要</title>
+    <link href="http://enderfga.cn/2023/03/23/3dppt/"/>
+    <id>http://enderfga.cn/2023/03/23/3dppt/</id>
+    <published>2023-03-23T11:25:47.000Z</published>
+    <updated>2023-03-23T11:29:58.373Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure><img src="https://img.enderfga.cn/img/image-20230323192941643.png"alt="image-20230323192941643" /><figcaption aria-hidden="true">image-20230323192941643</figcaption></figure><embed src="./3d.pdf" width="100%" height="750" type="application/pdf">]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="计算机视觉" scheme="http://enderfga.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
   
   <entry>
     <title>RLHF</title>
@@ -399,25 +421,6 @@ Reconstruction of Any Object from a Single Image&lt;/h3&gt;
     
     
     <category term="笔记" scheme="http://enderfga.cn/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>脑电研究</title>
-    <link href="http://enderfga.cn/2022/07/18/mind/"/>
-    <id>http://enderfga.cn/2022/07/18/mind/</id>
-    <published>2022-07-18T09:20:02.000Z</published>
-    <updated>2022-10-24T16:08:48.513Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>脑电研究：通过神经活动和视觉特征的多模态学习</strong>解码大脑表征</p><span id="more"></span><embed src="./mind.pdf" width="100%" height="750" type="application/pdf">]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;脑电研究：通过神经活动和视觉特征的多模态学习&lt;/strong&gt;解码大脑表征&lt;/p&gt;</summary>
-    
-    
-    
-    
-    <category term="无人系统" scheme="http://enderfga.cn/tags/%E6%97%A0%E4%BA%BA%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
