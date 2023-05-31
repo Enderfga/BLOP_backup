@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://enderfga.cn/2023/05/31/opt/</loc>
+    <loc>http://enderfga.cn/2023/05/31/diffrlhf/</loc>
     <lastmod>2023-05-31</lastmod>
   </url>
   <url>
-    <loc>http://enderfga.cn/2023/05/31/opt/markmap/</loc>
-    <lastmod>2023-05-17</lastmod>
+    <loc>http://enderfga.cn/2023/05/31/kbqa/</loc>
+    <lastmod>2023-05-31</lastmod>
+  </url>
+  <url>
+    <loc>http://enderfga.cn/2023/05/31/opt/</loc>
+    <lastmod>2023-05-31</lastmod>
   </url>
   <url>
     <loc>http://enderfga.cn/2023/03/23/3dppt/</loc>
