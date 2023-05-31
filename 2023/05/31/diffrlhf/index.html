@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.enderfga.cn/img/image-20230530135032898.png">
 <meta property="article:published_time" content="2023-05-31T08:20:07.000Z">
-<meta property="article:modified_time" content="2023-05-31T08:21:36.170Z">
+<meta property="article:modified_time" content="2023-05-31T08:23:51.998Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="计算机视觉">
 <meta name="twitter:card" content="summary_large_image">
@@ -345,7 +345,7 @@ Diffusion Policy Optimization
 (DDPO)的方法，该方法将去噪视为多步决策问题。这使得可以使用比替代奖励加权似然方法更有效的策略梯度算法。此外，作者还展示了DDPO如何改进使用视觉语言模型反馈的提示图像对齐，而无需额外的数据收集或人类注释。</p>
 <p><strong>方法的总体思想 (Overall Idea of the Method)</strong>:
 DDPO方法的总体思想是将去噪过程视为一个多步骤的决策问题，从而可以使用策略梯度算法进行优化。这种方法可以适应各种目标，包括那些难以通过提示表达的目标，如图像可压缩性，以及那些从人类反馈中得出的目标，如审美质量。</p>
-<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">import io<br>from PIL import Image<br>def encode_jpeg( x , quality = 95 ) :<br>&#x27;&#x27;&#x27;<br>x : np array of shape (H, W, 3) and dtype uint8<br>&#x27;&#x27;&#x27;<br><span class="hljs-code">    img = Image.fromarray(x)</span><br><span class="hljs-code">    buffer = io.BytesIO( )</span><br><span class="hljs-code">    img.save(buffer, ‘JPEG’, quality = quality)</span><br><span class="hljs-code">    jpeg = buffer.getvalue( )</span><br><span class="hljs-code">    bytes = np.frombuffer(jpeg, dtype =np.uint8)</span><br><span class="hljs-code">    return len(bytes)/ 1000</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> io<br><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">encode_jpeg</span>(<span class="hljs-params"> x , quality = <span class="hljs-number">95</span> </span>) :</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br><span class="hljs-string">x : np array of shape (H, W, 3) and dtype uint8</span><br><span class="hljs-string">&#x27;&#x27;&#x27;</span><br>    img = Image.fromarray(x)<br>    buffer = io.BytesIO()<br>    img.save(buffer, ‘JPEG’, quality = quality)<br>    jpeg = buffer.getvalue()<br>    <span class="hljs-built_in">bytes</span> = np.frombuffer(jpeg, dtype =np.uint8)<br>    <span class="hljs-keyword">return</span> <span class="hljs-built_in">len</span>(<span class="hljs-built_in">bytes</span>)/<span class="hljs-number">1000</span><br></code></pre></td></tr></table></figure>
 <p><img
 src="https://img.enderfga.cn/img/image-20230530135032898.png" srcset="/img/loading.gif" lazyload /></p>
 <p><strong>实验主要提升的效果 (Main Improvements in
@@ -878,22 +878,5 @@ src="https://img.enderfga.cn/img/image-20230530142225063.png" srcset="/img/loadi
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script id="MathJax-script" async
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js">
-</script>
 </body>
 </html>
