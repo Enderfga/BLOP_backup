@@ -330,49 +330,32 @@
             
               <div class="markdown-body">
                 
-                <p>Github: https://github.com/Enderfga/TinySSD_sysu</p>
+                <p>Github: <a target="_blank" rel="noopener" href="https://github.com/Enderfga/TinySSD_sysu">https://github.com/Enderfga/TinySSD_sysu</a></p>
 <span id="more"></span>
-<h1
-id="tiny-ssd-a-tiny-single-shot-detection-deep-convolutional-neural-network-for-real-time-embedded-object-detection">Tiny
-SSD: A Tiny Single-shot Detection Deep Convolutional Neural Network for
-Real-time Embedded Object Detection</h1>
-<p>This repo contains the code, data and trained models for the paper <a
-target="_blank" rel="noopener" href="https://arxiv.org/pdf/1802.06488.pdf">Tiny SSD: A Tiny Single-shot
-Detection Deep Convolutional Neural Network for Real-time Embedded
-Object Detection</a>.</p>
-<h2 id="quick-links">Quick Links</h2>
-<ul>
-<li><a href="#Overview">Overview</a></li>
-<li><a href="#Requirements">Requirements</a></li>
+<h1 id="Tiny-SSD-A-Tiny-Single-shot-Detection-Deep-Convolutional-Neural-Network-for-Real-time-Embedded-Object-Detection"><a href="#Tiny-SSD-A-Tiny-Single-shot-Detection-Deep-Convolutional-Neural-Network-for-Real-time-Embedded-Object-Detection" class="headerlink" title="Tiny SSD: A Tiny Single-shot Detection Deep Convolutional Neural Network for Real-time Embedded Object Detection"></a>Tiny SSD: A Tiny Single-shot Detection Deep Convolutional Neural Network for Real-time Embedded Object Detection</h1><p>This repo contains the code, data and trained models for the paper <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1802.06488.pdf">Tiny SSD: A Tiny Single-shot Detection Deep Convolutional Neural Network for Real-time Embedded Object Detection</a>.</p>
+<h2 id="Quick-Links"><a href="#Quick-Links" class="headerlink" title="Quick Links"></a>Quick Links</h2><ul>
+<li><a href="#Overview"> Overview</a></li>
+<li><a href="#Requirements"> Requirements</a></li>
 <li><a href="#How-to-Install">How to Install</a></li>
 <li><a href="#Description-of-Codes">Description of Codes</a></li>
-<li><a href="#Preprocessing">Preprocessing</a>
-<ul>
+<li><a href="#Preprocessing"> Preprocessing</a><ul>
 <li><a href="#Preprocessed-Data">Preprocessed Data</a></li>
-</ul></li>
-<li><a href="#How-to-Run">How to Run</a>
-<ul>
-<li><a href="#Train">Train</a>
-<ul>
-<li><a href="#Finetuning-from-an-existing-checkpoint">Finetuning from an
-existing checkpoint</a></li>
-</ul></li>
-<li><a href="#Evaluate">Evaluate</a></li>
-</ul></li>
-<li><a href="#Results-Outputs-Checkpoints">Results, Outputs,
-Checkpoints</a></li>
 </ul>
-<h2 id="overview">Overview</h2>
-<p>Tiny SSD is a single-shot detection deep convolutional neural network
-for real-time embedded object detection. It brings together the
-efficieny of Fire microarchitecture introduced in
-<strong>SqueezeNet</strong> and object detection performance of
-<strong>SSD (Single Shot Object Detector)</strong>.</p>
-<p><img src="https://img.enderfga.cn/img/ssd.svg" srcset="/img/loading.gif" lazyload /></p>
-<p><img
-src="https://img.enderfga.cn/img/image-20221018133431973.png" srcset="/img/loading.gif" lazyload /></p>
-<h2 id="requirements">Requirements</h2>
-<ul>
+</li>
+<li><a href="#How-to-Run">How to Run</a><ul>
+<li><a href="#Train"> Train</a><ul>
+<li><a href="#Finetuning-from-an-existing-checkpoint">Finetuning from an existing checkpoint</a></li>
+</ul>
+</li>
+<li><a href="#Evaluate"> Evaluate</a></li>
+</ul>
+</li>
+<li><a href="#Results-Outputs-Checkpoints">Results, Outputs, Checkpoints</a></li>
+</ul>
+<h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>Tiny SSD is a single-shot detection deep convolutional neural network for real-time embedded object detection.<br>It brings together the efficieny of Fire microarchitecture introduced in <strong>SqueezeNet</strong> and object detection performance of <strong>SSD (Single Shot Object Detector)</strong>.</p>
+<p><img src="https://img.enderfga.cn/img/ssd.svg" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://img.enderfga.cn/img/image-20221018133431973.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><ul>
 <li>numpy</li>
 <li>pandas</li>
 <li>matplotlib</li>
@@ -380,64 +363,42 @@ src="https://img.enderfga.cn/img/image-20221018133431973.png" srcset="/img/loadi
 <li>torch</li>
 <li>torchvision</li>
 </ul>
-<h2 id="how-to-install">How to Install</h2>
-<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">conda create -n env python=3.8 -y<br>conda activate env<br></code></pre></td></tr></table></figure> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip install -r requirements.txt<br></code></pre></td></tr></table></figure></p>
-<h2 id="description-of-files">Description of Files</h2>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs stylus">│──<span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.py</span>                 -&gt; Run models using different models<br>│──README.md<br>│──requirements.txt<br>│──test<span class="hljs-selector-class">.py</span>                 -&gt; Testing Model<br>│──train<span class="hljs-selector-class">.py</span>                -&gt; Training Model<br>│<br>├─data<br>│  │  dataloader<span class="hljs-selector-class">.py</span>         -&gt; dataloader and <span class="hljs-attribute">transform</span><br>│  │  __init__.py<br>│  │<br>│  └─detection<br>│      │  create_train<span class="hljs-selector-class">.py</span>   -&gt; data preprocessing<br>│      │<br>│      ├─<span class="hljs-attribute">background</span><br>│      ├─sysu_train<br>│      │  │  <span class="hljs-selector-tag">label</span>.csv<br>│      │  │<br>│      │  └─images<br>│      ├─target<br>│      │      <span class="hljs-number">0</span>.jpg<br>│      │      <span class="hljs-number">0</span>.png<br>│      │      <span class="hljs-number">1</span>.png<br>│      │<br>│      └─test<br>│              <span class="hljs-number">1</span>.jpg<br>│              <span class="hljs-number">2</span>.jpg<br>│<br>├─model<br>│  │  TinySSD<span class="hljs-selector-class">.py</span>             -&gt; Definition of the model<br>│  │  __init__.py<br>│  │<br>│  └─checkpoints             -&gt; Trained model weights<br>│     net_100.pkl<br>└─utils                      -&gt; utility functions<br>        anchor.py<br>        iou.py<br>        utils.py<br>        __init__.py<br></code></pre></td></tr></table></figure>
-<h2 id="preprocessing">Preprocessing</h2>
-<p>We use /data/detection/background to generate the target detection
-dataset for our experiments.</p>
-<p>Since the generated data is stored in the repository, there is no
-need to run this step.</p>
-<h3 id="preprocessed-data">Preprocessed Data</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd data/detection/<br>python create_train.py<br></code></pre></td></tr></table></figure>
-<h2 id="how-to-run">How to Run</h2>
-<h3 id="train">Train</h3>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python main.py --mode=train --batch_size=256 --epochs=100<br></code></pre></td></tr></table></figure>
-<p>The checkpoints will be saved in a subfolder of
-<code>./model/checkpoints/</code>.</p>
-<h4 id="finetuning-from-an-existing-checkpoint">Finetuning from an
-existing checkpoint</h4>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python main.py --mode=train --batch_size=256 --epochs=100 --path=[model path]<br></code></pre></td></tr></table></figure>
-<p>model path should be a subdirectory in the
-<code>./model/checkpoints/</code> directory, e.g.
-<code>--path=./model/checkpoints/net_100.pkl</code></p>
-<h3 id="evaluate">Evaluate</h3>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">python main.py --mode=test --threshold=<span class="hljs-number">0.3</span> --path=./model/checkpoints/net_100.pkl<br></code></pre></td></tr></table></figure>
-<h2 id="results-outputs-checkpoints">Results, Outputs, Checkpoints</h2>
-<p>the ./model/checkpoints/net_100.pkl：class err 1.54e-03, bbox mae
-1.90e-03</p>
+<h2 id="How-to-Install"><a href="#How-to-Install" class="headerlink" title="How to Install"></a>How to Install</h2> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">conda create -n env python=3.8 -y<br>conda activate env<br></code></pre></td></tr></table></figure>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">pip install -r requirements.txt<br></code></pre></td></tr></table></figure>
+<h2 id="Description-of-Files"><a href="#Description-of-Files" class="headerlink" title="Description of Files"></a>Description of Files</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs stylus">│──<span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.py</span>                 -&gt; Run models using different models<br>│──README.md<br>│──requirements.txt<br>│──test<span class="hljs-selector-class">.py</span>                 -&gt; Testing Model<br>│──train<span class="hljs-selector-class">.py</span>                -&gt; Training Model<br>│<br>├─data<br>│  │  dataloader<span class="hljs-selector-class">.py</span>         -&gt; dataloader and <span class="hljs-attribute">transform</span><br>│  │  __init__.py<br>│  │<br>│  └─detection<br>│      │  create_train<span class="hljs-selector-class">.py</span>   -&gt; data preprocessing<br>│      │<br>│      ├─<span class="hljs-attribute">background</span><br>│      ├─sysu_train<br>│      │  │  <span class="hljs-selector-tag">label</span>.csv<br>│      │  │<br>│      │  └─images<br>│      ├─target<br>│      │      <span class="hljs-number">0</span>.jpg<br>│      │      <span class="hljs-number">0</span>.png<br>│      │      <span class="hljs-number">1</span>.png<br>│      │<br>│      └─test<br>│              <span class="hljs-number">1</span>.jpg<br>│              <span class="hljs-number">2</span>.jpg<br>│<br>├─model<br>│  │  TinySSD<span class="hljs-selector-class">.py</span>             -&gt; Definition of the model<br>│  │  __init__.py<br>│  │<br>│  └─checkpoints             -&gt; Trained model weights<br>│     net_100.pkl<br>└─utils                      -&gt; utility functions<br>        anchor.py<br>        iou.py<br>        utils.py<br>        __init__.py<br></code></pre></td></tr></table></figure>
+<h2 id="Preprocessing"><a href="#Preprocessing" class="headerlink" title="Preprocessing"></a>Preprocessing</h2><p>We use /data/detection/background to generate the target detection dataset for our experiments.</p>
+<p>Since the generated data is stored in the repository, there is no need to run this step.</p>
+<h3 id="Preprocessed-Data"><a href="#Preprocessed-Data" class="headerlink" title="Preprocessed Data"></a>Preprocessed Data</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd data/detection/<br>python create_train.py<br></code></pre></td></tr></table></figure>
+<h2 id="How-to-Run"><a href="#How-to-Run" class="headerlink" title="How to Run"></a>How to Run</h2><h3 id="Train"><a href="#Train" class="headerlink" title="Train"></a>Train</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python main.py --mode=train --batch_size=256 --epochs=100<br></code></pre></td></tr></table></figure>
+<p>The checkpoints will be saved in a subfolder of <code>./model/checkpoints/</code>.</p>
+<h4 id="Finetuning-from-an-existing-checkpoint"><a href="#Finetuning-from-an-existing-checkpoint" class="headerlink" title="Finetuning from an existing checkpoint"></a>Finetuning from an existing checkpoint</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python main.py --mode=train --batch_size=256 --epochs=100 --path=[model path]<br></code></pre></td></tr></table></figure>
+<p>model path should be a subdirectory in the <code>./model/checkpoints/</code> directory, e.g. <code>--path=./model/checkpoints/net_100.pkl</code></p>
+<h3 id="Evaluate"><a href="#Evaluate" class="headerlink" title="Evaluate"></a>Evaluate</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">python main.py --mode=test --threshold=<span class="hljs-number">0.3</span> --path=./model/checkpoints/net_100.pkl<br></code></pre></td></tr></table></figure>
+<h2 id="Results-Outputs-Checkpoints"><a href="#Results-Outputs-Checkpoints" class="headerlink" title="Results, Outputs, Checkpoints"></a>Results, Outputs, Checkpoints</h2><p>the ./model/checkpoints/net_100.pkl：class err 1.54e-03, bbox mae 1.90e-03</p>
 <p>I used the following methods to improve performance：</p>
-<ol type="1">
+<ol>
 <li><p>HD anti-white detection object to adapt to the test image</p>
-<p><img
-src="https://img.enderfga.cn/img/image-20221018160400682.png" srcset="/img/loading.gif" lazyload /></p></li>
-<li><p>Flip and rotate images, etc. to improve generalization
-performance</p>
-<p><img
-src="https://img.enderfga.cn/img/image-20221018155947834.png" srcset="/img/loading.gif" lazyload /></p></li>
+<p><img src="https://img.enderfga.cn/img/image-20221018160400682.png" srcset="/img/loading.gif" lazyload alt=""></p>
+</li>
+<li><p>Flip and rotate images, etc. to improve generalization performance</p>
+<p><img src="https://img.enderfga.cn/img/image-20221018155947834.png" srcset="/img/loading.gif" lazyload alt=""></p>
+</li>
 <li><p>soft_nms</p>
-<p><img
-src="https://img.enderfga.cn/img/42166d224f4a20a4d58841b70d795a2a730ed0e4.jpeg@f_auto" srcset="/img/loading.gif" lazyload /></p></li>
+<p><img src="https://img.enderfga.cn/img/42166d224f4a20a4d58841b70d795a2a730ed0e4.jpeg@f_auto" srcset="/img/loading.gif" lazyload alt=""></p>
+</li>
 <li><p>smooth_L1</p>
-<p><img
-src="https://img.enderfga.cn/img/image-20221018155842392.png" srcset="/img/loading.gif" lazyload /></p></li>
+<p><img src="https://img.enderfga.cn/img/image-20221018155842392.png" srcset="/img/loading.gif" lazyload alt=""></p>
+</li>
 <li><p>Focal Loss</p>
-<p><img src="https://img.enderfga.cn/img/20221025160416.png" srcset="/img/loading.gif" lazyload /></p></li>
+<p><img src="https://img.enderfga.cn/img/20221025160416.png" srcset="/img/loading.gif" lazyload alt=""></p>
+</li>
 </ol>
-<p>If we have more classes, we can further improve the model in the
-following aspects:</p>
-<ol type="1">
-<li>When an object is much smaller compared with the image, the model
-could resize the input image bigger.</li>
-<li>There are typically a vast number of negative anchor boxes. To make
-the class distribution more balanced, we could downsample negative
-anchor boxes.</li>
-<li>In the loss function, assign different weight hyperparameters to the
-class loss and the offset loss.</li>
-<li>Use other methods to evaluate the object detection model, such as
-those in the single shot multibox detection paper (Liu et al.,
-2016).</li>
+<p>If we have more classes, we can further improve the model in the following aspects:</p>
+<ol>
+<li>When an object is much smaller compared with the image, the model could resize the input image bigger.</li>
+<li>There are typically a vast number of negative anchor boxes. To make the class distribution more balanced, we could downsample negative anchor boxes.</li>
+<li>In the loss function, assign different weight hyperparameters to the class loss and the offset loss.</li>
+<li>Use other methods to evaluate the object detection model, such as those in the single shot multibox detection paper (Liu et al., 2016).</li>
 </ol>
 
                 
