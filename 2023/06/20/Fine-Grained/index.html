@@ -16,16 +16,16 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Fine-Grained Human Feedback Gives Better Rewards for Language Model Training  We propose Fine-Grained RLHF, a framework that enables training and learning from reward functions that are fine-grai">
+    <meta name="description" content="Fine-Grained Human Feedback Gives Better Rewards for Language Model Training We propose Fine-Grained RLHF, a framework that enables training and learning from reward functions that are fine-grained in">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Fine-Grained Human Feedback Gives Better Rewards for Language Model Training">
 <meta property="og:url" content="http://enderfga.cn/2023/06/20/Fine-Grained/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="Fine-Grained Human Feedback Gives Better Rewards for Language Model Training  We propose Fine-Grained RLHF, a framework that enables training and learning from reward functions that are fine-grai">
+<meta property="og:description" content="Fine-Grained Human Feedback Gives Better Rewards for Language Model Training We propose Fine-Grained RLHF, a framework that enables training and learning from reward functions that are fine-grained in">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.enderfga.cn/img/teaser-smaller.jpg">
 <meta property="article:published_time" content="2023-06-20T05:21:59.000Z">
-<meta property="article:modified_time" content="2023-06-20T05:23:01.374Z">
+<meta property="article:modified_time" content="2023-06-20T05:23:23.510Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="自然语言处理">
 <meta name="twitter:card" content="summary_large_image">
@@ -330,152 +330,38 @@
             
               <div class="markdown-body">
                 
-                <h1
-id="fine-grained-human-feedback-gives-better-rewards-for-language-model-training">Fine-Grained
-Human Feedback Gives Better Rewards for Language Model Training</h1>
-<p><img src="https://img.enderfga.cn/img/teaser-smaller.jpg" srcset="/img/loading.gif" lazyload /></p>
-<p>We propose <strong>Fine-Grained RLHF</strong>, a framework that
-enables training and learning from reward functions that are
-fine-grained in two respects:</p>
-<ol type="1">
-<li>density, providing a reward after every segment (e.g., a sentence)
-is generated</li>
-<li>incorporating multiple reward models associated with different
-feedback types (e.g., factual incorrectness, irrelevance, and
-information incompleteness).</li>
+                <h1 id="Fine-Grained-Human-Feedback-Gives-Better-Rewards-for-Language-Model-Training"><a href="#Fine-Grained-Human-Feedback-Gives-Better-Rewards-for-Language-Model-Training" class="headerlink" title="Fine-Grained Human Feedback Gives Better Rewards for Language Model Training"></a>Fine-Grained Human Feedback Gives Better Rewards for Language Model Training</h1><p><img src="https://img.enderfga.cn/img/teaser-smaller.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>We propose <strong>Fine-Grained RLHF</strong>, a framework that enables training and learning from reward functions that are fine-grained in two respects:</p>
+<ol>
+<li>density, providing a reward after every segment (e.g., a sentence) is generated</li>
+<li>incorporating multiple reward models associated with different feedback types (e.g., factual incorrectness, irrelevance, and information incompleteness).</li>
 </ol>
-<h2 id="what-are-fine-grained-rewards">What are Fine-Grained
-Rewards?</h2>
-<p>Prior work in RLHF focused on collecting human preferences regarding
-the overall quality of language model (LM) outputs. However, this type
-of holistic feedback offers limited information. In our paper, we
-introduce <strong>fine-grained human feedback</strong> (e.g., which
-sub-sentence is irrelevant, which sentence is not truthful, which
-sentence is toxic) as an explicit training signal. Our rewards are
-fine-grained in two aspects:</p>
-<p><strong>(a) Density</strong>: We provide a reward after each segment
-(e.g., a sentence) is generated, similar to OpenAI's "step-by-step
-process reward". We found that this approach is more informative than
-holistic feedback and, thus, more effective for RL.</p>
-<p><strong>(b) Multiple reward models associated with different feedback
-types</strong>: We employ multiple reward models to capture different
-types of feedback (e.g., factual inaccuracy, irrelevance, and
-information incompleteness). Interestingly, we observed that these
-reward models both complement and compete with each other. By adjusting
-the weights of the reward models, we can control the balance between the
-different types of feedback and <strong>tailor the LM for different
-tasks</strong> according to specific needs.</p>
-<h2 id="abstract">Abstract</h2>
-<p>Language models (LMs) often exhibit undesirable text generation
-behaviors, including generating false, toxic, or irrelevant outputs.
-Reinforcement learning from human feedback (RLHF)—where human preference
-judgments on LM outputs are transformed into a learning signal—has
-recently shown promise in addressing these issues. However, such
-holistic feedback conveys limited information on long text outputs; it
-does not indicate which aspects of the outputs influenced user
-preference; e.g., which parts contain what type(s) of errors. In this
-paper, we use fine-grained human feedback (e.g., which sentence is
-false, which sub-sentence is irrelevant) as an explicit training signal.
-We introduce FINE-GRAINED RLHF, a framework that enables training and
-learning from reward functions that are fine-grained in two respects:
-(1) density, providing a reward after every segment (e.g., a sentence)
-is generated; and (2) incorporating multiple reward models associated
-with different feedback types (e.g., factual incorrectness, irrelevance,
-and information incompleteness). We conduct experiments on
-detoxification and long-form question answering to illustrate how
-learning with such reward functions leads to improved performance,
-supported by both automatic and human evaluation. Additionally, we show
-that LM behaviors can be customized using different combinations of
-fine-grained reward models.</p>
-<h2 id="task-1-detoxification">Task 1: Detoxification</h2>
-<p>The task of detoxification aims to reduce the toxicity in the model
-generation. We use Perspective API to measure toxicity. It returns a
-toxicity value between 0 (not toxic) and 1 (toxic).</p>
-<p><img src="https://img.enderfga.cn/img/toxicity_demo.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="What-are-Fine-Grained-Rewards"><a href="#What-are-Fine-Grained-Rewards" class="headerlink" title="What are Fine-Grained Rewards?"></a>What are Fine-Grained Rewards?</h2><p>Prior work in RLHF focused on collecting human preferences regarding the overall quality of language model (LM) outputs. However, this type of holistic feedback offers limited information. In our paper, we introduce <strong>fine-grained human feedback</strong> (e.g., which sub-sentence is irrelevant, which sentence is not truthful, which sentence is toxic) as an explicit training signal. Our rewards are fine-grained in two aspects:</p>
+<p><strong>(a) Density</strong>: We provide a reward after each segment (e.g., a sentence) is generated, similar to OpenAI’s “step-by-step process reward”. We found that this approach is more informative than holistic feedback and, thus, more effective for RL.</p>
+<p><strong>(b) Multiple reward models associated with different feedback types</strong>: We employ multiple reward models to capture different types of feedback (e.g., factual inaccuracy, irrelevance, and information incompleteness). Interestingly, we observed that these reward models both complement and compete with each other. By adjusting the weights of the reward models, we can control the balance between the different types of feedback and <strong>tailor the LM for different tasks</strong> according to specific needs.</p>
+<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Language models (LMs) often exhibit undesirable text generation behaviors, including generating false, toxic, or irrelevant outputs. Reinforcement learning from human feedback (RLHF)—where human preference judgments on LM outputs are transformed into a learning signal—has recently shown promise in addressing these issues. However, such holistic feedback conveys limited information on long text outputs; it does not indicate which aspects of the outputs influenced user preference; e.g., which parts contain what type(s) of errors. In this paper, we use fine-grained human feedback (e.g., which sentence is false, which sub-sentence is irrelevant) as an explicit training signal. We introduce FINE-GRAINED RLHF, a framework that enables training and learning from reward functions that are fine-grained in two respects: (1) density, providing a reward after every segment (e.g., a sentence) is generated; and (2) incorporating multiple reward models associated with different feedback types (e.g., factual incorrectness, irrelevance, and information incompleteness). We conduct experiments on detoxification and long-form question answering to illustrate how learning with such reward functions leads to improved performance, supported by both automatic and human evaluation. Additionally, we show that LM behaviors can be customized using different combinations of fine-grained reward models.</p>
+<h2 id="Task-1-Detoxification"><a href="#Task-1-Detoxification" class="headerlink" title="Task 1: Detoxification"></a>Task 1: Detoxification</h2><p>The task of detoxification aims to reduce the toxicity in the model generation. We use Perspective API to measure toxicity. It returns a toxicity value between 0 (not toxic) and 1 (toxic).</p>
+<p><img src="https://img.enderfga.cn/img/toxicity_demo.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>We compare two kinds of rewards:</p>
-<ol type="a">
-<li><p><strong>Holistic Rewards for (non-)Toxicity</strong>: We use
-1-Perspective(y) as the reward</p></li>
-<li><p><strong>Sentence-level (Fine-Grained) Rewards for
-(non-)Toxicity</strong>: We query the API after the model generates each
-sentence instead of generating the full sequence. For each generated
-sentence, we use -Δ(Perspective(y)) as the reward for the sentence (i.e.
-how much toxicity is changed from generating the current
-sentence).</p></li>
-</ol>
-<p><img src="https://img.enderfga.cn/img/toxicity_results.png" srcset="/img/loading.gif" lazyload /></p>
-<p>Table 1 shows that Our Fine-Grained RLHF with sentence-level
-fine-grained reward attains the lowest toxicity and perplexity among all
-methods, while maintaining a similar level of diversity. Figure 2 shows
-that learning from denser fine-grained reward is more <strong>sample
-efficient</strong> than holistic reward. One explanation is that
-fine-grained reward locates where the toxic content is, which is a
-stronger training signal compared with a scalar reward for the whole
-text.</p>
-<h2 id="task-2-long-form-question-answering">Task 2: Long-Form Question
-Answering</h2>
-<p>We collect <strong>QA-Feeback</strong>, a dataset of long-form
-question answering, with human preferences and fine-grained feedback.
-QA-Feedback is based on ASQA, a dataset that focuses on answering
-ambiguous factoid questions.</p>
-<p>There are three types of fine-grained human feedback, and we train a
-fine-grained reward model for each of them:</p>
-<p><span class="math inline">\(\color{blue}{\text{C1: irrelevance,
-repetition, and incoherence (rel.)}}\)</span>; The reward model has the
-density level of sub-sentences; i.e., returns a score for each
-sub-sentence. If the sub-sentence is irrelevant, repetitive, or
-incoherent, the reward is -1; otherwise, the reward is +1.</p>
-<p><span class="math inline">\(\color{goldenrod}{\text{C2: incorrect or
-unverifiable facts (fact.)}}\)</span>; The reward model has the density
-level of sentences; i.e., returns a score for each sentence. If the
-sentence has any factual error, the reward is -1; otherwise, the reward
-is +1.</p>
-<p><span class="math inline">\(\color{green}{\text{C3: incomplete
-information (comp.)}}\)</span>; The reward model checks if the response
-is complete and covers all the information in the reference passages
-that are related to the question. This reward model gives one reward for
-the whole response.</p>
-<h2 id="fine-grained-human-evaluation">Fine-Grained Human
-Evaluation</h2>
-<p>We compare our <strong>Fine-Grained RLHF</strong> with the following
-baselines:</p>
-<p><strong>SFT</strong>: The supervised finetuning model (trained on 1K
-training examples) that is used as the initial policy for our RLHF
-experiments.</p>
-<p><strong>Pref. RLHF</strong>: The baseline RLHF model that uses
-holistic reward.</p>
-<p><strong>SFT-Full</strong>: We finetune LM with human-written
-responses (provided by ASQA) of all training examples and denote this
-model as SFT-Full. Notice that each gold response takes 15 min to
-annotate (according to ASQA), which takes much longer time than our
-feedback annotation (6 min).</p>
-<p><img src="https://img.enderfga.cn/img/human_eval.png" srcset="/img/loading.gif" lazyload /></p>
-<p>Human evaluation shows that our <strong>Fine-Grained RLHF</strong>
-outperforms SFT and Preference RLHF on all error types. Also, RLHF (both
-preference-based and fine-grained) are particularly effective in
-reducing factual errors.</p>
-<h2 id="customize-lm-behaviors">Customize LM behaviors</h2>
-<p><img src="https://img.enderfga.cn/img/customization.png" srcset="/img/loading.gif" lazyload /></p>
-<p>By changing the weight of the <span
-class="math inline">\(\color{blue}{\text{Relevance reward
-model}}\)</span>, and keeping the weight of the other two reward models
-fixed, we can customize how detailed and lengthy the LM responses would
-be. Here we compare the outputs of three LMs, trained with different
-reward model combinations.</p>
-<h2
-id="fine-grained-reward-models-both-complement-and-compete-with-each-other">Fine-Grained
-reward models both complement and compete with each other</h2>
-<p><img src="https://img.enderfga.cn/img/analysis.png" srcset="/img/loading.gif" lazyload /></p>
-<p>We find that there is a trade-off between the three reward models.
-<span class="math inline">\(\color{blue}{\text{Relevance RM}}\)</span>
-prefers shorter and more concise responses, while <span
-class="math inline">\(\color{green}{\text{Info Completeness
-RM}}\)</span> prefers longer and more informative responses. Thus, these
-two rewards compete against each other during training and eventually
-reach a balance. Meanwhile, <span
-class="math inline">\(\color{goldenrod}{\text{Factuality RM}}\)</span>
-continuously improves the factual correctness of the response. Finally,
-removing any one of the reward models will degrade the performance.</p>
+<p>(a) <strong>Holistic Rewards for (non-)Toxicity</strong>: We use 1-Perspective(y) as the reward</p>
+<p>(b) <strong>Sentence-level (Fine-Grained) Rewards for (non-)Toxicity</strong>: We query the API after the model generates each sentence instead of generating the full sequence. For each generated sentence, we use -Δ(Perspective(y)) as the reward for the sentence (i.e. how much toxicity is changed from generating the current sentence).</p>
+<p><img src="https://img.enderfga.cn/img/toxicity_results.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>Table 1 shows that Our Fine-Grained RLHF with sentence-level fine-grained reward attains the lowest toxicity and perplexity among all methods, while maintaining a similar level of diversity. Figure 2 shows that learning from denser fine-grained reward is more <strong>sample efficient</strong> than holistic reward. One explanation is that fine-grained reward locates where the toxic content is, which is a stronger training signal compared with a scalar reward for the whole text.</p>
+<h2 id="Task-2-Long-Form-Question-Answering"><a href="#Task-2-Long-Form-Question-Answering" class="headerlink" title="Task 2: Long-Form Question Answering"></a>Task 2: Long-Form Question Answering</h2><p>We collect <strong>QA-Feeback</strong>, a dataset of long-form question answering, with human preferences and fine-grained feedback. QA-Feedback is based on ASQA, a dataset that focuses on answering ambiguous factoid questions.</p>
+<p>There are three types of fine-grained human feedback, and we train a fine-grained reward model for each of them:</p>
+<p>$\color{blue}{\text{C1: irrelevance, repetition, and incoherence (rel.)}}$; The reward model has the density level of sub-sentences; i.e., returns a score for each sub-sentence. If the sub-sentence is irrelevant, repetitive, or incoherent, the reward is -1; otherwise, the reward is +1.</p>
+<p>$\color{goldenrod}{\text{C2: incorrect or unverifiable facts (fact.)}}$; The reward model has the density level of sentences; i.e., returns a score for each sentence. If the sentence has any factual error, the reward is -1; otherwise, the reward is +1.</p>
+<p>$\color{green}{\text{C3: incomplete information (comp.)}}$; The reward model checks if the response is complete and covers all the information in the reference passages that are related to the question. This reward model gives one reward for the whole response.</p>
+<h2 id="Fine-Grained-Human-Evaluation"><a href="#Fine-Grained-Human-Evaluation" class="headerlink" title="Fine-Grained Human Evaluation"></a>Fine-Grained Human Evaluation</h2><p>We compare our <strong>Fine-Grained RLHF</strong> with the following baselines:</p>
+<p><strong>SFT</strong>: The supervised finetuning model (trained on 1K training examples) that is used as the initial policy for our RLHF experiments.</p>
+<p><strong>Pref. RLHF</strong>: The baseline RLHF model that uses holistic reward.</p>
+<p><strong>SFT-Full</strong>: We finetune LM with human-written responses (provided by ASQA) of all training examples and denote this model as SFT-Full. Notice that each gold response takes 15 min to annotate (according to ASQA), which takes much longer time than our feedback annotation (6 min).</p>
+<p><img src="https://img.enderfga.cn/img/human_eval.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>Human evaluation shows that our <strong>Fine-Grained RLHF</strong> outperforms SFT and Preference RLHF on all error types. Also, RLHF (both preference-based and fine-grained) are particularly effective in reducing factual errors.</p>
+<h2 id="Customize-LM-behaviors"><a href="#Customize-LM-behaviors" class="headerlink" title="Customize LM behaviors"></a>Customize LM behaviors</h2><p><img src="https://img.enderfga.cn/img/customization.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>By changing the weight of the $\color{blue}{\text{Relevance reward model}}$, and keeping the weight of the other two reward models fixed, we can customize how detailed and lengthy the LM responses would be. Here we compare the outputs of three LMs, trained with different reward model combinations.</p>
+<h2 id="Fine-Grained-reward-models-both-complement-and-compete-with-each-other"><a href="#Fine-Grained-reward-models-both-complement-and-compete-with-each-other" class="headerlink" title="Fine-Grained reward models both complement and compete with each other"></a>Fine-Grained reward models both complement and compete with each other</h2><p><img src="https://img.enderfga.cn/img/analysis.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>We find that there is a trade-off between the three reward models. $\color{blue}{\text{Relevance RM}}$ prefers shorter and more concise responses, while $\color{green}{\text{Info Completeness RM}}$ prefers longer and more informative responses. Thus, these two rewards compete against each other during training and eventually reach a balance. Meanwhile, $\color{goldenrod}{\text{Factuality RM}}$ continuously improves the factual correctness of the response. Finally, removing any one of the reward models will degrade the performance.</p>
 
                 
               </div>
@@ -544,6 +430,12 @@ removing any one of the reward models will degrade the performance.</p>
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/06/27/GILL/" title="Generating Images with Multimodal Language Models">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Generating Images with Multimodal Language Models</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

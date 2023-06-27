@@ -332,88 +332,41 @@
                 
                 <p>论文阅读笔记</p>
 <span id="more"></span>
-<div style="text-align:center">
-<iframe width="100%" height="500" src="https://player.bilibili.com/player.html?aid=479164157&amp;bvid=BV1aT411R77Z&amp;cid=1003655006&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
-</iframe>
-</iframe>
-</div>
-<h1 id="mav3dtext-to-4d-dynamic-scene-generation">MAV3D:Text-To-4D
-Dynamic Scene Generation</h1>
-<ul>
-<li><p><strong>Meta AI</strong></p></li>
+<div style="text-align:center"><iframe width="100%" height="500" src="https://player.bilibili.com/player.html?aid=479164157&bvid=BV1aT411R77Z&cid=1003655006&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe></iframe></div>
+
+
+<h1 id="MAV3D-Text-To-4D-Dynamic-Scene-Generation"><a href="#MAV3D-Text-To-4D-Dynamic-Scene-Generation" class="headerlink" title="MAV3D:Text-To-4D Dynamic Scene Generation"></a>MAV3D:Text-To-4D Dynamic Scene Generation</h1><ul>
+<li><strong>Meta AI</strong></li>
 <li><p><strong>2023.1.26</strong></p>
-<h2 id="demo">Demo</h2>
-<p><a
-target="_blank" rel="noopener" href="https://make-a-video3d.github.io/">https://make-a-video3d.github.io/</a></p>
-<video src="./rotating_grid.mp4">
-</video></li>
+<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p><a target="_blank" rel="noopener" href="https://make-a-video3d.github.io/">https://make-a-video3d.github.io/</a></p>
+<video src="./rotating_grid.mp4"></video>
+
+</li>
 </ul>
-<h2 id="motivation">Motivation</h2>
-<ol type="1">
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><ol>
 <li><strong>需要一个有效的、端到端可学习的动态三维场景表征；</strong></li>
 <li><strong>需要一个有监督学习的数据源，因为目前并不存在大规模的（文本，4D）对的数据集可供学习；</strong></li>
 <li><strong>需要在空间和时间维度上扩展输出的分辨率，因为4D输出需要大量的内存和计算能力；</strong></li>
 </ol>
-<h2 id="proposal">Proposal</h2>
-<ol type="1">
+<h2 id="Proposal"><a href="#Proposal" class="headerlink" title="Proposal"></a>Proposal</h2><ol>
 <li><strong>本文提出了MAV3D，利用了T2V模型和动态NeRFs，实现从自然语言描述生成动态三维时间表示；</strong></li>
 <li><strong>提出了一个从静态到动态的多阶段优化方案，逐步纳入静态、时间和超分辨率模型的梯度信息。</strong></li>
 </ol>
-<h2 id="related-work">Related Work</h2>
-<h3 id="dynamic-nerfs">dynamic NeRFs</h3>
-<p><strong>适用于动态场景的NeRF变体</strong></p>
-<h3 id="mav">MAV</h3>
-<p><strong>Make A
-Video，通过在未标记的视频上训练，拓展了文本到图像（T2I）模型。</strong></p>
-<h3 id="dreamfusion">DreamFusion</h3>
-<p><strong>以NeRF的形式从文本描述中学习3D表示，提出了一个基于概率密度蒸馏的loss（SDS）</strong></p>
-<h2 id="method">Method</h2>
-<p><img
-src="https://img.enderfga.cn/img/image-20230209142352394.png" srcset="/img/loading.gif" lazyload /></p>
-<h3 id="d-scene-representation">4D Scene Representation</h3>
-<p><img
-src="https://img.enderfga.cn/img/image-20230209141807225.png" srcset="/img/loading.gif" lazyload /></p>
-<p><span class="math display">\[
-\left(\tau, c_i\right)=f_\theta(x, y, z, t)
-\]</span></p>
-<p><span class="math display">\[
-\left[P_{x y}^{X Y R_1}+P_{z t}^{Z T R_1} ; P_{x z}^{X Z R_2}+P_{y t}^{Y
-T R_2} ; P_{y z}^{Y Z R_3}+P_{y z}^{X T R_3}\right]
-\]</span></p>
-<h3 id="dynamic-scene-optimization">Dynamic Scene Optimization</h3>
-<h4
-id="为了监督4d场景与文本提示p匹配引入sds-ttemporal-score-distillation-sampling">为了监督4D场景与文本提示p匹配，引入SDS-T（temporal
-Score Distillation Sampling ）</h4>
-<p><span class="math display">\[
-\nabla_\theta \mathcal{L}_{S D S-T}=E_{\sigma,
-\epsilon}\left[w(\sigma)\left(\hat{\epsilon}\left(V_{(\bar{\theta},
-\sigma, \epsilon)} \mid y, \sigma\right)-\epsilon\right) \frac{\partial
-V_\theta}{\partial \theta}\right]
-\\
-\]</span></p>
-<p><span class="math display">\[
-\nabla_\theta \mathcal{L}_{\mathrm{SDS}}(\phi, \mathbf{x}=g(\theta))
-\triangleq \mathbb{E}_{t,
-\epsilon}\left[w(t)\left(\hat{\epsilon}_\phi\left(\mathbf{z}_t ; y,
-t\right)-\epsilon\right) \frac{\partial \mathbf{x}}{\partial
-\theta}\right]
-\]</span></p>
-<h4 id="从静态到动态的场景优化">从静态到动态的场景优化</h4>
-<h4 id="动态相机">动态相机</h4>
-<h4 id="fps-采样">FPS 采样</h4>
-<h4 id="高斯退火">高斯退火</h4>
-<h4 id="全变分损失">全变分损失</h4>
-<h3 id="super-resolution-fine-tuning">Super-Resolution Fine-Tuning</h3>
-<p><img
-src="https://img.enderfga.cn/img/image-20230209152345831.png" srcset="/img/loading.gif" lazyload /></p>
-<h2 id="experiment">Experiment</h2>
-<p><strong>Metrics</strong>：R-Precision and human preference</p>
-<p><img
-src="https://img.enderfga.cn/img/image-20230209152747908.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img
-src="https://img.enderfga.cn/img/image-20230209152759865.png" srcset="/img/loading.gif" lazyload /></p>
-<h2 id="limitations">Limitations</h2>
-<ul>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><h3 id="dynamic-NeRFs"><a href="#dynamic-NeRFs" class="headerlink" title="dynamic NeRFs"></a>dynamic NeRFs</h3><p><strong>适用于动态场景的NeRF变体</strong></p>
+<h3 id="MAV"><a href="#MAV" class="headerlink" title="MAV"></a>MAV</h3><p><strong>Make A Video，通过在未标记的视频上训练，拓展了文本到图像（T2I）模型。</strong></p>
+<h3 id="DreamFusion"><a href="#DreamFusion" class="headerlink" title="DreamFusion"></a>DreamFusion</h3><p><strong>以NeRF的形式从文本描述中学习3D表示，提出了一个基于概率密度蒸馏的loss（SDS）</strong></p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p><img src="https://img.enderfga.cn/img/image-20230209142352394.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="4D-Scene-Representation"><a href="#4D-Scene-Representation" class="headerlink" title="4D Scene Representation"></a>4D Scene Representation</h3><p><img src="https://img.enderfga.cn/img/image-20230209141807225.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<script type="math/tex; mode=display">
+\left(\tau, c_i\right)=f_\theta(x, y, z, t)</script><script type="math/tex; mode=display">
+\left[P_{x y}^{X Y R_1}+P_{z t}^{Z T R_1} ; P_{x z}^{X Z R_2}+P_{y t}^{Y T R_2} ; P_{y z}^{Y Z R_3}+P_{y z}^{X T R_3}\right]</script><h3 id="Dynamic-Scene-Optimization"><a href="#Dynamic-Scene-Optimization" class="headerlink" title="Dynamic Scene Optimization"></a>Dynamic Scene Optimization</h3><h4 id="为了监督4D场景与文本提示p匹配，引入SDS-T（temporal-Score-Distillation-Sampling-）"><a href="#为了监督4D场景与文本提示p匹配，引入SDS-T（temporal-Score-Distillation-Sampling-）" class="headerlink" title="为了监督4D场景与文本提示p匹配，引入SDS-T（temporal Score Distillation Sampling  ）"></a>为了监督4D场景与文本提示p匹配，引入SDS-T（temporal Score Distillation Sampling  ）</h4><script type="math/tex; mode=display">
+\nabla_\theta \mathcal{L}_{S D S-T}=E_{\sigma, \epsilon}\left[w(\sigma)\left(\hat{\epsilon}\left(V_{(\bar{\theta}, \sigma, \epsilon)} \mid y, \sigma\right)-\epsilon\right) \frac{\partial V_\theta}{\partial \theta}\right]
+\\</script><script type="math/tex; mode=display">
+\nabla_\theta \mathcal{L}_{\mathrm{SDS}}(\phi, \mathbf{x}=g(\theta)) \triangleq \mathbb{E}_{t, \epsilon}\left[w(t)\left(\hat{\epsilon}_\phi\left(\mathbf{z}_t ; y, t\right)-\epsilon\right) \frac{\partial \mathbf{x}}{\partial \theta}\right]</script><h4 id="从静态到动态的场景优化"><a href="#从静态到动态的场景优化" class="headerlink" title="从静态到动态的场景优化"></a>从静态到动态的场景优化</h4><h4 id="动态相机"><a href="#动态相机" class="headerlink" title="动态相机"></a>动态相机</h4><h4 id="FPS-采样"><a href="#FPS-采样" class="headerlink" title="FPS 采样"></a>FPS 采样</h4><h4 id="高斯退火"><a href="#高斯退火" class="headerlink" title="高斯退火"></a>高斯退火</h4><h4 id="全变分损失"><a href="#全变分损失" class="headerlink" title="全变分损失"></a>全变分损失</h4><h3 id="Super-Resolution-Fine-Tuning"><a href="#Super-Resolution-Fine-Tuning" class="headerlink" title="Super-Resolution Fine-Tuning"></a>Super-Resolution Fine-Tuning</h3><p><img src="https://img.enderfga.cn/img/image-20230209152345831.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p><strong>Metrics</strong>：R-Precision and human preference</p>
+<p><img src="https://img.enderfga.cn/img/image-20230209152747908.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://img.enderfga.cn/img/image-20230209152759865.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h2><ul>
 <li><strong>将动态NeRFs转换为实时应用的不连续网格序列的效率很低，如果能直接预测顶点的轨迹，就能得到改善。</strong></li>
 <li><strong>利用超分辨率信息提高了表示的质量，但对于更高细节的纹理还需要进一步改进。</strong></li>
 <li><strong>文本到四维动态场景生成的表示质量取决于T2V模型从不同视角生成视频的能力。</strong></li>
