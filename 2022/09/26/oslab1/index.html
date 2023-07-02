@@ -16,12 +16,12 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="实验一  Linux的安装与使用实验目的 掌握Linux环境下的命令操作，熟悉Linux操作系统的环境和使用，记录各种测试结果； 了解LINUX系统的安装过程，记录安装流程和界面； 搭建 ROS 环境，为后续实验做准备。  实验内容任务描述1）Linux系统的安装 1) 调研、选择Linux版本2) 搜索、下载Linux安装所需文件3) 安装Linux 2）Linux基本操作命令 熟悉pwd、l">
+    <meta name="description" content="实验一 Linux的安装与使用 实验目的  掌握Linux环境下的命令操作，熟悉Linux操作系统的环境和使用，记录各种测试结果； 了解LINUX系统的安装过程，记录安装流程和界面； 搭建 ROS 环境，为后续实验做准备。  实验内容 任务描述 1）Linux系统的安装  调研、选择Linux版本 搜索、下载Linux安装所需文件 安装Linux  2）Linu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OS实验报告：Linux、ROS安装与使用">
 <meta property="og:url" content="http://enderfga.cn/2022/09/26/oslab1/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="实验一  Linux的安装与使用实验目的 掌握Linux环境下的命令操作，熟悉Linux操作系统的环境和使用，记录各种测试结果； 了解LINUX系统的安装过程，记录安装流程和界面； 搭建 ROS 环境，为后续实验做准备。  实验内容任务描述1）Linux系统的安装 1) 调研、选择Linux版本2) 搜索、下载Linux安装所需文件3) 安装Linux 2）Linux基本操作命令 熟悉pwd、l">
+<meta property="og:description" content="实验一 Linux的安装与使用 实验目的  掌握Linux环境下的命令操作，熟悉Linux操作系统的环境和使用，记录各种测试结果； 了解LINUX系统的安装过程，记录安装流程和界面； 搭建 ROS 环境，为后续实验做准备。  实验内容 任务描述 1）Linux系统的安装  调研、选择Linux版本 搜索、下载Linux安装所需文件 安装Linux  2）Linu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.enderfga.cn/img/1515111-20200331185335567-987153696.png">
 <meta property="article:published_time" content="2022-09-26T02:09:55.000Z">
@@ -330,59 +330,94 @@
             
               <div class="markdown-body">
                 
-                <p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.001.jpeg" srcset="/img/loading.gif" lazyload alt=""></p>
-<h1 id="实验一-Linux的安装与使用"><a href="#实验一-Linux的安装与使用" class="headerlink" title="实验一  Linux的安装与使用"></a><strong>实验一  Linux的安装与使用</strong></h1><h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a><strong>实验目的</strong></h2><ol>
+                <p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.001.jpeg" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="实验一-linux的安装与使用"><strong>实验一
+Linux的安装与使用</strong></h1>
+<h2 id="实验目的"><strong>实验目的</strong></h2>
+<ol type="1">
 <li>掌握Linux环境下的命令操作，熟悉Linux操作系统的环境和使用，记录各种测试结果；</li>
 <li>了解LINUX系统的安装过程，记录安装流程和界面；</li>
 <li>搭建 ROS 环境，为后续实验做准备。</li>
 </ol>
-<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a><strong>实验内容</strong></h2><h3 id="任务描述"><a href="#任务描述" class="headerlink" title="任务描述"></a><strong>任务描述</strong></h3><p>1）Linux系统的安装</p>
-<p>1) 调研、选择Linux版本<br>2) 搜索、下载Linux安装所需文件<br>3) 安装Linux</p>
+<h2 id="实验内容"><strong>实验内容</strong></h2>
+<h3 id="任务描述"><strong>任务描述</strong></h3>
+<p>1）Linux系统的安装</p>
+<ol type="1">
+<li>调研、选择Linux版本</li>
+<li>搜索、下载Linux安装所需文件</li>
+<li>安装Linux</li>
+</ol>
 <p>2）Linux基本操作命令</p>
 <p>熟悉pwd、ls、mkdir、cd、cat、man、cp等命令的使用</p>
 <p>3）编写程序</p>
-<p>1) 编写能输出“Hello world!”问候语的C程序，并在终端中编译、执行。要求记录所使用的命令及结果。<br>2) 编写一个程序：显示信息“Time for Play!”，并能在后台运行一段时间（自定义）后，弹出信息提醒用户。要求记录所使用的命令及结果。（提示：使用sleep(s)函数）</p>
+<ol type="1">
+<li>编写能输出“Hello
+world!”问候语的C程序，并在终端中编译、执行。要求记录所使用的命令及结果。</li>
+<li>编写一个程序：显示信息“Time for
+Play!”，并能在后台运行一段时间（自定义）后，弹出信息提醒用户。要求记录所使用的命令及结果。（提示：使用sleep(s)函数）</li>
+</ol>
 <p>4）安装ROS</p>
-<p>1) 按照官方教程或者快捷脚本安装好对应版本的ROS；<br>2) 运行ROS代码例程。</p>
-<h3 id="实验说明"><a href="#实验说明" class="headerlink" title="实验说明"></a><strong>实验说明</strong></h3><p>本次实验中我通过VMware和WSL2两种方式安装了Linux操作系统，磁盘管理、文件管理的命令熟悉和程序编写使用WSL2完成，ROS的安装与代码例程使用有可视化界面的VMware完成。</p>
-<h3 id="实验记录"><a href="#实验记录" class="headerlink" title="实验记录"></a><strong>实验记录</strong></h3><h4 id="实施步骤"><a href="#实施步骤" class="headerlink" title="实施步骤"></a><strong>实施步骤</strong></h4><h5 id="使用VMware安装："><a href="#使用VMware安装：" class="headerlink" title="使用VMware安装："></a>使用VMware安装：</h5><ul>
+<ol type="1">
+<li>按照官方教程或者快捷脚本安装好对应版本的ROS；</li>
+<li>运行ROS代码例程。</li>
+</ol>
+<h3 id="实验说明"><strong>实验说明</strong></h3>
+<p>本次实验中我通过VMware和WSL2两种方式安装了Linux操作系统，磁盘管理、文件管理的命令熟悉和程序编写使用WSL2完成，ROS的安装与代码例程使用有可视化界面的VMware完成。</p>
+<h3 id="实验记录"><strong>实验记录</strong></h3>
+<h4 id="实施步骤"><strong>实施步骤</strong></h4>
+<h5 id="使用vmware安装">使用VMware安装：</h5>
+<ul>
 <li>以管理员身份运行Vmware Workstation</li>
 <li>载入并安装ubuntu-22.04.1-desktop-amd64.iso</li>
 </ul>
-<h5 id="使用WSL2安装："><a href="#使用WSL2安装：" class="headerlink" title="使用WSL2安装："></a>使用WSL2安装：</h5><ul>
+<h5 id="使用wsl2安装">使用WSL2安装：</h5>
+<ul>
 <li>启用“适用于 Linux 的 Windows 子系统”可选功能</li>
 <li>启用“虚拟机平台”可选功能</li>
 <li>下载安装 Linux 内核更新包并将 WSL 2 设置为默认版本</li>
 <li>使用 Microsoft Store，选择并安装偏好的 Linux 分发版</li>
 </ul>
-<ol>
+<ol type="1">
 <li>在终端练习Linux的基本操作命令</li>
 <li>编写程序</li>
 <li>利用脚本安装ROS并运行代码例程</li>
 </ol>
-<h4 id="实验记录-1"><a href="#实验记录-1" class="headerlink" title="实验记录"></a><strong>实验记录</strong></h4><p>1.安装Linux</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.002.jpeg" srcset="/img/loading.gif" lazyload alt=""></p>
+<h4 id="实验记录-1"><strong>实验记录</strong></h4>
+<p>1.安装Linux</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.002.jpeg" srcset="/img/loading.gif" lazyload /></p>
 <p>图1-VM安装过程</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.003.jpeg" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.003.jpeg" srcset="/img/loading.gif" lazyload /></p>
 <p>图2-安装成功</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.004.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.004.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图3-WSL2安装过程</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.005.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.005.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图4-WSL2安装成功</p>
-<p>1) 熟悉操作命令</p>
+<ol type="1">
+<li>熟悉操作命令</li>
+</ol>
 <p><strong>pwd命令：</strong></p>
 <p>英文全拼：print work directory，该命令用于显示工作目录，</p>
 <p>执行 pwd 指令可立刻得知您目前所在的工作目录的绝对路径名称。</p>
 <p><strong>ls命令：</strong></p>
-<p>英文全拼：list files，该命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
+<p>英文全拼：list
+files，该命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)。</p>
 <p>参数说明：</p>
 <ul>
-<li><strong>-a</strong> 显示所有文件及目录 (. 开头的隐藏文件也会列出)</li>
-<li><strong>-l</strong> 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</li>
+<li><strong>-a</strong> 显示所有文件及目录 (.
+开头的隐藏文件也会列出)</li>
+<li><strong>-l</strong>
+除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</li>
 <li><strong>-r</strong> 将文件以相反次序显示(原定依英文字母次序)</li>
 <li><strong>-t</strong> 将文件依建立时间之先后次序列出</li>
-<li><strong>-A</strong> 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录)</li>
-<li><strong>-F</strong> 在列出的文件名称后加一符号；例如可执行档则加 “*“, 目录则加 “/“</li>
+<li><strong>-A</strong> 同 -a ，但不列出 "." (目前目录) 及 ".."
+(父目录)</li>
+<li><strong>-F</strong> 在列出的文件名称后加一符号；例如可执行档则加
+"*", 目录则加 "/"</li>
 <li><strong>-R</strong> 若目录下有文件，则以下之文件亦皆依序列出</li>
 </ul>
 <p><strong>mkdir命令：</strong></p>
@@ -393,110 +428,178 @@
 </ul>
 <p><strong>cd命令：</strong></p>
 <p>英文全拼：change directory，该命令用于切换当前工作目录。</p>
-<p>其中 dirName 表示法可为绝对路径或相对路径。若目录名称省略，则变换至使用者的 home 目录 (也就是刚 login 时所在的目录)。</p>
-<p>另外，~ 也表示为 home 目录 的意思， . 则是表示目前所在的目录， .. 则表示目前目录位置的上一层目录。</p>
+<p>其中 dirName
+表示法可为绝对路径或相对路径。若目录名称省略，则变换至使用者的 home 目录
+(也就是刚 login 时所在的目录)。</p>
+<p>另外，~ 也表示为 home 目录 的意思， . 则是表示目前所在的目录， ..
+则表示目前目录位置的上一层目录。</p>
 <p><strong>cat命令：</strong></p>
 <p>英文全拼：concatenate,该命令用于连接文件并打印到标准输出设备上。</p>
 <p>参数说明：</p>
 <ul>
-<li><strong>-n 或 —number</strong>：由 1 开始对所有输出的行数编号。</li>
-<li><strong>-b 或 —number-nonblank</strong>：和 -n 相似，只不过对于空白行不编号。</li>
-<li><strong>-s 或 —squeeze-blank</strong>：当遇到有连续两行以上的空白行，就代换为一行的空白行。</li>
-<li><strong>-v 或 —show-nonprinting</strong>：使用 ^ 和 M- 符号，除了 LFD 和 TAB 之外。</li>
-<li><strong>-E 或 —show-ends</strong> : 在每行结束处显示 $。</li>
-<li><strong>-T 或 —show-tabs</strong>: 将 TAB 字符显示为 ^I。</li>
-<li><strong>-A, —show-all</strong>：等价于 -vET。</li>
-<li><strong>-e：</strong>等价于”-vE”选项；</li>
-<li><strong>-t：</strong>等价于”-vT”选项；</li>
+<li><strong>-n 或 --number</strong>：由 1
+开始对所有输出的行数编号。</li>
+<li><strong>-b 或 --number-nonblank</strong>：和 -n
+相似，只不过对于空白行不编号。</li>
+<li><strong>-s 或
+--squeeze-blank</strong>：当遇到有连续两行以上的空白行，就代换为一行的空白行。</li>
+<li><strong>-v 或 --show-nonprinting</strong>：使用 ^ 和 M- 符号，除了
+LFD 和 TAB 之外。</li>
+<li><strong>-E 或 --show-ends</strong> : 在每行结束处显示 $。</li>
+<li><strong>-T 或 --show-tabs</strong>: 将 TAB 字符显示为 ^I。</li>
+<li><strong>-A, --show-all</strong>：等价于 -vET。</li>
+<li><strong>-e：</strong>等价于"-vE"选项；</li>
+<li><strong>-t：</strong>等价于"-vT"选项；</li>
 </ul>
 <p><strong>cp命令：</strong></p>
 <p>英文全拼：copy file，该命令主要用于复制文件或目录。</p>
 <p>参数说明：</p>
 <ul>
 <li><strong>-a</strong>：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。</li>
-<li><strong>-d</strong>：复制时保留链接。这里所说的链接相当于 Windows 系统中的快捷方式。</li>
+<li><strong>-d</strong>：复制时保留链接。这里所说的链接相当于 Windows
+系统中的快捷方式。</li>
 <li><strong>-f</strong>：覆盖已经存在的目标文件而不给出提示。</li>
-<li><strong>-i</strong>：与 -f 选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答 y 时目标文件将被覆盖。</li>
+<li><strong>-i</strong>：与 -f
+选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答 y
+时目标文件将被覆盖。</li>
 <li><strong>-p</strong>：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。</li>
 <li><strong>-r</strong>：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。</li>
 <li><strong>-l</strong>：不复制文件，只是生成链接文件。</li>
 </ul>
-<p>1) 编写程序</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.006.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<ol type="1">
+<li>编写程序</li>
+</ol>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.006.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图5-vim 键盘图</p>
 <p>使用vi文书编辑器来编写要求的程序，代码如下：</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.007.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.007.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图6-编写程序一</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.008.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.008.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图7-编写程序二</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.009.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.009.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图8-安装gcc并编译</p>
-<p>1) 安装ROS</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<ol type="1">
+<li>安装ROS</li>
+</ol>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图9-使用官方教程手动安装</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图10-使用一键安装脚本</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a><strong>实验结果</strong></h2><p>1) 命令熟悉</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="实验结果"><strong>实验结果</strong></h2>
+<ol type="1">
+<li>命令熟悉</li>
+</ol>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图11-基本操作命令结果一</p>
 <p>如图所示，打开终端之后起始目录显示为“~”，即主目录，也就是当前登录用户的用户目录，故输入pwd的结果为/home/enderfga。</p>
-<p>ls -l会显示当前目录下文件的详细信息，图中是我编写的两个c文件以及编译产生的文件等，ls -al则会将以“.”开头的隐藏文件也展示出来。</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>ls
+-l会显示当前目录下文件的详细信息，图中是我编写的两个c文件以及编译产生的文件等，ls
+-al则会将以“.”开头的隐藏文件也展示出来。</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图12-基本操作命令结果二</p>
 <p>直接使用不带参数的命令cd会改变目录至当前的用户目录，即“~”；</p>
-<p>使用命令cd ../..会到上一级目录的上一级目录中，在此处也就是根目录，即“/”。</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>使用命令cd
+../..会到上一级目录的上一级目录中，在此处也就是根目录，即“/”。</p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图13-文件操作命令结果</p>
-<p>值得注意的是，输入命令ls -l后屏幕显示的第一列内容wsl2的结果和VMware的结果并不一样。</p>
+<p>值得注意的是，输入命令ls
+-l后屏幕显示的第一列内容wsl2的结果和VMware的结果并不一样。</p>
 <p>wsl2中显示的是文件大小，如果是文件，则表示该文件的大小，单位为字节；如果是目录，则表示该目录符所占的大小，并不表示该目录下所有文件的大小。</p>
 <p>VMware的结果如图所示：</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.011.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.011.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图14-ls -l命令解析</p>
 <p>图中还记录了两个我搜索到的其他文件操作命令，分别是</p>
-<p>“ls -l | grep “^-“ | wc -l”：统计该目录下的文件个数；以及</p>
-<p>“find . -name ‘f*‘ -exec rm {} \;”：搜寻含有特定文件名的文件并删除。</p>
-<p>1) 程序编写</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>“ls -l | grep "^-" | wc -l”：统计该目录下的文件个数；以及</p>
+<p>“find . -name 'f*' -exec rm {}
+;”：搜寻含有特定文件名的文件并删除。</p>
+<ol type="1">
+<li>程序编写</li>
+</ol>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.010.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图15-C程序输出结果</p>
-<p>根据题目要求，a.c编译的程序实现了输出“Hello world!”问候语；b.c编译的程序会在运行时显示“Time for Play!”，并能在后台运行，每10秒弹出信息提醒用户。</p>
-<p>1) ROS测试与例程</p>
+<p>根据题目要求，a.c编译的程序实现了输出“Hello
+world!”问候语；b.c编译的程序会在运行时显示“Time for
+Play!”，并能在后台运行，每10秒弹出信息提醒用户。</p>
+<ol type="1">
+<li>ROS测试与例程</li>
+</ol>
 <p>值得注意的是，本次实验中我安装的是ROS2，故PPT中的命令不能生效。查阅资料之后，我使用ROS2对应的命令成功实现了用键盘控制小乌龟运动。</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.012.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.012.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图16-ROS小乌龟测试</p>
 <p>以下是我在过去的学习中使用ROS1和rviz可视化的A*轨迹规划和Turtlebot2轨迹仿真，在此处记录。</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.013.png" srcset="/img/loading.gif" lazyload alt=""><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.014.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.013.png" srcset="/img/loading.gif" lazyload /><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.014.png" srcset="/img/loading.gif" lazyload /></p>
 <p>图17-轨迹规划与实机仿真</p>
-<h2 id="总结与讨论"><a href="#总结与讨论" class="headerlink" title="总结与讨论"></a><strong>总结与讨论</strong></h2><p>1.在Linux中，如何设置前、后台命令和程序的执行？</p>
-<p>在终端中如果对命令不加处理，那么命令会在前台运行；如果打算把命令放到后台运行，这个时候只需要在命令末尾加上&amp;即可，此时终端返回的是[作业号] 进程号。</p>
+<h2 id="总结与讨论"><strong>总结与讨论</strong></h2>
+<p>1.在Linux中，如何设置前、后台命令和程序的执行？</p>
+<p>在终端中如果对命令不加处理，那么命令会在前台运行；如果打算把命令放到后台运行，这个时候只需要在命令末尾加上&amp;即可，此时终端返回的是[作业号]
+进程号。</p>
 <p>需要注意的是，如果程序在后台运行，那么它将无法接受用户的输入，但是其输出将显示在屏幕上（可能用户正在进行其他工作，突然冒出了错误输出），因此在后台执行的程序需是不需要人工干预的、输出被妥善处理（比如重定向）的程序。</p>
-<p>有的时候在程序开始运行之后，想要将程序放在后台执行，这时需要按Ctrl+Z快捷键暂停程序，然后使用bg %作业号命令将其放入后台执行，也可以使用fg %作业号将程序从后台移到前台。</p>
-<p>&amp;是指在后台运行，但当用户推出(挂起)的时候，命令自动也跟着退出。而nohup命令（no hang up）是不挂断的运行，故二者常常结合起来使用，这样就能使命令永久的在后台执行，例如：</p>
-<p>CUDA_VISIBLE_DEVICES=0,1 nohup python train.py  &gt; nohup.log 2&gt;&amp;1 &amp;</p>
-<p><code> </code>即为使用2块GPU后台训练的常用python命令。</p>
+<p>有的时候在程序开始运行之后，想要将程序放在后台执行，这时需要按Ctrl+Z快捷键暂停程序，然后使用bg
+%作业号命令将其放入后台执行，也可以使用fg
+%作业号将程序从后台移到前台。</p>
+<p>&amp;是指在后台运行，但当用户推出(挂起)的时候，命令自动也跟着退出。而nohup命令（no
+hang
+up）是不挂断的运行，故二者常常结合起来使用，这样就能使命令永久的在后台执行，例如：</p>
+<p>CUDA_VISIBLE_DEVICES=0,1 nohup python train.py &gt; nohup.log
+2&gt;&amp;1 &amp;</p>
+<p><code></code>即为使用2块GPU后台训练的常用python命令。</p>
 <p>2.你所使用的Linux系统的内核版本是多少？用什么命令查看内核版本？目前你所了解的各发行版本的情况如何？</p>
-<p>可以使用uname -a来查看内核版本，本次实验使用的WSL2和VMware分别输出的结果是：</p>
-<p>Linux Enderfga-PC 5.4.72-microsoft-standard-WSL2 #1 SMP Wed Oct 28 23:40:43 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</p>
-<p>Linux enderfga-virtual-machine 5.15.0-47-generic #51-Ubuntu SMP Thu Aug 11 07:51:15 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux</p>
-<p>可以看出WSL2相较于虚拟机的差异还是挺大的，即使均为Ubuntu 20.04在内核版本上也有不同。</p>
-<p><code> </code>查阅资料得知，比较流行的发行版本有10个。Ubuntu，Linux Mint和PCLinuxOS是其中最易于使用的。想快速部署使用，就可以选择这几个。尤其对于新手，已经做到了和Windows类似的易用程度了；另一方面，Slackware Linux，Arch Linux和FreeBSD是更激进的发行版，更新比较频繁，所以需要有一定的基础；openSUSE，Fedora，Debian GNU/Linux和Mageia则是比较保守的发行版，稳定性是他们的特点，但是软件包都比较旧，很多桌面版本的新功能没法用；CentOS是一个企业级的发行版，适合那些喜欢稳定性，可靠性和软件长期支持的用户。</p>
+<p>可以使用uname
+-a来查看内核版本，本次实验使用的WSL2和VMware分别输出的结果是：</p>
+<p>Linux Enderfga-PC 5.4.72-microsoft-standard-WSL2 #1 SMP Wed Oct 28
+23:40:43 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</p>
+<p>Linux enderfga-virtual-machine 5.15.0-47-generic #51-Ubuntu SMP Thu
+Aug 11 07:51:15 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux</p>
+<p>可以看出WSL2相较于虚拟机的差异还是挺大的，即使均为Ubuntu
+20.04在内核版本上也有不同。</p>
+<p><code></code>查阅资料得知，比较流行的发行版本有10个。Ubuntu，Linux
+Mint和PCLinuxOS是其中最易于使用的。想快速部署使用，就可以选择这几个。尤其对于新手，已经做到了和Windows类似的易用程度了；另一方面，Slackware
+Linux，Arch
+Linux和FreeBSD是更激进的发行版，更新比较频繁，所以需要有一定的基础；openSUSE，Fedora，Debian
+GNU/Linux和Mageia则是比较保守的发行版，稳定性是他们的特点，但是软件包都比较旧，很多桌面版本的新功能没法用；CentOS是一个企业级的发行版，适合那些喜欢稳定性，可靠性和软件长期支持的用户。</p>
 <p>在学习的过程中我使用过Ubuntu和Centos。</p>
 <p>3.你对Linux系统有什么认识？</p>
-<p><code> </code>在我心目中，Linux是一种可以和Windows相媲美的操作系统。Linux一切皆文件、完全开源免费、支持多用户和多任务、同时还支持多种架构平台、可靠的安全性、良好的稳定性、具有强大的网络功能、多样图形界面等等都展现其巨大的魅力。通过Linux我更好地了解学习了计算机网络、操作系统等的相关知识，也实践了深度学习、智能机器人技术等应用。</p>
+<p><code></code>在我心目中，Linux是一种可以和Windows相媲美的操作系统。Linux一切皆文件、完全开源免费、支持多用户和多任务、同时还支持多种架构平台、可靠的安全性、良好的稳定性、具有强大的网络功能、多样图形界面等等都展现其巨大的魅力。通过Linux我更好地了解学习了计算机网络、操作系统等的相关知识，也实践了深度学习、智能机器人技术等应用。</p>
 <p><strong>五、CPU指令执行过程</strong></p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.015.png" srcset="/img/loading.gif" lazyload alt=""><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.016.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.017.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<ol>
-<li>首先，我们有一个自动计数器。这个自动计数器会随着时钟主频不断地自增，来作为我们的 PC 寄存器。</li>
-<li>在这个自动计数器的后面，我们连上一个译码器。译码器还要同时连着我们通过大量的 D 触发器组成的内存。</li>
-<li>自动计数器会随着时钟主频不断自增，从译码器当中，找到对应的计数器所表示的内存地址，然后读取出里面的 CPU 指令。</li>
-<li>读取出来的 CPU 指令会通过我们的 CPU 时钟的控制，写入到一个由 D 触发器组成的寄存器，也就是指令寄存器当中。</li>
-<li>在指令寄存器后面，我们可以再跟一个译码器。这个译码器不再是用来寻址的了，而是把我们拿到的指令，解析成 opcode 和对应的操作数。</li>
-<li>当我们拿到对应的 opcode 和操作数，对应的输出线路就要连接 ALU，开始进行各种算术和逻辑运算。对应的计算结果，则会再写回到 D 触发器组成的寄存器或者内存当中。</li>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.015.png" srcset="/img/loading.gif" lazyload /><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.016.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.017.png" srcset="/img/loading.gif" lazyload /></p>
+<ol type="1">
+<li>首先，我们有一个自动计数器。这个自动计数器会随着时钟主频不断地自增，来作为我们的
+PC 寄存器。</li>
+<li>在这个自动计数器的后面，我们连上一个译码器。译码器还要同时连着我们通过大量的
+D 触发器组成的内存。</li>
+<li>自动计数器会随着时钟主频不断自增，从译码器当中，找到对应的计数器所表示的内存地址，然后读取出里面的
+CPU 指令。</li>
+<li>读取出来的 CPU 指令会通过我们的 CPU 时钟的控制，写入到一个由 D
+触发器组成的寄存器，也就是指令寄存器当中。</li>
+<li>在指令寄存器后面，我们可以再跟一个译码器。这个译码器不再是用来寻址的了，而是把我们拿到的指令，解析成
+opcode 和对应的操作数。</li>
+<li>当我们拿到对应的 opcode 和操作数，对应的输出线路就要连接
+ALU，开始进行各种算术和逻辑运算。对应的计算结果，则会再写回到 D
+触发器组成的寄存器或者内存当中。</li>
 </ol>
 <p>模拟代码如下：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-comment">// 模拟CPU指令执行过程流水线</span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-comment">//取指令（Instruction Fetch，IF）阶段</span><br><span class="hljs-comment">//译码（Instruction Decode，ID）阶段</span><br><span class="hljs-comment">//执行指令（Execute，EX）阶段</span><br><span class="hljs-comment">//访存取数（Memory，MEM）阶段</span><br><span class="hljs-comment">//结果写回（Writeback，WB）阶段</span><br><span class="hljs-comment">//指令流水线</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InstructionPipeline</span></span><br><span class="hljs-class">&#123;</span><br><span class="hljs-keyword">public</span>:<br>	<span class="hljs-built_in">InstructionPipeline</span>()&#123;&#125;<br>	~<span class="hljs-built_in">InstructionPipeline</span>()&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">IF</span><span class="hljs-params">()</span></span>;<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ID</span><span class="hljs-params">()</span></span>;<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">EX</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span></span>;<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">MEM</span><span class="hljs-params">()</span></span>;<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">WB</span><span class="hljs-params">()</span></span>;<br>	<span class="hljs-comment">//Program Counter Register</span><br>	<span class="hljs-built_in"><span class="hljs-keyword">int</span></span> (*p) (<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b);<br>	<span class="hljs-comment">//Instruction Register</span><br>	<span class="hljs-built_in"><span class="hljs-keyword">int</span></span> (*i) (<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b);<br>	<span class="hljs-comment">//Register</span><br>	<span class="hljs-built_in"><span class="hljs-keyword">int</span></span> (*r) (<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b);<br>	<span class="hljs-comment">//Memory</span><br>	<span class="hljs-keyword">int</span> m;<br>	<span class="hljs-keyword">int</span> t;<br>	<span class="hljs-keyword">int</span> c = <span class="hljs-number">0</span>;<br>&#125;;<br><span class="hljs-comment">//加法算数指令</span><br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b)</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> a + b;<br>&#125;<br><span class="hljs-comment">//IF阶段</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">InstructionPipeline::IF</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in"><span class="hljs-keyword">int</span></span> (*t) (<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b);<span class="hljs-comment">//temp</span><br>    <span class="hljs-comment">//从指令存储器中取指令</span><br>	t = p;<br>	<span class="hljs-comment">//下一条指令地址，自动递增；</span><br>	<span class="hljs-comment">//p++;</span><br>    <span class="hljs-comment">//将指令存入指令寄存器</span><br>	i = p;<br>&#125;<br><span class="hljs-comment">//ID阶段</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">InstructionPipeline::ID</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in"><span class="hljs-keyword">int</span></span> (*t) (<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b);<span class="hljs-comment">//temp</span><br>	<span class="hljs-comment">//从指令寄存器中取指令</span><br>	t = i;<br>	<span class="hljs-comment">//译码指令</span><br>	i = add;<br>	<span class="hljs-comment">//将译码结果存入译码寄存器</span><br>	r = i;<br>&#125;<br><span class="hljs-comment">//EX阶段</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">InstructionPipeline::EX</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a,<span class="hljs-keyword">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-built_in"><span class="hljs-keyword">int</span></span> (*t) (<span class="hljs-keyword">int</span> a, <span class="hljs-keyword">int</span> b);<span class="hljs-comment">//temp</span><br>	<span class="hljs-comment">//从译码寄存器中取译码结果</span><br>	t = r;<br>	<span class="hljs-comment">//执行指令</span><br>	<span class="hljs-keyword">int</span> result = (*t)(a, b);<br>	<span class="hljs-comment">//将执行结果存入执行寄存器</span><br>	m = result;<br>&#125;<br><span class="hljs-comment">//MEM阶段</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">InstructionPipeline::MEM</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> temp = <span class="hljs-number">0</span>;<br>	<span class="hljs-comment">//访存取数</span><br>	temp = m;<br>	<span class="hljs-comment">//将访存结果存入访存寄存器</span><br>	t = temp;<br>&#125;<br><span class="hljs-comment">//WB阶段</span><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">InstructionPipeline::WB</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>	<span class="hljs-keyword">int</span> temp = <span class="hljs-number">0</span>;<br>	<span class="hljs-comment">//从访存寄存器中取访存结果</span><br>	temp = t;<br>	<span class="hljs-comment">//将结果写回</span><br>	c = temp;<br>	std::cout &lt;&lt; <span class="hljs-string">&quot;result = &quot;</span> &lt;&lt; c &lt;&lt; std::endl;<br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> a = <span class="hljs-number">1</span>,b = <span class="hljs-number">1</span>;<br>	InstructionPipeline CPU;<br>	std::cout &lt;&lt; <span class="hljs-string">&quot;取指...&quot;</span> &lt;&lt; std::endl;<br>	CPU.<span class="hljs-built_in">IF</span>();<br>	std::cout &lt;&lt; <span class="hljs-string">&quot;译码...&quot;</span> &lt;&lt; std::endl;<br>	CPU.<span class="hljs-built_in">ID</span>();<br>	std::cout &lt;&lt; <span class="hljs-string">&quot;执行...&quot;</span> &lt;&lt; std::endl;<br>	CPU.<span class="hljs-built_in">EX</span>(a, b);<br>	std::cout &lt;&lt; <span class="hljs-string">&quot;存结果...&quot;</span> &lt;&lt; std::endl;<br>	CPU.<span class="hljs-built_in">MEM</span>();<br>	CPU.<span class="hljs-built_in">WB</span>();<br>	std::cout &lt;&lt; <span class="hljs-string">&quot;下一条指令地址&quot;</span> &lt;&lt; std::endl;<br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 <p>结果如下：</p>
-<p><img src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.018.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img
+src="https://img.enderfga.cn/img/Aspose.Words.a6f73596-b4e5-4742-b430-3d062b8ab739.018.png" srcset="/img/loading.gif" lazyload /></p>
 
                 
               </div>

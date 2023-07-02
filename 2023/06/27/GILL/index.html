@@ -16,16 +16,16 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Generating Images with Multimodal Language Models AbstractWe propose a method to fuse frozen text-only large language models (LLMs) with pre-trained image encoder and decoder models, by mapping betwee">
+    <meta name="description" content="Generating Images with Multimodal Language Models   Example of GILL generating multimodal dialogue.  Abstract We propose a method to fuse frozen text-only large language models (LLMs) with pr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Generating Images with Multimodal Language Models">
 <meta property="og:url" content="http://enderfga.cn/2023/06/27/GILL/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="Generating Images with Multimodal Language Models AbstractWe propose a method to fuse frozen text-only large language models (LLMs) with pre-trained image encoder and decoder models, by mapping betwee">
+<meta property="og:description" content="Generating Images with Multimodal Language Models   Example of GILL generating multimodal dialogue.  Abstract We propose a method to fuse frozen text-only large language models (LLMs) with pr">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.enderfga.cn/img/architecture.png">
 <meta property="article:published_time" content="2023-06-27T02:00:49.000Z">
-<meta property="article:modified_time" content="2023-06-27T02:01:31.471Z">
+<meta property="article:modified_time" content="2023-06-27T02:07:00.104Z">
 <meta property="article:author" content="Enderfga">
 <meta property="article:tag" content="计算机视觉">
 <meta name="twitter:card" content="summary_large_image">
@@ -266,7 +266,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          6k 字
+          6.1k 字
         
       </span>
     
@@ -278,7 +278,7 @@
         
         
           <!-- compatible with older versions-->
-          50 分钟
+          52 分钟
         
       </span>
     
@@ -330,33 +330,170 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Generating-Images-with-Multimodal-Language-Models"><a href="#Generating-Images-with-Multimodal-Language-Models" class="headerlink" title="Generating Images with Multimodal Language Models"></a>Generating Images with Multimodal Language Models</h1><p><img src="https://img.enderfga.cn/img/teaser.gif" srcset="/img/loading.gif" lazyload alt="Example of GILL generating multimodal dialogue."></p>
-<h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>We propose a method to fuse frozen text-only large language models (LLMs) with pre-trained image encoder and decoder models, by <strong>mapping between their embedding spaces</strong>. Our model demonstrates a wide suite of multimodal capabilities: <strong>image retrieval, novel image generation, and multimodal dialogue</strong>. Ours is the first approach capable of conditioning on arbitrarily interleaved image and text inputs to generate coherent image (and text) outputs. To achieve strong performance on image generation, we propose an efficient mapping network to ground the LLM to an off-the-shelf text-to-image generation model. This mapping network translates hidden representations of text into the embedding space of the visual models, enabling us to leverage the strong text representations of the LLM for visual outputs. Our approach outperforms baseline generation models on tasks with longer and more complex language. In addition to novel image generation, our model is also capable of image retrieval from a prespecified dataset, and decides whether to retrieve or generate at inference time. This is done with a learnt decision module which conditions on the hidden representations of the LLM. Our model exhibits a wider range of capabilities compared to prior multimodal language models. It can process image-and-text inputs, and produce retrieved images, generated images, and generated text — outperforming non-LLM based generation models across several text-to-image tasks that measure context dependence.</p>
-<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p><img src="https://img.enderfga.cn/img/architecture.png" srcset="/img/loading.gif" lazyload alt="Model architecture of GILL."></p>
-<p>GILL (Generating Images with Large Language Models) is capable of processing arbitrarily interleaved image-and-text inputs to generate text, retrieve images, and generate novel images.</p>
-<p>Our findings show that it is possible to efficiently map the output embedding space of a frozen text-only LLM to the embedding space of a frozen text-to-image generation model (in this work, Stable Diffusion) despite both models using entirely different text encoders. We achieve this by finetuning a small number of parameters on image-caption pairs, in contrast to other methods which require interleaved image-text training data. Our approach is computationally efficient and does not require running the image generation model at training time.</p>
-<p>During inference, the model takes in arbitrarily interleaved image and text inputs, and produces text interleaved with image embeddings. After deciding whether to retrieve or generate for a particular set of tokens, it returns the appropriate image outputs (either retrieved or generated).</p>
-<h2 id="Capabilities"><a href="#Capabilities" class="headerlink" title="Capabilities"></a>Capabilities</h2><p>One of the more compelling applications of GILL is perhaps its ability to generalize to many different tasks, due to the LLM pretraining and freezing. We showcase several of these capabilities below. More qualitative results are provided in our <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.17216">paper</a>.</p>
-<h3 id="Multimodal-Dialogue-Generation"><a href="#Multimodal-Dialogue-Generation" class="headerlink" title="Multimodal Dialogue Generation"></a>Multimodal Dialogue Generation</h3><p><img src="https://img.enderfga.cn/img/dialogue.png" srcset="/img/loading.gif" lazyload alt="Multimodal dialogue example"></p>
-<p>GILL can be prompted to generate dialogue-like text, producing multimodal dialogue by interleaving generated text, retrieved images, and generated images. (View as <a target="_blank" rel="noopener" href="https://jykoh.com/gill/dialogue.gif">GIF</a> or <a target="_blank" rel="noopener" href="https://jykoh.com/gill/dialogue.mp4">MP4</a>)</p>
-<h3 id="Generating-from-Visual-Stories"><a href="#Generating-from-Visual-Stories" class="headerlink" title="Generating from Visual Stories"></a>Generating from Visual Stories</h3><p><img src="https://img.enderfga.cn/img/visual_stories.png" srcset="/img/loading.gif" lazyload alt="Generating from Visual Stories"></p>
-<p>GILL can condition on interleaved image-and-text inputs to generate more relevant images compared to non-LLM based text-to-image generation models.</p>
-<h3 id="Comparison-Against-Stable-Diffusion"><a href="#Comparison-Against-Stable-Diffusion" class="headerlink" title="Comparison Against Stable Diffusion"></a>Comparison Against Stable Diffusion</h3><p><img src="https://img.enderfga.cn/img/compare_sd.png" srcset="/img/loading.gif" lazyload alt="Comparison against Stable Diffusion"></p>
-<p>The GILLMapper module we introduce allows our model to map effectively to the SD image generation backbone, outperforming or matching SD for many examples from <a target="_blank" rel="noopener" href="https://sites.research.google/parti/">PartiPrompts</a>.</p>
-<h3 id="Comparison-Against-FROMAGe"><a href="#Comparison-Against-FROMAGe" class="headerlink" title="Comparison Against FROMAGe"></a>Comparison Against FROMAGe</h3><p><img src="https://img.enderfga.cn/img/fromage_comparison.png" srcset="/img/loading.gif" lazyload alt="Comparison Against FROMAGe"></p>
-<p>Our model composites multimodal information to produce relevant image and text outputs. It can outperform baseline models that are limited to image retrieval.</p>
-<h2 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h2><p>While GILL introduces many exciting capabilities, it is an early research prototype and has several limitations. GILL relies on an LLM backbone for many of its capabilities. As such, it also inherits many of the limitations that are typical of LLMs. More details and discussion are provided in our <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.17216">paper and appendix</a>:</p>
+                <h1 id="generating-images-with-multimodal-language-models">Generating
+Images with Multimodal Language Models</h1>
+<figure>
+<img src="https://img.enderfga.cn/img/teaser.gif" srcset="/img/loading.gif" lazyload
+alt="Example of GILL generating multimodal dialogue." />
+<figcaption aria-hidden="true">Example of GILL generating multimodal
+dialogue.</figcaption>
+</figure>
+<h2 id="abstract">Abstract</h2>
+<p>We propose a method to fuse frozen text-only large language models
+(LLMs) with pre-trained image encoder and decoder models, by
+<strong>mapping between their embedding spaces</strong>. Our model
+demonstrates a wide suite of multimodal capabilities: <strong>image
+retrieval, novel image generation, and multimodal dialogue</strong>.
+Ours is the first approach capable of conditioning on arbitrarily
+interleaved image and text inputs to generate coherent image (and text)
+outputs. To achieve strong performance on image generation, we propose
+an efficient mapping network to ground the LLM to an off-the-shelf
+text-to-image generation model. This mapping network translates hidden
+representations of text into the embedding space of the visual models,
+enabling us to leverage the strong text representations of the LLM for
+visual outputs. Our approach outperforms baseline generation models on
+tasks with longer and more complex language. In addition to novel image
+generation, our model is also capable of image retrieval from a
+prespecified dataset, and decides whether to retrieve or generate at
+inference time. This is done with a learnt decision module which
+conditions on the hidden representations of the LLM. Our model exhibits
+a wider range of capabilities compared to prior multimodal language
+models. It can process image-and-text inputs, and produce retrieved
+images, generated images, and generated text — outperforming non-LLM
+based generation models across several text-to-image tasks that measure
+context dependence.</p>
+<h2 id="model">Model</h2>
+<figure>
+<img src="https://img.enderfga.cn/img/architecture.png" srcset="/img/loading.gif" lazyload
+alt="Model architecture of GILL." />
+<figcaption aria-hidden="true">Model architecture of GILL.</figcaption>
+</figure>
+<p>GILL (Generating Images with Large Language Models) is capable of
+processing arbitrarily interleaved image-and-text inputs to generate
+text, retrieve images, and generate novel images.</p>
+<p>Our findings show that it is possible to efficiently map the output
+embedding space of a frozen text-only LLM to the embedding space of a
+frozen text-to-image generation model (in this work, Stable Diffusion)
+despite both models using entirely different text encoders. We achieve
+this by finetuning a small number of parameters on image-caption pairs,
+in contrast to other methods which require interleaved image-text
+training data. Our approach is computationally efficient and does not
+require running the image generation model at training time.</p>
+<p>During inference, the model takes in arbitrarily interleaved image
+and text inputs, and produces text interleaved with image embeddings.
+After deciding whether to retrieve or generate for a particular set of
+tokens, it returns the appropriate image outputs (either retrieved or
+generated).</p>
+<h2 id="capabilities">Capabilities</h2>
+<p>One of the more compelling applications of GILL is perhaps its
+ability to generalize to many different tasks, due to the LLM
+pretraining and freezing. We showcase several of these capabilities
+below. More qualitative results are provided in our <a
+target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.17216">paper</a>.</p>
+<h3 id="multimodal-dialogue-generation">Multimodal Dialogue
+Generation</h3>
+<figure>
+<img src="https://img.enderfga.cn/img/dialogue.png" srcset="/img/loading.gif" lazyload
+alt="Multimodal dialogue example" />
+<figcaption aria-hidden="true">Multimodal dialogue example</figcaption>
+</figure>
+<p>GILL can be prompted to generate dialogue-like text, producing
+multimodal dialogue by interleaving generated text, retrieved images,
+and generated images. (View as <a
+target="_blank" rel="noopener" href="https://jykoh.com/gill/dialogue.gif">GIF</a> or <a
+target="_blank" rel="noopener" href="https://jykoh.com/gill/dialogue.mp4">MP4</a>)</p>
+<h3 id="generating-from-visual-stories">Generating from Visual
+Stories</h3>
+<figure>
+<img src="https://img.enderfga.cn/img/visual_stories.png" srcset="/img/loading.gif" lazyload
+alt="Generating from Visual Stories" />
+<figcaption aria-hidden="true">Generating from Visual
+Stories</figcaption>
+</figure>
+<p>GILL can condition on interleaved image-and-text inputs to generate
+more relevant images compared to non-LLM based text-to-image generation
+models.</p>
+<h3 id="comparison-against-stable-diffusion">Comparison Against Stable
+Diffusion</h3>
+<figure>
+<img src="https://img.enderfga.cn/img/compare_sd.png" srcset="/img/loading.gif" lazyload
+alt="Comparison against Stable Diffusion" />
+<figcaption aria-hidden="true">Comparison against Stable
+Diffusion</figcaption>
+</figure>
+<p>The GILLMapper module we introduce allows our model to map
+effectively to the SD image generation backbone, outperforming or
+matching SD for many examples from <a
+target="_blank" rel="noopener" href="https://sites.research.google/parti/">PartiPrompts</a>.</p>
+<h3 id="comparison-against-fromage">Comparison Against FROMAGe</h3>
+<figure>
+<img src="https://img.enderfga.cn/img/fromage_comparison.png" srcset="/img/loading.gif" lazyload
+alt="Comparison Against FROMAGe" />
+<figcaption aria-hidden="true">Comparison Against FROMAGe</figcaption>
+</figure>
+<p>Our model composites multimodal information to produce relevant image
+and text outputs. It can outperform baseline models that are limited to
+image retrieval.</p>
+<h2 id="limitations">Limitations</h2>
+<p>While GILL introduces many exciting capabilities, it is an early
+research prototype and has several limitations. GILL relies on an LLM
+backbone for many of its capabilities. As such, it also inherits many of
+the limitations that are typical of LLMs. More details and discussion
+are provided in our <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2305.17216">paper and
+appendix</a>:</p>
 <ul>
-<li>GILL does not always produce images when prompted, or when it is (evidently) useful for the dialogue.</li>
-<li>A limitation of GILL is in its limited visual processing. At the moment, we use only 4 visual vectors to represent each input image (due to computational constraints), which may not capture all the relevant visual information needed for downstream tasks.</li>
-<li>Our model inherits some of the unintended behaviors of LLMs, such as the potential for hallucinations, where it generates content that is false or not relevant to the input data. It also sometimes generates repetitive text, and does not always generate coherent dialogue text.</li>
+<li>GILL does not always produce images when prompted, or when it is
+(evidently) useful for the dialogue.</li>
+<li>A limitation of GILL is in its limited visual processing. At the
+moment, we use only 4 visual vectors to represent each input image (due
+to computational constraints), which may not capture all the relevant
+visual information needed for downstream tasks.</li>
+<li>Our model inherits some of the unintended behaviors of LLMs, such as
+the potential for hallucinations, where it generates content that is
+false or not relevant to the input data. It also sometimes generates
+repetitive text, and does not always generate coherent dialogue
+text.</li>
 </ul>
-<p>One of the advantages of our model is that <strong>it is modular, and can benefit from stronger visual and language models released in the future</strong>. It is likely that it will also benefit from stronger text-to-image generation backbones, or through finetuning the generation backbone rather than just the GILLMapper module. We leave such scaling explorations for future work.</p>
+<p>One of the advantages of our model is that <strong>it is modular, and
+can benefit from stronger visual and language models released in the
+future</strong>. It is likely that it will also benefit from stronger
+text-to-image generation backbones, or through finetuning the generation
+backbone rather than just the GILLMapper module. We leave such scaling
+explorations for future work.</p>
 <ul>
-<li><strong>Research Problem:</strong> The research problem addressed in this paper is the fusion of large language models (LLMs) with pre-trained image encoder and decoder models. The goal is to create a model that can handle multimodal capabilities, such as image retrieval, novel image generation, and multimodal dialogue. The model should be able to condition on arbitrarily interleaved image and text inputs to generate coherent image (and text) outputs.</li>
-<li><strong>Motivation:</strong> The motivation behind this research is to <strong>leverage the strong text representations of LLMs for visual outputs</strong>. The authors aim to outperform baseline generation models on tasks with <em>longer and more complex language</em>. They also aim to create a model that can decide whether to retrieve or generate at inference time, and can process image-and-text inputs, and produce retrieved images, generated images, and generated text.</li>
-<li><strong>Solution:</strong> The authors propose a method called Generating Images with Large Language Models (GILL). This method efficiently maps the output embedding space of a frozen text-only LLM to that of a frozen generation model. They achieve this by finetuning a small number of parameters on image-caption pairs. They also propose efficient architectural changes to learn the LLM-to-generation mapping effectively with the GILLMapper module. To decide whether to produce a retrieved image or a generated one at inference time, they train a decision model that outputs a decision conditioned on the LM hidden representations.</li>
-<li><strong>Novelty:</strong> The novelty of this research lies in the proposed method’s ability to <strong>process arbitrarily interleaved image-and-text inputs to generate text, retrieve images, and generate novel images</strong>. It is the first model capable of outputting retrieved images, novel images, and text, interleaving these for coherent multimodal dialogue generation. The authors also propose efficient architectural changes to learn the LLM-to-generation mapping effectively with the GILLMapper module, a lightweight Transformer conditioned on special learnt text tokens.</li>
+<li><strong>Research Problem:</strong> The research problem addressed in
+this paper is the fusion of large language models (LLMs) with
+pre-trained image encoder and decoder models. The goal is to create a
+model that can handle multimodal capabilities, such as image retrieval,
+novel image generation, and multimodal dialogue. The model should be
+able to condition on arbitrarily interleaved image and text inputs to
+generate coherent image (and text) outputs.</li>
+<li><strong>Motivation:</strong> The motivation behind this research is
+to <strong>leverage the strong text representations of LLMs for visual
+outputs</strong>. The authors aim to outperform baseline generation
+models on tasks with <em>longer and more complex language</em>. They
+also aim to create a model that can decide whether to retrieve or
+generate at inference time, and can process image-and-text inputs, and
+produce retrieved images, generated images, and generated text.</li>
+<li><strong>Solution:</strong> The authors propose a method called
+Generating Images with Large Language Models (GILL). This method
+efficiently maps the output embedding space of a frozen text-only LLM to
+that of a frozen generation model. They achieve this by finetuning a
+small number of parameters on image-caption pairs. They also propose
+efficient architectural changes to learn the LLM-to-generation mapping
+effectively with the GILLMapper module. To decide whether to produce a
+retrieved image or a generated one at inference time, they train a
+decision model that outputs a decision conditioned on the LM hidden
+representations.</li>
+<li><strong>Novelty:</strong> The novelty of this research lies in the
+proposed method's ability to <strong>process arbitrarily interleaved
+image-and-text inputs to generate text, retrieve images, and generate
+novel images</strong>. It is the first model capable of outputting
+retrieved images, novel images, and text, interleaving these for
+coherent multimodal dialogue generation. The authors also propose
+efficient architectural changes to learn the LLM-to-generation mapping
+effectively with the GILLMapper module, a lightweight Transformer
+conditioned on special learnt text tokens.</li>
 </ul>
 
                 
