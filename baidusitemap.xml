@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://enderfga.cn/2023/03/23/3dppt/</loc>
+    <lastmod>2023-08-11</lastmod>
+  </url>
+  <url>
+    <loc>http://enderfga.cn/2023/06/20/Fine-Grained/</loc>
+    <lastmod>2023-08-11</lastmod>
+  </url>
+  <url>
+    <loc>http://enderfga.cn/2023/06/27/GILL/</loc>
+    <lastmod>2023-08-11</lastmod>
+  </url>
+  <url>
     <loc>http://enderfga.cn/2023/07/11/gpt4/</loc>
     <lastmod>2023-07-11</lastmod>
   </url>
@@ -13,20 +25,8 @@
     <lastmod>2023-07-08</lastmod>
   </url>
   <url>
-    <loc>http://enderfga.cn/2023/06/27/GILL/</loc>
-    <lastmod>2023-06-27</lastmod>
-  </url>
-  <url>
     <loc>http://enderfga.cn/2023/06/14/model/</loc>
     <lastmod>2023-06-27</lastmod>
-  </url>
-  <url>
-    <loc>http://enderfga.cn/2023/06/20/Fine-Grained/</loc>
-    <lastmod>2023-06-20</lastmod>
-  </url>
-  <url>
-    <loc>http://enderfga.cn/2023/03/23/3dppt/</loc>
-    <lastmod>2023-05-31</lastmod>
   </url>
   <url>
     <loc>http://enderfga.cn/2023/05/31/diffrlhf/</loc>
