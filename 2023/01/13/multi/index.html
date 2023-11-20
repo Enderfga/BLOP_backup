@@ -264,7 +264,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.3k 字
+          2.2k 字
         
       </span>
     
@@ -276,7 +276,7 @@
         
         
           <!-- compatible with older versions-->
-          20 分钟
+          19 分钟
         
       </span>
     
@@ -329,71 +329,35 @@
                 
                 <p>多智能体集群控制技术期末项目报告</p>
 <span id="more"></span>
-<h1 id="单积分模型sysu编队设计">单积分模型SYSU编队设计</h1>
-<p><img src="https://img.enderfga.cn/img/SI.gif" srcset="/img/loading.gif" lazyload /></p>
-<p><img
-src="https://img.enderfga.cn/img/image-20230113213938616.png" srcset="/img/loading.gif" lazyload /></p>
-<h1
-id="控制四旋翼飞行器实现编队方式设计">控制四旋翼飞行器实现编队方式设计</h1>
-<p><img src="https://img.enderfga.cn/img/test.gif" srcset="/img/loading.gif" lazyload /></p>
-<p><img
-src="https://img.enderfga.cn/img/image-20230113214008450.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img
-src="https://img.enderfga.cn/img/image-20230113214017680.png" srcset="/img/loading.gif" lazyload /></p>
+<h1 id="单积分模型SYSU编队设计"><a href="#单积分模型SYSU编队设计" class="headerlink" title="单积分模型SYSU编队设计"></a>单积分模型SYSU编队设计</h1><p><img src="https://img.enderfga.cn/img/SI.gif" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://img.enderfga.cn/img/image-20230113213938616.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h1 id="控制四旋翼飞行器实现编队方式设计"><a href="#控制四旋翼飞行器实现编队方式设计" class="headerlink" title="控制四旋翼飞行器实现编队方式设计"></a>控制四旋翼飞行器实现编队方式设计</h1><p><img src="https://img.enderfga.cn/img/test.gif" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://img.enderfga.cn/img/image-20230113214008450.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://img.enderfga.cn/img/image-20230113214017680.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <ul>
 <li><p>Position control</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{array}{ll}
-\text { PID: } &amp; \ddot{\boldsymbol{p}}_{i,
-c}=\ddot{\boldsymbol{p}}_i{ }^{d e s}+K_{d,
-i}\left(\dot{\boldsymbol{p}}_i{ }^{\text {des
-}}-\dot{\boldsymbol{p}}_i\right)+K_{p, i}\left(\boldsymbol{p}_i{
-}^{\text {des }}-\boldsymbol{p}_i\right) \\
-\text { Model: } &amp; u_1=m\left(g+\ddot{\boldsymbol{p}}_{3, c}\right)
-\quad \text { (Newton Equation) } \\
-&amp; \phi_c=\frac{1}{g}\left(\ddot{\boldsymbol{p}}_{1, c} \sin
-\Psi-\ddot{\boldsymbol{p}}_{2, c} \cos \psi \right) \quad
-\theta_c=\frac{1}{g}\left(\ddot{\boldsymbol{p}}_{1, c} \cos
-\Psi+\ddot{\boldsymbol{p}}_{2, c} \sin \Psi\right)
-\end{array}
-\]</span></p></li>
-<li><p>Attitude control</p></li>
+\text { PID: } & \ddot{\boldsymbol{p}}_{i, c}=\ddot{\boldsymbol{p}}_i{ }^{d e s}+K_{d, i}\left(\dot{\boldsymbol{p}}_i{ }^{\text {des }}-\dot{\boldsymbol{p}}_i\right)+K_{p, i}\left(\boldsymbol{p}_i{ }^{\text {des }}-\boldsymbol{p}_i\right) \\
+\text { Model: } & u_1=m\left(g+\ddot{\boldsymbol{p}}_{3, c}\right) \quad \text { (Newton Equation) } \\
+& \phi_c=\frac{1}{g}\left(\ddot{\boldsymbol{p}}_{1, c} \sin \Psi-\ddot{\boldsymbol{p}}_{2, c} \cos \psi \right) \quad \theta_c=\frac{1}{g}\left(\ddot{\boldsymbol{p}}_{1, c} \cos \Psi+\ddot{\boldsymbol{p}}_{2, c} \sin \Psi\right)
+\end{array}</script></li>
+<li>Attitude control</li>
 </ul>
-<p><span class="math display">\[
-PID: \quad\left[\begin{array}{c}\ddot{\phi}_c \\ \ddot{\theta}_c \\
-\ddot{\psi}_c\end{array}\right]=\left[\begin{array}{c}K_{p,
-\phi}\left(\phi_c-\phi\right)+K_{d,
-\phi}\left(\dot{\phi}_c-\dot{\phi}\right) \\ K_{p,
-\theta}\left(\theta_c-\theta\right)+K_{d,
-\phi}\left(\dot{\theta}_c-\dot{\theta}\right) \\ K_{p,
-\psi}\left(\psi_c-\psi\right)+K_{d,
-\psi}\left(\dot{\psi}_c-\dot{\psi}\right)\end{array}\right]
-\]</span></p>
-<p><span class="math display">\[
-Model: \quad \boldsymbol{u}_2=\boldsymbol{I}
-\cdot\left[\begin{array}{c}\ddot{\phi}_c \\ \ddot{\theta}_c \\
-\ddot{\psi}_c\end{array}\right]+\left[\begin{array}{c}\omega_x \\
-\omega_y \\ \omega_z\end{array}\right] \times \boldsymbol{I}
-\cdot\left[\begin{array}{c}\omega_x \\ \omega_y \\
-\omega_z\end{array}\right] (Euler Equation)
-\]</span></p>
-<p>我使用的控制器遵循上述公式采取了PID控制，结合单积分模型的控制共同决定了结果分数。当然字母间距、运行时间等也能对误差产生一定影响。</p>
+<script type="math/tex; mode=display">
+PID: \quad\left[\begin{array}{c}\ddot{\phi}_c \\ \ddot{\theta}_c \\ \ddot{\psi}_c\end{array}\right]=\left[\begin{array}{c}K_{p, \phi}\left(\phi_c-\phi\right)+K_{d, \phi}\left(\dot{\phi}_c-\dot{\phi}\right) \\ K_{p, \theta}\left(\theta_c-\theta\right)+K_{d, \phi}\left(\dot{\theta}_c-\dot{\theta}\right) \\ K_{p, \psi}\left(\psi_c-\psi\right)+K_{d, \psi}\left(\dot{\psi}_c-\dot{\psi}\right)\end{array}\right]</script><script type="math/tex; mode=display">
+Model: \quad \boldsymbol{u}_2=\boldsymbol{I} \cdot\left[\begin{array}{c}\ddot{\phi}_c \\ \ddot{\theta}_c \\ \ddot{\psi}_c\end{array}\right]+\left[\begin{array}{c}\omega_x \\ \omega_y \\ \omega_z\end{array}\right] \times \boldsymbol{I} \cdot\left[\begin{array}{c}\omega_x \\ \omega_y \\ \omega_z\end{array}\right] (Euler Equation)</script><p>我使用的控制器遵循上述公式采取了PID控制，结合单积分模型的控制共同决定了结果分数。当然字母间距、运行时间等也能对误差产生一定影响。</p>
 <p>单积分模型中控制增益kv与刚度矩阵R、距离误差z和期望速度dv相乘，起到了限制距离误差和期望速度之间的平衡作用。具体来说，当kv增加时，系统会更快地收敛到目标状态，但是可能会出现振荡。当kv减小时，系统会更缓慢地收敛到目标状态，甚至会导致无人机几乎不动的情况。</p>
 <p>控制器的原理是输入期望控制，输出飞行器整体推力与力矩。公式整体的推导较为复杂，涉及机器人运动学与动力学，且会解欧拉牛顿方程，但对公式的直观理解可以更好理解公式；这个公式基本是外环位置，内环姿态，计算扭矩与推力，可见推力与飞行器质量与z轴加速度有关，通过计算期望角度计算扭矩。</p>
 <p>我使用了Ziegler-Nichols整定方法来调节PID参数，首先将积分和微分增益设置为0，然后比例增益从零开始逐渐增加，直到到达极限增益<em>KU</em>，此时控制器输出值以恒定值振荡。<em>KU</em>和振荡周期<em>TU</em>根据不同的类型，按下表中的方式来设置比例、积分和微分增益。</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 \begin{array}{|c|c|c|c|}
-\hline \text { Controller } &amp; K_p &amp; K_d &amp; K_i \\
-\hline \text { P } &amp; 0.5 K_u &amp; - &amp; - \\
-\hline \text { PD } &amp; 0.8 K_u &amp; K_p T_u / 8 &amp; - \\
-\hline \text { PID } &amp; 0.6 K_u &amp; K_p T_u / 8 &amp; 2 K_p / T_u
-\\
+\hline \text { Controller } & K_p & K_d & K_i \\
+\hline \text { P } & 0.5 K_u & - & - \\
+\hline \text { PD } & 0.8 K_u & K_p T_u / 8 & - \\
+\hline \text { PID } & 0.6 K_u & K_p T_u / 8 & 2 K_p / T_u \\
 \hline
-\end{array}
-\]</span></p>
-<p>在位置控制中，使用了三轴PID控制器来控制x, y,
-z轴上的运动。使用了误差积分来消除误差；在姿态控制中，通过计算出当前的欧拉角（phi,
-theta, psi），并使用欧拉角的导数来控制飞行器的姿态。</p>
+\end{array}</script><p>在位置控制中，使用了三轴PID控制器来控制x, y, z轴上的运动。使用了误差积分来消除误差；在姿态控制中，通过计算出当前的欧拉角（phi, theta, psi），并使用欧拉角的导数来控制飞行器的姿态。</p>
 <p>Kp是比例系数，它控制着系统的稳定性和响应速度。当Kp增大时，系统的响应速度会变快，但同时也会增加系统的震荡。</p>
 <p>Ki是积分系数，它控制着系统的累计误差。当Ki增大时，系统会更快地消除误差，但同时也会增加系统的积分饱和。</p>
 <p>Kd是微分系数，它控制着系统的响应速度。当Kd增大时，系统的响应速度会变快，但同时也会增加系统的偏差。</p>

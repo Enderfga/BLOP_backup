@@ -16,12 +16,12 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RLHF Aligning Text-to-Image Models using Human Feedback  Google Research ,University of California 2023.2.23">
+    <meta name="description" content="RLHFAligning Text-to-Image Models using Human Feedback Google Research ,University of California  2023.2.23">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RLHF">
 <meta property="og:url" content="http://enderfga.cn/2023/03/01/RLHF/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="RLHF Aligning Text-to-Image Models using Human Feedback  Google Research ,University of California 2023.2.23">
+<meta property="og:description" content="RLHFAligning Text-to-Image Models using Human Feedback Google Research ,University of California  2023.2.23">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.enderfga.cn/img/image-20230228130311025.png">
 <meta property="article:published_time" content="2023-03-01T03:17:42.000Z">
@@ -327,68 +327,53 @@
             
               <div class="markdown-body">
                 
-                <h1 id="rlhf">RLHF</h1>
-<h2 id="aligning-text-to-image-models-using-human-feedback">Aligning
-Text-to-Image Models using Human Feedback</h2>
-<ul>
-<li><p>Google Research ,University of California</p></li>
+                <h1 id="RLHF"><a href="#RLHF" class="headerlink" title="RLHF"></a>RLHF</h1><h2 id="Aligning-Text-to-Image-Models-using-Human-Feedback"><a href="#Aligning-Text-to-Image-Models-using-Human-Feedback" class="headerlink" title="Aligning Text-to-Image Models using Human Feedback"></a>Aligning Text-to-Image Models using Human Feedback</h2><ul>
+<li><p>Google Research ,University of California</p>
+</li>
 <li><p>2023.2.23</p>
-<span id="more"></span></li>
+<span id="more"></span>
+</li>
 </ul>
-<h2 id="motivation">Motivation</h2>
-<p>深度生成模型在文本到图像合成方面取得了令人印象深刻的成果，但当前的文本到图像模型往往生成与文本提示不够相符的图像。</p>
+<h2 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h2><p>深度生成模型在文本到图像合成方面取得了令人印象深刻的成果，但当前的文本到图像模型往往生成与文本提示不够相符的图像。</p>
 <p>本文的动机是改进文本到图像合成模型，使其能够更好地与文本提示对齐。</p>
 <p>作者的方法比预训练模型更准确地生成具有指定颜色、计数和背景的对象。</p>
-<h2 id="proposal">Proposal</h2>
-<ul>
+<h2 id="Proposal"><a href="#Proposal" class="headerlink" title="Proposal"></a>Proposal</h2><ul>
 <li>提出了一种简单而有效的微调方法，用于使用人类反馈对文本到图像模型进行对齐。</li>
 <li>使用人类反馈进行微调可以显着提高文本到图像模型的图像文本对齐，在人类评估中，我们的模型在图像文本对齐方面达到了高达47％的改善，但图像保真度略有降低。</li>
 <li>学习的奖励函数比CLIP分数更准确地预测了人类对质量的评估。</li>
 <li>基于作者学习的奖励函数的采样也可以显着改善图像文本对齐。</li>
 </ul>
-<h2 id="related-work">Related Work</h2>
-<ul>
+<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
 <li>T2I models</li>
 <li>Evaluating image-text alignment</li>
 <li>Learning with human feedback</li>
 </ul>
 <p>与先前关注利用人类反馈改善语言模型和RL代理的工作相比，该工作探索了使用人类反馈来调整多模式文本到图像模型与人类偏好的方法。许多关于利用人类反馈学习的先前工作都包括学习一个奖励函数并最大化奖励加权可能性（通常被称为监督微调）。受其成功的启发，作者提出了一种利用人类反馈进行微调的方法来改善文本到图像模型。</p>
-<h2 id="method">Method</h2>
-<p><img
-src="https://img.enderfga.cn/img/image-20230228130311025.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p><img src="https://img.enderfga.cn/img/image-20230228130311025.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>包括三个阶段：</p>
-<ol type="1">
-<li>首先从一系列文本提示中生成一组不同的图像，这些文本提示旨在测试文本到图像模型的各种功能。</li>
-<li>然后，人类评级者对这些图像提供二进制反馈。</li>
+<ol>
+<li>首先从一系列文本提示中生成一组不同的图像，这些文本提示旨在测试文本到图像模型的各种功能。 </li>
+<li>然后，人类评级者对这些图像提供二进制反馈。 </li>
 <li>接下来，训练一个奖励模型，以文本提示和图像作为输入来预测人类反馈。</li>
 <li>最后，我们使用奖励加权对数似然度来微调文本到图像模型，以改善文本图像对齐。</li>
 </ol>
-<h2 id="experiment">Experiment</h2>
-<p>实验部分旨在测试人类反馈参与模型微调的有效性。实验用到的模型为 Stable
-Diffusion v1.5</p>
-<p><img
-src="https://img.enderfga.cn/img/image-20230228132659591.png" srcset="/img/loading.gif" lazyload /></p>
-<p><img
-src="https://img.enderfga.cn/img/image-20230228132741226.png" srcset="/img/loading.gif" lazyload /></p>
-<p>本文方法显著提高了图像 - 文本对齐，具体来说，模型生成的图像中有 50%
-的样本获得至少三分之二的赞成票（投票数量为 7
-票或更多赞成票），然而，微调会稍微降低图像保真度（15% 比 10%）。</p>
-<p><img
-src="https://img.enderfga.cn/img/image-20230228132824327.png" srcset="/img/loading.gif" lazyload /></p>
-<p>本文模型生成的图像符合 prompt
-指定的颜色、计数和背景。值得注意的是，本文模型还能生成没有见过的文本
-prompt 图像，并且质量非常高</p>
-<p><img
-src="https://img.enderfga.cn/img/image-20230228132908052.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>实验部分旨在测试人类反馈参与模型微调的有效性。实验用到的模型为 Stable Diffusion v1.5</p>
+<p><img src="https://img.enderfga.cn/img/image-20230228132659591.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p><img src="https://img.enderfga.cn/img/image-20230228132741226.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>本文方法显著提高了图像 - 文本对齐，具体来说，模型生成的图像中有 50% 的样本获得至少三分之二的赞成票（投票数量为 7 票或更多赞成票），然而，微调会稍微降低图像保真度（15% 比 10%）。</p>
+<p><img src="https://img.enderfga.cn/img/image-20230228132824327.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<p>本文模型生成的图像符合 prompt 指定的颜色、计数和背景。值得注意的是，本文模型还能生成没有见过的文本 prompt 图像，并且质量非常高</p>
+<p><img src="https://img.enderfga.cn/img/image-20230228132908052.png" srcset="/img/loading.gif" lazyload alt=""></p>
 <p>有奖励（绿色）比 CLIP 分数（红色）更符合典型的人类意图。</p>
-<h2 id="limitations-and-future-directions">Limitations and future
-directions</h2>
-<ol type="1">
-<li><p><strong>更细致的人类反馈</strong>，存在一些较差的生成，如高饱和度的图像颜色，指示评级者寻找更多样化的失败模式（过度饱和的颜色，不切实际的动物解剖学，物理违规等）将提高这些方面的性能。</p></li>
-<li><p><strong>多样化和大型人类数据集</strong>，为了简化问题，作者考虑了有限的文本类别（计数，颜色，背景），因此人类反馈也相对简单（好或坏）。由于这一点，人类反馈数据的多样性有限。将其扩展到更主观的文本类别（如艺术创作）和更细致的人类反馈将是未来研究的重要方向。</p></li>
+<h2 id="Limitations-and-future-directions"><a href="#Limitations-and-future-directions" class="headerlink" title="Limitations and future directions"></a>Limitations and future directions</h2><ol>
+<li><p><strong>更细致的人类反馈</strong>，存在一些较差的生成，如高饱和度的图像颜色，指示评级者寻找更多样化的失败模式（过度饱和的颜色，不切实际的动物解剖学，物理违规等）将提高这些方面的性能。</p>
+</li>
+<li><p><strong>多样化和大型人类数据集</strong>，为了简化问题，作者考虑了有限的文本类别（计数，颜色，背景），因此人类反馈也相对简单（好或坏）。由于这一点，人类反馈数据的多样性有限。将其扩展到更主观的文本类别（如艺术创作）和更细致的人类反馈将是未来研究的重要方向。</p>
+</li>
 <li><p><strong>不同的目标和算法</strong>，为了更新文本到图像模型，作者使用奖励加权的最大似然。然而，与语言领域的先前工作类似，使用RL算法将是一个有趣的方向。作者相信RLHF微调可能会产生更好的模型，因为</p>
 <p>（a）在更新期间使用在线样本生成</p>
-<p>（b）KL正则化可以减轻对奖励函数的过度拟合。</p></li>
+<p>（b）KL正则化可以减轻对奖励函数的过度拟合。</p>
+</li>
 </ol>
 
                 
