@@ -16,12 +16,12 @@
   <meta name="author" content="Enderfga">
   <meta name="keywords" content="">
   
-    <meta name="description" content="RealFusion：360° Reconstruction of Any Object from a Single Image Oxford University  2023.2.23">
+    <meta name="description" content="RealFusion： 360° Reconstruction of Any Object from a Single Image  Oxford University 2023.2.23">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Realfusion">
 <meta property="og:url" content="http://enderfga.cn/2023/03/01/Realfusion/index.html">
 <meta property="og:site_name" content="Enderfga&#39;Blog">
-<meta property="og:description" content="RealFusion：360° Reconstruction of Any Object from a Single Image Oxford University  2023.2.23">
+<meta property="og:description" content="RealFusion： 360° Reconstruction of Any Object from a Single Image  Oxford University 2023.2.23">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img.enderfga.cn/img/image-20230227112154724.png">
 <meta property="article:published_time" content="2023-03-01T03:14:27.000Z">
@@ -327,92 +327,186 @@
             
               <div class="markdown-body">
                 
-                <h1 id="RealFusion："><a href="#RealFusion：" class="headerlink" title="RealFusion："></a>RealFusion：</h1><h3 id="360°-Reconstruction-of-Any-Object-from-a-Single-Image"><a href="#360°-Reconstruction-of-Any-Object-from-a-Single-Image" class="headerlink" title="360° Reconstruction of Any Object from a Single Image"></a>360° Reconstruction of Any Object from a Single Image</h3><ul>
-<li><p>Oxford University</p>
-</li>
+                <h1 id="realfusion">RealFusion：</h1>
+<h3 id="reconstruction-of-any-object-from-a-single-image">360°
+Reconstruction of Any Object from a Single Image</h3>
+<ul>
+<li><p>Oxford University</p></li>
 <li><p>2023.2.23</p>
 <span id="more"></span>
-<h2 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h2><p><a target="_blank" rel="noopener" href="https://lukemelas.github.io/realfusion/">https://lukemelas.github.io/realfusion/</a></p>
-<p><img src="https://img.enderfga.cn/img/splash-figure-v2.png" srcset="/img/loading.gif" lazyload alt="Examples"></p>
-</li>
+<h2 id="demo">Demo</h2>
+<p>https://lukemelas.github.io/realfusion/</p>
+<figure>
+<img src="https://img.enderfga.cn/img/splash-figure-v2.png" srcset="/img/loading.gif" lazyload
+alt="Examples" />
+<figcaption aria-hidden="true">Examples</figcaption>
+</figure></li>
 </ul>
-<h2 id="Motivation-Single-View-3D-Reconstruction"><a href="#Motivation-Single-View-3D-Reconstruction" class="headerlink" title="Motivation: Single-View 3D Reconstruction"></a>Motivation: Single-View 3D Reconstruction</h2><ul>
-<li>Reconstructing the 3D structure of an object from a single 2D view is a fundamental challenge in computer vision.</li>
-<li>In the case of a single view, the reconstruction problem is highly ill-posed.<br>As a result, the task requires semantic understanding obtained by learning.<br>Despite the difficulty of this task, humans are adept at using a range of monocular cues to infer the 3D structures of objects from single views.</li>
+<h2 id="motivation-single-view-3d-reconstruction">Motivation:
+Single-View 3D Reconstruction</h2>
+<ul>
+<li>Reconstructing the 3D structure of an object from a single 2D view
+is a fundamental challenge in computer vision.</li>
+<li>In the case of a single view, the reconstruction problem is highly
+ill-posed. As a result, the task requires semantic understanding
+obtained by learning. Despite the difficulty of this task, humans are
+adept at using a range of monocular cues to infer the 3D structures of
+objects from single views.</li>
 </ul>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="Category-level-3D-Reconstruction"><a href="#Category-level-3D-Reconstruction" class="headerlink" title="Category-level 3D Reconstruction"></a>Category-level 3D Reconstruction</h3><ul>
-<li>Most prior work tackles the problem of category-specific single-view 3D reconstruction by training a category-level reconstruction model.</li>
-<li>The work: Going beyond category-level 3D reconstruction<ul>
-<li>This work aims to go beyond category-specific images to images of arbitrary objects. This setting is highly challenging, but humans perform it effortlessly when they observe new objects.</li>
+<h2 id="background">Background</h2>
+<h3 id="category-level-3d-reconstruction">Category-level 3D
+Reconstruction</h3>
+<ul>
+<li>Most prior work tackles the problem of category-specific single-view
+3D reconstruction by training a category-level reconstruction
+model.</li>
+<li>The work: Going beyond category-level 3D reconstruction
+<ul>
+<li>This work aims to go beyond category-specific images to images of
+arbitrary objects. This setting is highly challenging, but humans
+perform it effortlessly when they observe new objects.</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Single-View-3D-Reconstruction"><a href="#Single-View-3D-Reconstruction" class="headerlink" title="Single-View 3D Reconstruction"></a>Single-View 3D Reconstruction</h3><ul>
-<li>Arbitrary-object 3D reconstruction has been challenging because the problem fundamentally requires the use of large-scale 3D priors over object shapes, which have not been available.</li>
-<li>With the recent rise of large-scale pretraining, this problem has become tractable.<br>Examples include:<ul>
+<h3 id="single-view-3d-reconstruction">Single-View 3D
+Reconstruction</h3>
+<ul>
+<li>Arbitrary-object 3D reconstruction has been challenging because the
+problem fundamentally requires the use of large-scale 3D priors over
+object shapes, which have not been available.</li>
+<li>With the recent rise of large-scale pretraining, this problem has
+become tractable. Examples include:
+<ul>
 <li>Contrastive: CLIP</li>
 <li>Autoregressive: DALL-E / Parti</li>
 <li>Diffusion Models: DALL-E 2 / Imagen / Stable Diffusion</li>
+</ul></li>
+<li>These pretrained models may be used as priors for a variety of
+vision tasks, and we are particularly interested in 3D reconstruction.
+<ul>
+<li>At a high level, you can think of these models as a tool for
+optimizing the realism of an input image.</li>
+</ul></li>
+<li>In this way, they enable an elegant approach to 3D generation and
+reconstruction: using these large-scale pretrained models to enforce
+that a differentiable scene looks realistic from random views.</li>
 </ul>
-</li>
-<li>These pretrained models may be used as priors for a variety of vision tasks, and we are particularly interested in 3D reconstruction.<ul>
-<li>At a high level, you can think of these models as a tool for optimizing the realism of an input image.</li>
-</ul>
-</li>
-<li>In this way, they enable an elegant approach to 3D generation and reconstruction: using these large-scale pretrained models to enforce that a differentiable scene looks realistic from random views.</li>
-</ul>
-<h2 id="Proposal"><a href="#Proposal" class="headerlink" title="Proposal"></a>Proposal</h2><p>(1) We propose <strong>RealFusion</strong>, a method that can extract from a single image of an object a 360◦ photographic 3D reconstruction without assumptions on the type of object imaged or 3D supervision of any kind; </p>
-<p>(2) We do so by leveraging an existing 2D <strong>diffusion image generator</strong> via a new single image variant of textual inversion; </p>
-<p>(3) We also introduce new regularizers and provide an efficient implementation using <strong>InstantNGP</strong>; </p>
-<p>(4) We demonstrate <strong>state-of-the-art</strong> reconstruction results on a number of in-the-wild images and images from existing datasets when compared to alternative approaches.  </p>
-<h2 id="Related-Work"><a href="#Related-Work" class="headerlink" title="Related Work"></a>Related Work</h2><ul>
+<h2 id="proposal">Proposal</h2>
+<ol type="1">
+<li><p>We propose <strong>RealFusion</strong>, a method that can extract
+from a single image of an object a 360◦ photographic 3D reconstruction
+without assumptions on the type of object imaged or 3D supervision of
+any kind;</p></li>
+<li><p>We do so by leveraging an existing 2D <strong>diffusion image
+generator</strong> via a new single image variant of textual
+inversion;</p></li>
+<li><p>We also introduce new regularizers and provide an efficient
+implementation using <strong>InstantNGP</strong>;</p></li>
+<li><p>We demonstrate <strong>state-of-the-art</strong> reconstruction
+results on a number of in-the-wild images and images from existing
+datasets when compared to alternative approaches.</p></li>
+</ol>
+<h2 id="related-work">Related Work</h2>
+<ul>
 <li>Image-based reconstruction of appearnce and geometry</li>
 <li>Few-view reconstruction</li>
-<li>Single-view reconstruction  </li>
-<li>Extracting 3D models from 2D generators  </li>
-<li>Diffusion Models  </li>
+<li>Single-view reconstruction<br />
+</li>
+<li>Extracting 3D models from 2D generators<br />
+</li>
+<li>Diffusion Models</li>
 </ul>
-<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p><img src="https://img.enderfga.cn/img/image-20230227112154724.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="method">Method</h2>
+<p><img
+src="https://img.enderfga.cn/img/image-20230227112154724.png" srcset="/img/loading.gif" lazyload /></p>
 <ul>
-<li>This approach forms the backbone of our method, RealFusion.<br>(0) [Init] We are given a single image and a function $\boldsymbol{p}_{\text {prior }}(\cdot)$ which computes the likelihood of an input image $\boldsymbol{I}$. We choose a camera view and represent our scene with a differentiably-renderable representation $\boldsymbol{x}$, for example a NeRF.<br>(1) [Reconstruction] We render $\boldsymbol{x}$ from our given view and minimize the loss with respect to the real input image $\mathbf{I}$.<br>(2) [Prior] We render images $\boldsymbol{I}_{\text {prior }}$ of $\boldsymbol{x}$ from randomly-chosen views on a hemisphere surrounding the origin, and we optimize $\boldsymbol{p}_{\text {prior }}\left(\boldsymbol{I}_{\text {priol }}\right)$ to enforce that $\boldsymbol{x}$ looks realistic from all directions.</li>
-<li>Prior work has explored this question in the domain of 3D generation<ul>
+<li>This approach forms the backbone of our method, RealFusion.</li>
+</ul>
+<ol start="0" type="1">
+<li>[Init] We are given a single image and a function <span
+class="math inline">\(\boldsymbol{p}_{\text {prior }}(\cdot)\)</span>
+which computes the likelihood of an input image <span
+class="math inline">\(\boldsymbol{I}\)</span>. We choose a camera view
+and represent our scene with a differentiably-renderable representation
+<span class="math inline">\(\boldsymbol{x}\)</span>, for example a
+NeRF.</li>
+<li>[Reconstruction] We render <span
+class="math inline">\(\boldsymbol{x}\)</span> from our given view and
+minimize the loss with respect to the real input image <span
+class="math inline">\(\mathbf{I}\)</span>.</li>
+<li>[Prior] We render images <span
+class="math inline">\(\boldsymbol{I}_{\text {prior }}\)</span> of <span
+class="math inline">\(\boldsymbol{x}\)</span> from randomly-chosen views
+on a hemisphere surrounding the origin, and we optimize <span
+class="math inline">\(\boldsymbol{p}_{\text {prior
+}}\left(\boldsymbol{I}_{\text {priol }}\right)\)</span> to enforce that
+<span class="math inline">\(\boldsymbol{x}\)</span> looks realistic from
+all directions.</li>
+</ol>
+<ul>
+<li>Prior work has explored this question in the domain of 3D generation
+<ul>
 <li>Dreamfields: CLIP prior</li>
 <li>DreamFusion: Diffusion model prior</li>
-</ul>
-</li>
-<li>In our work, we adopt a diffusion model prior using Stable Diffusion, a text-conditional latent diffusion model.</li>
-<li>As currently stated, our set up combines a reconstruction objective with a latent diffusion-based prior objective, which is conditioned on a manual text prompt (e.g. “An image of a fish.”)</li>
+</ul></li>
+<li>In our work, we adopt a diffusion model prior using Stable
+Diffusion, a text-conditional latent diffusion model.</li>
+<li>As currently stated, our set up combines a reconstruction objective
+with a latent diffusion-based prior objective, which is conditioned on a
+manual text prompt (e.g. "An image of a fish.")</li>
 <li>However, we found that these results were lacking.</li>
-<li>In particular, the 3D shapes that are generated look like the input object from the input view, but do not look like the input object from other views.</li>
-<li>To fix this, we need to modify the prior to place a high likelihood on our input object, rather than a generic object with the same description.</li>
-<li>We do so by performing textual inversion.<ul>
-<li>We optimize a text embedding $\mathbf{e}$ in the text encoder of the diffusion model to match our input image.</li>
-<li>Usually textual inversion is performed with multiple views of an object, but we substitute these views with heavy image augmentations.</li>
-</ul>
-</li>
-<li>We also add other pieces of regularization:<br>(1) A regularization on rendered normals<br>(2) A coarse-to-fine training setup</li>
+<li>In particular, the 3D shapes that are generated look like the input
+object from the input view, but do not look like the input object from
+other views.</li>
+<li>To fix this, we need to modify the prior to place a high likelihood
+on our input object, rather than a generic object with the same
+description.</li>
+<li>We do so by performing textual inversion.
+<ul>
+<li>We optimize a text embedding <span
+class="math inline">\(\mathbf{e}\)</span> in the text encoder of the
+diffusion model to match our input image.</li>
+<li>Usually textual inversion is performed with multiple views of an
+object, but we substitute these views with heavy image
+augmentations.</li>
+</ul></li>
+<li>We also add other pieces of regularization:
+<ol type="1">
+<li>A regularization on rendered normals</li>
+<li>A coarse-to-fine training setup</li>
+</ol></li>
 <li>However, the key piece of the puzzle is the textual inversion.</li>
 </ul>
-<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p><img src="https://img.enderfga.cn/img/image-20230227165614420.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="https://img.enderfga.cn/img/image-20230227165925713.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="https://img.enderfga.cn/img/image-20230227165956615.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="https://img.enderfga.cn/img/image-20230227170021757.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="https://img.enderfga.cn/img/image-20230227170047165.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<p><img src="https://img.enderfga.cn/img/image-20230227170111552.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h2 id="Limitations"><a href="#Limitations" class="headerlink" title="Limitations"></a>Limitations</h2><ul>
-<li>Requires per-image optimization<ul>
-<li>Both the textual inversion and the 3D optimization procedure must be performed separately for each input image.</li>
-<li>As a result, the process is relatively slow and difficult to apply to large datasets</li>
-</ul>
-</li>
-<li>In some cases, reconstruction fails to produce a solid shape<ul>
-<li>Perhaps this could be alleviated with better inductive biases or regularization terms</li>
-</ul>
-</li>
-<li>In some cases, reconstruction produces two-headed objects<ul>
+<h2 id="experiment">Experiment</h2>
+<p><img
+src="https://img.enderfga.cn/img/image-20230227165614420.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://img.enderfga.cn/img/image-20230227165925713.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://img.enderfga.cn/img/image-20230227165956615.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://img.enderfga.cn/img/image-20230227170021757.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://img.enderfga.cn/img/image-20230227170047165.png" srcset="/img/loading.gif" lazyload /></p>
+<p><img
+src="https://img.enderfga.cn/img/image-20230227170111552.png" srcset="/img/loading.gif" lazyload /></p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Requires per-image optimization
+<ul>
+<li>Both the textual inversion and the 3D optimization procedure must be
+performed separately for each input image.</li>
+<li>As a result, the process is relatively slow and difficult to apply
+to large datasets</li>
+</ul></li>
+<li>In some cases, reconstruction fails to produce a solid shape
+<ul>
+<li>Perhaps this could be alleviated with better inductive biases or
+regularization terms</li>
+</ul></li>
+<li>In some cases, reconstruction produces two-headed objects
+<ul>
 <li>This is known as the Janus Problem</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
                 
